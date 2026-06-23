@@ -1,0 +1,6 @@
+*.zip
+*.sql
+_extract/
+_migration/
+_tmp/
+*.log
