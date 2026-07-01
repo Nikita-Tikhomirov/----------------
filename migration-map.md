@@ -1,6 +1,12 @@
 # Карта переноса на Beget
 
-Дата проверки: 2026-06-23.
+Дата последнего обновления: 2026-07-01.
+
+## Выполнено 2026-07-01
+
+- `lfsb.ru`: сайт создан на Beget, архив распакован в `/home/n/nousroc9/lfsb.ru/public_html`, домены `lfsb.ru` и `www.lfsb.ru` привязаны к сайту. БД не подключалась: в архиве нет DB-конфига, в SQL-файлах текущей папки совпадений по содержимому не найдено. Проверка по Host header: `lfsb.ru` — `200`, `www.lfsb.ru` — `200`.
+- `fste.ru`: сайт создан на Beget, архив распакован в `/home/n/nousroc9/fste.ru/public_html`, домены `fste.ru` и `www.fste.ru` привязаны к сайту. БД не подключалась: в архиве нет DB-конфига, в SQL-файлах текущей папки совпадений по содержимому не найдено. Проверка по Host header: `fste.ru` — `301` на `www.fste.ru`, `www.fste.ru` — `200`.
+- Версии PHP для этих сайтов не менялись.
 
 ## Текущее состояние Beget
 
@@ -51,7 +57,9 @@
 | `apreal72.ru` | `apreal72.ru.zip` | WordPress, `wp-config.php`, prefix `wp_` | `a66165_apreal72.sql` | `siteurl/home=http://apreal72.ru`; файл `a66165_apreal72 (1).sql` полный дубль по SHA256 | 5.6 |
 | `docp.ru` | `docp.ru.zip` | WordPress, `wp-config.php`, prefix `wp_` | `a66165_docp.sql` | `siteurl/home=https://docp.ru`; `a66165_docp2.sql` тоже основной `docp.ru`, см. риски ниже | 7.3 |
 | `elecktro.ru` | `elecktro.ru.zip` | WordPress-конфиг найден в `backup/_old/wp-config.php`; архив требует ручной проверки корня | `a66165_elecktro.sql` | `siteurl/home=https://elecktro.ru` | 7.1 |
+| `fste.ru` | `fste.ru.zip` | Файловый/PHP-сайт, явного DB-конфига не найдено | БД не найдена | В ZIP нет типового MySQL-конфига; совпадений по SQL текущей папки нет | Не менялась |
 | `fsa-lab.ru` | `fsa-lab.ru.zip` | Файловый/PHP-сайт, явного DB-конфига не найдено | БД не найдена | В ZIP нет типового MySQL-конфига | 7.1 |
+| `lfsb.ru` | `lfsb.ru.zip` | Файловый/PHP-сайт, явного DB-конфига не найдено | БД не найдена | В ZIP нет типового MySQL-конфига; совпадений по SQL текущей папки нет | Не менялась |
 | `mca24.ru` | `mca24.ru.zip` | WordPress, `wp-config.php`, prefix `wp_` | `a66165_mca24.sql` | `siteurl/home=http://mca24.ru` | 7.1 |
 | `mchs-vrn.ru` | `mchs-vrn.ru.zip` | WordPress, `wp-config.php`, prefix `wp_` | `a66165_mchsvrn.sql` | `siteurl/home=http://mchs-vrn.ru` | 7.1 |
 | `med-license.ru` | `med-license.ru.zip` | WordPress, `wp-config.php`, prefix `wp_` | `a66165_licm.sql` | `siteurl/home=http://med-license.ru` | 5.6 |
@@ -78,8 +86,6 @@
 - `91web.ru`
 - `dpocenter.ru`
 - `feo-edem.ru` — есть только SQL, нет ZIP сайта
-- `fste.ru`
-- `lfsb.ru`
 - `linkedin.com.moopb.ru`
 
 ## Риски и ручные проверки
