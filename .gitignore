@@ -3,4 +3,5 @@
 _extract/
 _migration/
 _tmp/
+changes/
 *.log
