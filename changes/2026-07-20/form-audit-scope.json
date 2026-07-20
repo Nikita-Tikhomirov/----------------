@@ -1,0 +1,43 @@
+{
+  "policy_url": "https://www.apreal.ru/konfedencialnost.html",
+  "success_message": "Спасибо за Ваше сообщение. Оно успешно отправлено",
+  "sites": [
+    {"domain": "apreal.ru", "recipient": "info@apreal.ru"},
+    {"domain": "docp.ru", "recipient": "info@docp.ru"},
+    {"domain": "mca24.ru", "recipient": "info@mca24.ru"},
+    {"domain": "fsa-lab.ru", "recipient": "info@fsa-lab.ru"},
+    {"domain": "elecktro.ru", "recipient": "info@elecktro.ru"},
+    {"domain": "med-license.ru", "recipient": "info@med-license.ru"},
+    {"domain": "mhsl.ru", "recipient": "info@mhsl.ru"},
+    {"domain": "fste.ru", "recipient": "info@fste.ru"},
+    {"domain": "otxodi.ru", "recipient": "info@otxodi.ru"},
+    {"domain": "lfsb.ru", "recipient": "info@lfsb.ru"},
+    {"domain": "apreal.spb.ru", "recipient": "spb@apreal.ru"},
+    {"domain": "minkult78.ru", "recipient": "info@minkult78.ru"},
+    {"domain": "medlic.spb.ru", "recipient": "info@medlic.spb.ru"},
+    {"domain": "medtex78.ru", "recipient": "info@medtex78.ru"},
+    {"domain": "mchs-spb.ru", "recipient": "info@mchs-spb.ru"},
+    {"domain": "mchs78.ru", "recipient": "info@mchs78.ru"},
+    {"domain": "license39.ru", "recipient": "info@license39.ru"},
+    {"domain": "medtex39.ru", "recipient": "info@medtex39.ru"},
+    {"domain": "39mchs.ru", "recipient": "info@39mchs.ru"},
+    {"domain": "apreal36.ru", "recipient": "info@apreal36.ru"},
+    {"domain": "apreal-nn.ru", "recipient": "info@apreal-nn.ru"},
+    {"domain": "apreal-volgograd.ru", "recipient": "vlg-ap@bk.ru"},
+    {"domain": "apreal72.ru", "recipient": "info@apreal72.ru"},
+    {"domain": "nousro.ru", "recipient": "info@nousro.ru"},
+    {"domain": "dpomuc.ru", "recipient": "info@dpomuc.ru"},
+    {"domain": "nousro-spb.ru", "recipient": "spb@nousro.ru"},
+    {"domain": "ed-kgd.ru", "recipient": "info@ed-kgd.ru"},
+    {"domain": "muc-vrn.ru", "recipient": "info@muc-vrn.ru"},
+    {"domain": "nousro-nn.ru", "recipient": "info@nousro-nn.ru"},
+    {"domain": "shopap.ru", "recipient": "info@shopap.ru"}
+  ],
+  "excluded": [
+    {"domain": "rectavr.ru", "reason": "Клиент указал: заявка не нужна"},
+    {"domain": "fstek.spb.ru", "reason": "Клиент указал: заявка не нужна"},
+    {"domain": "lic-k.ru", "reason": "Клиент указал: заявка не нужна"},
+    {"domain": "apreal-samara.ru", "reason": "Клиент указал: заявка не нужна и сайт не переносился"},
+    {"domain": "ed-krd.ru", "reason": "Клиент указал: заявка не нужна"}
+  ]
+}

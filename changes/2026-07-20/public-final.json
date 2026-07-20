@@ -1,0 +1,566 @@
+{
+  "sites": [
+    {
+      "requested_url": "https://apreal.ru/",
+      "final_url": "https://www.apreal.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": true
+      },
+      "body_bytes": 177656,
+      "error": "",
+      "domain": "apreal.ru",
+      "expected_recipient": "info@apreal.ru"
+    },
+    {
+      "requested_url": "https://docp.ru/",
+      "final_url": "https://docp.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": true
+      },
+      "body_bytes": 113284,
+      "error": "",
+      "domain": "docp.ru",
+      "expected_recipient": "info@docp.ru"
+    },
+    {
+      "requested_url": "https://mca24.ru/",
+      "final_url": "https://mca24.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": true,
+        "legacy_labels": true
+      },
+      "body_bytes": 70210,
+      "error": "",
+      "domain": "mca24.ru",
+      "expected_recipient": "info@mca24.ru"
+    },
+    {
+      "requested_url": "https://fsa-lab.ru/",
+      "final_url": "https://fsa-lab.ru/",
+      "status": 200,
+      "content_type": "text/html",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": true,
+        "legacy_labels": true
+      },
+      "body_bytes": 88786,
+      "error": "",
+      "domain": "fsa-lab.ru",
+      "expected_recipient": "info@fsa-lab.ru"
+    },
+    {
+      "requested_url": "https://elecktro.ru/",
+      "final_url": "https://elecktro.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": false
+      },
+      "body_bytes": 82286,
+      "error": "",
+      "domain": "elecktro.ru",
+      "expected_recipient": "info@elecktro.ru"
+    },
+    {
+      "requested_url": "https://med-license.ru/",
+      "final_url": "https://med-license.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": true,
+        "legacy_labels": false
+      },
+      "body_bytes": 81668,
+      "error": "",
+      "domain": "med-license.ru",
+      "expected_recipient": "info@med-license.ru"
+    },
+    {
+      "requested_url": "https://mhsl.ru/",
+      "final_url": "https://mhsl.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": true,
+        "legacy_labels": false
+      },
+      "body_bytes": 87413,
+      "error": "",
+      "domain": "mhsl.ru",
+      "expected_recipient": "info@mhsl.ru"
+    },
+    {
+      "requested_url": "https://fste.ru/",
+      "final_url": "https://www.fste.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=windows-1251",
+      "features": {
+        "callback_label": false,
+        "question_label": false,
+        "consent": false,
+        "policy_link": false,
+        "success_message": false,
+        "legacy_labels": true
+      },
+      "body_bytes": 18930,
+      "error": "",
+      "domain": "fste.ru",
+      "expected_recipient": "info@fste.ru"
+    },
+    {
+      "requested_url": "https://otxodi.ru/",
+      "final_url": "https://otxodi.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": true
+      },
+      "body_bytes": 78976,
+      "error": "",
+      "domain": "otxodi.ru",
+      "expected_recipient": "info@otxodi.ru"
+    },
+    {
+      "requested_url": "https://lfsb.ru/",
+      "final_url": "https://lfsb.ru/",
+      "status": 200,
+      "content_type": "text/html",
+      "features": {
+        "callback_label": false,
+        "question_label": false,
+        "consent": false,
+        "policy_link": false,
+        "success_message": false,
+        "legacy_labels": false
+      },
+      "body_bytes": 20150,
+      "error": "",
+      "domain": "lfsb.ru",
+      "expected_recipient": "info@lfsb.ru"
+    },
+    {
+      "requested_url": "https://apreal.spb.ru/",
+      "final_url": "https://apreal.spb.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": true
+      },
+      "body_bytes": 104560,
+      "error": "",
+      "domain": "apreal.spb.ru",
+      "expected_recipient": "spb@apreal.ru"
+    },
+    {
+      "requested_url": "https://minkult78.ru/",
+      "final_url": "https://minkult78.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": true
+      },
+      "body_bytes": 69486,
+      "error": "",
+      "domain": "minkult78.ru",
+      "expected_recipient": "info@minkult78.ru"
+    },
+    {
+      "requested_url": "https://medlic.spb.ru/",
+      "final_url": "https://medlic.spb.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": false
+      },
+      "body_bytes": 62672,
+      "error": "",
+      "domain": "medlic.spb.ru",
+      "expected_recipient": "info@medlic.spb.ru"
+    },
+    {
+      "requested_url": "https://medtex78.ru/",
+      "final_url": "https://medtex78.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": true
+      },
+      "body_bytes": 68317,
+      "error": "",
+      "domain": "medtex78.ru",
+      "expected_recipient": "info@medtex78.ru"
+    },
+    {
+      "requested_url": "https://mchs-spb.ru/",
+      "final_url": "https://mchs-spb.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": true,
+        "legacy_labels": false
+      },
+      "body_bytes": 88611,
+      "error": "",
+      "domain": "mchs-spb.ru",
+      "expected_recipient": "info@mchs-spb.ru"
+    },
+    {
+      "requested_url": "https://mchs78.ru/",
+      "final_url": "https://mchs78.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": true
+      },
+      "body_bytes": 101474,
+      "error": "",
+      "domain": "mchs78.ru",
+      "expected_recipient": "info@mchs78.ru"
+    },
+    {
+      "requested_url": "https://license39.ru/",
+      "final_url": "https://license39.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": true
+      },
+      "body_bytes": 76584,
+      "error": "",
+      "domain": "license39.ru",
+      "expected_recipient": "info@license39.ru"
+    },
+    {
+      "requested_url": "https://medtex39.ru/",
+      "final_url": "https://medtex39.ru/",
+      "status": 200,
+      "content_type": "text/html",
+      "features": {
+        "callback_label": true,
+        "question_label": false,
+        "consent": false,
+        "policy_link": false,
+        "success_message": false,
+        "legacy_labels": true
+      },
+      "body_bytes": 82664,
+      "error": "",
+      "domain": "medtex39.ru",
+      "expected_recipient": "info@medtex39.ru"
+    },
+    {
+      "requested_url": "https://39mchs.ru/",
+      "final_url": "https://39mchs.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": true
+      },
+      "body_bytes": 87914,
+      "error": "",
+      "domain": "39mchs.ru",
+      "expected_recipient": "info@39mchs.ru"
+    },
+    {
+      "requested_url": "https://apreal36.ru/",
+      "final_url": "https://apreal36.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": true,
+        "legacy_labels": true
+      },
+      "body_bytes": 93850,
+      "error": "",
+      "domain": "apreal36.ru",
+      "expected_recipient": "info@apreal36.ru"
+    },
+    {
+      "requested_url": "https://apreal-nn.ru/",
+      "final_url": "https://apreal-nn.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": true
+      },
+      "body_bytes": 55821,
+      "error": "",
+      "domain": "apreal-nn.ru",
+      "expected_recipient": "info@apreal-nn.ru"
+    },
+    {
+      "requested_url": "https://apreal-volgograd.ru/",
+      "final_url": "https://apreal-volgograd.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": true
+      },
+      "body_bytes": 544147,
+      "error": "",
+      "domain": "apreal-volgograd.ru",
+      "expected_recipient": "vlg-ap@bk.ru"
+    },
+    {
+      "requested_url": "https://apreal72.ru/",
+      "final_url": "https://apreal72.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": true
+      },
+      "body_bytes": 39698,
+      "error": "",
+      "domain": "apreal72.ru",
+      "expected_recipient": "info@apreal72.ru"
+    },
+    {
+      "requested_url": "https://nousro.ru/",
+      "final_url": "https://nousro.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": true
+      },
+      "body_bytes": 301810,
+      "error": "",
+      "domain": "nousro.ru",
+      "expected_recipient": "info@nousro.ru"
+    },
+    {
+      "requested_url": "https://dpomuc.ru/",
+      "final_url": "https://dpomuc.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": false
+      },
+      "body_bytes": 78040,
+      "error": "",
+      "domain": "dpomuc.ru",
+      "expected_recipient": "info@dpomuc.ru"
+    },
+    {
+      "requested_url": "https://nousro-spb.ru/",
+      "final_url": "https://nousro-spb.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": false
+      },
+      "body_bytes": 131811,
+      "error": "",
+      "domain": "nousro-spb.ru",
+      "expected_recipient": "spb@nousro.ru"
+    },
+    {
+      "requested_url": "https://ed-kgd.ru/",
+      "final_url": "https://ed-kgd.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": true
+      },
+      "body_bytes": 115061,
+      "error": "",
+      "domain": "ed-kgd.ru",
+      "expected_recipient": "info@ed-kgd.ru"
+    },
+    {
+      "requested_url": "https://muc-vrn.ru/",
+      "final_url": "https://muc-vrn.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": true
+      },
+      "body_bytes": 117107,
+      "error": "",
+      "domain": "muc-vrn.ru",
+      "expected_recipient": "info@muc-vrn.ru"
+    },
+    {
+      "requested_url": "https://nousro-nn.ru/",
+      "final_url": "https://nousro-nn.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "features": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy_link": true,
+        "success_message": false,
+        "legacy_labels": true
+      },
+      "body_bytes": 244095,
+      "error": "",
+      "domain": "nousro-nn.ru",
+      "expected_recipient": "info@nousro-nn.ru"
+    },
+    {
+      "requested_url": "https://shopap.ru/",
+      "final_url": "https://shopap.ru/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "features": {
+        "callback_label": true,
+        "question_label": false,
+        "consent": false,
+        "policy_link": false,
+        "success_message": false,
+        "legacy_labels": false
+      },
+      "body_bytes": 56974,
+      "error": "",
+      "domain": "shopap.ru",
+      "expected_recipient": "info@shopap.ru"
+    }
+  ],
+  "excluded": [
+    {
+      "domain": "rectavr.ru",
+      "reason": "Клиент указал: заявка не нужна"
+    },
+    {
+      "domain": "fstek.spb.ru",
+      "reason": "Клиент указал: заявка не нужна"
+    },
+    {
+      "domain": "lic-k.ru",
+      "reason": "Клиент указал: заявка не нужна"
+    },
+    {
+      "domain": "apreal-samara.ru",
+      "reason": "Клиент указал: заявка не нужна и сайт не переносился"
+    },
+    {
+      "domain": "ed-krd.ru",
+      "reason": "Клиент указал: заявка не нужна"
+    }
+  ]
+}

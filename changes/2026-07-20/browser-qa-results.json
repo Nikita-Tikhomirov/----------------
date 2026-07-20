@@ -1,0 +1,1008 @@
+{
+  "screenshot_dir": "C:\\Users\\user\\AppData\\Local\\Temp\\beget-form-qa-2026-07-20",
+  "execution": "isolated-per-domain",
+  "results": [
+    {
+      "domain": "apreal.ru",
+      "url": "https://www.apreal.ru/",
+      "title": "ГК АП-Риал - Лицензирование всех видов деятельности в России",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": false,
+      "callback_buttons": 0,
+      "question_buttons": 0,
+      "console_errors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()"
+      ],
+      "page_errors": [
+        "Unexpected identifier 'objectManager'"
+      ],
+      "screenshots": [],
+      "error": "",
+      "existing": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": false,
+        "policy": true
+      }
+    },
+    {
+      "domain": "docp.ru",
+      "url": "https://docp.ru/",
+      "title": "Лицензирование деятельности для всей территории России",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [],
+      "page_errors": [],
+      "screenshots": [
+        "C:\\Users\\user\\AppData\\Local\\Temp\\beget-form-qa-2026-07-20\\docp.ru-callback-desktop.png",
+        "C:\\Users\\user\\AppData\\Local\\Temp\\beget-form-qa-2026-07-20\\docp.ru-callback-mobile.png"
+      ],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "mca24.ru",
+      "url": "https://mca24.ru/",
+      "title": "Аккредитация испытательной лаборатории. Получить аттестат аккредитации",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": false,
+      "callback_buttons": 0,
+      "question_buttons": 0,
+      "console_errors": [],
+      "page_errors": [],
+      "screenshots": [],
+      "error": "",
+      "existing": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": false,
+        "policy": true
+      }
+    },
+    {
+      "domain": "fsa-lab.ru",
+      "url": "https://fsa-lab.ru/",
+      "title": "Аккредитация испытательной лаборатории в Росаккредитации по России",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": false,
+      "callback_buttons": 0,
+      "question_buttons": 0,
+      "console_errors": [],
+      "page_errors": [],
+      "screenshots": [],
+      "error": "",
+      "existing": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy": true
+      }
+    },
+    {
+      "domain": "elecktro.ru",
+      "url": "https://elecktro.ru/",
+      "title": "Регистрация электролаборатории. Получить свидетельство о регистрации ЭТЛ",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [],
+      "page_errors": [],
+      "screenshots": [],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "med-license.ru",
+      "url": "https://med-license.ru/",
+      "title": "Лицензия Росздравнадзора. Лицензия Роспотребнадзора – получить за 45 дней",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": false,
+      "callback_buttons": 0,
+      "question_buttons": 0,
+      "console_errors": [],
+      "page_errors": [],
+      "screenshots": [],
+      "error": "",
+      "existing": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy": true
+      }
+    },
+    {
+      "domain": "mhsl.ru",
+      "url": "https://mhsl.ru/",
+      "title": "Лицензия МЧС России в Москве под ключ",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": false,
+      "callback_buttons": 0,
+      "question_buttons": 0,
+      "console_errors": [],
+      "page_errors": [],
+      "screenshots": [],
+      "error": "",
+      "existing": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy": true
+      }
+    },
+    {
+      "domain": "fste.ru",
+      "url": "https://www.fste.ru/",
+      "title": "Лицензии ФСТЭК - Помощь в получение лицензий ФСТЭК (лицензия техническая защита конфиденциальной информации) в Москве",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [],
+      "page_errors": [],
+      "screenshots": [
+        "C:\\Users\\user\\AppData\\Local\\Temp\\beget-form-qa-2026-07-20\\fste.ru-callback-desktop.png",
+        "C:\\Users\\user\\AppData\\Local\\Temp\\beget-form-qa-2026-07-20\\fste.ru-callback-mobile.png"
+      ],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "otxodi.ru",
+      "url": "https://otxodi.ru/",
+      "title": "Лицензия на отходы 1-4 класса опасности в Москве",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [],
+      "page_errors": [],
+      "screenshots": [],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "lfsb.ru",
+      "url": "https://lfsb.ru/",
+      "title": "Получение лицензия ФСБ на работу с гостайной - как получить лицензию ФСБ (получение и оформление лицензии ФСБ на гостайну) - лицензия ФСБ государственная тайна",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [
+        "Failed to load resource: the server responded with a status of 404 ()"
+      ],
+      "page_errors": [],
+      "screenshots": [
+        "C:\\Users\\user\\AppData\\Local\\Temp\\beget-form-qa-2026-07-20\\lfsb.ru-callback-desktop.png",
+        "C:\\Users\\user\\AppData\\Local\\Temp\\beget-form-qa-2026-07-20\\lfsb.ru-callback-mobile.png"
+      ],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "apreal.spb.ru",
+      "url": "https://apreal.spb.ru/",
+      "title": "Лицензирование видов деятельности. Получить лицензию в СПб",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [],
+      "page_errors": [],
+      "screenshots": [],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "minkult78.ru",
+      "url": "https://minkult78.ru/",
+      "title": "Лицензия Минкультуры на реставрацию объектов культурного наследия",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()"
+      ],
+      "page_errors": [],
+      "screenshots": [],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "medlic.spb.ru",
+      "url": "https://medlic.spb.ru/",
+      "title": "Лицензирование медицинских организаций в Роспотребнадзоре",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [],
+      "page_errors": [
+        "n.component.bootComponents is not a function"
+      ],
+      "screenshots": [],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "medtex78.ru",
+      "url": "https://medtex78.ru/",
+      "title": "Лицензия на медицинскую технику и оборудование в Санкт-Петербурге",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()"
+      ],
+      "page_errors": [],
+      "screenshots": [],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "mchs-spb.ru",
+      "url": "https://mchs-spb.ru/",
+      "title": "Лицензия МЧС России в Санкт-Петербурге под ключ",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": false,
+      "callback_buttons": 0,
+      "question_buttons": 0,
+      "console_errors": [],
+      "page_errors": [],
+      "screenshots": [],
+      "error": "",
+      "existing": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": true,
+        "policy": true
+      }
+    },
+    {
+      "domain": "mchs78.ru",
+      "url": "https://mchs78.ru/",
+      "title": "Лицензия МЧС в СПб. Помощь в лицензировании МЧС",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [
+        "Failed to load resource: the server responded with a status of 404 ()"
+      ],
+      "page_errors": [
+        "M is not defined",
+        "Cannot read properties of undefined (reading 'addValidator')"
+      ],
+      "screenshots": [],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "license39.ru",
+      "url": "https://license39.ru/",
+      "title": "Лицензирование видов деятельности. Получить лицензию в Калининграде",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()"
+      ],
+      "page_errors": [],
+      "screenshots": [],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "medtex39.ru",
+      "url": "https://medtex39.ru/",
+      "title": "ЛИЦЕНЗИЯ НА ТЕХНИЧЕСКОЕ ОБСЛУЖИВАНИЕ МЕДИЦИНСКОЙ ТЕХНИКИ В КАЛИНИНГРАДЕ",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [],
+      "page_errors": [],
+      "screenshots": [
+        "C:\\Users\\user\\AppData\\Local\\Temp\\beget-form-qa-2026-07-20\\medtex39.ru-callback-desktop.png",
+        "C:\\Users\\user\\AppData\\Local\\Temp\\beget-form-qa-2026-07-20\\medtex39.ru-callback-mobile.png"
+      ],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "39mchs.ru",
+      "url": "https://39mchs.ru/",
+      "title": "Лицензия МЧС России в Калининграде под ключ",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()"
+      ],
+      "page_errors": [],
+      "screenshots": [],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "apreal36.ru",
+      "url": "https://apreal36.ru/",
+      "title": "Лицензирование отдельных видов деятельности в Воронеже с ГК «АП-Риал»",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": false,
+      "callback_buttons": 0,
+      "question_buttons": 0,
+      "console_errors": [],
+      "page_errors": [
+        "jQuery is not defined"
+      ],
+      "screenshots": [],
+      "error": "",
+      "existing": {
+        "callback_label": true,
+        "question_label": false,
+        "consent": false,
+        "policy": true
+      }
+    },
+    {
+      "domain": "apreal-nn.ru",
+      "url": "https://apreal-nn.ru/",
+      "title": "Лицензирование с ГК АП-Риал в Нижнем Новгороде и по всему Приволжскому округу",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()"
+      ],
+      "page_errors": [],
+      "screenshots": [],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "apreal-volgograd.ru",
+      "url": "https://apreal-volgograd.ru/",
+      "title": "Лицензирование в Волгограде. Получить лицензию с ГК АП-Риал – все виды",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [
+        "Mixed Content: The page at 'https://apreal-volgograd.ru/' was loaded over HTTPS, but requested an insecure script 'http://user.profitmore.ru/vk1/step1.php?uid=147430&a6=&a7=apreal-volgograd.ru&a8=null&a9=0.8564927696746405'. This request has been blocked; the content must be served over HTTPS."
+      ],
+      "page_errors": [],
+      "screenshots": [],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "apreal72.ru",
+      "url": "https://apreal72.ru/",
+      "title": "Лицензирование в Тюмени с ГК АП-РИАЛ. Получить лицензию в срок",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "Failed to load resource: the server responded with a status of 404 ()"
+      ],
+      "page_errors": [],
+      "screenshots": [],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "nousro.ru",
+      "url": "https://nousro.ru/",
+      "title": "Межрегиональный учебный центр - обучение в Москве и регионах РФ",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "ReferenceError: toggleOption is not defined\n    at Cn.eval (eval at Qa (https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:92206), <anonymous>:3:712)\n    at e._render (https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:35554)\n    at Cn.r (https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:68565)\n    at pn.get (https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:26867)\n    at new pn (https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:26785)\n    at https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:68579\n    at Cn.$mount (https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:68726)\n    at Cn.$mount (https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:94030)\n    at t._init (https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:33111)\n    at new Cn (https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:30457)"
+      ],
+      "page_errors": [
+        "Vue is not defined",
+        "Cannot read properties of undefined (reading 'offsetWidth')"
+      ],
+      "screenshots": [],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "dpomuc.ru",
+      "url": "https://dpomuc.ru/",
+      "title": "Межрегиональный учебный центр - обучение в Москве",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [],
+      "page_errors": [],
+      "screenshots": [],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "nousro-spb.ru",
+      "url": "https://nousro-spb.ru/",
+      "title": "Межрегиональный учебный центр в Санкт-Петербурге",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": false,
+      "callback_buttons": 0,
+      "question_buttons": 0,
+      "console_errors": [],
+      "page_errors": [
+        "Cannot read properties of null (reading 'parentNode')"
+      ],
+      "screenshots": [],
+      "error": "",
+      "existing": {
+        "callback_label": true,
+        "question_label": true,
+        "consent": false,
+        "policy": true
+      }
+    },
+    {
+      "domain": "ed-kgd.ru",
+      "url": "https://ed-kgd.ru/",
+      "title": "Обучение в учебном центре в Калининграде дистанционно и очно",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [],
+      "page_errors": [],
+      "screenshots": [
+        "C:\\Users\\user\\AppData\\Local\\Temp\\beget-form-qa-2026-07-20\\ed-kgd.ru-callback-desktop.png",
+        "C:\\Users\\user\\AppData\\Local\\Temp\\beget-form-qa-2026-07-20\\ed-kgd.ru-callback-mobile.png"
+      ],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "muc-vrn.ru",
+      "url": "https://muc-vrn.ru/",
+      "title": "Межрегиональный учебный центр в Воронеже | Центр обучения в Воронеже",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [],
+      "page_errors": [],
+      "screenshots": [],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "nousro-nn.ru",
+      "url": "https://nousro-nn.ru/",
+      "title": "Межрегиональный учебный центр - обучение в Нижнем Новгороде",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "ReferenceError: toggleOption is not defined\n    at Cn.eval (eval at Qa (https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:92206), <anonymous>:3:712)\n    at e._render (https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:35554)\n    at Cn.r (https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:68565)\n    at pn.get (https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:26867)\n    at new pn (https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:26785)\n    at https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:68579\n    at Cn.$mount (https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:68726)\n    at Cn.$mount (https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:94030)\n    at t._init (https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:33111)\n    at new Cn (https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js:6:30457)"
+      ],
+      "page_errors": [
+        "Vue is not defined",
+        "Cannot read properties of undefined (reading 'offsetWidth')"
+      ],
+      "screenshots": [],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    },
+    {
+      "domain": "shopap.ru",
+      "url": "https://shopap.ru/",
+      "title": "Аренда и продажа оборудования для лицензирования",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [],
+      "page_errors": [],
+      "screenshots": [
+        "C:\\Users\\user\\AppData\\Local\\Temp\\beget-form-qa-2026-07-20\\shopap.ru-callback-desktop.png",
+        "C:\\Users\\user\\AppData\\Local\\Temp\\beget-form-qa-2026-07-20\\shopap.ru-callback-mobile.png"
+      ],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    }
+  ]
+}

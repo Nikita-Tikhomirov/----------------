@@ -1,0 +1,40 @@
+{
+  "screenshot_dir": "C:\\Users\\user\\AppData\\Local\\Temp\\beget-form-qa-2026-07-20",
+  "results": [
+    {
+      "domain": "apreal-volgograd.ru",
+      "url": "https://apreal-volgograd.ru/",
+      "title": "Лицензирование в Волгограде. Получить лицензию с ГК АП-Риал – все виды",
+      "status": 200,
+      "meaningful_body": true,
+      "standard_component": true,
+      "callback_buttons": 1,
+      "question_buttons": 1,
+      "console_errors": [
+        "Mixed Content: The page at 'https://apreal-volgograd.ru/' was loaded over HTTPS, but requested an insecure script 'http://user.profitmore.ru/vk1/step1.php?uid=147430&a6=&a7=apreal-volgograd.ru&a8=null&a9=0.7229648244805594'. This request has been blocked; the content must be served over HTTPS."
+      ],
+      "page_errors": [],
+      "screenshots": [],
+      "error": "",
+      "callback": {
+        "title": "ЗАКАЗАТЬ ЗВОНОК",
+        "phone": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "question": {
+        "title": "ЗАДАТЬ ВОПРОС",
+        "email": 1,
+        "optional_question": 1,
+        "captcha": 1,
+        "policy": 1,
+        "close": 1
+      },
+      "mobile": {
+        "modal_visible": true,
+        "fits_viewport": true
+      }
+    }
+  ]
+}

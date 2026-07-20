@@ -1,0 +1,606 @@
+{
+  "marker": "csf-delivery-check=2026-07-20",
+  "actual_mail_requested": true,
+  "results": [
+    {
+      "domain": "docp.ru",
+      "platform": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://docp.ru/wp-admin/admin-ajax.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "data": {
+            "message": "Введите цифру 5."
+          }
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "data": {
+            "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+          }
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "elecktro.ru",
+      "platform": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://elecktro.ru/wp-admin/admin-ajax.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "data": {
+            "message": "Введите цифру 5."
+          }
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "data": {
+            "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+          }
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "medlic.spb.ru",
+      "platform": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://medlic.spb.ru/wp-admin/admin-ajax.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "data": {
+            "message": "Введите цифру 5."
+          }
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "data": {
+            "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+          }
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "otxodi.ru",
+      "platform": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://otxodi.ru/wp-admin/admin-ajax.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "data": {
+            "message": "Введите цифру 5."
+          }
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "data": {
+            "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+          }
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "apreal.spb.ru",
+      "platform": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://apreal.spb.ru/wp-admin/admin-ajax.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "data": {
+            "message": "Введите цифру 5."
+          }
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "data": {
+            "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+          }
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "minkult78.ru",
+      "platform": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://minkult78.ru/wp-admin/admin-ajax.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "data": {
+            "message": "Введите цифру 5."
+          }
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "data": {
+            "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+          }
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "medtex78.ru",
+      "platform": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://medtex78.ru/wp-admin/admin-ajax.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "data": {
+            "message": "Введите цифру 5."
+          }
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "data": {
+            "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+          }
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "mchs78.ru",
+      "platform": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://mchs78.ru/wp-admin/admin-ajax.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "data": {
+            "message": "Введите цифру 5."
+          }
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "data": {
+            "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+          }
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "license39.ru",
+      "platform": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://license39.ru/wp-admin/admin-ajax.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "data": {
+            "message": "Введите цифру 5."
+          }
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "data": {
+            "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+          }
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "39mchs.ru",
+      "platform": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://39mchs.ru/wp-admin/admin-ajax.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "data": {
+            "message": "Введите цифру 5."
+          }
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "data": {
+            "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+          }
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "apreal-nn.ru",
+      "platform": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://apreal-nn.ru/wp-admin/admin-ajax.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "data": {
+            "message": "Введите цифру 5."
+          }
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "data": {
+            "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+          }
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "apreal-volgograd.ru",
+      "platform": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://apreal-volgograd.ru/wp-admin/admin-ajax.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "data": {
+            "message": "Введите цифру 5."
+          }
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "data": {
+            "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+          }
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "apreal72.ru",
+      "platform": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://apreal72.ru/wp-admin/admin-ajax.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "data": {
+            "message": "Введите цифру 5."
+          }
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "data": {
+            "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+          }
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "nousro.ru",
+      "platform": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://nousro.ru/wp-admin/admin-ajax.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "data": {
+            "message": "Введите цифру 5."
+          }
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "data": {
+            "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+          }
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "dpomuc.ru",
+      "platform": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://dpomuc.ru/wp-admin/admin-ajax.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "data": {
+            "message": "Введите цифру 5."
+          }
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "data": {
+            "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+          }
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "ed-kgd.ru",
+      "platform": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://ed-kgd.ru/wp-admin/admin-ajax.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "data": {
+            "message": "Введите цифру 5."
+          }
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "data": {
+            "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+          }
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "muc-vrn.ru",
+      "platform": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://muc-vrn.ru/wp-admin/admin-ajax.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "data": {
+            "message": "Введите цифру 5."
+          }
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "data": {
+            "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+          }
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "nousro-nn.ru",
+      "platform": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://nousro-nn.ru/wp-admin/admin-ajax.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "data": {
+            "message": "Введите цифру 5."
+          }
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "data": {
+            "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+          }
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "fste.ru",
+      "platform": "static",
+      "page_status": 200,
+      "endpoint": "https://www.fste.ru/client-standard-mail.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "message": "Р’РІРµРґРёС‚Рµ С†РёС„СЂСѓ 5."
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "message": "РЎРїР°СЃРёР±Рѕ Р·Р° Р’Р°С€Рµ СЃРѕРѕР±С‰РµРЅРёРµ. РћРЅРѕ СѓСЃРїРµС€РЅРѕ РѕС‚РїСЂР°РІР»РµРЅРѕ"
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "lfsb.ru",
+      "platform": "static",
+      "page_status": 200,
+      "endpoint": "https://lfsb.ru/client-standard-mail.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "message": "Введите цифру 5."
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "medtex39.ru",
+      "platform": "static",
+      "page_status": 200,
+      "endpoint": "https://medtex39.ru/client-standard-mail.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "message": "Введите цифру 5."
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "error": ""
+    },
+    {
+      "domain": "shopap.ru",
+      "platform": "static",
+      "page_status": 200,
+      "endpoint": "https://shopap.ru/client-standard-mail.php",
+      "invalid_captcha": {
+        "status": 400,
+        "accepted": true,
+        "payload": {
+          "success": false,
+          "message": "Введите цифру 5."
+        }
+      },
+      "valid_callback": {
+        "sent": true,
+        "status": 200,
+        "accepted": true,
+        "payload": {
+          "success": true,
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "error": ""
+    }
+  ]
+}

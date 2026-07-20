@@ -1,0 +1,159 @@
+{
+  "backup_root": "/home/n/nousroc9/_backups/20260720-204241-standard-forms",
+  "results": [
+    {
+      "domain": "docp.ru",
+      "platform": "wordpress",
+      "target": "/home/n/nousroc9/docp.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "backup": ""
+    },
+    {
+      "domain": "elecktro.ru",
+      "platform": "wordpress",
+      "target": "/home/n/nousroc9/elecktro.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "backup": ""
+    },
+    {
+      "domain": "otxodi.ru",
+      "platform": "wordpress",
+      "target": "/home/n/nousroc9/otxodi.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "backup": ""
+    },
+    {
+      "domain": "apreal.spb.ru",
+      "platform": "wordpress",
+      "target": "/home/n/nousroc9/apreal.spb.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "backup": ""
+    },
+    {
+      "domain": "minkult78.ru",
+      "platform": "wordpress",
+      "target": "/home/n/nousroc9/minkult78.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "backup": ""
+    },
+    {
+      "domain": "medtex78.ru",
+      "platform": "wordpress",
+      "target": "/home/n/nousroc9/medtex78.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "backup": ""
+    },
+    {
+      "domain": "mchs78.ru",
+      "platform": "wordpress",
+      "target": "/home/n/nousroc9/mchs78.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "backup": ""
+    },
+    {
+      "domain": "license39.ru",
+      "platform": "wordpress",
+      "target": "/home/n/nousroc9/license39.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "backup": ""
+    },
+    {
+      "domain": "39mchs.ru",
+      "platform": "wordpress",
+      "target": "/home/n/nousroc9/39mchs.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "backup": ""
+    },
+    {
+      "domain": "apreal-nn.ru",
+      "platform": "wordpress",
+      "target": "/home/n/nousroc9/apreal-nn.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "backup": ""
+    },
+    {
+      "domain": "apreal-volgograd.ru",
+      "platform": "wordpress",
+      "target": "/home/n/nousroc9/apreal-volgograd.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "backup": ""
+    },
+    {
+      "domain": "apreal72.ru",
+      "platform": "wordpress",
+      "target": "/home/n/nousroc9/apreal72.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "backup": ""
+    },
+    {
+      "domain": "nousro.ru",
+      "platform": "wordpress",
+      "target": "/home/n/nousroc9/nousro.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "backup": ""
+    },
+    {
+      "domain": "dpomuc.ru",
+      "platform": "wordpress",
+      "target": "/home/n/nousroc9/dpomuc.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "backup": ""
+    },
+    {
+      "domain": "ed-kgd.ru",
+      "platform": "wordpress",
+      "target": "/home/n/nousroc9/ed-kgd.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "backup": ""
+    },
+    {
+      "domain": "muc-vrn.ru",
+      "platform": "wordpress",
+      "target": "/home/n/nousroc9/muc-vrn.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "backup": ""
+    },
+    {
+      "domain": "nousro-nn.ru",
+      "platform": "wordpress",
+      "target": "/home/n/nousroc9/nousro-nn.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "backup": ""
+    },
+    {
+      "domain": "fste.ru",
+      "platform": "static",
+      "targets": [
+        "/home/n/nousroc9/fste.ru/public_html/client-standard-mail.php",
+        "/home/n/nousroc9/fste.ru/public_html/client-standard-forms.js",
+        "/home/n/nousroc9/fste.ru/public_html/ssi/footer.php"
+      ],
+      "backups": [
+        "/home/n/nousroc9/_backups/20260720-204241-standard-forms/fste.ru/fste.ru/public_html/ssi/footer.php"
+      ],
+      "script_injected": true
+    },
+    {
+      "domain": "lfsb.ru",
+      "platform": "static",
+      "targets": [
+        "/home/n/nousroc9/lfsb.ru/public_html/client-standard-mail.php",
+        "/home/n/nousroc9/lfsb.ru/public_html/client-standard-forms.js",
+        "/home/n/nousroc9/lfsb.ru/public_html/ssi/footer.php"
+      ],
+      "backups": [
+        "/home/n/nousroc9/_backups/20260720-204241-standard-forms/lfsb.ru/lfsb.ru/public_html/ssi/footer.php"
+      ],
+      "script_injected": true
+    },
+    {
+      "domain": "medtex39.ru",
+      "platform": "static",
+      "targets": [
+        "/home/n/nousroc9/39mchs.ru/public_html/__shared/medtex39/client-standard-mail.php",
+        "/home/n/nousroc9/39mchs.ru/public_html/__shared/medtex39/client-standard-forms.js",
+        "/home/n/nousroc9/39mchs.ru/public_html/__shared/medtex39/index.html"
+      ],
+      "backups": [
+        "/home/n/nousroc9/_backups/20260720-204241-standard-forms/medtex39.ru/39mchs.ru/public_html/__shared/medtex39/index.html"
+      ],
+      "script_injected": true
+    },
+    {
+      "domain": "shopap.ru",
+      "platform": "static",
+      "targets": [
+        "/home/n/nousroc9/shopap.ru/public_html/client-standard-mail.php",
+        "/home/n/nousroc9/shopap.ru/public_html/client-standard-forms.js",
+        "/home/n/nousroc9/shopap.ru/public_html/index.php"
+      ],
+      "backups": [
+        "/home/n/nousroc9/_backups/20260720-204241-standard-forms/shopap.ru/shopap.ru/public_html/index.php"
+      ],
+      "script_injected": true
+    }
+  ]
+}
