@@ -129,9 +129,9 @@
         <h2 class="unipop-title">ЗАДАТЬ ВОПРОС</h2>
 
         <form class="unipop-form sendFormCustom" data-form="question">
-            <textarea name="coment" placeholder="Вопрос"></textarea>
-            <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__">
             <input type="text" name="name" placeholder="Имя">
+            <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__">
+            <textarea name="coment" placeholder="Вопрос"></textarea>
             <input placeholder="Введите цифру пять:" type="text" name="captcha" required>
             <div class="conf">
                 <span class="policity">
@@ -160,12 +160,14 @@
         function openPopup(id) {
             overlay.classList.add('active');
             document.getElementById(id).classList.add('active');
+            document.documentElement.classList.add('client-contact-modal-open');
         }
 
         // --- Закрытие ---
         function closePopup() {
             overlay.classList.remove('active');
             popups.forEach(p => p.classList.remove('active'));
+            document.documentElement.classList.remove('client-contact-modal-open');
         }
 
         // Закрытие по крестику
@@ -229,6 +231,10 @@
     });
 </script>
 <style>
+    html.client-contact-modal-open body > jdiv {
+        display: none !important;
+    }
+
     .unipop-overlay {
         position: fixed;
         inset: 0;

@@ -28,7 +28,7 @@ class StandardFormGeneratorTests(unittest.TestCase):
         self.assertIn("ЗАКАЗАТЬ ЗВОНОК", source)
         self.assertIn("ЗАДАТЬ ВОПРОС", source)
         self.assertIn("name=\"phone\"", source)
-        self.assertIn("name=\"email\"", source)
+        self.assertNotIn("name=\"email\"", source)
         self.assertIn("name=\"captcha\"", source)
         self.assertIn(
             'Нажимая на кнопку "Отправить" я даю согласие на обработку '
@@ -39,6 +39,24 @@ class StandardFormGeneratorTests(unittest.TestCase):
         self.assertIn(module.POLICY_URL, source)
         self.assertIn(module.SUCCESS_MESSAGE, source)
         self.assertIn("check_ajax_referer", source)
+
+        question_handler = source.split(
+            "} elseif ($kind === 'question') {",
+            1,
+        )[1].split("} else {", 1)[0]
+        self.assertIn("csf_clean_text('name')", question_handler)
+        self.assertIn("csf_clean_text('phone')", question_handler)
+        self.assertIn("csf_clean_text('question')", question_handler)
+        self.assertIn("if ($phone === '')", question_handler)
+        self.assertNotIn("email", question_handler.lower())
+
+        question_form = source.split('data-modal="question"', 1)[1]
+        self.assertTrue(
+            question_form.index('name="name"')
+            < question_form.index('name="phone"')
+            < question_form.index('name="question"')
+            < question_form.index('name="captcha"')
+        )
 
     def test_static_bundle_uses_domain_recipient(self):
         module = load_module()
@@ -56,6 +74,24 @@ class StandardFormGeneratorTests(unittest.TestCase):
         callback_name = script.index('name="name"')
         callback_phone = script.index('name="phone"')
         self.assertLess(callback_name, callback_phone)
+
+        question_form = script[script.index('data-modal="question"'):]
+        self.assertTrue(
+            question_form.index('name="name"')
+            < question_form.index('name="phone"')
+            < question_form.index('name="question"')
+            < question_form.index('name="captcha"')
+        )
+        self.assertNotIn('name="email"', question_form)
+        question_handler = handler.split(
+            "} elseif ($kind === 'question') {",
+            1,
+        )[1].split("} else {", 1)[0]
+        self.assertIn("$_POST['name']", question_handler)
+        self.assertIn("$_POST['phone']", question_handler)
+        self.assertIn("$_POST['question']", question_handler)
+        self.assertIn("if ($phone === '')", question_handler)
+        self.assertNotIn("email", question_handler.lower())
         self.assertIn("\\u043f\\u043e\\u0434\\u0430\\u0442\\u044c", script)
         self.assertIn("csf-actions-sidebar", script)
         self.assertIn("document.querySelector('#leblok')", script)
@@ -70,6 +106,9 @@ class StandardFormGeneratorTests(unittest.TestCase):
             self.assertIn(".csf-overlay[hidden],.csf-modal[hidden]", source)
             self.assertIn("display:none!important", source)
             self.assertIn("right:96px", source)
+            self.assertIn("html.client-contact-modal-open body > jdiv", source)
+            self.assertIn("classList.add('client-contact-modal-open')", source)
+            self.assertIn("classList.remove('client-contact-modal-open')", source)
         self.assertIn("document.body.appendChild(root)", wordpress)
 
     def test_static_script_is_ascii_for_legacy_page_encodings(self):

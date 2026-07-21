@@ -8,7 +8,7 @@ SITES = ("mhsl.ru", "med-license.ru")
 
 
 @pytest.mark.parametrize("domain", SITES)
-def test_question_form_uses_question_phone_name_order(domain: str) -> None:
+def test_question_form_uses_name_phone_question_order(domain: str) -> None:
     footer = (
         ROOT
         / "changes"
@@ -21,16 +21,21 @@ def test_question_form_uses_question_phone_name_order(domain: str) -> None:
     ).read_text(encoding="utf-8")
     block = footer.split('data-form="question"', 1)[1].split("</form>", 1)[0]
 
-    question = block.index('name="coment"')
-    phone = block.index('name="phone"')
     name = block.index('name="name"')
+    phone = block.index('name="phone"')
+    question = block.index('name="coment"')
+    captcha = block.index('name="captcha"')
 
-    assert question < phone < name
+    assert name < phone < question < captcha
     assert '<input type="tel" name="phone" required' in block
     assert '<input type="text" name="name" placeholder="Имя">' in block
     assert 'name="email"' not in block
     assert "z-index: 2147483600" in footer
     assert "z-index: 2147483601" in footer
+    assert "client-contact-modal-open" in footer
+    assert "html.client-contact-modal-open body > jdiv" in footer
+    assert "document.documentElement.classList.add('client-contact-modal-open')" in footer
+    assert "document.documentElement.classList.remove('client-contact-modal-open')" in footer
 
 
 @pytest.mark.parametrize("domain", SITES)

@@ -68,4 +68,4 @@
 <!-- /Yandex.Metrika counter -->
             </td>
            </tr>
-<script src="/client-standard-forms.js?v=20260721-2" defer></script>
+<script src="/client-standard-forms.js?v=20260721-4" defer></script>
