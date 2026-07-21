@@ -47,9 +47,19 @@ class StandardFormGeneratorTests(unittest.TestCase):
 
         self.assertIn("help@example.ru", handler)
         self.assertIn("wordpress@example.ru", handler)
+        self.assertIn("$_POST['name']", handler)
+        self.assertIn("<strong>Имя:</strong>", handler)
         self.assertIn(module.SUCCESS_MESSAGE, handler)
         self.assertIn(module.POLICY_URL, script)
         self.assertIn("client-standard-mail.php", script)
+
+        callback_name = script.index('name="name"')
+        callback_phone = script.index('name="phone"')
+        self.assertLess(callback_name, callback_phone)
+        self.assertIn("\\u043f\\u043e\\u0434\\u0430\\u0442\\u044c", script)
+        self.assertIn("csf-actions-sidebar", script)
+        self.assertIn("document.querySelector('#leblok')", script)
+        self.assertNotIn("csf-actions-has-legacy-callback", script)
 
     def test_component_resists_legacy_hidden_and_chat_styles(self):
         module = load_module()
