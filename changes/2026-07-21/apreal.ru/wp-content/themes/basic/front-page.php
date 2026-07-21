@@ -150,7 +150,45 @@ require_once('components/navbar.inc.php');
 
                             <style>
                             .text3.info-texts {
-                                position: relative;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                box-sizing: border-box;
+                                width: 736px;
+                                height: 108px;
+                                padding: 0;
+                                text-align: left;
+                            }
+                            #apreal-inline-callback label {
+                                display: block;
+                                margin: 0 0 4px;
+                                color: #a1a1a1;
+                                font-size: 12px;
+                                line-height: 16px;
+                            }
+                            #apreal-inline-callback input[type="text"],
+                            #apreal-inline-callback input[type="tel"] {
+                                box-sizing: border-box;
+                                width: 240px;
+                                height: 42px;
+                                padding: 8px 10px;
+                                border: 1px solid #036fc6;
+                                border-radius: 3px;
+                                background: #fff;
+                                font-size: 16px;
+                                line-height: 24px;
+                            }
+                            #apreal-inline-callback .inp1,
+                            #apreal-inline-callback .inp2,
+                            #apreal-inline-callback .inp3 {
+                                top: 9px;
+                            }
+                            #apreal-inline-callback .inp3 input[type="submit"] {
+                                top: 27px;
+                                box-sizing: border-box;
+                                min-width: 122px;
+                                height: 46px;
+                                padding: 0 14px;
                             }
                             #apreal-inline-callback[hidden],
                             .apreal-inline-callback-result[hidden] {
@@ -158,8 +196,18 @@ require_once('components/navbar.inc.php');
                             }
                             .apreal-inline-callback-result {
                                 box-sizing: border-box;
-                                min-height: 92px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 100%;
+                                height: 100%;
                                 padding: 30px 36px 20px 12px;
+                                text-align: center;
+                            }
+                            .apreal-inline-callback-result p {
+                                margin: 0;
+                                font-size: 18px;
+                                line-height: 1.4;
                             }
                             .apreal-inline-callback-close {
                                 position: absolute;

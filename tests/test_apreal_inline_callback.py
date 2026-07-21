@@ -38,6 +38,16 @@ def test_inline_callback_close_is_positioned_in_top_right_corner() -> None:
     assert "right: 8px" in source
 
 
+def test_inline_callback_preserves_infographic_layout() -> None:
+    source = FRONT_PAGE.read_text(encoding="utf-8")
+
+    assert ".text3.info-texts {\n                                position: absolute" in source
+    assert "width: 736px" in source
+    assert "height: 108px" in source
+    assert '#apreal-inline-callback input[type="tel"]' in source
+    assert "display: block" in source
+
+
 def test_callback_handler_sends_to_site_mailbox_and_returns_json() -> None:
     source = HANDLER.read_text(encoding="utf-8")
 
