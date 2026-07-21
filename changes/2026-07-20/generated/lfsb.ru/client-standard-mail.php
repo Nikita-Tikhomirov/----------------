@@ -35,24 +35,27 @@ $headers = array(
 );
 
 if ($kind === 'callback') {
+    $name = isset($_POST['name']) ? trim(strip_tags((string) $_POST['name'])) : '';
     $phone = isset($_POST['phone']) ? trim(strip_tags((string) $_POST['phone'])) : '';
     if ($phone === '') {
         respond(false, 'Введите телефон.', 400);
     }
     $subject = 'ЗАКАЗАТЬ ЗВОНОК — ' . CSF_DOMAIN;
-    $message = '<p><strong>Телефон:</strong> ' . htmlspecialchars($phone, ENT_QUOTES, 'UTF-8') . '</p>';
+    $message = '<p><strong>Имя:</strong> ' . htmlspecialchars($name, ENT_QUOTES, 'UTF-8') . '</p>';
+    $message .= '<p><strong>Телефон:</strong> ' . htmlspecialchars($phone, ENT_QUOTES, 'UTF-8') . '</p>';
 } elseif ($kind === 'question') {
-    $email = isset($_POST['email']) ? filter_var((string) $_POST['email'], FILTER_VALIDATE_EMAIL) : false;
+    $name = isset($_POST['name']) ? trim(strip_tags((string) $_POST['name'])) : '';
+    $phone = isset($_POST['phone']) ? trim(strip_tags((string) $_POST['phone'])) : '';
     $question = isset($_POST['question']) ? trim(strip_tags((string) $_POST['question'])) : '';
-    if (!$email) {
-        respond(false, 'Введите корректный email.', 400);
+    if ($phone === '') {
+        respond(false, 'Введите телефон.', 400);
     }
     $subject = 'ЗАДАТЬ ВОПРОС — ' . CSF_DOMAIN;
-    $message = '<p><strong>Email:</strong> ' . htmlspecialchars($email, ENT_QUOTES, 'UTF-8') . '</p>';
+    $message = '<p><strong>Имя:</strong> ' . htmlspecialchars($name, ENT_QUOTES, 'UTF-8') . '</p>';
+    $message .= '<p><strong>Телефон:</strong> ' . htmlspecialchars($phone, ENT_QUOTES, 'UTF-8') . '</p>';
     if ($question !== '') {
         $message .= '<p><strong>Вопрос:</strong><br>' . nl2br(htmlspecialchars($question, ENT_QUOTES, 'UTF-8')) . '</p>';
     }
-    $headers[] = 'Reply-To: ' . $email;
 } else {
     respond(false, 'Неизвестная форма.', 400);
 }

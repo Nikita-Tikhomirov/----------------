@@ -61,7 +61,7 @@ class StandardFormGeneratorTests(unittest.TestCase):
     def test_static_bundle_uses_domain_recipient(self):
         module = load_module()
         handler = module.render_static_handler("example.ru", "help@example.ru")
-        script = module.render_static_script()
+        script = module.render_static_script("example.ru")
 
         self.assertIn("help@example.ru", handler)
         self.assertIn("wordpress@example.ru", handler)
@@ -97,10 +97,30 @@ class StandardFormGeneratorTests(unittest.TestCase):
         self.assertIn("document.querySelector('#leblok')", script)
         self.assertNotIn("csf-actions-has-legacy-callback", script)
 
+    def test_lfsb_uses_existing_sidebar_button_location(self):
+        module = load_module()
+        script = module.render_static_script("lfsb.ru")
+
+        self.assertIn("legacyCallbackAnchor", script)
+        self.assertIn("document.querySelector('#leblok,#le5')", script)
+        self.assertIn("legacyCallbackAnchor.style.display='none'", script)
+
+    def test_otxodi_uses_existing_header_buttons_only(self):
+        module = load_module()
+        otxodi = module.render_wordpress_plugin("otxodi.ru", "info@otxodi.ru")
+        ordinary = module.render_wordpress_plugin("example.ru", "info@example.ru")
+
+        self.assertIn(".csf-actions{display:none!important}", otxodi)
+        self.assertIn(".header-top .calc-button", otxodi)
+        self.assertIn(".header-top .backform", otxodi)
+        self.assertIn("csf-actions-mobile", otxodi)
+        self.assertIn("insertAdjacentElement('afterend'", otxodi)
+        self.assertNotIn(".csf-actions{display:none!important}", ordinary)
+
     def test_component_resists_legacy_hidden_and_chat_styles(self):
         module = load_module()
         wordpress = module.render_wordpress_plugin("example.ru", "info@example.ru")
-        static = module.render_static_script()
+        static = module.render_static_script("example.ru")
 
         for source in (wordpress, static):
             self.assertIn(".csf-overlay[hidden],.csf-modal[hidden]", source)
@@ -113,7 +133,7 @@ class StandardFormGeneratorTests(unittest.TestCase):
 
     def test_static_script_is_ascii_for_legacy_page_encodings(self):
         module = load_module()
-        script = module.render_static_script()
+        script = module.render_static_script("example.ru")
 
         script.encode("ascii")
 

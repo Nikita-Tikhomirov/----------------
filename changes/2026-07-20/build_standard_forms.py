@@ -298,6 +298,29 @@ def replace_contract(template: str, domain: str = "", recipient: str = "") -> st
 
 def render_wordpress_plugin(domain: str, recipient: str) -> str:
     source = replace_contract(WORDPRESS_TEMPLATE, domain, recipient)
+    if domain == "otxodi.ru":
+        source = source.replace(
+            "html.client-contact-modal-open body > jdiv",
+            ".csf-actions{display:none!important}@media(max-width:767px){.csf-actions.csf-actions-mobile{position:static!important;display:grid!important;grid-template-columns:1fr 1fr;gap:8px;max-width:none!important;margin:10px;padding:0 10px}}html.client-contact-modal-open body > jdiv",
+            1,
+        )
+        header_bindings = (
+            "[['.header-top .calc-button','question','ЗАДАТЬ ВОПРОС'],"
+            "['.header-top .backform','callback','ЗАКАЗАТЬ ЗВОНОК']].forEach(function(item){"
+            "var el=document.querySelector(item[0]);if(!el)return;el.textContent=item[2];"
+            "el.setAttribute('role','button');el.setAttribute('tabindex','0');"
+            "function activate(event){event.preventDefault();event.stopImmediatePropagation();openModal(item[1]);}"
+            "el.addEventListener('click',activate,true);el.addEventListener('keydown',function(event){"
+            "if(event.key==='Enter'||event.key===' '){activate(event);}},true);});"
+            "var mobileActions=root.querySelector('.csf-actions');var mobileHeader=document.querySelector('header');"
+            "if(mobileActions&&mobileHeader){mobileActions.classList.add('csf-actions-mobile');"
+            "mobileHeader.insertAdjacentElement('afterend',mobileActions);}"
+        )
+        source = source.replace(
+            "root.querySelectorAll('.csf-form')",
+            header_bindings + "root.querySelectorAll('.csf-form')",
+            1,
+        )
     form_ids = LEGACY_CF7_FORMS.get(domain, ())
     if not form_ids:
         protection = ""
@@ -332,8 +355,24 @@ def render_static_handler(domain: str, recipient: str) -> str:
     return replace_contract(STATIC_HANDLER_TEMPLATE, domain, recipient)
 
 
-def render_static_script() -> str:
+def render_static_script(domain: str = "") -> str:
     source = replace_contract(STATIC_SCRIPT_TEMPLATE)
+    if domain == "lfsb.ru":
+        source = source.replace(
+            "var callbackLabels=",
+            "var legacyCallbackAnchor=null;var callbackLabels=",
+            1,
+        )
+        source = source.replace(
+            "if(!kind)return;if(el.tagName===",
+            "if(!kind)return;if(kind==='callback'&&!legacyCallbackAnchor)legacyCallbackAnchor=el;if(el.tagName===",
+            1,
+        )
+        source = source.replace(
+            "var sidebar=document.querySelector('#leblok');if(sidebar&&actions){actions.classList.add('csf-actions-sidebar');sidebar.insertBefore(actions,sidebar.firstChild);}",
+            "var sidebar=document.querySelector('#leblok,#le5');var fallbackAnchor=null;if(!sidebar&&legacyCallbackAnchor){sidebar=legacyCallbackAnchor.parentElement;fallbackAnchor=legacyCallbackAnchor;}if(sidebar&&actions){actions.classList.add('csf-actions-sidebar');sidebar.insertBefore(actions,fallbackAnchor||sidebar.firstChild);}if(legacyCallbackAnchor)legacyCallbackAnchor.style.display='none';",
+            1,
+        )
     return "".join(
         char if ord(char) < 128 else f"\\u{ord(char):04x}"
         for char in source
@@ -361,7 +400,7 @@ def build_domain(
             encoding="utf-8",
         )
         (target / "client-standard-forms.js").write_text(
-            render_static_script(),
+            render_static_script(domain),
             encoding="utf-8",
         )
     else:
