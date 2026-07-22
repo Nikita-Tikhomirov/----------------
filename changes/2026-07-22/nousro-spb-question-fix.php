@@ -18,7 +18,10 @@ function nousro_spb_render_question_form_fix()
     html.nousro-spb-question-open body > jdiv{display:none!important}
     #modal1{overflow-y:auto!important;overflow-x:hidden!important;max-height:calc(100vh - 28px)!important;top:14px!important}
     #modal1 .modal-content{padding-top:24px!important}
-    #modal1 .form-modal-close{position:sticky!important;top:0!important;float:right!important;z-index:5!important;margin:0!important}
+    #modal1 .form-modal-close{position:sticky!important;top:0!important;float:right!important;z-index:5!important;margin:0!important;font-size:0!important;line-height:0!important}
+    #modal1 .form-modal-close::before,#modal1 .form-modal-close::after{content:""!important;position:absolute!important;left:50%!important;top:50%!important;width:20px!important;height:2px!important;background:#fff!important;transform-origin:center!important}
+    #modal1 .form-modal-close::before{transform:translate(-50%,-50%) rotate(45deg)!important}
+    #modal1 .form-modal-close::after{transform:translate(-50%,-50%) rotate(-45deg)!important}
     #modal1 .modal-title{padding-right:58px!important}
     #modal1 .wpcf7-response-output{position:relative!important;z-index:2;margin:12px 0!important;padding:10px 12px!important;border:1px solid #2e7d32!important;background:#fff!important;color:#1b5e20!important;font:600 14px/1.4 Arial,sans-serif!important}
     #modal1 .wpcf7-response-output[aria-hidden="true"]:empty{display:none!important}

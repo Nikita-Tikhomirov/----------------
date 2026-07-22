@@ -59,6 +59,11 @@ class NousroSpbFeedbackTests(unittest.TestCase):
         self.assertIn("#modal1{overflow-y:auto!important", source)
         self.assertIn("overflow-x:hidden!important", source)
         self.assertIn("position:sticky!important", source)
+        self.assertIn("font-size:0!important", source)
+        self.assertIn(".form-modal-close::before", source)
+        self.assertIn(".form-modal-close::after", source)
+        self.assertIn("translate(-50%,-50%) rotate(45deg)", source)
+        self.assertIn("translate(-50%,-50%) rotate(-45deg)", source)
 
 
 if __name__ == "__main__":
