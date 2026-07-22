@@ -16,7 +16,7 @@ function nousro_spb_render_question_form_fix()
     ?>
     <style>
     html.nousro-spb-question-open body > jdiv{display:none!important}
-    #modal1{overflow-y:auto!important;max-height:calc(100vh - 28px)!important;top:14px!important}
+    #modal1{overflow-y:auto!important;overflow-x:hidden!important;max-height:calc(100vh - 28px)!important;top:14px!important}
     #modal1 .modal-content{padding-top:24px!important}
     #modal1 .form-modal-close{position:sticky!important;top:0!important;float:right!important;z-index:5!important;margin:0!important}
     #modal1 .modal-title{padding-right:58px!important}

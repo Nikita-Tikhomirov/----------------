@@ -57,6 +57,7 @@ class NousroSpbFeedbackTests(unittest.TestCase):
         self.assertIn("modal.scrollTop=0", source)
         self.assertNotIn("scrollIntoView", source)
         self.assertIn("#modal1{overflow-y:auto!important", source)
+        self.assertIn("overflow-x:hidden!important", source)
         self.assertIn("position:sticky!important", source)
 
 
