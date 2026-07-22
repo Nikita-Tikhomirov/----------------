@@ -394,6 +394,54 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
             header_bindings + "root.querySelectorAll('.csf-form')",
             1,
         )
+    if domain == "nousro.ru":
+        source = source.replace(
+            "html.client-contact-modal-open body > jdiv",
+            ".csf-actions.csf-actions-nousro{position:static!important;left:auto!important;right:auto!important;bottom:auto!important;display:grid!important;grid-template-columns:1fr 1fr;gap:8px;width:min(720px,calc(100% - 30px));max-width:none!important;margin:16px auto;padding:0}"
+            "@media(max-width:560px){.csf-actions.csf-actions-nousro{width:calc(100% - 98px)!important;margin:16px 83px 16px 15px!important}}"
+            "html.client-contact-modal-open body > jdiv",
+            1,
+        )
+        relocation = (
+            "var actions=root.querySelector('.csf-actions');"
+            "var slider=document.querySelector('.customMainSlider');"
+            "var page=document.querySelector('main.page > main.page')||document.querySelector('main.page');"
+            "if(actions){actions.classList.add('csf-actions-nousro');"
+            "if(slider){if(window.matchMedia('(max-width:560px)').matches)"
+            "slider.insertAdjacentElement('beforebegin',actions);"
+            "else slider.insertAdjacentElement('afterend',actions);}"
+            "else if(page)page.insertBefore(actions,page.firstElementChild);}"
+        )
+        source = source.replace(
+            "root.querySelectorAll('.csf-form')",
+            relocation + "root.querySelectorAll('.csf-form')",
+            1,
+        )
+    if domain == "muc-vrn.ru":
+        source = source.replace(
+            "html.client-contact-modal-open body > jdiv",
+            ".csf-actions{display:none!important}"
+            ".csf-muc-header-callback{box-sizing:border-box;display:inline-flex!important;align-items:center;justify-content:center;align-self:center;width:190px;height:40px;padding:0 18px;background:#ef476f;color:#fff!important;font:700 13px/1.2 Arial,sans-serif;text-decoration:none!important;box-shadow:0 3px 10px rgba(0,0,0,.18)}"
+            ".csf-muc-mobile-callback{background:#ef476f!important;color:#fff!important;font-weight:700!important;text-align:center!important;text-decoration:none!important}"
+            "html.client-contact-modal-open body > jdiv",
+            1,
+        )
+        header_relocation = (
+            "var headerCallback=document.querySelector('.fixed-line-right a');"
+            "var header=document.querySelector('.logotype');"
+            "var contacts=document.querySelector('.logotype__contactus');"
+            "if(headerCallback&&header&&contacts){headerCallback.classList.add('csf-muc-header-callback');"
+            "headerCallback.removeAttribute('target');headerCallback.setAttribute('href','#');"
+            "header.insertBefore(headerCallback,contacts);}"
+            "var mobileCallback=document.querySelector('.mob-dop-btns a');"
+            "if(mobileCallback){mobileCallback.classList.add('csf-muc-mobile-callback');"
+            "mobileCallback.removeAttribute('target');mobileCallback.setAttribute('href','#');}"
+        )
+        source = source.replace(
+            "root.querySelectorAll('.csf-form')",
+            header_relocation + "root.querySelectorAll('.csf-form')",
+            1,
+        )
     form_ids = LEGACY_CF7_FORMS.get(domain, ())
     if not form_ids:
         protection = ""

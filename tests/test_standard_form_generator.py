@@ -210,6 +210,32 @@ class StandardFormGeneratorTests(unittest.TestCase):
         self.assertIn("position:static", script)
         self.assertIn("grid-template-columns:1fr 1fr", script)
 
+    def test_nousro_places_standard_actions_around_main_slider_responsively(self):
+        module = load_module()
+        source = module.render_wordpress_plugin("nousro.ru", "info@nousro.ru")
+
+        self.assertIn("csf-actions-nousro", source)
+        self.assertIn("document.querySelector('.customMainSlider')", source)
+        self.assertIn("window.matchMedia('(max-width:560px)').matches", source)
+        self.assertIn("insertAdjacentElement('beforebegin',actions)", source)
+        self.assertIn("insertAdjacentElement('afterend',actions)", source)
+        self.assertIn("position:static!important", source)
+        self.assertIn("grid-template-columns:1fr 1fr", source)
+        self.assertIn("width:calc(100% - 98px)!important", source)
+        self.assertIn("margin:16px 83px 16px 15px!important", source)
+
+    def test_muc_vrn_removes_fixed_actions_and_promotes_header_callback(self):
+        module = load_module()
+        source = module.render_wordpress_plugin("muc-vrn.ru", "info@muc-vrn.ru")
+
+        self.assertIn(".csf-actions{display:none!important}", source)
+        self.assertIn("csf-muc-header-callback", source)
+        self.assertIn("document.querySelector('.fixed-line-right a')", source)
+        self.assertIn("document.querySelector('.logotype')", source)
+        self.assertIn("header.insertBefore(headerCallback,contacts)", source)
+        self.assertIn("document.querySelector('.mob-dop-btns a')", source)
+        self.assertIn("mobileCallback.removeAttribute('target')", source)
+
     def test_component_resists_legacy_hidden_and_chat_styles(self):
         module = load_module()
         wordpress = module.render_wordpress_plugin("example.ru", "info@example.ru")
