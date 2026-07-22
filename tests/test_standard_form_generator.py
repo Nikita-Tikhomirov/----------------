@@ -189,6 +189,27 @@ class StandardFormGeneratorTests(unittest.TestCase):
         )
         self.assertNotIn('name="email"', question_form)
 
+    def test_apreal72_maps_legacy_modal_links_and_hides_fixed_actions(self):
+        module = load_module()
+        source = module.render_wordpress_plugin("apreal72.ru", "info@apreal72.ru")
+
+        self.assertIn("const CSF_SENDER = 'info@apreal72.ru';", source)
+        self.assertIn(".csf-actions{display:none!important}", source)
+        self.assertIn("['a[href=\"#phone-modal\"]','callback','ЗАКАЗАТЬ ЗВОНОК']", source)
+        self.assertIn("['a[href=\"#license-modal\"]','question','ЗАДАТЬ ВОПРОС']", source)
+        self.assertIn("['a[href=\"#back-modal\"]','question','ЗАДАТЬ ВОПРОС']", source)
+        self.assertIn("if(el.dataset.csfBound==='1')return", source)
+
+    def test_shopap_places_standard_actions_in_page_flow(self):
+        module = load_module()
+        script = module.render_static_script("shopap.ru")
+
+        self.assertIn("csf-actions-shop", script)
+        self.assertIn("document.querySelector('#content')", script)
+        self.assertIn("insertBefore(actions,shopContent.firstChild)", script)
+        self.assertIn("position:static", script)
+        self.assertIn("grid-template-columns:1fr 1fr", script)
+
     def test_component_resists_legacy_hidden_and_chat_styles(self):
         module = load_module()
         wordpress = module.render_wordpress_plugin("example.ru", "info@example.ru")

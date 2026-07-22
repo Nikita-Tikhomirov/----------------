@@ -321,6 +321,11 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
             ('a[href="#license-modal"]', "question", "ЗАДАТЬ ВОПРОС"),
             ('a[href="#back-modal"]', "question", "ЗАДАТЬ ВОПРОС"),
         ),
+        "apreal72.ru": (
+            ('a[href="#phone-modal"]', "callback", "ЗАКАЗАТЬ ЗВОНОК"),
+            ('a[href="#license-modal"]', "question", "ЗАДАТЬ ВОПРОС"),
+            ('a[href="#back-modal"]', "question", "ЗАДАТЬ ВОПРОС"),
+        ),
     }.get(domain)
     if site_bindings:
         source = source.replace(
@@ -439,6 +444,18 @@ def render_static_script(domain: str = "") -> str:
         source = source.replace(
             "var sidebar=document.querySelector('#leblok');if(sidebar&&actions){actions.classList.add('csf-actions-sidebar');sidebar.insertBefore(actions,sidebar.firstChild);}",
             "var sidebar=document.querySelector('#leblok,#le5');var fallbackAnchor=null;if(!sidebar&&legacyCallbackAnchor){sidebar=legacyCallbackAnchor.parentElement;fallbackAnchor=legacyCallbackAnchor;}if(sidebar&&actions){actions.classList.add('csf-actions-sidebar');sidebar.insertBefore(actions,fallbackAnchor||sidebar.firstChild);}if(legacyCallbackAnchor)legacyCallbackAnchor.style.display='none';",
+            1,
+        )
+    if domain == "shopap.ru":
+        source = source.replace(
+            ".csf-actions.csf-actions-sidebar{",
+            ".csf-actions.csf-actions-shop{position:static;right:auto;bottom:auto;display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;max-width:none;margin:0 0 18px;padding:0}"
+            ".csf-actions.csf-actions-sidebar{",
+            1,
+        )
+        source = source.replace(
+            "var sidebar=document.querySelector('#leblok');if(sidebar&&actions){actions.classList.add('csf-actions-sidebar');sidebar.insertBefore(actions,sidebar.firstChild);}",
+            "var shopContent=document.querySelector('#content');if(shopContent&&actions){actions.classList.add('csf-actions-shop');shopContent.insertBefore(actions,shopContent.firstChild);}",
             1,
         )
     return "".join(
