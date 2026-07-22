@@ -117,6 +117,78 @@ class StandardFormGeneratorTests(unittest.TestCase):
         self.assertIn("insertAdjacentElement('afterend'", otxodi)
         self.assertNotIn(".csf-actions{display:none!important}", ordinary)
 
+    def test_apreal_spb_uses_existing_buttons_with_correct_form_kinds(self):
+        module = load_module()
+        source = module.render_wordpress_plugin("apreal.spb.ru", "spb@apreal.ru")
+
+        self.assertIn("const CSF_SENDER = 'spb@apreal.ru';", source)
+        self.assertIn(".csf-actions{display:none!important}", source)
+        self.assertIn(".phones .phones__callback", source)
+        self.assertIn(".ap-mobile-navs .phones__callback", source)
+        self.assertIn(".custom-slider .phones__callback", source)
+        self.assertIn(".uk-width-expand\\\\@m.notForCopy .phones__callback", source)
+        self.assertIn(".uk-width-1-6\\\\@m .uk-button-danger", source)
+        self.assertIn("el.dataset.csfBound='1'", source)
+        self.assertIn("if(el.dataset.csfBound==='1')return", source)
+        self.assertIn("['.phones .phones__callback','callback','ЗАКАЗАТЬ ЗВОНОК']", source)
+        self.assertIn("['.custom-slider .phones__callback','question','ЗАДАТЬ ВОПРОС']", source)
+
+        question_form = source.split('data-modal="question"', 1)[1]
+        self.assertTrue(
+            question_form.index('name="name"')
+            < question_form.index('name="phone"')
+            < question_form.index('name="question"')
+            < question_form.index('name="captcha"')
+        )
+        self.assertNotIn('name="email"', question_form)
+
+    def test_license39_uses_its_existing_buttons_with_correct_form_kinds(self):
+        module = load_module()
+        source = module.render_wordpress_plugin("license39.ru", "info@license39.ru")
+
+        self.assertIn("const CSF_SENDER = 'info@license39.ru';", source)
+        self.assertIn(".csf-actions{display:none!important}", source)
+        self.assertIn("['.phones .phones__callback','callback','ЗАКАЗАТЬ ЗВОНОК']", source)
+        self.assertIn("['.ap-mobile-navs .phones__callback','callback','ЗАКАЗАТЬ ЗВОНОК']", source)
+        self.assertIn("['.custom-slider .phones__callback','question','ЗАДАТЬ ВОПРОС']", source)
+        self.assertIn(
+            "['.uk-width-1-6\\\\@m .uk-button-danger','question','ЗАДАТЬ ВОПРОС']",
+            source,
+        )
+        self.assertIn("el.dataset.csfBound='1'", source)
+        self.assertIn("if(el.dataset.csfBound==='1')return", source)
+
+        question_form = source.split('data-modal="question"', 1)[1]
+        self.assertTrue(
+            question_form.index('name="name"')
+            < question_form.index('name="phone"')
+            < question_form.index('name="question"')
+            < question_form.index('name="captcha"')
+        )
+        self.assertNotIn('name="email"', question_form)
+
+    def test_apreal_nn_maps_legacy_modal_links_to_standard_forms(self):
+        module = load_module()
+        source = module.render_wordpress_plugin("apreal-nn.ru", "info@apreal-nn.ru")
+
+        self.assertIn("const CSF_SENDER = 'info@apreal-nn.ru';", source)
+        self.assertIn(".csf-actions{display:none!important}", source)
+        self.assertIn(".top-phone a[href=\"#phone-modal\"]", source)
+        self.assertIn("width:min(420px,calc(100vw - 28px))!important", source)
+        self.assertIn("['a[href=\"#phone-modal\"]','callback','ЗАКАЗАТЬ ЗВОНОК']", source)
+        self.assertIn("['a[href=\"#license-modal\"]','question','ЗАДАТЬ ВОПРОС']", source)
+        self.assertIn("['a[href=\"#back-modal\"]','question','ЗАДАТЬ ВОПРОС']", source)
+        self.assertIn("if(el.dataset.csfBound==='1')return", source)
+
+        question_form = source.split('data-modal="question"', 1)[1]
+        self.assertTrue(
+            question_form.index('name="name"')
+            < question_form.index('name="phone"')
+            < question_form.index('name="question"')
+            < question_form.index('name="captcha"')
+        )
+        self.assertNotIn('name="email"', question_form)
+
     def test_component_resists_legacy_hidden_and_chat_styles(self):
         module = load_module()
         wordpress = module.render_wordpress_plugin("example.ru", "info@example.ru")

@@ -298,6 +298,74 @@ def replace_contract(template: str, domain: str = "", recipient: str = "") -> st
 
 def render_wordpress_plugin(domain: str, recipient: str) -> str:
     source = replace_contract(WORDPRESS_TEMPLATE, domain, recipient)
+    site_bindings = {
+        "apreal.spb.ru": (
+            (".phones .phones__callback", "callback", "ЗАКАЗАТЬ ЗВОНОК"),
+            (".ap-mobile-navs .phones__callback", "callback", "ЗАКАЗАТЬ ЗВОНОК"),
+            (".custom-slider .phones__callback", "question", "ЗАДАТЬ ВОПРОС"),
+            (
+                ".uk-width-expand\\\\@m.notForCopy .phones__callback",
+                "question",
+                "ЗАДАТЬ ВОПРОС",
+            ),
+            (".uk-width-1-6\\\\@m .uk-button-danger", "question", "ЗАДАТЬ ВОПРОС"),
+        ),
+        "license39.ru": (
+            (".phones .phones__callback", "callback", "ЗАКАЗАТЬ ЗВОНОК"),
+            (".ap-mobile-navs .phones__callback", "callback", "ЗАКАЗАТЬ ЗВОНОК"),
+            (".custom-slider .phones__callback", "question", "ЗАДАТЬ ВОПРОС"),
+            (".uk-width-1-6\\\\@m .uk-button-danger", "question", "ЗАДАТЬ ВОПРОС"),
+        ),
+        "apreal-nn.ru": (
+            ('a[href="#phone-modal"]', "callback", "ЗАКАЗАТЬ ЗВОНОК"),
+            ('a[href="#license-modal"]', "question", "ЗАДАТЬ ВОПРОС"),
+            ('a[href="#back-modal"]', "question", "ЗАДАТЬ ВОПРОС"),
+        ),
+    }.get(domain)
+    if site_bindings:
+        source = source.replace(
+            f"const CSF_SENDER = 'wordpress@{domain}';",
+            f"const CSF_SENDER = '{recipient}';",
+            1,
+        )
+        source = source.replace(
+            "html.client-contact-modal-open body > jdiv",
+            ".csf-actions{display:none!important}html.client-contact-modal-open body > jdiv",
+            1,
+        )
+        if domain == "apreal-nn.ru":
+            source = source.replace(
+                ".csf-actions{display:none!important}",
+                '.csf-actions{display:none!important}'
+                '.top-phone a[href="#phone-modal"]{display:block;margin-top:5px}'
+                ".csf-modal{width:min(420px,calc(100vw - 28px))!important}",
+                1,
+            )
+        binding_items = ",".join(
+            f"['{selector}','{kind}','{label}']"
+            for selector, kind, label in site_bindings
+        )
+        bindings = (
+            f"[{binding_items}].forEach(function(item){{"
+            "document.querySelectorAll(item[0]).forEach(function(el){"
+            "if(el.dataset.csfBound==='1')return;el.dataset.csfBound='1';"
+            "if(el.tagName==='INPUT')el.value=item[2];else el.textContent=item[2];"
+            "el.setAttribute('role','button');el.setAttribute('tabindex','0');"
+            "function activate(event){event.preventDefault();event.stopImmediatePropagation();openModal(item[1]);}"
+            "el.addEventListener('click',activate,true);el.addEventListener('keydown',function(event){"
+            "if(event.key==='Enter'||event.key===' '){activate(event);}},true);});});"
+        )
+        source = source.replace(
+            "document.querySelectorAll('a,button,[role=\"button\"],input[type=\"button\"]')",
+            bindings
+            + "document.querySelectorAll('a,button,[role=\"button\"],input[type=\"button\"]')",
+            1,
+        )
+        source = source.replace(
+            "if(el.closest('.csf-root')||el.closest('form'))return;",
+            "if(el.dataset.csfBound==='1')return;if(el.closest('.csf-root')||el.closest('form'))return;",
+            1,
+        )
     if domain == "otxodi.ru":
         source = source.replace(
             "html.client-contact-modal-open body > jdiv",
