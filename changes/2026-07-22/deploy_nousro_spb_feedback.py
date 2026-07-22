@@ -34,6 +34,13 @@ def with_fallback_recipient(mail: dict) -> dict:
     return updated
 
 
+def with_required_unchecked_consent(form: str) -> str:
+    return form.replace(
+        "[acceptance question-consent default:on]",
+        "[acceptance question-consent]",
+    )
+
+
 def run(ssh: paramiko.SSHClient, command: str) -> str:
     _, stdout, stderr = ssh.exec_command(command)
     output = stdout.read().decode("utf-8", errors="replace")
@@ -78,6 +85,22 @@ def set_mail_config(ssh: paramiko.SSHClient, mail: dict) -> None:
     run(ssh, command)
 
 
+def get_form_config(ssh: paramiko.SSHClient) -> str:
+    command = (
+        f"wp --path={shlex.quote(str(REMOTE_ROOT))} post meta get {FORM_ID} "
+        "_form 2>/dev/null"
+    )
+    return run(ssh, command)
+
+
+def set_form_config(ssh: paramiko.SSHClient, form: str) -> None:
+    command = (
+        f"wp --path={shlex.quote(str(REMOTE_ROOT))} post meta update {FORM_ID} "
+        f"_form {shlex.quote(form)} >/dev/null"
+    )
+    run(ssh, command)
+
+
 def remote_exists(ssh: paramiko.SSHClient, path: PurePosixPath) -> bool:
     with ssh.open_sftp() as sftp:
         try:
@@ -93,6 +116,8 @@ def deploy(ssh: paramiko.SSHClient, source: Path) -> str:
 
     original_mail = get_mail_config(ssh)
     updated_mail = with_fallback_recipient(original_mail)
+    original_form = get_form_config(ssh)
+    updated_form = with_required_unchecked_consent(original_form)
     stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     backup = REMOTE_HOME / "_backups" / f"{stamp}-nousro-spb-feedback"
     run(ssh, f"mkdir -p {shlex.quote(str(backup))} {shlex.quote(str(REMOTE_PLUGIN.parent))}")
@@ -107,6 +132,8 @@ def deploy(ssh: paramiko.SSHClient, source: Path) -> str:
     with ssh.open_sftp() as sftp:
         with sftp.open(str(backup / "form-2005-mail-before.json"), "wb") as handle:
             handle.write(json.dumps(original_mail, ensure_ascii=False, indent=2).encode("utf-8"))
+        with sftp.open(str(backup / "form-2005-before.txt"), "wb") as handle:
+            handle.write(original_form.encode("utf-8"))
 
     temporary = PurePosixPath(str(REMOTE_PLUGIN) + ".new")
     try:
@@ -115,12 +142,17 @@ def deploy(ssh: paramiko.SSHClient, source: Path) -> str:
             sftp.chmod(str(temporary), 0o644)
         print(run(ssh, f"php -l {shlex.quote(str(temporary))}"))
         set_mail_config(ssh, updated_mail)
+        set_form_config(ssh, updated_form)
         run(ssh, f"mv {shlex.quote(str(temporary))} {shlex.quote(str(REMOTE_PLUGIN))}")
         verified = get_mail_config(ssh)
         if verified.get("recipient") != updated_mail["recipient"]:
             raise RuntimeError("Recipient verification failed after update")
+        verified_form = get_form_config(ssh)
+        if verified_form != updated_form or "question-consent default:on" in verified_form:
+            raise RuntimeError("Consent verification failed after update")
     except Exception:
         set_mail_config(ssh, original_mail)
+        set_form_config(ssh, original_form)
         run(ssh, f"rm -f {shlex.quote(str(temporary))}")
         if plugin_existed:
             run(
@@ -135,6 +167,7 @@ def deploy(ssh: paramiko.SSHClient, source: Path) -> str:
     payload = source.read_bytes()
     digest = hashlib.sha256(payload).hexdigest()
     print(f"RECIPIENTS {verified['recipient']}")
+    print("CONSENT required-unchecked")
     print(f"DEPLOYED sha256={digest}")
     print(f"BACKUP {backup}")
     return str(backup)

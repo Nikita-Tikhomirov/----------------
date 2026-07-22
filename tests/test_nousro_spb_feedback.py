@@ -30,6 +30,21 @@ class NousroSpbFeedbackTests(unittest.TestCase):
         self.assertEqual(original["subject"], updated["subject"])
         self.assertEqual("spb@nousro.ru", original["recipient"])
 
+    def test_question_consent_is_not_prechecked(self):
+        module = load_module()
+        original = (
+            '[acceptance question-consent default:on] Согласие '
+            '[/acceptance]'
+        )
+
+        updated = module.with_required_unchecked_consent(original)
+
+        self.assertEqual(
+            '[acceptance question-consent] Согласие [/acceptance]',
+            updated,
+        )
+        self.assertIn("default:on", original)
+
     def test_plugin_moves_response_before_submit_and_hides_chat(self):
         source = PLUGIN_PATH.read_text(encoding="utf-8")
 
@@ -39,7 +54,10 @@ class NousroSpbFeedbackTests(unittest.TestCase):
         self.assertIn("wpcf7mailsent", source)
         self.assertIn("#modal1 .wpcf7-response-output", source)
         self.assertIn("setTimeout(function()", source)
-        self.assertIn("response.scrollIntoView({block:'center'})", source)
+        self.assertIn("modal.scrollTop=0", source)
+        self.assertNotIn("scrollIntoView", source)
+        self.assertIn("#modal1{overflow-y:auto!important", source)
+        self.assertIn("position:sticky!important", source)
 
 
 if __name__ == "__main__":
