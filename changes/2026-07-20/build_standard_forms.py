@@ -54,6 +54,11 @@ LEGACY_CF7_FORMS = {
     "apreal-volgograd.ru": (3261, 3317, 3497),
 }
 
+HIDDEN_STANDARD_ACTIONS = {
+    "ed-kgd.ru",
+    "nousro.ru",
+}
+
 
 WORDPRESS_TEMPLATE = r"""<?php
 /**
@@ -298,6 +303,40 @@ def replace_contract(template: str, domain: str = "", recipient: str = "") -> st
 
 def render_wordpress_plugin(domain: str, recipient: str) -> str:
     source = replace_contract(WORDPRESS_TEMPLATE, domain, recipient)
+    if domain in HIDDEN_STANDARD_ACTIONS:
+        source = source.replace(
+            '''        <div class="csf-actions" aria-label="Формы связи">
+            <button type="button" class="csf-action csf-open-callback">ЗАКАЗАТЬ ЗВОНОК</button>
+            <button type="button" class="csf-action csf-action-secondary csf-open-question">ЗАДАТЬ ВОПРОС</button>
+        </div>
+''',
+            "",
+            1,
+        )
+    if domain == "ed-kgd.ru":
+        source = source.replace(
+            "const CSF_SENDER = 'wordpress@ed-kgd.ru';",
+            "const CSF_SENDER = 'wordpress@ed-kgd.ru';\n"
+            "add_filter('show_admin_bar', '__return_false');\n\n"
+            "function csf_disable_frontend_admin_bar()\n"
+            "{\n"
+            "    if (is_admin()) {\n"
+            "        return;\n"
+            "    }\n"
+            "    show_admin_bar(false);\n"
+            "    remove_action('wp_footer', 'wp_admin_bar_render', 1000);\n"
+            "    remove_action('wp_head', '_admin_bar_bump_cb');\n"
+            "}\n"
+            "add_action('wp_loaded', 'csf_disable_frontend_admin_bar', PHP_INT_MAX);\n\n"
+            "function csf_hide_frontend_admin_bar()\n"
+            "{\n"
+            "    if (!is_admin()) {\n"
+            "        echo '<style>#wpadminbar{display:none!important}html{margin-top:0!important}</style>';\n"
+            "    }\n"
+            "}\n"
+            "add_action('wp_head', 'csf_hide_frontend_admin_bar', PHP_INT_MAX);",
+            1,
+        )
     site_bindings = {
         "apreal.spb.ru": (
             (".phones .phones__callback", "callback", "ЗАКАЗАТЬ ЗВОНОК"),
@@ -392,29 +431,6 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
         source = source.replace(
             "root.querySelectorAll('.csf-form')",
             header_bindings + "root.querySelectorAll('.csf-form')",
-            1,
-        )
-    if domain == "nousro.ru":
-        source = source.replace(
-            "html.client-contact-modal-open body > jdiv",
-            ".csf-actions.csf-actions-nousro{position:static!important;left:auto!important;right:auto!important;bottom:auto!important;display:grid!important;grid-template-columns:1fr 1fr;gap:8px;width:min(720px,calc(100% - 30px));max-width:none!important;margin:16px auto;padding:0}"
-            "@media(max-width:560px){.csf-actions.csf-actions-nousro{width:calc(100% - 98px)!important;margin:16px 83px 16px 15px!important}}"
-            "html.client-contact-modal-open body > jdiv",
-            1,
-        )
-        relocation = (
-            "var actions=root.querySelector('.csf-actions');"
-            "var slider=document.querySelector('.customMainSlider');"
-            "var page=document.querySelector('main.page > main.page')||document.querySelector('main.page');"
-            "if(actions){actions.classList.add('csf-actions-nousro');"
-            "if(slider){if(window.matchMedia('(max-width:560px)').matches)"
-            "slider.insertAdjacentElement('beforebegin',actions);"
-            "else slider.insertAdjacentElement('afterend',actions);}"
-            "else if(page)page.insertBefore(actions,page.firstElementChild);}"
-        )
-        source = source.replace(
-            "root.querySelectorAll('.csf-form')",
-            relocation + "root.querySelectorAll('.csf-form')",
             1,
         )
     if domain == "muc-vrn.ru":

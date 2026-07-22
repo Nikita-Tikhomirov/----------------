@@ -8,9 +8,29 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-const CSF_DOMAIN = 'nousro.ru';
-const CSF_RECIPIENT = 'info@nousro.ru';
-const CSF_SENDER = 'wordpress@nousro.ru';
+const CSF_DOMAIN = 'ed-kgd.ru';
+const CSF_RECIPIENT = 'info@ed-kgd.ru';
+const CSF_SENDER = 'wordpress@ed-kgd.ru';
+add_filter('show_admin_bar', '__return_false');
+
+function csf_disable_frontend_admin_bar()
+{
+    if (is_admin()) {
+        return;
+    }
+    show_admin_bar(false);
+    remove_action('wp_footer', 'wp_admin_bar_render', 1000);
+    remove_action('wp_head', '_admin_bar_bump_cb');
+}
+add_action('wp_loaded', 'csf_disable_frontend_admin_bar', PHP_INT_MAX);
+
+function csf_hide_frontend_admin_bar()
+{
+    if (!is_admin()) {
+        echo '<style>#wpadminbar{display:none!important}html{margin-top:0!important}</style>';
+    }
+}
+add_action('wp_head', 'csf_hide_frontend_admin_bar', PHP_INT_MAX);
 const CSF_SUCCESS = 'Спасибо за Ваше сообщение. Оно успешно отправлено';
 
 function csf_clean_text($key)

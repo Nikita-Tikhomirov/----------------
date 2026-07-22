@@ -210,19 +210,21 @@ class StandardFormGeneratorTests(unittest.TestCase):
         self.assertIn("position:static", script)
         self.assertIn("grid-template-columns:1fr 1fr", script)
 
-    def test_nousro_places_standard_actions_around_main_slider_responsively(self):
+    def test_nousro_omits_standard_actions_by_client_request(self):
         module = load_module()
         source = module.render_wordpress_plugin("nousro.ru", "info@nousro.ru")
 
-        self.assertIn("csf-actions-nousro", source)
-        self.assertIn("document.querySelector('.customMainSlider')", source)
-        self.assertIn("window.matchMedia('(max-width:560px)').matches", source)
-        self.assertIn("insertAdjacentElement('beforebegin',actions)", source)
-        self.assertIn("insertAdjacentElement('afterend',actions)", source)
-        self.assertIn("position:static!important", source)
-        self.assertIn("grid-template-columns:1fr 1fr", source)
-        self.assertIn("width:calc(100% - 98px)!important", source)
-        self.assertIn("margin:16px 83px 16px 15px!important", source)
+        self.assertNotIn('class="csf-actions"', source)
+        self.assertNotIn("csf-actions-nousro", source)
+
+    def test_ed_kgd_omits_standard_actions_and_frontend_admin_bar(self):
+        module = load_module()
+        source = module.render_wordpress_plugin("ed-kgd.ru", "info@ed-kgd.ru")
+
+        self.assertNotIn('class="csf-actions"', source)
+        self.assertIn("add_filter('show_admin_bar', '__return_false');", source)
+        self.assertIn("remove_action('wp_footer', 'wp_admin_bar_render', 1000);", source)
+        self.assertIn("#wpadminbar{display:none!important}", source)
 
     def test_muc_vrn_removes_fixed_actions_and_promotes_header_callback(self):
         module = load_module()
