@@ -48,6 +48,14 @@ class Apreal36QuestionButtonTests(unittest.TestCase):
         self.assertIn("document.documentElement.classList.remove('unipop-open')", footer)
         self.assertIn("html.unipop-open body > jdiv", footer)
 
+    def test_wide_content_tables_do_not_expand_the_mobile_page(self):
+        footer = (THEME_DIR / "footer.php").read_text(encoding="utf-8")
+
+        self.assertIn(".uk-article table", footer)
+        self.assertIn("overflow-x: auto", footer)
+        self.assertIn("max-width: 100%", footer)
+        self.assertIn("width: 100% !important", footer)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -488,6 +488,14 @@
 		}
 
 	@media (max-width: 992px) {
+		.uk-article table {
+			display: block;
+			width: 100% !important;
+			max-width: 100%;
+			overflow-x: auto;
+			-webkit-overflow-scrolling: touch;
+		}
+
 		.unipop {
 			max-width: calc(100% - 30px);
 		}

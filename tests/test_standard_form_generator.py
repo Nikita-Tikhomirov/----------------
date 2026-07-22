@@ -175,6 +175,14 @@ class StandardFormGeneratorTests(unittest.TestCase):
         self.assertIn(".csf-actions{display:none!important}", source)
         self.assertIn(".top-phone a[href=\"#phone-modal\"]", source)
         self.assertIn("width:min(420px,calc(100vw - 28px))!important", source)
+        self.assertIn(
+            "@media(max-width:560px){html,body{max-width:100%;overflow-x:hidden}",
+            source,
+        )
+        self.assertIn(
+            "#primary-menu{width:100%!important;min-width:0!important;max-width:100%!important;display:flex!important;flex-wrap:wrap}",
+            source,
+        )
         self.assertIn("['a[href=\"#phone-modal\"]','callback','ЗАКАЗАТЬ ЗВОНОК']", source)
         self.assertIn("['a[href=\"#license-modal\"]','question','ЗАДАТЬ ВОПРОС']", source)
         self.assertIn("['a[href=\"#back-modal\"]','question','ЗАДАТЬ ВОПРОС']", source)
@@ -199,6 +207,14 @@ class StandardFormGeneratorTests(unittest.TestCase):
         self.assertIn("['a[href=\"#license-modal\"]','question','ЗАДАТЬ ВОПРОС']", source)
         self.assertIn("['a[href=\"#back-modal\"]','question','ЗАДАТЬ ВОПРОС']", source)
         self.assertIn("if(el.dataset.csfBound==='1')return", source)
+        self.assertIn(
+            "@media(max-width:560px){html,body{max-width:100%;overflow-x:hidden}",
+            source,
+        )
+        self.assertIn(
+            "#primary-menu{width:100%!important;min-width:0!important;max-width:100%!important;display:flex!important;flex-wrap:wrap}",
+            source,
+        )
 
     def test_shopap_places_standard_actions_in_page_flow(self):
         module = load_module()

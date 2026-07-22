@@ -377,6 +377,16 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
             ".csf-actions{display:none!important}html.client-contact-modal-open body > jdiv",
             1,
         )
+        if domain in ("apreal-nn.ru", "apreal72.ru"):
+            source = source.replace(
+                ".csf-actions{display:none!important}",
+                '.csf-actions{display:none!important}'
+                "@media(max-width:560px){html,body{max-width:100%;overflow-x:hidden}"
+                "#primary-menu{width:100%!important;min-width:0!important;"
+                "max-width:100%!important;display:flex!important;flex-wrap:wrap}"
+                "#primary-menu>li{float:none!important}}",
+                1,
+            )
         if domain == "apreal-nn.ru":
             source = source.replace(
                 ".csf-actions{display:none!important}",
