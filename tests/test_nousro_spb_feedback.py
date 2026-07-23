@@ -30,20 +30,36 @@ class NousroSpbFeedbackTests(unittest.TestCase):
         self.assertEqual(original["subject"], updated["subject"])
         self.assertEqual("spb@nousro.ru", original["recipient"])
 
-    def test_question_consent_is_not_prechecked(self):
+    def test_contact_form_consent_is_not_prechecked(self):
         module = load_module()
         original = (
             '[acceptance question-consent default:on] Согласие '
             '[/acceptance]'
         )
 
-        updated = module.with_required_unchecked_consent(original)
+        updated = module.with_required_unchecked_consent(
+            original,
+            "question-consent",
+        )
 
         self.assertEqual(
             '[acceptance question-consent] Согласие [/acceptance]',
             updated,
         )
         self.assertIn("default:on", original)
+
+        callback = (
+            '[acceptance callback-consent default:on] Согласие '
+            '[/acceptance]'
+        )
+        callback_updated = module.with_required_unchecked_consent(
+            callback,
+            "callback-consent",
+        )
+        self.assertEqual(
+            '[acceptance callback-consent] Согласие [/acceptance]',
+            callback_updated,
+        )
 
     def test_plugin_moves_response_before_submit_and_hides_chat(self):
         source = PLUGIN_PATH.read_text(encoding="utf-8")
@@ -56,7 +72,7 @@ class NousroSpbFeedbackTests(unittest.TestCase):
         self.assertIn("setTimeout(function()", source)
         self.assertIn("modal.scrollTop=0", source)
         self.assertNotIn("scrollIntoView", source)
-        self.assertIn("#modal1{overflow-y:auto!important", source)
+        self.assertIn("#modal1,#modal2{overflow-y:auto!important", source)
         self.assertIn("overflow-x:hidden!important", source)
         self.assertIn("position:sticky!important", source)
         self.assertIn("font-size:0!important", source)
@@ -64,6 +80,8 @@ class NousroSpbFeedbackTests(unittest.TestCase):
         self.assertIn(".form-modal-close::after", source)
         self.assertIn("translate(-50%,-50%) rotate(45deg)", source)
         self.assertIn("translate(-50%,-50%) rotate(-45deg)", source)
+        self.assertIn("#modal1,#modal2", source)
+        self.assertIn("#modal1 .form-modal-close,#modal2 .form-modal-close", source)
 
 
 if __name__ == "__main__":
