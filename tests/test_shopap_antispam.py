@@ -42,6 +42,16 @@ class ShopapAntispamTests(unittest.TestCase):
         self.assertIn(expected, after)
         self.assertNotEqual(before, after)
 
+    def test_form_script_and_handler_are_deployed_together(self):
+        module = load_module()
+
+        names = {path.name for path in module.REMOTE_FORM_FILES}
+        self.assertEqual(
+            names,
+            {"client-standard-forms.js", "client-standard-mail.php"},
+        )
+        self.assertEqual(module.CACHE_BUSTER, "20260723-1")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import base64
 from datetime import datetime
+import hashlib
 import os
 from pathlib import Path, PurePosixPath
 import posixpath
@@ -18,7 +19,9 @@ import paramiko
 REMOTE_HOME = PurePosixPath("/home/n/nousroc9")
 REMOTE_ROOT = REMOTE_HOME / "shopap.ru/public_html"
 REMOTE_SCRIPT = REMOTE_ROOT / "client-standard-forms.js"
-CACHE_BUSTER = "20260722-2"
+REMOTE_HANDLER = REMOTE_ROOT / "client-standard-mail.php"
+REMOTE_FORM_FILES = (REMOTE_SCRIPT, REMOTE_HANDLER)
+CACHE_BUSTER = "20260723-1"
 REMOTE_FOOTERS = tuple(
     REMOTE_ROOT / relative
     for relative in (
@@ -56,6 +59,15 @@ def connect(host: str, user: str) -> paramiko.SSHClient:
         timeout=20,
     )
     return ssh
+
+
+def digest(payload: bytes) -> str:
+    return hashlib.sha256(payload).hexdigest()
+
+
+def read_remote(sftp: paramiko.SFTPClient, remote: PurePosixPath) -> bytes:
+    with sftp.open(str(remote), "rb") as handle:
+        return handle.read()
 
 
 def build_antispam_php(root: str) -> str:
@@ -132,35 +144,49 @@ def update_footer_include(payload: bytes) -> bytes:
 def download(ssh: paramiko.SSHClient, target: Path) -> None:
     target.mkdir(parents=True, exist_ok=True)
     with ssh.open_sftp() as sftp:
-        sftp.get(str(REMOTE_SCRIPT), str(target / REMOTE_SCRIPT.name))
+        for remote in REMOTE_FORM_FILES:
+            sftp.get(str(remote), str(target / remote.name))
 
 
-def deploy(ssh: paramiko.SSHClient, source: Path) -> str:
-    script = source / REMOTE_SCRIPT.name
-    if not script.is_file():
-        raise RuntimeError(f"Missing deployment file: {script}")
+def deploy(ssh: paramiko.SSHClient, source: Path, baseline: Path) -> str:
+    for remote in REMOTE_FORM_FILES:
+        candidate = source / remote.name
+        reference = baseline / remote.name
+        if not candidate.is_file():
+            raise RuntimeError(f"Missing deployment file: {candidate}")
+        if not reference.is_file():
+            raise RuntimeError(f"Missing baseline file: {reference}")
 
     stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     backup_root = REMOTE_HOME / "_backups" / f"{stamp}-shopap-feedback"
     run(ssh, f"mkdir -p {shlex.quote(str(backup_root))}")
-    run(
-        ssh,
-        f"cp -p {shlex.quote(str(REMOTE_SCRIPT))} "
-        f"{shlex.quote(str(backup_root / REMOTE_SCRIPT.name))}",
-    )
-
-    temporary = PurePosixPath(
-        posixpath.join(str(REMOTE_ROOT), f".{REMOTE_SCRIPT.name}.new")
-    )
-    with ssh.open_sftp() as sftp:
-        sftp.put(str(script), str(temporary))
-    run(
-        ssh,
-        f"chmod 0644 {shlex.quote(str(temporary))} && "
-        f"mv {shlex.quote(str(temporary))} {shlex.quote(str(REMOTE_SCRIPT))}",
-    )
 
     with ssh.open_sftp() as sftp:
+        for remote in REMOTE_FORM_FILES:
+            live = read_remote(sftp, remote)
+            reference = (baseline / remote.name).read_bytes()
+            if digest(live) != digest(reference):
+                raise RuntimeError(
+                    f"Live {remote.name} changed since download: "
+                    f"{digest(live)} != {digest(reference)}"
+                )
+
+        for remote in REMOTE_FORM_FILES:
+            run(
+                ssh,
+                f"cp -p {shlex.quote(str(remote))} "
+                f"{shlex.quote(str(backup_root / remote.name))}",
+            )
+            temporary = PurePosixPath(
+                posixpath.join(str(REMOTE_ROOT), f".{remote.name}.new")
+            )
+            sftp.put(str(source / remote.name), str(temporary))
+            run(
+                ssh,
+                f"chmod 0644 {shlex.quote(str(temporary))} && "
+                f"mv {shlex.quote(str(temporary))} {shlex.quote(str(remote))}",
+            )
+
         for footer in REMOTE_FOOTERS:
             backup = backup_root / footer.relative_to(REMOTE_ROOT)
             run(ssh, f"mkdir -p {shlex.quote(str(backup.parent))}")
@@ -190,9 +216,12 @@ def deploy(ssh: paramiko.SSHClient, source: Path) -> str:
     )
     cache_root = REMOTE_ROOT / "system/storage/cache"
     run(ssh, f"find {shlex.quote(str(cache_root))} -type f -name 'cache.*' -delete")
-    digest = run(ssh, f"sha256sum {shlex.quote(str(REMOTE_SCRIPT))}")
+    checksums = run(
+        ssh,
+        "sha256sum " + " ".join(shlex.quote(str(path)) for path in REMOTE_FORM_FILES),
+    )
     print(antispam)
-    print(digest)
+    print(checksums)
     return str(backup_root)
 
 
@@ -200,6 +229,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("mode", choices=("download", "deploy"))
     parser.add_argument("path", type=Path)
+    parser.add_argument("--baseline", type=Path)
     parser.add_argument("--host", default="nousroc9.beget.tech")
     parser.add_argument("--user", default="nousroc9")
     args = parser.parse_args()
@@ -210,7 +240,9 @@ def main() -> int:
             download(ssh, args.path)
             print(args.path.resolve())
         else:
-            print(deploy(ssh, args.path))
+            if args.baseline is None:
+                raise RuntimeError("--baseline is required for deploy")
+            print(deploy(ssh, args.path, args.baseline))
     finally:
         ssh.close()
     return 0

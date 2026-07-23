@@ -121,7 +121,7 @@ class StandardFormGeneratorTests(unittest.TestCase):
         module = load_module()
         source = module.render_wordpress_plugin("apreal.spb.ru", "spb@apreal.ru")
 
-        self.assertIn("const CSF_SENDER = 'spb@apreal.ru';", source)
+        self.assertIn("const CSF_SENDER = 'wordpress@apreal.spb.ru';", source)
         self.assertIn(".csf-actions{display:none!important}", source)
         self.assertIn(".phones .phones__callback", source)
         self.assertIn(".ap-mobile-navs .phones__callback", source)
