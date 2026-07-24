@@ -31,7 +31,10 @@ async function geometry(form) {
 }
 
 async function openLegacyForm(page, domain) {
-  await page.goto(`https://${domain}/?csf_followup=${Date.now()}`, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  const url = process.env.EXACT_ROOT === '1'
+    ? `https://${domain}/`
+    : `https://${domain}/?csf_followup=${Date.now()}`;
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
   await page.waitForTimeout(1500);
   const form = page.locator('input[name="form-action"][value="phone"]').first().locator('xpath=..');
   const panel = form.locator('xpath=..');
@@ -156,8 +159,11 @@ async function checkApreal(browser, viewport, suffix) {
   fs.mkdirSync(OUTPUT, { recursive: true });
   const browser = await chromium.launch({ executablePath: BROWSER_EXECUTABLE, headless: true });
   const results = [];
+  const domains = process.env.TARGET_DOMAIN
+    ? [process.env.TARGET_DOMAIN]
+    : ['apreal.spb.ru', 'license39.ru', 'apreal-nn.ru'];
   try {
-    for (const domain of ['apreal.spb.ru', 'license39.ru', 'apreal-nn.ru']) {
+    for (const domain of domains) {
       results.push(await checkLegacyDesktop(browser, domain));
       results.push(await checkLegacyMobile(browser, domain));
     }
