@@ -55,6 +55,7 @@ LEGACY_CF7_FORMS = {
 }
 
 HIDDEN_STANDARD_ACTIONS = {
+    "docp.ru",
     "ed-kgd.ru",
     "nousro.ru",
 }

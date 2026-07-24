@@ -117,6 +117,14 @@ class StandardFormGeneratorTests(unittest.TestCase):
         self.assertIn("insertAdjacentElement('afterend'", otxodi)
         self.assertNotIn(".csf-actions{display:none!important}", ordinary)
 
+    def test_docp_omits_duplicate_fixed_actions(self):
+        module = load_module()
+        source = module.render_wordpress_plugin("docp.ru", "info@docp.ru")
+
+        self.assertNotIn('class="csf-actions"', source)
+        self.assertIn('data-modal="callback"', source)
+        self.assertIn('data-modal="question"', source)
+
     def test_apreal_spb_uses_existing_buttons_with_correct_form_kinds(self):
         module = load_module()
         source = module.render_wordpress_plugin("apreal.spb.ru", "spb@apreal.ru")
