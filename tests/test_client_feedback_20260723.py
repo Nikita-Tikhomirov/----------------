@@ -65,14 +65,27 @@ class ClientFeedback20260723Tests(unittest.TestCase):
                 )
                 self.assertIn(
                     ".csf-legacy-phone-form>.csf-inline-result{"
-                    "grid-column:1/-1;grid-row:2}",
+                    "grid-column:1/-1;grid-row:2;"
+                    "margin:4px 0 0!important;padding:4px 10px!important;"
+                    "line-height:1.2!important}",
                     source,
                 )
+                self.assertIn("column-gap:22px;row-gap:0", source)
                 self.assertIn(
                     "@media(max-width:800px){.csf-legacy-phone-form{"
                     "grid-template-columns:1fr!important;width:100%!important}",
                     source,
                 )
+
+    def test_apreal_spb_callback_layer_hides_previous_infographic_slide(self):
+        module = load_generator()
+        source = module.render_wordpress_plugin("apreal.spb.ru", "spb@apreal.ru")
+
+        self.assertIn(
+            ".text3.info-texts{background:#fff!important;opacity:1!important;"
+            "z-index:2!important}",
+            source,
+        )
 
     def test_apreal_nn_legacy_fields_match_apreal_reference_dimensions(self):
         module = load_generator()

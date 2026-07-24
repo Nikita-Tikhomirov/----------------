@@ -420,7 +420,8 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
                 '.csf-legacy-phone-form{display:grid!important;'
                 'grid-template-columns:240px 240px max-content;'
                 'width:max-content!important;max-width:100%;'
-                'gap:22px;align-items:end;position:relative!important;padding:0!important}'
+                'column-gap:22px;row-gap:0;align-items:end;'
+                'position:relative!important;padding:0!important}'
                 '.csf-legacy-phone-form>.inp1,.csf-legacy-phone-form>.inp2,'
                 '.csf-legacy-phone-form>.inp3{position:static!important;left:auto!important;'
                 'right:auto!important;top:auto!important;bottom:auto!important;'
@@ -434,11 +435,20 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
                 '.csf-legacy-phone-form>.inp3 input{position:static!important;left:auto!important;'
                 'right:auto!important;top:auto!important;bottom:auto!important;'
                 'height:42px!important;margin:0!important;transform:none!important}'
-                '.csf-legacy-phone-form>.csf-inline-result{grid-column:1/-1;grid-row:2}'
+                '.csf-legacy-phone-form>.csf-inline-result{grid-column:1/-1;grid-row:2;'
+                'margin:4px 0 0!important;padding:4px 10px!important;line-height:1.2!important}'
                 '@media(max-width:800px){.csf-legacy-phone-form{grid-template-columns:1fr!important;'
                 'width:100%!important}'
                 '.csf-legacy-phone-form>.inp1 input,.csf-legacy-phone-form>.inp2 input{'
                 'width:100%!important}.csf-legacy-phone-form>.csf-inline-result{grid-column:1}}',
+                1,
+            )
+        if domain == "apreal.spb.ru":
+            source = source.replace(
+                ".csf-actions{display:none!important}",
+                '.csf-actions{display:none!important}'
+                '.text3.info-texts{background:#fff!important;opacity:1!important;'
+                'z-index:2!important}',
                 1,
             )
         if domain == "nousro-nn.ru":
