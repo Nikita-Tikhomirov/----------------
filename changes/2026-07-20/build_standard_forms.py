@@ -26,6 +26,7 @@ WORDPRESS_SITES = {
     "docp.ru": "info@docp.ru",
     "elecktro.ru": "info@elecktro.ru",
     "medlic.spb.ru": "info@medlic.spb.ru",
+    "mchs-spb.ru": "info@mchs-spb.ru",
     "otxodi.ru": "info@otxodi.ru",
     "apreal.spb.ru": "spb@apreal.ru",
     "minkult78.ru": "info@minkult78.ru",
@@ -471,7 +472,7 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
             "if(el.dataset.csfBound==='1')return;if(el.closest('.csf-root')||el.closest('form'))return;",
             1,
         )
-    if domain == "otxodi.ru":
+    if domain in {"otxodi.ru", "mchs-spb.ru"}:
         source = source.replace(
             "html.client-contact-modal-open body > jdiv",
             ".csf-actions{display:none!important}"

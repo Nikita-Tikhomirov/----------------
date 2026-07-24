@@ -120,6 +120,28 @@ class StandardFormGeneratorTests(unittest.TestCase):
         self.assertIn("insertAdjacentElement('afterend'", otxodi)
         self.assertNotIn(".csf-actions{display:none!important}", ordinary)
 
+    def test_mchs_spb_matches_the_accepted_otxodi_form_contract(self):
+        module = load_module()
+        source = module.render_wordpress_plugin(
+            "mchs-spb.ru",
+            "info@mchs-spb.ru",
+        )
+
+        self.assertIn("const CSF_RECIPIENT = 'info@mchs-spb.ru';", source)
+        self.assertIn(".csf-actions{display:none!important}", source)
+        self.assertIn(".header-top .calc-button", source)
+        self.assertIn(".header-top .backform", source)
+        self.assertIn("csf-actions-mobile", source)
+
+        question_form = source.split('data-modal="question"', 1)[1]
+        self.assertTrue(
+            question_form.index('name="name"')
+            < question_form.index('name="phone"')
+            < question_form.index('name="question"')
+            < question_form.index('name="captcha"')
+        )
+        self.assertNotIn('name="email"', question_form)
+
     def test_docp_omits_duplicate_fixed_actions(self):
         module = load_module()
         source = module.render_wordpress_plugin("docp.ru", "info@docp.ru")
