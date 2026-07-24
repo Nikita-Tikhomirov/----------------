@@ -417,7 +417,8 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
                 ".csf-actions{display:none!important}",
                 '.csf-actions{display:none!important}'
                 '.csf-legacy-phone-form{display:grid!important;'
-                'grid-template-columns:minmax(0,240px) minmax(0,240px) max-content;'
+                'grid-template-columns:240px 240px max-content;'
+                'width:max-content!important;max-width:100%;'
                 'gap:22px;align-items:end;position:relative!important;padding:0!important}'
                 '.csf-legacy-phone-form>.inp1,.csf-legacy-phone-form>.inp2,'
                 '.csf-legacy-phone-form>.inp3{position:static!important;left:auto!important;'
@@ -432,8 +433,9 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
                 '.csf-legacy-phone-form>.inp3 input{position:static!important;left:auto!important;'
                 'right:auto!important;top:auto!important;bottom:auto!important;'
                 'height:42px!important;margin:0!important;transform:none!important}'
-                '.csf-legacy-phone-form>.csf-inline-result{grid-column:1/-1}'
-                '@media(max-width:800px){.csf-legacy-phone-form{grid-template-columns:1fr!important}'
+                '.csf-legacy-phone-form>.csf-inline-result{grid-column:1/-1;grid-row:2}'
+                '@media(max-width:800px){.csf-legacy-phone-form{grid-template-columns:1fr!important;'
+                'width:100%!important}'
                 '.csf-legacy-phone-form>.inp1 input,.csf-legacy-phone-form>.inp2 input{'
                 'width:100%!important}.csf-legacy-phone-form>.csf-inline-result{grid-column:1}}',
                 1,

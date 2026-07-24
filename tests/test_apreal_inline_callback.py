@@ -55,7 +55,7 @@ def test_inline_callback_uses_stable_aligned_grid() -> None:
     assert "display: grid;" in source
     assert "grid-template-columns: 240px 240px max-content;" in source
     assert "align-items: end;" in source
-    assert "padding: 10px 0 0;" in source
+    assert "padding: 10px 12px 0;" in source
     assert "position: static !important;" in source
     assert "#apreal-inline-callback .inp3 input[type=\"submit\"]" in source
     assert "height: 42px;" in source

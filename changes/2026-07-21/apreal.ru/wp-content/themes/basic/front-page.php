@@ -166,7 +166,7 @@ require_once('components/navbar.inc.php');
                                 align-items: end;
                                 position: relative;
                                 width: 100%;
-                                padding: 10px 0 0;
+                                padding: 10px 12px 0;
                                 box-sizing: border-box;
                             }
                             #apreal-inline-callback label {

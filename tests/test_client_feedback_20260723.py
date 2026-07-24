@@ -46,7 +46,11 @@ class ClientFeedback20260723Tests(unittest.TestCase):
                 self.assertIn("submitStandardPayload(payload,0)", source)
                 self.assertIn("csf-inline-result", source)
                 self.assertIn("csf-legacy-phone-form", source)
-                self.assertIn("grid-template-columns:minmax(0,240px) minmax(0,240px) max-content", source)
+                self.assertIn(
+                    "grid-template-columns:240px 240px max-content;"
+                    "width:max-content!important;max-width:100%",
+                    source,
+                )
                 self.assertIn(
                     ".csf-legacy-phone-form>.inp1,.csf-legacy-phone-form>.inp2,.csf-legacy-phone-form>.inp3{position:static!important",
                     source,
@@ -57,6 +61,16 @@ class ClientFeedback20260723Tests(unittest.TestCase):
                 )
                 self.assertIn(
                     "box-sizing:border-box!important;margin:0!important",
+                    source,
+                )
+                self.assertIn(
+                    ".csf-legacy-phone-form>.csf-inline-result{"
+                    "grid-column:1/-1;grid-row:2}",
+                    source,
+                )
+                self.assertIn(
+                    "@media(max-width:800px){.csf-legacy-phone-form{"
+                    "grid-template-columns:1fr!important;width:100%!important}",
                     source,
                 )
 
