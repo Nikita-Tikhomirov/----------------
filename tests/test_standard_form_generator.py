@@ -111,6 +111,9 @@ class StandardFormGeneratorTests(unittest.TestCase):
         ordinary = module.render_wordpress_plugin("example.ru", "info@example.ru")
 
         self.assertIn(".csf-actions{display:none!important}", otxodi)
+        self.assertIn(".header-top .calc-button{cursor:pointer", otxodi)
+        self.assertIn(".header-top .calc-button:hover", otxodi)
+        self.assertIn(".header-top .calc-button:focus-visible", otxodi)
         self.assertIn(".header-top .calc-button", otxodi)
         self.assertIn(".header-top .backform", otxodi)
         self.assertIn("csf-actions-mobile", otxodi)

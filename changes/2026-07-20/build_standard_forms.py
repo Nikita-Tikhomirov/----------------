@@ -472,7 +472,15 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
     if domain == "otxodi.ru":
         source = source.replace(
             "html.client-contact-modal-open body > jdiv",
-            ".csf-actions{display:none!important}@media(max-width:767px){.csf-actions.csf-actions-mobile{position:static!important;display:grid!important;grid-template-columns:1fr 1fr;gap:8px;max-width:none!important;margin:10px;padding:0 10px}}html.client-contact-modal-open body > jdiv",
+            ".csf-actions{display:none!important}"
+            ".header-top .calc-button{cursor:pointer;transition:opacity .15s ease;"
+            "text-decoration-thickness:1px;text-underline-offset:3px}"
+            ".header-top .calc-button:hover{opacity:.72;text-decoration:underline}"
+            ".header-top .calc-button:focus-visible{outline:2px solid currentColor;"
+            "outline-offset:3px}"
+            "@media(max-width:767px){.csf-actions.csf-actions-mobile{position:static!important;"
+            "display:grid!important;grid-template-columns:1fr 1fr;gap:8px;max-width:none!important;"
+            "margin:10px;padding:0 10px}}html.client-contact-modal-open body > jdiv",
             1,
         )
         header_bindings = (
