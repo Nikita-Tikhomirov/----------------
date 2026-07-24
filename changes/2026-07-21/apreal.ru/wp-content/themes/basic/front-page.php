@@ -159,6 +159,16 @@ require_once('components/navbar.inc.php');
                                 padding: 0;
                                 text-align: left;
                             }
+                            #apreal-inline-callback {
+                                display: grid;
+                                grid-template-columns: 240px 240px max-content;
+                                gap: 22px;
+                                align-items: end;
+                                position: relative;
+                                width: 100%;
+                                padding: 10px 0 0;
+                                box-sizing: border-box;
+                            }
                             #apreal-inline-callback label {
                                 display: block;
                                 margin: 0 0 4px;
@@ -181,13 +191,27 @@ require_once('components/navbar.inc.php');
                             #apreal-inline-callback .inp1,
                             #apreal-inline-callback .inp2,
                             #apreal-inline-callback .inp3 {
-                                top: 9px;
+                                position: static !important;
+                                top: auto !important;
+                                left: auto !important;
+                                right: auto !important;
+                                bottom: auto !important;
+                                width: auto !important;
+                                height: auto !important;
+                                margin: 0 !important;
+                                transform: none !important;
+                                float: none !important;
                             }
                             #apreal-inline-callback .inp3 input[type="submit"] {
-                                top: 27px;
+                                position: static !important;
+                                top: auto;
+                                left: auto;
+                                right: auto;
+                                bottom: auto;
+                                transform: none;
                                 box-sizing: border-box;
                                 min-width: 122px;
-                                height: 46px;
+                                height: 42px;
                                 padding: 0 14px;
                             }
                             #apreal-inline-callback[hidden],

@@ -50,7 +50,7 @@ class ShopapAntispamTests(unittest.TestCase):
             names,
             {"client-standard-forms.js", "client-standard-mail.php"},
         )
-        self.assertEqual(module.CACHE_BUSTER, "20260723-1")
+        self.assertEqual(module.CACHE_BUSTER, "20260724-1")
 
 
 if __name__ == "__main__":

@@ -1,5 +1,6 @@
 import importlib.util
 from pathlib import Path
+import re
 import unittest
 
 
@@ -30,6 +31,7 @@ class ClientFeedback20260723Tests(unittest.TestCase):
         module = load_generator()
 
         for domain, recipient in (
+            ("apreal.spb.ru", "spb@apreal.ru"),
             ("license39.ru", "info@license39.ru"),
             ("apreal-nn.ru", "info@apreal-nn.ru"),
         ):
@@ -43,6 +45,20 @@ class ClientFeedback20260723Tests(unittest.TestCase):
                 self.assertIn("legacyPhoneForm.dataset.csfBound", source)
                 self.assertIn("submitStandardPayload(payload,0)", source)
                 self.assertIn("csf-inline-result", source)
+                self.assertIn("csf-legacy-phone-form", source)
+                self.assertIn("grid-template-columns:minmax(0,240px) minmax(0,240px) max-content", source)
+                self.assertIn(
+                    ".csf-legacy-phone-form>.inp1,.csf-legacy-phone-form>.inp2,.csf-legacy-phone-form>.inp3{position:static!important",
+                    source,
+                )
+                self.assertIn(
+                    ".csf-legacy-phone-form>.inp3 input{position:static!important",
+                    source,
+                )
+                self.assertIn(
+                    "box-sizing:border-box!important;margin:0!important",
+                    source,
+                )
 
     def test_apreal_nn_legacy_fields_match_apreal_reference_dimensions(self):
         module = load_generator()
@@ -57,25 +73,47 @@ class ClientFeedback20260723Tests(unittest.TestCase):
         self.assertIn("height:42px!important", source)
         self.assertIn("font-size:16px!important", source)
 
-    def test_shopap_question_form_contains_only_phone(self):
+    def test_shopap_question_form_keeps_question_and_visible_captcha(self):
         module = load_generator()
         script = module.render_static_script("shopap.ru")
+        script = re.sub(
+            r"\\u([0-9a-fA-F]{4})",
+            lambda match: chr(int(match.group(1), 16)),
+            script,
+        )
         handler = module.render_static_handler("shopap.ru", "info@shopap.ru")
         question = script.split('data-modal="question"', 1)[1]
 
+        self.assertIn('name="name"', question)
         self.assertIn('name="phone"', question)
-        self.assertIn('name="captcha" value="5"', question)
+        self.assertIn('name="question"', question)
+        self.assertIn('name="captcha" required', question)
+        self.assertIn('Введите цифрами: пять', question)
         self.assertNotIn('name="email"', question)
-        self.assertNotIn('name="name"', question)
-        self.assertNotIn('name="question"', question)
 
         question_handler = handler.split(
             "} elseif ($kind === 'question') {",
             1,
         )[1].split("} else {", 1)[0]
+        self.assertIn("$_POST['name']", question_handler)
         self.assertIn("$_POST['phone']", question_handler)
+        self.assertIn("$_POST['question']", question_handler)
         self.assertNotIn("$_POST['email']", question_handler)
-        self.assertNotIn("$_POST['question']", question_handler)
+
+    def test_nousro_nn_replaces_old_request_modal_and_hides_fixed_actions(self):
+        module = load_generator()
+        source = module.render_wordpress_plugin(
+            "nousro-nn.ru",
+            "info@nousro-nn.ru",
+        )
+
+        self.assertIn(".csf-actions{display:none!important}", source)
+        self.assertIn("['#mail-us','callback','ОТПРАВИТЬ ЗАЯВКУ']", source)
+        self.assertIn(
+            '<h2 id="csf-callback-title">ОСТАВИТЬ ЗАЯВКУ</h2>',
+            source,
+        )
+        self.assertIn("html.client-contact-modal-open body > jdiv", source)
 
     def test_apreal36_popup_fits_mobile_viewport(self):
         footer = (

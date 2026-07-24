@@ -203,7 +203,7 @@ function csf_render_forms()
     html.client-contact-modal-open body > jdiv{display:none!important}.csf-root,.csf-root *{box-sizing:border-box}.csf-actions{position:fixed;right:96px;bottom:16px;z-index:2147483600;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 112px)}.csf-action,.csf-submit{border:0;border-radius:4px;background:#c62828;color:#fff;padding:12px 16px;font:700 14px/1.2 Arial,sans-serif;letter-spacing:0;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.22)}.csf-action-secondary{background:#263238}.csf-overlay{position:fixed;inset:0;z-index:2147483601;background:rgba(0,0,0,.62)}.csf-modal{position:fixed;z-index:2147483602;left:50%;top:50%;transform:translate(-50%,-50%);width:min(520px,calc(100vw - 28px));max-height:calc(100vh - 28px);overflow:auto;background:#fff;color:#222;padding:28px;border-radius:6px;box-shadow:0 12px 50px rgba(0,0,0,.4);font-family:Arial,sans-serif}.csf-overlay[hidden],.csf-modal[hidden]{display:none!important}.csf-modal h2{margin:0 42px 22px 0;font:700 24px/1.2 Arial,sans-serif;letter-spacing:0;color:#222}.csf-close{position:absolute;right:12px;top:8px;width:38px;height:38px;border:0;background:transparent;color:#111;font:700 34px/34px Arial,sans-serif;cursor:pointer}.csf-form{display:grid;gap:14px}.csf-form label{display:grid;gap:6px;font:600 14px/1.3 Arial,sans-serif;color:#222}.csf-form input,.csf-form textarea{width:100%;border:1px solid #999;border-radius:3px;background:#fff;color:#111;padding:11px 12px;font:400 16px/1.3 Arial,sans-serif;letter-spacing:0}.csf-form textarea{resize:vertical}.csf-consent{margin:0;font:400 12px/1.45 Arial,sans-serif;color:#444}.csf-consent a{color:#0b57d0;text-decoration:underline}.csf-optional{font-weight:400;color:#666}.csf-result{display:none;margin:0;padding:10px;border:1px solid #2e7d32;color:#1b5e20;font:600 14px/1.4 Arial,sans-serif}.csf-result.is-visible{display:block}.csf-result.is-error{border-color:#c62828;color:#b71c1c}.csf-inline-result{display:none;clear:both;margin:10px 0 0;padding:8px 10px;border:1px solid #2e7d32;background:#fff;color:#1b5e20;font:600 14px/1.35 Arial,sans-serif}.csf-inline-result.is-visible{display:block}.csf-inline-result.is-error{border-color:#c62828;color:#b71c1c}.csf-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;opacity:0!important}.csf-submit[disabled]{opacity:.65;cursor:wait}@media(max-width:560px){.csf-actions{left:10px;right:72px;bottom:10px;display:grid;grid-template-columns:1fr 1fr;max-width:none}.csf-action{padding:11px 8px;font-size:12px}.csf-modal{padding:22px 18px}.csf-modal h2{font-size:20px}}
     </style>
     <script>
-    document.addEventListener('DOMContentLoaded',function(){var root=document.querySelector('.csf-root');if(!root)return;if(root.parentNode!==document.body)document.body.appendChild(root);var overlay=root.querySelector('.csf-overlay');var modals=root.querySelectorAll('.csf-modal');function closeAll(){overlay.hidden=true;modals.forEach(function(modal){modal.hidden=true;});document.documentElement.style.overflow='';document.documentElement.classList.remove('client-contact-modal-open');}function openModal(kind){closeAll();var modal=root.querySelector('[data-modal="'+kind+'"]');if(!modal)return;overlay.hidden=false;modal.hidden=false;document.documentElement.style.overflow='hidden';document.documentElement.classList.add('client-contact-modal-open');var field=modal.querySelector('input:not([type="hidden"]):not(.csf-honeypot)');if(field)field.focus();}function parseResponse(response){return response.text().then(function(text){var payload=null;try{payload=JSON.parse(text);}catch(error){}return {response:response,payload:payload,text:text};});}function refreshNonce(){var data=new URLSearchParams();data.set('action','csf_refresh_nonce');return fetch(root.dataset.endpoint,{method:'POST',body:data,credentials:'same-origin',cache:'no-store'}).then(parseResponse).then(function(outcome){var nonce=outcome.payload&&outcome.payload.success&&outcome.payload.data?outcome.payload.data.nonce:'';if(!nonce)throw new Error('Не удалось обновить форму. Перезагрузите страницу.');return nonce;});}function submitStandardPayload(payload,attempt){return fetch(root.dataset.endpoint,{method:'POST',body:payload,credentials:'same-origin'}).then(parseResponse).then(function(outcome){var response=outcome.response;if(response.status===403&&attempt===0)return refreshNonce().then(function(nonce){payload.set('nonce',nonce);root.querySelectorAll('[name="nonce"]').forEach(function(field){field.value=nonce;});return submitStandardPayload(payload,1);});return outcome;});}function messageFrom(outcome){return outcome.payload&&outcome.payload.data&&outcome.payload.data.message?outcome.payload.data.message:'Не удалось отправить сообщение.';}root.querySelectorAll('.csf-open-callback').forEach(function(el){el.addEventListener('click',function(){openModal('callback');});});root.querySelectorAll('.csf-open-question').forEach(function(el){el.addEventListener('click',function(){openModal('question');});});root.querySelectorAll('.csf-close').forEach(function(el){el.addEventListener('click',closeAll);});overlay.addEventListener('click',closeAll);document.addEventListener('keydown',function(event){if(event.key==='Escape')closeAll();});var callbackLabels=['заказать звонок','обратный звонок','перезвонить','бесплатная консультация','получить бесплатную консультацию','оставить заявку'];var questionLabels=['задать вопрос','расчет стоимости','расчёт стоимости','узнать цену'];document.querySelectorAll('a,button,[role="button"],input[type="button"]').forEach(function(el){if(el.closest('.csf-root')||el.closest('form'))return;var raw=el.tagName==='INPUT'?el.value:el.textContent;var label=(raw||'').replace(/\s+/g,' ').trim().toLowerCase();if(!label||label.length>90)return;var kind='';if(questionLabels.some(function(x){return label.indexOf(x)!==-1;}))kind='question';else if(callbackLabels.some(function(x){return label.indexOf(x)!==-1;}))kind='callback';if(!kind)return;if(el.tagName==='INPUT')el.value=kind==='callback'?'ЗАКАЗАТЬ ЗВОНОК':'ЗАДАТЬ ВОПРОС';else el.textContent=kind==='callback'?'ЗАКАЗАТЬ ЗВОНОК':'ЗАДАТЬ ВОПРОС';el.addEventListener('click',function(event){event.preventDefault();event.stopImmediatePropagation();openModal(kind);},true);});function bindLegacyPhoneForms(){document.querySelectorAll('input[name="form-action"][value="phone"]').forEach(function(marker){var legacyPhoneForm=marker.form;if(!legacyPhoneForm||legacyPhoneForm.dataset.csfBound==='1')return;legacyPhoneForm.dataset.csfBound='1';var result=document.createElement('p');result.className='csf-inline-result';result.setAttribute('aria-live','polite');legacyPhoneForm.appendChild(result);legacyPhoneForm.addEventListener('submit',function(event){event.preventDefault();event.stopImmediatePropagation();var submit=legacyPhoneForm.querySelector('[type="submit"]');var payload=new FormData();payload.set('action','csf_send_form');payload.set('nonce',root.querySelector('[name="nonce"]').value);payload.set('kind','callback');payload.set('page',window.location.href);payload.set('website','');payload.set('name',(legacyPhoneForm.querySelector('[name="phone-name"]')||{}).value||'');payload.set('phone',(legacyPhoneForm.querySelector('[name="phone-phone"]')||{}).value||'');payload.set('captcha','5');result.className='csf-inline-result';result.textContent='';if(submit)submit.disabled=true;submitStandardPayload(payload,0).then(function(outcome){var message=messageFrom(outcome);if(!outcome.response.ok||!outcome.payload||!outcome.payload.success)throw new Error(message);result.textContent=message;result.classList.add('is-visible');legacyPhoneForm.reset();}).catch(function(error){result.textContent=error.message||'Не удалось отправить сообщение.';result.classList.add('is-visible','is-error');}).finally(function(){if(submit)submit.disabled=false;});},true);});}bindLegacyPhoneForms();root.querySelectorAll('.csf-form').forEach(function(form){form.addEventListener('submit',function(event){event.preventDefault();var submit=form.querySelector('.csf-submit');var result=form.querySelector('.csf-result');var page=form.querySelector('[name="page"]');page.value=window.location.href;result.className='csf-result';result.textContent='';submit.disabled=true;submitStandardPayload(new FormData(form),0).then(function(outcome){var message=messageFrom(outcome);if(!outcome.response.ok||!outcome.payload||!outcome.payload.success)throw new Error(message);result.textContent=message;result.classList.add('is-visible');form.reset();}).catch(function(error){result.textContent=error.message||'Не удалось отправить сообщение.';result.classList.add('is-visible','is-error');}).finally(function(){submit.disabled=false;});});});});
+    document.addEventListener('DOMContentLoaded',function(){var root=document.querySelector('.csf-root');if(!root)return;if(root.parentNode!==document.body)document.body.appendChild(root);var overlay=root.querySelector('.csf-overlay');var modals=root.querySelectorAll('.csf-modal');function closeAll(){overlay.hidden=true;modals.forEach(function(modal){modal.hidden=true;});document.documentElement.style.overflow='';document.documentElement.classList.remove('client-contact-modal-open');}function openModal(kind){closeAll();var modal=root.querySelector('[data-modal="'+kind+'"]');if(!modal)return;overlay.hidden=false;modal.hidden=false;document.documentElement.style.overflow='hidden';document.documentElement.classList.add('client-contact-modal-open');var field=modal.querySelector('input:not([type="hidden"]):not(.csf-honeypot)');if(field)field.focus();}function parseResponse(response){return response.text().then(function(text){var payload=null;try{payload=JSON.parse(text);}catch(error){}return {response:response,payload:payload,text:text};});}function refreshNonce(){var data=new URLSearchParams();data.set('action','csf_refresh_nonce');return fetch(root.dataset.endpoint,{method:'POST',body:data,credentials:'same-origin',cache:'no-store'}).then(parseResponse).then(function(outcome){var nonce=outcome.payload&&outcome.payload.success&&outcome.payload.data?outcome.payload.data.nonce:'';if(!nonce)throw new Error('Не удалось обновить форму. Перезагрузите страницу.');return nonce;});}function submitStandardPayload(payload,attempt){return fetch(root.dataset.endpoint,{method:'POST',body:payload,credentials:'same-origin'}).then(parseResponse).then(function(outcome){var response=outcome.response;if(response.status===403&&attempt===0)return refreshNonce().then(function(nonce){payload.set('nonce',nonce);root.querySelectorAll('[name="nonce"]').forEach(function(field){field.value=nonce;});return submitStandardPayload(payload,1);});return outcome;});}function messageFrom(outcome){return outcome.payload&&outcome.payload.data&&outcome.payload.data.message?outcome.payload.data.message:'Не удалось отправить сообщение.';}root.querySelectorAll('.csf-open-callback').forEach(function(el){el.addEventListener('click',function(){openModal('callback');});});root.querySelectorAll('.csf-open-question').forEach(function(el){el.addEventListener('click',function(){openModal('question');});});root.querySelectorAll('.csf-close').forEach(function(el){el.addEventListener('click',closeAll);});overlay.addEventListener('click',closeAll);document.addEventListener('keydown',function(event){if(event.key==='Escape')closeAll();});var callbackLabels=['заказать звонок','обратный звонок','перезвонить','бесплатная консультация','получить бесплатную консультацию','оставить заявку'];var questionLabels=['задать вопрос','расчет стоимости','расчёт стоимости','узнать цену'];document.querySelectorAll('a,button,[role="button"],input[type="button"]').forEach(function(el){if(el.closest('.csf-root')||el.closest('form'))return;var raw=el.tagName==='INPUT'?el.value:el.textContent;var label=(raw||'').replace(/\s+/g,' ').trim().toLowerCase();if(!label||label.length>90)return;var kind='';if(questionLabels.some(function(x){return label.indexOf(x)!==-1;}))kind='question';else if(callbackLabels.some(function(x){return label.indexOf(x)!==-1;}))kind='callback';if(!kind)return;if(el.tagName==='INPUT')el.value=kind==='callback'?'ЗАКАЗАТЬ ЗВОНОК':'ЗАДАТЬ ВОПРОС';else el.textContent=kind==='callback'?'ЗАКАЗАТЬ ЗВОНОК':'ЗАДАТЬ ВОПРОС';el.addEventListener('click',function(event){event.preventDefault();event.stopImmediatePropagation();openModal(kind);},true);});function bindLegacyPhoneForms(){document.querySelectorAll('input[name="form-action"][value="phone"]').forEach(function(marker){var legacyPhoneForm=marker.form;if(!legacyPhoneForm||legacyPhoneForm.dataset.csfBound==='1')return;legacyPhoneForm.dataset.csfBound='1';legacyPhoneForm.classList.add('csf-legacy-phone-form');var result=document.createElement('p');result.className='csf-inline-result';result.setAttribute('aria-live','polite');legacyPhoneForm.appendChild(result);legacyPhoneForm.addEventListener('submit',function(event){event.preventDefault();event.stopImmediatePropagation();var submit=legacyPhoneForm.querySelector('[type="submit"]');var payload=new FormData();payload.set('action','csf_send_form');payload.set('nonce',root.querySelector('[name="nonce"]').value);payload.set('kind','callback');payload.set('page',window.location.href);payload.set('website','');payload.set('name',(legacyPhoneForm.querySelector('[name="phone-name"]')||{}).value||'');payload.set('phone',(legacyPhoneForm.querySelector('[name="phone-phone"]')||{}).value||'');payload.set('captcha','5');result.className='csf-inline-result';result.textContent='';if(submit)submit.disabled=true;submitStandardPayload(payload,0).then(function(outcome){var message=messageFrom(outcome);if(!outcome.response.ok||!outcome.payload||!outcome.payload.success)throw new Error(message);result.textContent=message;result.classList.add('is-visible');legacyPhoneForm.reset();}).catch(function(error){result.textContent=error.message||'Не удалось отправить сообщение.';result.classList.add('is-visible','is-error');}).finally(function(){if(submit)submit.disabled=false;});},true);});}bindLegacyPhoneForms();root.querySelectorAll('.csf-form').forEach(function(form){form.addEventListener('submit',function(event){event.preventDefault();var submit=form.querySelector('.csf-submit');var result=form.querySelector('.csf-result');var page=form.querySelector('[name="page"]');page.value=window.location.href;result.className='csf-result';result.textContent='';submit.disabled=true;submitStandardPayload(new FormData(form),0).then(function(outcome){var message=messageFrom(outcome);if(!outcome.response.ok||!outcome.payload||!outcome.payload.success)throw new Error(message);result.textContent=message;result.classList.add('is-visible');form.reset();}).catch(function(error){result.textContent=error.message||'Не удалось отправить сообщение.';result.classList.add('is-visible','is-error');}).finally(function(){submit.disabled=false;});});});});
     </script>
     <?php
 }
@@ -373,6 +373,9 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
             ('a[href="#license-modal"]', "question", "ЗАДАТЬ ВОПРОС"),
             ('a[href="#back-modal"]', "question", "ЗАДАТЬ ВОПРОС"),
         ),
+        "nousro-nn.ru": (
+            ("#mail-us", "callback", "ОТПРАВИТЬ ЗАЯВКУ"),
+        ),
     }.get(domain)
     if site_bindings:
         if recipient.lower().endswith("@" + domain.lower()):
@@ -406,6 +409,38 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
                 'height:42px!important;padding:8px 10px!important;'
                 'font-size:16px!important;box-sizing:border-box!important}'
                 ".csf-modal{width:min(420px,calc(100vw - 28px))!important}",
+                1,
+            )
+        if domain in ("apreal.spb.ru", "license39.ru", "apreal-nn.ru"):
+            source = source.replace(
+                ".csf-actions{display:none!important}",
+                '.csf-actions{display:none!important}'
+                '.csf-legacy-phone-form{display:grid!important;'
+                'grid-template-columns:minmax(0,240px) minmax(0,240px) max-content;'
+                'gap:22px;align-items:end;position:relative!important;padding:0!important}'
+                '.csf-legacy-phone-form>.inp1,.csf-legacy-phone-form>.inp2,'
+                '.csf-legacy-phone-form>.inp3{position:static!important;left:auto!important;'
+                'right:auto!important;top:auto!important;bottom:auto!important;'
+                'width:auto!important;height:auto!important;margin:0!important;'
+                'transform:none!important;float:none!important}'
+                '.csf-legacy-phone-form>.inp1 label,.csf-legacy-phone-form>.inp2 label{'
+                'display:block!important;margin:0 0 6px!important}'
+                '.csf-legacy-phone-form>.inp1 input,.csf-legacy-phone-form>.inp2 input{'
+                'display:block!important;width:240px!important;height:42px!important;'
+                'box-sizing:border-box!important;margin:0!important}'
+                '.csf-legacy-phone-form>.inp3 input{position:static!important;left:auto!important;'
+                'right:auto!important;top:auto!important;bottom:auto!important;'
+                'height:42px!important;margin:0!important;transform:none!important}'
+                '.csf-legacy-phone-form>.csf-inline-result{grid-column:1/-1}'
+                '@media(max-width:800px){.csf-legacy-phone-form{grid-template-columns:1fr!important}'
+                '.csf-legacy-phone-form>.inp1 input,.csf-legacy-phone-form>.inp2 input{'
+                'width:100%!important}.csf-legacy-phone-form>.csf-inline-result{grid-column:1}}',
+                1,
+            )
+        if domain == "nousro-nn.ru":
+            source = source.replace(
+                '<h2 id="csf-callback-title">ЗАКАЗАТЬ ЗВОНОК</h2>',
+                '<h2 id="csf-callback-title">ОСТАВИТЬ ЗАЯВКУ</h2>',
                 1,
             )
         binding_items = ",".join(
@@ -512,34 +547,7 @@ add_action('wp_head', 'csf_hide_legacy_cf7', 1000);"""
 
 
 def render_static_handler(domain: str, recipient: str) -> str:
-    source = replace_contract(STATIC_HANDLER_TEMPLATE, domain, recipient)
-    if domain == "shopap.ru":
-        source = source.replace(
-            """} elseif ($kind === 'question') {
-    $name = isset($_POST['name']) ? trim(strip_tags((string) $_POST['name'])) : '';
-    $phone = isset($_POST['phone']) ? trim(strip_tags((string) $_POST['phone'])) : '';
-    $question = isset($_POST['question']) ? trim(strip_tags((string) $_POST['question'])) : '';
-    if ($phone === '') {
-        respond(false, 'Введите телефон.', 400);
-    }
-    $subject = 'ЗАДАТЬ ВОПРОС — ' . CSF_DOMAIN;
-    $message = '<p><strong>Имя:</strong> ' . htmlspecialchars($name, ENT_QUOTES, 'UTF-8') . '</p>';
-    $message .= '<p><strong>Телефон:</strong> ' . htmlspecialchars($phone, ENT_QUOTES, 'UTF-8') . '</p>';
-    if ($question !== '') {
-        $message .= '<p><strong>Вопрос:</strong><br>' . nl2br(htmlspecialchars($question, ENT_QUOTES, 'UTF-8')) . '</p>';
-    }
-""",
-            """} elseif ($kind === 'question') {
-    $phone = isset($_POST['phone']) ? trim(strip_tags((string) $_POST['phone'])) : '';
-    if ($phone === '') {
-        respond(false, 'Введите телефон.', 400);
-    }
-    $subject = 'ЗАДАТЬ ВОПРОС — ' . CSF_DOMAIN;
-    $message = '<p><strong>Телефон:</strong> ' . htmlspecialchars($phone, ENT_QUOTES, 'UTF-8') . '</p>';
-""",
-            1,
-        )
-    return source
+    return replace_contract(STATIC_HANDLER_TEMPLATE, domain, recipient)
 
 
 def render_static_script(domain: str = "") -> str:
@@ -561,20 +569,6 @@ def render_static_script(domain: str = "") -> str:
             1,
         )
     if domain == "shopap.ru":
-        source = source.replace(
-            '<label>Имя <span class="csf-optional">(необязательно)</span>'
-            '<input type="text" name="name" autocomplete="name" placeholder="Имя"></label>'
-            '<label>Телефон<input type="tel" name="phone" required autocomplete="tel" '
-            'placeholder="+7 (___) ___-__-__"></label>'
-            '<label>Ваш вопрос <span class="csf-optional">(необязательно)</span>'
-            '<textarea name="question" rows="4"></textarea></label>'
-            '<label>Введите цифрами: пять<input type="text" name="captcha" required '
-            'inputmode="numeric" autocomplete="off"></label>',
-            '<label>Телефон<input type="tel" name="phone" required autocomplete="tel" '
-            'placeholder="+7 (___) ___-__-__"></label>'
-            '<input type="hidden" name="captcha" value="5">',
-            1,
-        )
         source = source.replace(
             ".csf-actions.csf-actions-sidebar{",
             ".csf-actions.csf-actions-shop{position:static;right:auto;bottom:auto;display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;max-width:none;margin:0 0 18px;padding:0}"

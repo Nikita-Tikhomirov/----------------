@@ -21,7 +21,7 @@ REMOTE_ROOT = REMOTE_HOME / "shopap.ru/public_html"
 REMOTE_SCRIPT = REMOTE_ROOT / "client-standard-forms.js"
 REMOTE_HANDLER = REMOTE_ROOT / "client-standard-mail.php"
 REMOTE_FORM_FILES = (REMOTE_SCRIPT, REMOTE_HANDLER)
-CACHE_BUSTER = "20260723-1"
+CACHE_BUSTER = "20260724-1"
 REMOTE_FOOTERS = tuple(
     REMOTE_ROOT / relative
     for relative in (

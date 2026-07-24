@@ -48,6 +48,19 @@ def test_inline_callback_preserves_infographic_layout() -> None:
     assert "display: block" in source
 
 
+def test_inline_callback_uses_stable_aligned_grid() -> None:
+    source = FRONT_PAGE.read_text(encoding="utf-8")
+
+    assert "#apreal-inline-callback {" in source
+    assert "display: grid;" in source
+    assert "grid-template-columns: 240px 240px max-content;" in source
+    assert "align-items: end;" in source
+    assert "padding: 10px 0 0;" in source
+    assert "position: static !important;" in source
+    assert "#apreal-inline-callback .inp3 input[type=\"submit\"]" in source
+    assert "height: 42px;" in source
+
+
 def test_callback_handler_sends_to_site_mailbox_and_returns_json() -> None:
     source = HANDLER.read_text(encoding="utf-8")
 
