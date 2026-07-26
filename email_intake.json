@@ -4473,6 +4473,21 @@
         "evidence": [],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19fa088c77f6d26d",
+      "thread_id": "19fa088c77f6d26d",
+      "from": "support@link-host.net",
+      "subject": "Unpaid invoice",
+      "received_at": "2026-07-26T22:25:45+00:00",
+      "task_id": "unrelated-ap-real-19fa088c77f6d26d",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
     }
   ]
 }

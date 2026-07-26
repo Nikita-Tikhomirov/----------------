@@ -44,13 +44,27 @@ def test_routes_accounting_message_as_finance_without_technical_task():
         {
             "from": "accounting@example.org",
             "subject": "Оплата счета",
-            "body": "Бухгалтерия подтверждает оплату",
+            "body": "Бухгалтерия ГК АП-Риал подтверждает оплату",
             "attachments": [],
         },
     )
 
     assert decision.bucket == "finance"
     assert decision.requires_technical_task is False
+
+
+def test_does_not_route_unrelated_finance_notice_into_client_finances():
+    decision = classify_message(
+        PROFILE,
+        {
+            "from": "support@link-host.net",
+            "subject": "Неоплаченный счет",
+            "body": "Напоминание об оплате услуг личного аккаунта stitch",
+            "attachments": [],
+        },
+    )
+
+    assert decision.bucket == "unrelated"
 
 
 def test_excludes_personal_beget_vps_message():

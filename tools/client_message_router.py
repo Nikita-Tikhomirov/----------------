@@ -120,7 +120,7 @@ def classify_message(profile: ClientProfile, message: dict[str, Any]) -> Routing
     provider = _matches(text, profile.provider_domains, "provider")
     provider_context = _matches(text, profile.provider_keywords, "provider_topic")
 
-    if finance:
+    if finance and evidence:
         return RoutingDecision("finance", tuple(evidence + finance), False)
 
     if provider and (evidence or provider_context):
