@@ -4458,6 +4458,21 @@
         "evidence": [],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19fa03b8ac9ac9dc",
+      "thread_id": "19fa03b8ac9ac9dc",
+      "from": "no-reply@twitch.tv",
+      "subject": "Nevodka starts streaming on Twitch",
+      "received_at": "2026-07-26T21:01:24+00:00",
+      "task_id": "unrelated-ap-real-19fa03b8ac9ac9dc",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
     }
   ]
 }
