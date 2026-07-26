@@ -96,6 +96,7 @@
       "id": "apreal-spb-callback-20260724",
       "site": "apreal.spb.ru",
       "status": "accepted",
+      "reopened": true,
       "financial_classification": "acceptance_fix",
       "request": { "email_message_id": "19f951f43ef61d24" },
       "backup": { "location": "/home/n/nousroc9/_backups/20260724171239-apreal-spb-client-standard-forms.php" },
@@ -108,7 +109,11 @@
         }
       },
       "client_report": { "email_message_id": "19f951f43ef61d24" },
-      "client_acceptance": { "evidence": "client confirmed APREAL.SPB.RU without comments" }
+      "client_acceptance": { "evidence": "client confirmed APREAL.SPB.RU without comments" },
+      "prevention": {
+        "root_cause": "a stale W3 Total Cache page copy continued serving the previous callback layout",
+        "regression_protection": "tests/test_apreal_spb_page_cache.py and clean-URL live form verification"
+      }
     },
     {
       "id": "medlic-seo-20260725",
@@ -125,7 +130,10 @@
           "mobile": "output/visual-qa/2026-07-25/medlic-mobile.png"
         }
       },
-      "client_report": { "email_message_id": "19f9a306689f3bcd" }
+      "client_report": {
+        "email_message_id": "19f9a306689f3bcd",
+        "sent_at": "2026-07-25T16:51:30"
+      }
     }
   ]
 }

@@ -63,6 +63,12 @@ def validate_register(registry: dict[str, Any], root: Path | None = None) -> lis
         if task.get("financial_classification") not in VALID_FINANCIAL_CLASSES:
             errors.append(f"{task_id}: invalid financial classification")
 
+        if task.get("reopened"):
+            if not _nonempty(_nested(task, "prevention", "root_cause")):
+                errors.append(f"{task_id}: reopened task is missing prevention root cause")
+            if not _nonempty(_nested(task, "prevention", "regression_protection")):
+                errors.append(f"{task_id}: reopened task is missing regression protection")
+
         if status not in FINAL_STATUSES:
             continue
 
