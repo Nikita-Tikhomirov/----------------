@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "targets": [
+    {
+      "id": "mchs-spb-mail",
+      "domain": "mchs-spb.ru",
+      "expected_mx": ["emx.mail.ru"],
+      "spf_required": ["include:beget.com", "include:_spf.mail.ru"],
+      "dkim": {
+        "name": "beget._domainkey.mchs-spb.ru",
+        "required": ["v=DKIM1", "p="]
+      }
+    }
+  ]
+}

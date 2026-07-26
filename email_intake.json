@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "messages": [
+    {
+      "id": "19f9a005ec1821e7",
+      "thread_id": "19f9a005ec1821e7",
+      "from": "khorov69@mail.ru",
+      "subject": "MEDLIC.SPB.RU",
+      "received_at": "2026-07-25T18:58:49+03:00",
+      "task_id": "medlic-seo-20260725",
+      "attachments": ["image.png"],
+      "state": "processed"
+    }
+  ]
+}

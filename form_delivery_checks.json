@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "checks": [
+    {
+      "id": "apreal-spb-callback",
+      "site": "apreal.spb.ru",
+      "last_verified_at": "2026-07-24",
+      "max_age_days": 30,
+      "mailbox_access": "unavailable"
+    },
+    {
+      "id": "license39-callback",
+      "site": "license39.ru",
+      "last_verified_at": "2026-07-24",
+      "max_age_days": 30,
+      "mailbox_access": "unavailable"
+    },
+    {
+      "id": "apreal-nn-callback",
+      "site": "apreal-nn.ru",
+      "last_verified_at": "2026-07-24",
+      "max_age_days": 30,
+      "mailbox_access": "unavailable"
+    },
+    {
+      "id": "shopap-question",
+      "site": "shopap.ru",
+      "last_verified_at": "2026-07-24",
+      "max_age_days": 30,
+      "mailbox_access": "unavailable"
+    },
+    {
+      "id": "nousro-nn-request",
+      "site": "nousro-nn.ru",
+      "last_verified_at": "2026-07-24",
+      "max_age_days": 30,
+      "mailbox_access": "unavailable"
+    },
+    {
+      "id": "mchs-spb-forms",
+      "site": "mchs-spb.ru",
+      "last_verified_at": "2026-07-24",
+      "max_age_days": 30,
+      "mailbox_access": "unavailable"
+    }
+  ]
+}
