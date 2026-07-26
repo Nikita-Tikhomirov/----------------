@@ -85,10 +85,12 @@ def test_requires_client_context_for_provider_message():
 def test_search_plan_covers_unread_mail_and_client_context_not_only_known_senders():
     queries = build_search_queries(PROFILE)
 
-    assert "is:unread in:inbox" in queries
+    assert "is:unread in:inbox newer_than:30d" in queries
     assert any("nousro-nn.ru" in query for query in queries)
     assert any("бухгалтерия" in query for query in queries)
 
 
 def test_cycle_reads_known_message_ids_from_the_intake_ledger():
-    assert known_message_ids({"messages": [{"id": "first"}, {"id": "second"}]}) == {"first", "second"}
+    assert known_message_ids(
+        {"messages": [{"id": "first"}], "ignored_messages": [{"id": "second"}]}
+    ) == {"first", "second"}

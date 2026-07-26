@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from tools.client_intake import intake_message
+from tools.client_intake import intake_message, separate_ignored_messages
 from tools.client_message_router import ClientProfile
 
 
@@ -128,3 +128,38 @@ def test_keeps_a_caller_supplied_existing_task_id_when_importing_history():
     )
 
     assert ledger["messages"][0]["task_id"] == "form-acceptance-20260724"
+
+
+def test_records_unrelated_mail_outside_the_client_message_register():
+    ledger, result = intake_message(
+        {"messages": []},
+        PROFILE,
+        {
+            "id": "unrelated-email",
+            "thread_id": "unrelated-thread",
+            "from": "newsletter@example.org",
+            "subject": "Weekly digest",
+            "body": "No client context",
+            "received_at": "2026-07-26T12:00:00+03:00",
+            "attachments": [],
+        },
+    )
+
+    assert result.bucket == "unrelated"
+    assert ledger["messages"] == []
+    assert ledger["ignored_messages"][0]["id"] == "unrelated-email"
+
+
+def test_migrates_legacy_unrelated_mail_out_of_client_history():
+    normalized, changed = separate_ignored_messages(
+        {
+            "messages": [
+                {"id": "newsletter", "routing": {"bucket": "unrelated"}},
+                {"id": "client-mail", "routing": {"bucket": "technical"}},
+            ]
+        }
+    )
+
+    assert changed is True
+    assert [item["id"] for item in normalized["messages"]] == ["client-mail"]
+    assert [item["id"] for item in normalized["ignored_messages"]] == ["newsletter"]

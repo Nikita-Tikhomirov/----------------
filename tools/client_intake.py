@@ -31,6 +31,54 @@ def _task_id(profile: ClientProfile, message: dict[str, Any], decision: RoutingD
     return f"{prefix}-{profile.id}-{message['id']}"
 
 
+def separate_ignored_messages(ledger: dict[str, Any]) -> tuple[dict[str, Any], bool]:
+    """Move legacy unrelated records out of client history."""
+    updated = copy.deepcopy(ledger)
+    messages = updated.setdefault("messages", [])
+    ignored = updated.setdefault("ignored_messages", [])
+    if not isinstance(messages, list) or not isinstance(ignored, list):
+        raise ValueError("ledger messages and ignored_messages must be lists")
+
+    retained_messages = []
+    migrated = False
+    ignored_ids = {item.get("id") for item in ignored if isinstance(item, dict)}
+    for existing in messages:
+        is_unrelated = (
+            isinstance(existing, dict)
+            and isinstance(existing.get("routing"), dict)
+            and existing["routing"].get("bucket") == "unrelated"
+        )
+        if is_unrelated:
+            if existing.get("id") not in ignored_ids:
+                ignored.append(existing)
+                ignored_ids.add(existing.get("id"))
+            migrated = True
+        else:
+            retained_messages.append(existing)
+    updated["messages"] = retained_messages
+    return updated, migrated
+
+
+def _record_ignored_message(
+    ledger: dict[str, Any], record: dict[str, Any]
+) -> tuple[dict[str, Any], bool]:
+    """Remember unrelated mail for deduplication without polluting client history."""
+    updated, migrated = separate_ignored_messages(ledger)
+    retained_messages = updated["messages"]
+    ignored = updated["ignored_messages"]
+
+    known_ids = {
+        item.get("id")
+        for item in (*retained_messages, *ignored)
+        if isinstance(item, dict) and isinstance(item.get("id"), str)
+    }
+    if record["id"] in known_ids:
+        return updated, migrated
+
+    ignored.append(record)
+    return updated, True
+
+
 def intake_message(
     ledger: dict[str, Any],
     profile: ClientProfile,
@@ -54,7 +102,10 @@ def intake_message(
             "requires_technical_task": decision.requires_technical_task,
         },
     }
-    updated, created = register_message(ledger, record)
+    if decision.bucket == "unrelated":
+        updated, created = _record_ignored_message(ledger, record)
+    else:
+        updated, created = register_message(ledger, record)
     changed = created
     if not created:
         updated = copy.deepcopy(updated)

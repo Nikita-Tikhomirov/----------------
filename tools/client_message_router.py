@@ -21,6 +21,7 @@ class ClientProfile:
     excluded_signals: tuple[str, ...]
     provider_domains: tuple[str, ...]
     provider_keywords: tuple[str, ...]
+    mail_lookback_days: int
 
     @classmethod
     def from_mapping(cls, value: dict[str, Any]) -> "ClientProfile":
@@ -34,6 +35,10 @@ class ClientProfile:
         if not isinstance(identifier, str) or not identifier.strip():
             raise ValueError("profile id must be a non-empty string")
 
+        lookback_days = value.get("mail_lookback_days", 30)
+        if not isinstance(lookback_days, int) or not 1 <= lookback_days <= 365:
+            raise ValueError("profile field mail_lookback_days must be between 1 and 365")
+
         return cls(
             id=identifier,
             company_names=strings("company_names"),
@@ -43,6 +48,7 @@ class ClientProfile:
             excluded_signals=strings("excluded_signals"),
             provider_domains=strings("provider_domains"),
             provider_keywords=strings("provider_keywords"),
+            mail_lookback_days=lookback_days,
         )
 
     @classmethod
@@ -62,16 +68,17 @@ def build_search_queries(profile: ClientProfile) -> tuple[str, ...]:
     def grouped(values: tuple[str, ...]) -> str:
         return " OR ".join(f'"{value}"' for value in values)
 
-    queries = ["is:unread in:inbox"]
+    scope = f"in:inbox newer_than:{profile.mail_lookback_days}d"
+    queries = [f"is:unread {scope}"]
     if profile.contacts:
-        queries.append(f"in:inbox ({grouped(profile.contacts)})")
+        queries.append(f"{scope} ({grouped(profile.contacts)})")
     context = profile.company_names + profile.domains
     if context:
-        queries.append(f"in:inbox ({grouped(context)})")
+        queries.append(f"{scope} ({grouped(context)})")
     if profile.financial_keywords:
-        queries.append(f"in:inbox ({grouped(profile.financial_keywords)})")
+        queries.append(f"{scope} ({grouped(profile.financial_keywords)})")
     if profile.provider_domains:
-        queries.append(f"in:inbox ({grouped(profile.provider_domains)})")
+        queries.append(f"{scope} ({grouped(profile.provider_domains)})")
     return tuple(queries)
 
 
