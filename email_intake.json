@@ -354,5 +354,169 @@
       },
       "state": "processed"
     }
+  ],
+  "ignored_messages": [
+    {
+      "id": "19f9fb89ab906293",
+      "thread_id": "19f9fb89ab906293",
+      "from": "Sélection Quora <french-personalized-digest@quora.com>",
+      "subject": "L'IRAN VIENT DE FRAPPER L'INFRASTRUCTURE PÉTROLIÈRE DU GOLFE",
+      "received_at": "2026-07-26T18:38:21+00:00",
+      "task_id": "unrelated-ap-real-19f9fb89ab906293",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f9f660ba4768d9",
+      "thread_id": "19f9ef691f75ddd1",
+      "from": "info@andimodul.lt",
+      "subject": "Заявка с сайта andimodul.lt",
+      "received_at": "2026-07-26T20:08:10+03:00",
+      "task_id": "unrelated-ap-real-19f9f660ba4768d9",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f9ef691f75ddd1",
+      "thread_id": "19f9ef691f75ddd1",
+      "from": "info@andimodul.lt",
+      "subject": "Заявка с сайта andimodul.lt",
+      "received_at": "2026-07-26T18:06:24+03:00",
+      "task_id": "unrelated-ap-real-19f9ef691f75ddd1",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f9c2f5c190e2d1",
+      "thread_id": "19f9c2f5c190e2d1",
+      "from": "info@andimodul.lt",
+      "subject": "Заявка с сайта andimodul.lt",
+      "received_at": "2026-07-26T05:09:35+03:00",
+      "task_id": "unrelated-ap-real-19f9c2f5c190e2d1",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f9b1561829e702",
+      "thread_id": "19f9b1561829e702",
+      "from": "Twitch <no-reply@twitch.tv>",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-07-25T21:01:37+00:00",
+      "task_id": "unrelated-ap-real-19f9b1561829e702",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f996f3ff9347c7",
+      "thread_id": "19f996f30746114c",
+      "from": "info@andimodul.lt",
+      "subject": "Заявка с сайта andimodul.lt",
+      "received_at": "2026-07-25T16:20:30+03:00",
+      "task_id": "unrelated-ap-real-19f996f3ff9347c7",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f996f387d91473",
+      "thread_id": "19f996f30746114c",
+      "from": "info@andimodul.lt",
+      "subject": "Заявка с сайта andimodul.lt",
+      "received_at": "2026-07-25T16:20:29+03:00",
+      "task_id": "unrelated-ap-real-19f996f387d91473",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f996f35f64cee9",
+      "thread_id": "19f996f30746114c",
+      "from": "info@andimodul.lt",
+      "subject": "Заявка с сайта andimodul.lt",
+      "received_at": "2026-07-25T16:20:27+03:00",
+      "task_id": "unrelated-ap-real-19f996f35f64cee9",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f996f30746114c",
+      "thread_id": "19f996f30746114c",
+      "from": "info@andimodul.lt",
+      "subject": "Заявка с сайта andimodul.lt",
+      "received_at": "2026-07-25T16:20:26+03:00",
+      "task_id": "unrelated-ap-real-19f996f30746114c",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f98831a88d0db7",
+      "thread_id": "19f98831a88d0db7",
+      "from": "Beget <support@beget.ru>",
+      "subject": "LTD Beget: Напоминание, аккаунт stithc65",
+      "received_at": "2026-07-25T12:02:36+03:00",
+      "task_id": "unrelated-ap-real-19f98831a88d0db7",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    }
   ]
 }
