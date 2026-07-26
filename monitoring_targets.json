@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "targets": [
+    { "id": "apreal", "url": "https://www.apreal.ru/" },
+    { "id": "apreal-spb", "url": "https://apreal.spb.ru/" },
+    { "id": "apreal-nn", "url": "https://apreal-nn.ru/" },
+    { "id": "apreal36", "url": "https://apreal36.ru/" },
+    { "id": "license39", "url": "https://license39.ru/" },
+    { "id": "shopap", "url": "https://shopap.ru/" },
+    { "id": "nousro-nn", "url": "https://nousro-nn.ru/" },
+    { "id": "lfsb", "url": "https://lfsb.ru/" },
+    { "id": "otxodi", "url": "https://otxodi.ru/" },
+    { "id": "mchs-spb", "url": "https://mchs-spb.ru/" },
+    { "id": "docp", "url": "https://docp.ru/" },
+    { "id": "medlic-spb", "url": "https://medlic.spb.ru/" }
+  ],
+  "defaults": {
+    "expected_statuses": [200],
+    "error_patterns": ["fatal error", "parse error", "uncaught exception", "database connection error"]
+  }
+}
