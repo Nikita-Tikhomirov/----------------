@@ -5,6 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
+from tools.client_cycle import known_message_ids
 from tools.client_message_router import ClientProfile, build_search_queries, classify_message
 
 
@@ -87,3 +88,7 @@ def test_search_plan_covers_unread_mail_and_client_context_not_only_known_sender
     assert "is:unread in:inbox" in queries
     assert any("nousro-nn.ru" in query for query in queries)
     assert any("бухгалтерия" in query for query in queries)
+
+
+def test_cycle_reads_known_message_ids_from_the_intake_ledger():
+    assert known_message_ids({"messages": [{"id": "first"}, {"id": "second"}]}) == {"first", "second"}
