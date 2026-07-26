@@ -43,6 +43,17 @@ def _report_date(task: dict[str, Any]) -> date | None:
         return None
 
 
+def _scheduled_action_date(task: dict[str, Any]) -> date | None:
+    value = task.get("next_action_at")
+    if not isinstance(value, str) or not value.strip():
+        return None
+
+    try:
+        return date.fromisoformat(value)
+    except ValueError:
+        return None
+
+
 def build_action_queue(registry: dict[str, Any], today: date | None = None) -> list[dict[str, str]]:
     """Return the next required action for every non-final task."""
     today = today or date.today()
@@ -60,7 +71,9 @@ def build_action_queue(registry: dict[str, Any], today: date | None = None) -> l
         elif status == "in_progress":
             actions.append(_action(task, "continue_work", "implementation and QA are not complete"))
         elif status == "blocked":
-            actions.append(_action(task, "request_unblock", "client or provider data is required"))
+            scheduled_for = _scheduled_action_date(task)
+            if scheduled_for is None or today >= scheduled_for:
+                actions.append(_action(task, "request_unblock", "client or provider data is required"))
         elif status == "client_review":
             report_date = _report_date(task)
             if report_date is None:

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T10:32:00+03:00",
+  "updated_at": "2026-07-26T21:59:07+03:00",
   "tasks": [
     {
       "id": "beget-migration-202607",
@@ -134,6 +134,15 @@
         "email_message_id": "19f9a306689f3bcd",
         "sent_at": "2026-07-25T16:51:30"
       }
+    },
+    {
+      "id": "awaiting-client-details-20260724",
+      "site": "other client sites",
+      "status": "blocked",
+      "financial_classification": "warranty_fix",
+      "request": { "email_message_id": "19f9527a105053af" },
+      "blocker": "Client announced further form issues but has not supplied their sites, descriptions, or attachments.",
+      "next_action_at": "2026-07-29"
     }
   ]
 }

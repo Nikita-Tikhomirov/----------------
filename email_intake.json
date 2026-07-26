@@ -8,7 +8,350 @@
       "subject": "MEDLIC.SPB.RU",
       "received_at": "2026-07-25T18:58:49+03:00",
       "task_id": "medlic-seo-20260725",
-      "attachments": ["image.png"],
+      "attachments": [
+        "image.png"
+      ],
+      "state": "processed",
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:medlic.spb.ru"
+        ],
+        "requires_technical_task": true
+      }
+    },
+    {
+      "id": "19f901b89f3bd18c",
+      "thread_id": "19f901b89f3bd18c",
+      "from": "info@nousro.ru",
+      "subject": "NOUSRO-NN.RU",
+      "received_at": "2026-07-23T20:52:27+03:00",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [
+        "Проблемы с NOUSRO-NN.RU на 23.07.2026.docx"
+      ],
+      "state": "processed",
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:info@nousro.ru",
+          "domain:nousro-nn.ru",
+          "domain:nousro.ru"
+        ],
+        "requires_technical_task": true
+      }
+    },
+    {
+      "id": "19f9a343ceb5b38d",
+      "thread_id": "19f9a005ec1821e7",
+      "from": "khorov69@mail.ru",
+      "subject": "Re: MEDLIC.SPB.RU",
+      "received_at": "2026-07-25T19:55:39+03:00",
+      "task_id": "medlic-seo-20260725",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:medlic.spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f99f0d456af677",
+      "thread_id": "19f8393c25b2044c",
+      "from": "khorov69@mail.ru",
+      "subject": "Re: Реквизиты",
+      "received_at": "2026-07-25T18:42:02+03:00",
+      "task_id": "finance-ap-real-payment-20260725",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "financial:оплата",
+          "financial:реквизиты"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f9527a105053af",
+      "thread_id": "19f935839b9d04c9",
+      "from": "upreal@bk.ru",
+      "subject": "Re: Дополнение по LFSB.RU, OTXODI.RU и почте MCHS-SPB.RU",
+      "received_at": "2026-07-24T20:23:29+03:00",
+      "task_id": "awaiting-client-details-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "domain:mchs-spb.ru",
+          "domain:otxodi.ru",
+          "domain:lfsb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f95248f170b718",
+      "thread_id": "19f8a977b2aba2e9",
+      "from": "upreal@bk.ru",
+      "subject": "Re: Итог по исправлениям сайтов от 22.07.2026",
+      "received_at": "2026-07-24T20:20:06+03:00",
+      "task_id": "beget-migration-202607",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f951a71f7447b5",
+      "thread_id": "19f935839b9d04c9",
+      "from": "upreal@bk.ru",
+      "subject": "Re: Дополнение по LFSB.RU, OTXODI.RU и почте MCHS-SPB.RU",
+      "received_at": "2026-07-24T20:09:04+03:00",
+      "task_id": "beget-migration-202607",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "domain:mchs-spb.ru",
+          "domain:otxodi.ru",
+          "domain:lfsb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f94a452e638c2e",
+      "thread_id": "19f8a977b2aba2e9",
+      "from": "upreal@bk.ru",
+      "subject": "Re: Итог по исправлениям сайтов от 22.07.2026",
+      "received_at": "2026-07-24T18:00:03+03:00",
+      "task_id": "apreal-spb-callback-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "domain:apreal.spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f946df58027438",
+      "thread_id": "19f935839b9d04c9",
+      "from": "upreal@bk.ru",
+      "subject": "Re: Дополнение по LFSB.RU, OTXODI.RU и почте MCHS-SPB.RU",
+      "received_at": "2026-07-24T17:00:40+03:00",
+      "task_id": "mchs-forms-mail-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "domain:mchs-spb.ru",
+          "domain:otxodi.ru",
+          "domain:lfsb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f9426f75b57d66",
+      "thread_id": "19f8a977b2aba2e9",
+      "from": "upreal@bk.ru",
+      "subject": "Re: Итог по исправлениям сайтов от 22.07.2026",
+      "received_at": "2026-07-24T15:43:06+03:00",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f93f6222b8b5fc",
+      "thread_id": "19f935839b9d04c9",
+      "from": "upreal@bk.ru",
+      "subject": "Re: Дополнение по LFSB.RU, OTXODI.RU и почте MCHS-SPB.RU",
+      "received_at": "2026-07-24T14:49:38+03:00",
+      "task_id": "otxodi-feedback-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "domain:mchs-spb.ru",
+          "domain:otxodi.ru",
+          "domain:lfsb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f9364d5055062a",
+      "thread_id": "19f9364d5055062a",
+      "from": "khorov69@mail.ru",
+      "subject": "сайт DOCP.RU",
+      "received_at": "2026-07-24T12:11:23+03:00",
+      "task_id": "docp-feedback-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:docp.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f929459b39be8a",
+      "thread_id": "19f8a977b2aba2e9",
+      "from": "upreal@bk.ru",
+      "subject": "Re: Итог по исправлениям сайтов от 22.07.2026",
+      "received_at": "2026-07-24T08:23:27+03:00",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f901f92d897c47",
+      "thread_id": "19f901f92d897c47",
+      "from": "khorov69@mail.ru",
+      "subject": "SHOPAP.RU",
+      "received_at": "2026-07-23T20:56:52+03:00",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:shopap.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f900cb24eb192c",
+      "thread_id": "19f900cb24eb192c",
+      "from": "khorov69@mail.ru",
+      "subject": "APREAL-NN.RU",
+      "received_at": "2026-07-23T20:36:16+03:00",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:apreal-nn.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f900a3dcd6aa12",
+      "thread_id": "19f900a3dcd6aa12",
+      "from": "khorov69@mail.ru",
+      "subject": "APREAL36.RU",
+      "received_at": "2026-07-23T20:33:34+03:00",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:apreal36.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f90041e137ee00",
+      "thread_id": "19f90041e137ee00",
+      "from": "upreal@bk.ru",
+      "subject": "LICENSE39.RU",
+      "received_at": "2026-07-23T20:26:35+03:00",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "domain:license39.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f90007765f9ed6",
+      "thread_id": "19f90007765f9ed6",
+      "from": "khorov69@mail.ru",
+      "subject": "APREAL.SPB.RU никак не исправлено с прошлого письма",
+      "received_at": "2026-07-23T20:22:54+03:00",
+      "task_id": "apreal-spb-callback-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:apreal.spb.ru"
+        ],
+        "requires_technical_task": true
+      },
       "state": "processed"
     }
   ]

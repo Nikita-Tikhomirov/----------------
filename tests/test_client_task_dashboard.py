@@ -62,6 +62,15 @@ def test_client_review_is_followed_up_after_three_business_days():
     assert actions[0]["action"] == "follow_up_client_review"
 
 
+def test_blocked_task_waits_until_its_scheduled_follow_up_date():
+    registry = {
+        "tasks": [task("blocked", next_action_at="2026-07-29")],
+    }
+
+    assert build_action_queue(registry, today=date(2026, 7, 26)) == []
+    assert build_action_queue(registry, today=date(2026, 7, 29))[0]["action"] == "request_unblock"
+
+
 def test_reopened_task_requires_root_cause_and_regression_protection():
     errors = validate_register(
         {

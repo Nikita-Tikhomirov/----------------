@@ -1,0 +1,51 @@
+{
+  "id": "ap-real",
+  "company_names": [
+    "ГК АП-Риал",
+    "Группа компаний АП-Риал",
+    "Межрегиональный учебный центр",
+    "Учебный центр"
+  ],
+  "contacts": [
+    "upreal@bk.ru",
+    "khorov69@mail.ru",
+    "info@nousro.ru"
+  ],
+  "domains": [
+    "apreal.ru",
+    "apreal.spb.ru",
+    "apreal-nn.ru",
+    "apreal36.ru",
+    "license39.ru",
+    "shopap.ru",
+    "nousro-nn.ru",
+    "nousro.ru",
+    "nousro-spb.ru",
+    "mchs-spb.ru",
+    "docp.ru",
+    "otxodi.ru",
+    "lfsb.ru",
+    "medlic.spb.ru"
+  ],
+  "financial_keywords": [
+    "счет",
+    "счёт",
+    "оплата",
+    "бухгалтерия",
+    "реквизиты",
+    "договор"
+  ],
+  "excluded_signals": [
+    "stithc65",
+    "buoyant tamara",
+    "stylish selby"
+  ],
+  "provider_domains": [
+    "beget.ru"
+  ],
+  "provider_keywords": [
+    "перенос",
+    "dns",
+    "почт"
+  ]
+}
