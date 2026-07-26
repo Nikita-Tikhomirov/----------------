@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-26T10:32:00+03:00",
+  "tasks": [
+    {
+      "id": "beget-migration-202607",
+      "site": "migration batch",
+      "status": "accepted",
+      "financial_classification": "main_package",
+      "request": { "email_message_id": "19f8393c25b2044c" },
+      "backup": { "location": "server migration backups documented in Отчет-по-переносу-на-Beget-2026-07-16.md" },
+      "publication": { "live_url": "https://apreal.ru/" },
+      "verification": {
+        "functional": ["all migrated public sites opened after migration"],
+        "visual": {
+          "desktop": "Отчет-по-переносу-на-Beget-2026-07-16.md",
+          "mobile": "Финальный-отчет-проверки-2026-07-20.md"
+        }
+      },
+      "client_report": { "email_message_id": "19f92ee4be68dc28" },
+      "client_acceptance": { "evidence": "client confirmations recorded in Дополнение-к-отчету-2026-07-24.md" }
+    },
+    {
+      "id": "form-acceptance-20260724",
+      "site": "apreal.spb.ru, license39.ru, apreal-nn.ru, apreal.ru, shopap.ru, nousro-nn.ru",
+      "status": "accepted",
+      "financial_classification": "acceptance_fix",
+      "request": { "email_message_id": "19f92ee4be68dc28" },
+      "backup": { "location": "server backups listed in Дополнение-к-отчету-2026-07-24.md" },
+      "publication": { "live_url": "https://apreal.spb.ru/" },
+      "verification": {
+        "functional": ["real form submissions returned HTTP 200 and success responses"],
+        "visual": {
+          "desktop": "output/visual-qa/2026-07-24/",
+          "mobile": "output/visual-qa/2026-07-24/"
+        }
+      },
+      "client_report": { "email_message_id": "19f92ee4be68dc28" },
+      "client_acceptance": { "evidence": "client confirmations recorded in Дополнение-к-отчету-2026-07-24.md" }
+    },
+    {
+      "id": "docp-feedback-20260724",
+      "site": "docp.ru",
+      "status": "accepted",
+      "financial_classification": "acceptance_fix",
+      "request": { "email_message_id": "19f9364d5055062a" },
+      "backup": { "location": "/home/n/nousroc9/_backups/20260724-123812-docp.ru-feedback.php" },
+      "publication": { "live_url": "https://docp.ru/" },
+      "verification": {
+        "functional": ["chat and standard feedback form were opened and closed with ordinary clicks"],
+        "visual": {
+          "desktop": "output/audit-docp-2026-07-24-post/",
+          "mobile": "output/audit-docp-2026-07-24-post/"
+        }
+      },
+      "client_report": { "email_message_id": "19f9364d5055062a" },
+      "client_acceptance": { "evidence": "client confirmed DOCP.RU without comments in the original thread" }
+    },
+    {
+      "id": "otxodi-feedback-20260724",
+      "site": "otxodi.ru",
+      "status": "accepted",
+      "financial_classification": "acceptance_fix",
+      "request": { "email_message_id": "19f935839b9d04c9" },
+      "backup": { "location": "/home/n/nousroc9/_backups/20260724-150919-otxodi.ru-feedback.php" },
+      "publication": { "live_url": "https://otxodi.ru/" },
+      "verification": {
+        "functional": ["hover, ordinary click and Enter opened the question form"],
+        "visual": {
+          "desktop": "output/verify-otxodi-pointer-2026-07-24/",
+          "mobile": "output/verify-otxodi-pointer-2026-07-24/"
+        }
+      },
+      "client_report": { "email_message_id": "19f935839b9d04c9" },
+      "client_acceptance": { "evidence": "client confirmed OTXODI.RU without comments" }
+    },
+    {
+      "id": "mchs-forms-mail-20260724",
+      "site": "mchs-spb.ru",
+      "status": "accepted",
+      "financial_classification": "acceptance_fix",
+      "request": { "email_message_id": "19f94cc36bf3d30a" },
+      "backup": { "location": "/home/n/nousroc9/_backups/20260724-173618-mchs-spb-forms" },
+      "publication": { "live_url": "https://mchs-spb.ru/" },
+      "verification": {
+        "functional": ["two real form submissions were received in info@mchs-spb.ru"],
+        "visual": {
+          "desktop": "output/mchs-spb-2026-07-24/",
+          "mobile": "output/mchs-spb-2026-07-24/"
+        }
+      },
+      "client_report": { "email_message_id": "19f94cc36bf3d30a" },
+      "client_acceptance": { "evidence": "client confirmation recorded in Дополнение-к-отчету-2026-07-24.md" }
+    },
+    {
+      "id": "apreal-spb-callback-20260724",
+      "site": "apreal.spb.ru",
+      "status": "accepted",
+      "financial_classification": "acceptance_fix",
+      "request": { "email_message_id": "19f951f43ef61d24" },
+      "backup": { "location": "/home/n/nousroc9/_backups/20260724171239-apreal-spb-client-standard-forms.php" },
+      "publication": { "live_url": "https://apreal.spb.ru/" },
+      "verification": {
+        "functional": ["callback form was submitted on the normal non-cache-bypass URL"],
+        "visual": {
+          "desktop": "output/visual-qa/2026-07-24/",
+          "mobile": "output/visual-qa/2026-07-24/"
+        }
+      },
+      "client_report": { "email_message_id": "19f951f43ef61d24" },
+      "client_acceptance": { "evidence": "client confirmed APREAL.SPB.RU without comments" }
+    },
+    {
+      "id": "medlic-seo-20260725",
+      "site": "medlic.spb.ru",
+      "status": "client_review",
+      "financial_classification": "warranty_fix",
+      "request": { "email_message_id": "19f9a005ec1821e7" },
+      "backup": { "location": "/home/n/nousroc9/_backups/20260725-193552-medlic-spb-seo" },
+      "publication": { "live_url": "https://medlic.spb.ru/" },
+      "verification": {
+        "functional": ["HTTP 200, title and description present, noindex removed, no X-Robots-Tag"],
+        "visual": {
+          "desktop": "output/visual-qa/2026-07-25/medlic-desktop.png",
+          "mobile": "output/visual-qa/2026-07-25/medlic-mobile.png"
+        }
+      },
+      "client_report": { "email_message_id": "19f9a306689f3bcd" }
+    }
+  ]
+}
