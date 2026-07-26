@@ -353,6 +353,2287 @@
         "requires_technical_task": true
       },
       "state": "processed"
+    },
+    {
+      "id": "19f95252654ce2be",
+      "thread_id": "19f935839b9d04c9",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Re: Дополнение по LFSB.RU, OTXODI.RU и почте MCHS-SPB.RU",
+      "received_at": "2026-07-24T17:20:46",
+      "task_id": "mchs-forms-mail-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "domain:mchs-spb.ru",
+          "domain:otxodi.ru",
+          "domain:lfsb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f9522c11efd39e",
+      "thread_id": "19f8a977b2aba2e9",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Re: Итог по исправлениям сайтов от 22.07.2026",
+      "received_at": "2026-07-24T17:18:09",
+      "task_id": "apreal-spb-callback-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "domain:apreal.spb.ru",
+          "domain:apreal-nn.ru",
+          "domain:apreal36.ru",
+          "domain:license39.ru",
+          "domain:shopap.ru",
+          "domain:nousro-nn.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f9503fb8e77760",
+      "thread_id": "19f8a977b2aba2e9",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Re: Итог по исправлениям сайтов от 22.07.2026",
+      "received_at": "2026-07-24T16:44:32",
+      "task_id": "apreal-spb-callback-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "domain:apreal.spb.ru",
+          "domain:apreal-nn.ru",
+          "domain:apreal36.ru",
+          "domain:license39.ru",
+          "domain:shopap.ru",
+          "domain:nousro-nn.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f94f7c1bc4f252",
+      "thread_id": "19f935839b9d04c9",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Re: Дополнение по LFSB.RU, OTXODI.RU и почте MCHS-SPB.RU",
+      "received_at": "2026-07-24T16:31:11",
+      "task_id": "mchs-forms-mail-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:mchs-spb.ru",
+          "domain:otxodi.ru",
+          "domain:lfsb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f949ab9987ba33",
+      "thread_id": "19f9364d5055062a",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Re: сайт DOCP.RU",
+      "received_at": "2026-07-24T14:49:34",
+      "task_id": "docp-feedback-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:docp.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f91185edb944e6",
+      "thread_id": "19f91185edb944e6",
+      "from": "\"Link-Host.net\" support@link-host.net",
+      "subject": "[ auto:renew ] Продление заказа [доменное имя]",
+      "received_at": "2026-07-23T22:28:40",
+      "task_id": "finance-ap-real-19f91185edb944e6",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "financial:счет",
+          "financial:оплата"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f8f56b49675457",
+      "thread_id": "19f89a7f553789d6",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Re: Исправления по NOUSRO.RU, NOUSRO-SPB.RU и MUC-VRN.RU выполнены",
+      "received_at": "2026-07-23T14:17:11",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:info@nousro.ru",
+          "company:группа компаний ап-риал",
+          "domain:nousro.ru",
+          "domain:nousro-spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f8e908c1b86996",
+      "thread_id": "19f8e77a3e499aa3",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Re: Оплата оставшихся работ",
+      "received_at": "2026-07-23T10:40:44",
+      "task_id": "finance-ap-real-19f8e908c1b86996",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "financial:счет",
+          "financial:оплата",
+          "financial:реквизиты"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f8df3514d3299b",
+      "thread_id": "19f89a7f553789d6",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Re: Исправления по NOUSRO.RU, NOUSRO-SPB.RU и MUC-VRN.RU выполнены",
+      "received_at": "2026-07-23T07:49:08",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [
+        "Проблемы на сайте nousro.ru на 23.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:info@nousro.ru",
+          "company:группа компаний ап-риал",
+          "domain:nousro.ru",
+          "domain:nousro-spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f8de7a687ed657",
+      "thread_id": "19f89a7f553789d6",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Re: Исправления по NOUSRO.RU, NOUSRO-SPB.RU и MUC-VRN.RU выполнены",
+      "received_at": "2026-07-23T07:36:15",
+      "task_id": "finance-ap-real-19f8de7a687ed657",
+      "attachments": [
+        "Проблемы на сайте nousro-spb.ru на 23.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:info@nousro.ru",
+          "company:группа компаний ап-риал",
+          "domain:nousro.ru",
+          "domain:nousro-spb.ru",
+          "financial:договор"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f8a6716bfb480f",
+      "thread_id": "19f89a7f553789d6",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Re: Исправления по NOUSRO.RU, NOUSRO-SPB.RU и MUC-VRN.RU выполнены",
+      "received_at": "2026-07-22T15:16:57",
+      "task_id": "finance-ap-real-19f8a6716bfb480f",
+      "attachments": [
+        "image.png",
+        "image.png"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:info@nousro.ru",
+          "company:группа компаний ап-риал",
+          "domain:nousro.ru",
+          "domain:nousro-spb.ru",
+          "financial:договор"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f89dff00f5faf5",
+      "thread_id": "19f89dff00f5faf5",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Сайт ED-KGD.RU -проблема",
+      "received_at": "2026-07-22T12:49:21",
+      "task_id": "beget-migration-202607",
+      "attachments": [
+        "Проблемы на сайте ED-KGD.RU на 22.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f89dd6877a63f3",
+      "thread_id": "19f89dd6877a63f3",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Сайт NOUSRO.RU -проблема",
+      "received_at": "2026-07-22T12:46:35",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [
+        "Проблемы на сайте nousro.ru на 22.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "domain:nousro.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f89d967a7ba246",
+      "thread_id": "19f89a7f553789d6",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Re: Исправления по NOUSRO.RU, NOUSRO-SPB.RU и MUC-VRN.RU выполнены",
+      "received_at": "2026-07-22T12:42:12",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [
+        "Проблемы на сайте nousro-spb.ru на 22.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:info@nousro.ru",
+          "company:группа компаний ап-риал",
+          "domain:nousro.ru",
+          "domain:nousro-spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f894bb77b5a48e",
+      "thread_id": "19f894bb77b5a48e",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Сайт MUC-VRN.RU -проблемы",
+      "received_at": "2026-07-22T10:07:45",
+      "task_id": "beget-migration-202607",
+      "attachments": [
+        "Проблемы на сайте MUC-VRN.RU на 22.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f8945e74138f0f",
+      "thread_id": "19f8945e74138f0f",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Сайт NOUSRO-SPB.RU -проблема",
+      "received_at": "2026-07-22T10:01:23",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [
+        "Проблемы на сайте nousro-spb.ru на 22.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:nousro-spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f8936c6a649175",
+      "thread_id": "19f8936c6a649175",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Сайт NOUSRO.RU -проблема",
+      "received_at": "2026-07-22T09:44:52",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [
+        "Проблемы на сайте nousro.ru на 22.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:nousro.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f891d2bdc8ae00",
+      "thread_id": "19f891d2bdc8ae00",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Сайт SHOPAP.RU -проблема",
+      "received_at": "2026-07-22T09:16:55",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [
+        "Проблемы на сайте SHOPAP.RU на 22.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:shopap.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f8913e3dde5886",
+      "thread_id": "19f8913e3dde5886",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Сайт APREAL72.RU -проблема",
+      "received_at": "2026-07-22T09:06:45",
+      "task_id": "beget-migration-202607",
+      "attachments": [
+        "Проблемы на сайте APREAL72.RU на 22.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f890c3fe8eadc6",
+      "thread_id": "19f890c3fe8eadc6",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Fwd: Задать вопрос",
+      "received_at": "2026-07-22T08:58:08",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "domain:apreal36.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f890b1c1dac7ad",
+      "thread_id": "19f890b1c1dac7ad",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Боты по ходу- Новый покупатель",
+      "received_at": "2026-07-22T08:56:54",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:shopap.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f88ec9dbdfcdf0",
+      "thread_id": "19f88ec9dbdfcdf0",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Сайт APREAL-NN.RU -проблема",
+      "received_at": "2026-07-22T08:23:51",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [
+        "Проблемы на сайте APREAL-NN.RU на 22.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:apreal.ru",
+          "domain:apreal-nn.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f88e0d74b8928e",
+      "thread_id": "19f88e0d74b8928e",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Сайт APREAL36.RU -проблема",
+      "received_at": "2026-07-22T08:11:00",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [
+        "Проблемы на сайте APREAL36.RU на 22.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:apreal.ru",
+          "domain:apreal36.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f88dcf3715f1e5",
+      "thread_id": "19f88dcf3715f1e5",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Fwd: ЗАДАТЬ ВОПРОС — apreal.spb.ru",
+      "received_at": "2026-07-22T08:06:27",
+      "task_id": "apreal-spb-callback-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "domain:apreal.spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f88d9b1e7d12ec",
+      "thread_id": "19f88d9b1e7d12ec",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Сайт LICENSE39.RU -проблема",
+      "received_at": "2026-07-22T08:03:11",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [
+        "Проблемы на сайте LICENSE39.RU на 22.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:apreal.ru",
+          "domain:license39.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f88cb5999f0277",
+      "thread_id": "19f8393c25b2044c",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Re: Реквизиты",
+      "received_at": "2026-07-22T07:47:15",
+      "task_id": "finance-ap-real-payment-20260725",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "financial:счет",
+          "financial:счёт",
+          "financial:оплата",
+          "financial:бухгалтерия",
+          "financial:реквизиты",
+          "financial:договор"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f88c0521ec6e9b",
+      "thread_id": "19f88c0521ec6e9b",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Сайт APREAL.SPB.RU -проблемы",
+      "received_at": "2026-07-22T07:35:29",
+      "task_id": "apreal-spb-callback-20260724",
+      "attachments": [
+        "Проблемы на сайте apreal.spb.ru на 22.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:apreal.ru",
+          "domain:apreal.spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f88a68297da595",
+      "thread_id": "19f885e4dacde194",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Re: Fwd: Заявка с сайта medtex39.ru",
+      "received_at": "2026-07-22T07:07:00",
+      "task_id": "finance-ap-real-19f88a68297da595",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "domain:lfsb.ru",
+          "financial:счет"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f885e4dacde194",
+      "thread_id": "19f885e4dacde194",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Fwd: Заявка с сайта medtex39.ru",
+      "received_at": "2026-07-22T05:48:08",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f885ccad59dafc",
+      "thread_id": "19f885ccad59dafc",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Fwd: Подпись DKIM для исходящей почты с домена lfsb.ru подключена",
+      "received_at": "2026-07-22T05:46:29",
+      "task_id": "otxodi-feedback-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "domain:lfsb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f85fde5bf0b12f",
+      "thread_id": "19f85fde5bf0b12f",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Сайт lfsb.ru -проблемы",
+      "received_at": "2026-07-21T18:43:53",
+      "task_id": "finance-ap-real-19f85fde5bf0b12f",
+      "attachments": [
+        "Проблемы на сайте lfsb.ru на 21.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:lfsb.ru",
+          "financial:договор"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f85f87b29fb5f5",
+      "thread_id": "19f85f87b29fb5f5",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Сайт OTXODI.RU -проблема",
+      "received_at": "2026-07-21T18:37:58",
+      "task_id": "finance-ap-real-19f85f87b29fb5f5",
+      "attachments": [
+        "Проблемы на сайте otxodi.ru на 21.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:otxodi.ru",
+          "financial:счет",
+          "financial:договор"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f85ece4aa2ee6c",
+      "thread_id": "19f84b7b5fc9daf0",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Re: Сайт fste.ru -проблемы",
+      "received_at": "2026-07-21T18:25:19",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f850a53d230d16",
+      "thread_id": "19f8393c25b2044c",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Re: Реквизиты",
+      "received_at": "2026-07-21T14:17:33",
+      "task_id": "finance-ap-real-payment-20260725",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "financial:счет",
+          "financial:счёт",
+          "financial:оплата",
+          "financial:бухгалтерия",
+          "financial:реквизиты",
+          "financial:договор"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f84b2a313ee092",
+      "thread_id": "19f84b2a313ee092",
+      "from": "info@mchs-spb.ru",
+      "subject": "MCHS-DKIM-QA-20260721-1542",
+      "received_at": "2026-07-21T12:42:07",
+      "task_id": "beget-migration-202607",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "domain:mchs-spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f84a7d318026f5",
+      "thread_id": "19f84a7d318026f5",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Сайт MHSL.RU -проблема",
+      "received_at": "2026-07-21T12:30:15",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [
+        "Проблемы на сайте MHSL.RU на 21.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f84a7033eb902f",
+      "thread_id": "19f8393c25b2044c",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Re: Реквизиты",
+      "received_at": "2026-07-21T12:29:04",
+      "task_id": "finance-ap-real-payment-20260725",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "financial:счет",
+          "financial:счёт",
+          "financial:оплата",
+          "financial:бухгалтерия",
+          "financial:реквизиты",
+          "financial:договор"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f84a42fe361003",
+      "thread_id": "19f84a42fe361003",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Сайт MED-LICENSE.RU - проблема",
+      "received_at": "2026-07-21T12:26:16",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [
+        "Проблемы на сайте MED-LICENSE.RU на 21.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f8490eb1b12209",
+      "thread_id": "19f8490eb1b12209",
+      "from": "info@mchs-spb.ru",
+      "subject": "MCHS-SPB-QA-OUT-20260721-838d2fa2",
+      "received_at": "2026-07-21T12:05:17",
+      "task_id": "beget-migration-202607",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "domain:mchs-spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f8461133729920",
+      "thread_id": "19f83eda6be441dc",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Re: Заявка на сайте apreal.ru",
+      "received_at": "2026-07-21T11:12:59",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [
+        "image.png"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f845fb466190bc",
+      "thread_id": "19f76757e8d2018e",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Re: Заявки",
+      "received_at": "2026-07-21T11:11:28",
+      "task_id": "mchs-forms-mail-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "domain:apreal36.ru",
+          "domain:mchs-spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f840d093e60470",
+      "thread_id": "19f76757e8d2018e",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Re: Заявки",
+      "received_at": "2026-07-21T09:41:11",
+      "task_id": "mchs-forms-mail-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "domain:apreal36.ru",
+          "domain:mchs-spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f83eda6be441dc",
+      "thread_id": "19f83eda6be441dc",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Заявка на сайте apreal.ru",
+      "received_at": "2026-07-21T09:06:54",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [
+        "Проблемы на сайте apreal.ru на 21.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f8130ea2842949",
+      "thread_id": "19f80d7307f97d75",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Re: Fwd: Заявка из контактов apreal-volgograd.ru",
+      "received_at": "2026-07-20T20:21:19",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f80d7307f97d75",
+      "thread_id": "19f80d7307f97d75",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Fwd: Заявка из контактов apreal-volgograd.ru",
+      "received_at": "2026-07-20T18:43:13",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f804338f46a414",
+      "thread_id": "19f7edaf4249dbf9",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Re: Реквизиты для счёта и оплата",
+      "received_at": "2026-07-20T16:01:51",
+      "task_id": "finance-ap-real-19f804338f46a414",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "financial:счёт",
+          "financial:оплата",
+          "financial:бухгалтерия",
+          "financial:реквизиты"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f24f001c859ad3",
+      "thread_id": "19f24f001c859ad3",
+      "from": "\"Link-Host.net\" support@link-host.net",
+      "subject": "Неоплаченный счет № 173801 от 23.06.2026",
+      "received_at": "2026-07-02T22:25:36",
+      "task_id": "finance-ap-real-19f24f001c859ad3",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "financial:счет"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f0af99d2f37ee6",
+      "thread_id": "19f0af99d2f37ee6",
+      "from": "\"Link-Host.net\" support@link-host.net",
+      "subject": "Неоплаченный счет № 173801 от 23.06.2026",
+      "received_at": "2026-06-27T21:25:57",
+      "task_id": "finance-ap-real-19f0af99d2f37ee6",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "financial:счет"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f8ddb56aa0a926",
+      "thread_id": "19f8a977b2aba2e9",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Re: Итог по исправлениям сайтов от 22.07.2026",
+      "received_at": "2026-07-23T07:22:47",
+      "task_id": "apreal-spb-callback-20260724",
+      "attachments": [
+        "Проблемы на сайте SHOPAP.RU на 23.07.2026.docx",
+        "Проблемы на сайте APREAL-NN.RU на 23.07.2026.docx",
+        "Проблемы на сайте APREAL36.RU на 23.07.2026.docx",
+        "Проблемы на сайте LICENSE39.RU на 23.07.2026.docx",
+        "Проблемы на сайте apreal.spb.ru на 22.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "domain:apreal.spb.ru",
+          "domain:apreal-nn.ru",
+          "domain:apreal36.ru",
+          "domain:license39.ru",
+          "domain:shopap.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f856b45a56f91e",
+      "thread_id": "19f84b7b5fc9daf0",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Re: Сайт fste.ru -проблемы",
+      "received_at": "2026-07-21T16:03:45",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [
+        "image.png"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f856986942ef52",
+      "thread_id": "19f84b7b5fc9daf0",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Re: Сайт fste.ru -проблемы",
+      "received_at": "2026-07-21T16:01:50",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f85689790d754a",
+      "thread_id": "19f84b7b5fc9daf0",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Re: Сайт fste.ru -проблемы",
+      "received_at": "2026-07-21T16:00:48",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [
+        "image.png",
+        "image.png"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f84b7b5fc9daf0",
+      "thread_id": "19f84b7b5fc9daf0",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Сайт fste.ru -проблемы",
+      "received_at": "2026-07-21T12:47:17",
+      "task_id": "finance-ap-real-19f84b7b5fc9daf0",
+      "attachments": [
+        "Проблемы на сайте fste.ru на 21.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "financial:договор"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f839843412d163",
+      "thread_id": "19f76757e8d2018e",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Re: Заявки",
+      "received_at": "2026-07-21T07:33:38",
+      "task_id": "mchs-forms-mail-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "domain:apreal36.ru",
+          "domain:mchs-spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f8393c25b2044c",
+      "thread_id": "19f8393c25b2044c",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Реквизиты",
+      "received_at": "2026-07-21T07:28:25",
+      "task_id": "finance-ap-real-payment-20260725",
+      "attachments": [
+        "Карточка ГК АП-Риал .pdf"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "company:гк ап-риал",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "financial:счет",
+          "financial:счёт",
+          "financial:оплата",
+          "financial:бухгалтерия",
+          "financial:реквизиты",
+          "financial:договор"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f838ec90cdea8c",
+      "thread_id": "19f76757e8d2018e",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Re: Заявки",
+      "received_at": "2026-07-21T07:23:10",
+      "task_id": "mchs-forms-mail-20260724",
+      "attachments": [
+        "image.png"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "domain:apreal36.ru",
+          "domain:mchs-spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f80d252a400c5f",
+      "thread_id": "19f76757e8d2018e",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Re: Заявки",
+      "received_at": "2026-07-20T18:38:11",
+      "task_id": "mchs-forms-mail-20260724",
+      "attachments": [
+        "image.png"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "domain:apreal36.ru",
+          "domain:mchs-spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f8062a4e49b54e",
+      "thread_id": "19f76757e8d2018e",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Re: Заявки",
+      "received_at": "2026-07-20T16:36:13",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [
+        "image.png"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "domain:apreal36.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f80492999d5a21",
+      "thread_id": "19f76757e8d2018e",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Re: Заявки",
+      "received_at": "2026-07-20T16:08:22",
+      "task_id": "finance-ap-real-19f80492999d5a21",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "domain:apreal.ru",
+          "domain:apreal.spb.ru",
+          "domain:apreal-nn.ru",
+          "domain:apreal36.ru",
+          "domain:license39.ru",
+          "domain:shopap.ru",
+          "domain:nousro-nn.ru",
+          "domain:nousro.ru",
+          "domain:nousro-spb.ru",
+          "domain:mchs-spb.ru",
+          "domain:docp.ru",
+          "domain:lfsb.ru",
+          "domain:medlic.spb.ru",
+          "financial:счет"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f80486e0fd5398",
+      "thread_id": "19f76757e8d2018e",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Re: Заявки",
+      "received_at": "2026-07-20T16:07:35",
+      "task_id": "mchs-forms-mail-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:apreal36.ru",
+          "domain:mchs-spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f7b96a68de655a",
+      "thread_id": "19f7b96a68de655a",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "сайт elecktro.ru",
+      "received_at": "2026-07-19T18:14:36",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [
+        "Проблемы на сайте elecktro.ru .docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f7ac9b7c65e322",
+      "thread_id": "19f76757e8d2018e",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Re: Заявки",
+      "received_at": "2026-07-19T14:31:04",
+      "task_id": "finance-ap-real-19f7ac9b7c65e322",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "domain:apreal.ru",
+          "domain:apreal.spb.ru",
+          "domain:apreal-nn.ru",
+          "domain:apreal36.ru",
+          "domain:license39.ru",
+          "domain:shopap.ru",
+          "domain:nousro-nn.ru",
+          "domain:nousro.ru",
+          "domain:nousro-spb.ru",
+          "domain:mchs-spb.ru",
+          "domain:docp.ru",
+          "domain:lfsb.ru",
+          "domain:medlic.spb.ru",
+          "financial:счет"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f7a888be8ea9aa",
+      "thread_id": "19f76757e8d2018e",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Re: Заявки",
+      "received_at": "2026-07-19T13:19:52",
+      "task_id": "finance-ap-real-19f7a888be8ea9aa",
+      "attachments": [
+        "image.png"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "domain:apreal.ru",
+          "domain:apreal.spb.ru",
+          "domain:apreal-nn.ru",
+          "domain:apreal36.ru",
+          "domain:license39.ru",
+          "domain:shopap.ru",
+          "domain:nousro-nn.ru",
+          "domain:nousro.ru",
+          "domain:nousro-spb.ru",
+          "domain:mchs-spb.ru",
+          "domain:docp.ru",
+          "domain:lfsb.ru",
+          "domain:medlic.spb.ru",
+          "financial:счет"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f7a531a7cbdc7f",
+      "thread_id": "19f76757e8d2018e",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Re: Заявки",
+      "received_at": "2026-07-19T12:21:30",
+      "task_id": "finance-ap-real-19f7a531a7cbdc7f",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "domain:apreal.ru",
+          "domain:apreal.spb.ru",
+          "domain:apreal-nn.ru",
+          "domain:apreal36.ru",
+          "domain:license39.ru",
+          "domain:shopap.ru",
+          "domain:nousro-nn.ru",
+          "domain:nousro.ru",
+          "domain:nousro-spb.ru",
+          "domain:mchs-spb.ru",
+          "domain:docp.ru",
+          "domain:lfsb.ru",
+          "domain:medlic.spb.ru",
+          "financial:счет"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f7a48fddfacc95",
+      "thread_id": "19f76757e8d2018e",
+      "from": "\"Альберт\" khorov69@mail.ru",
+      "subject": "Re: Заявки",
+      "received_at": "2026-07-19T12:10:25",
+      "task_id": "finance-ap-real-19f7a48fddfacc95",
+      "attachments": [
+        "Проблемы на сайте mca24.ru на 19.07.2026.docx",
+        "Проблемы на сайте apreal.ru на 19.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "domain:apreal.ru",
+          "domain:apreal.spb.ru",
+          "domain:apreal-nn.ru",
+          "domain:apreal36.ru",
+          "domain:license39.ru",
+          "domain:shopap.ru",
+          "domain:nousro-nn.ru",
+          "domain:nousro.ru",
+          "domain:nousro-spb.ru",
+          "domain:mchs-spb.ru",
+          "domain:docp.ru",
+          "domain:lfsb.ru",
+          "domain:medlic.spb.ru",
+          "financial:счет"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f791e9ab018b74",
+      "thread_id": "19f76757e8d2018e",
+      "from": "\"Виктор Хоров\" khorov69@mail.ru",
+      "subject": "Re: Заявки",
+      "received_at": "2026-07-19T06:44:29",
+      "task_id": "finance-ap-real-19f791e9ab018b74",
+      "attachments": [
+        "Заявки на сайт-какие они.docx",
+        "Проблемы на сайте apreal.ru на 19.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "domain:apreal.ru",
+          "domain:apreal.spb.ru",
+          "domain:apreal-nn.ru",
+          "domain:apreal36.ru",
+          "domain:license39.ru",
+          "domain:shopap.ru",
+          "domain:nousro-nn.ru",
+          "domain:nousro.ru",
+          "domain:nousro-spb.ru",
+          "domain:mchs-spb.ru",
+          "domain:docp.ru",
+          "domain:lfsb.ru",
+          "domain:medlic.spb.ru",
+          "financial:счет"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f76757e8d2018e",
+      "thread_id": "19f76757e8d2018e",
+      "from": "\"Виктор Хоров\" khorov69@mail.ru",
+      "subject": "Заявки",
+      "received_at": "2026-07-18T18:20:32",
+      "task_id": "finance-ap-real-19f76757e8d2018e",
+      "attachments": [
+        "Заявки на сайт-какие они.docx",
+        "Сайты в т.ч. с битыми заявками.docx",
+        "Проблемы с сайтами на 18.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "contact:info@nousro.ru",
+          "domain:apreal.ru",
+          "domain:apreal.spb.ru",
+          "domain:apreal-nn.ru",
+          "domain:apreal36.ru",
+          "domain:license39.ru",
+          "domain:shopap.ru",
+          "domain:nousro-nn.ru",
+          "domain:nousro.ru",
+          "domain:nousro-spb.ru",
+          "domain:mchs-spb.ru",
+          "domain:docp.ru",
+          "domain:otxodi.ru",
+          "domain:lfsb.ru",
+          "domain:medlic.spb.ru",
+          "financial:счет"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f699eac66e74e2",
+      "thread_id": "19f699eac66e74e2",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Fwd: На ресурсе https://apreal.spb.ru/ обнаружены новые проблемы (Строки навигации: структурированные данные)",
+      "received_at": "2026-07-16T06:30:12",
+      "task_id": "apreal-spb-callback-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f675dce90e8898",
+      "thread_id": "19f641b70c935d0b",
+      "from": "\"Виктор Хоров\" khorov69@mail.ru",
+      "subject": "Re: заявки, сайты",
+      "received_at": "2026-07-15T20:00:24",
+      "task_id": "docp-feedback-20260724",
+      "attachments": [
+        "image.png"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:shopap.ru",
+          "domain:docp.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f66bc87984bd44",
+      "thread_id": "19f66bc87984bd44",
+      "from": "\"docp.ru\" upreal@bk.ru",
+      "subject": "[migration-final-check] docp.ru 2026-07-15",
+      "received_at": "2026-07-15T17:04:17",
+      "task_id": "docp-feedback-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "domain:docp.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f665ac8f074c6a",
+      "thread_id": "19f641b70c935d0b",
+      "from": "\"Виктор Хоров\" khorov69@mail.ru",
+      "subject": "Re: заявки, сайты",
+      "received_at": "2026-07-15T15:17:29",
+      "task_id": "docp-feedback-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:shopap.ru",
+          "domain:docp.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f641b70c935d0b",
+      "thread_id": "19f641b70c935d0b",
+      "from": "\"Виктор Хоров\" khorov69@mail.ru",
+      "subject": "заявки, сайты",
+      "received_at": "2026-07-15T04:49:03",
+      "task_id": "docp-feedback-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:shopap.ru",
+          "domain:docp.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f40493eecb4264",
+      "thread_id": "19f40493eecb4264",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Fwd: Подпись DKIM для исходящей почты с домена fste.ru отключена",
+      "received_at": "2026-07-08T05:52:27",
+      "task_id": "beget-migration-202607",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f36c6ae5ac67d7",
+      "thread_id": "19f36c6ae5ac67d7",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Fwd: Ваши домены могут быть удалены",
+      "received_at": "2026-07-06T09:33:16",
+      "task_id": "finance-ap-real-19f36c6ae5ac67d7",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "financial:договор"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f36b0b2b7aff70",
+      "thread_id": "19f2654d2533bc2d",
+      "from": "\"Виктор Хоров\" khorov69@mail.ru",
+      "subject": "Re: Fwd[2]: Почта для вашего домена перестала работать",
+      "received_at": "2026-07-06T09:09:33",
+      "task_id": "mchs-forms-mail-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "domain:mchs-spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f2ba65a91aa9df",
+      "thread_id": "19f2ba5bf07ccc39",
+      "from": "\"Учебный центр\" info@nousro.ru",
+      "subject": "Fwd: Почта для вашего домена перестала работать",
+      "received_at": "2026-07-04T05:42:26",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:info@nousro.ru",
+          "company:межрегиональный учебный центр",
+          "company:учебный центр",
+          "domain:apreal.ru",
+          "domain:nousro.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f2ba616a4fb994",
+      "thread_id": "19f2ba616a4fb994",
+      "from": "\"Учебный центр\" info@nousro.ru",
+      "subject": "Fwd: Подпись DKIM для исходящей почты с домена apreal.ru отключена",
+      "received_at": "2026-07-04T05:42:08",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:info@nousro.ru",
+          "company:межрегиональный учебный центр",
+          "company:учебный центр",
+          "domain:apreal.ru",
+          "domain:nousro.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f2ba5bf07ccc39",
+      "thread_id": "19f2ba5bf07ccc39",
+      "from": "\"Учебный центр\" info@nousro.ru",
+      "subject": "Fwd: Почта для вашего домена перестала работать",
+      "received_at": "2026-07-04T05:41:46",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:info@nousro.ru",
+          "company:межрегиональный учебный центр",
+          "company:учебный центр",
+          "domain:shopap.ru",
+          "domain:nousro.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f2ba58508c7051",
+      "thread_id": "19f2ba58508c7051",
+      "from": "\"Учебный центр\" info@nousro.ru",
+      "subject": "Fwd: Подпись DKIM для исходящей почты с домена shopap.ru отключена",
+      "received_at": "2026-07-04T05:41:30",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:info@nousro.ru",
+          "company:межрегиональный учебный центр",
+          "company:учебный центр",
+          "domain:shopap.ru",
+          "domain:nousro.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f2b9f472b85ae7",
+      "thread_id": "19f2b9e047a13876",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Fwd: Почта для вашего домена перестала работать",
+      "received_at": "2026-07-04T05:34:24",
+      "task_id": "beget-migration-202607",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f2b9f11ebeb6fc",
+      "thread_id": "19f2b9e047a13876",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Fwd: Почта для вашего домена перестала работать",
+      "received_at": "2026-07-04T05:34:10",
+      "task_id": "docp-feedback-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "domain:docp.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f2b9ebf6b17753",
+      "thread_id": "19f2b9ebf6b17753",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Fwd: Подпись DKIM для исходящей почты с домена rectavr.ru отключена",
+      "received_at": "2026-07-04T05:33:56",
+      "task_id": "beget-migration-202607",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f2b9eacd605a2b",
+      "thread_id": "19f2b9e047a13876",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Fwd: Почта для вашего домена перестала работать",
+      "received_at": "2026-07-04T05:33:45",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "domain:apreal-nn.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f2b9e71d5d781b",
+      "thread_id": "19f2b9e71d5d781b",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Fwd: Подпись DKIM для исходящей почты с домена apreal-nn.ru отключена",
+      "received_at": "2026-07-04T05:33:30",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "domain:apreal-nn.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f2b9e20f83cd2b",
+      "thread_id": "19f2b9e20f83cd2b",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Fwd: Подпись DKIM для исходящей почты с домена docp.ru отключена",
+      "received_at": "2026-07-04T05:33:14",
+      "task_id": "docp-feedback-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "domain:docp.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f2b9e047a13876",
+      "thread_id": "19f2b9e047a13876",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Fwd: Почта для вашего домена перестала работать",
+      "received_at": "2026-07-04T05:33:01",
+      "task_id": "beget-migration-202607",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f2b9dc17ae2cd2",
+      "thread_id": "19f2b9dc17ae2cd2",
+      "from": "\"Группа компаний АП-Риал\" upreal@bk.ru",
+      "subject": "Fwd: Подпись DKIM для исходящей почты с домена mhsl.ru отключена",
+      "received_at": "2026-07-04T05:32:44",
+      "task_id": "beget-migration-202607",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f2808a4906bba7",
+      "thread_id": "19f2654d2533bc2d",
+      "from": "\"Виктор Хоров\" khorov69@mail.ru",
+      "subject": "Re: Fwd[2]: Почта для вашего домена перестала работать",
+      "received_at": "2026-07-03T12:51:18",
+      "task_id": "beget-migration-202607",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f2655dec42fa9f",
+      "thread_id": "19f2654d2533bc2d",
+      "from": "\"Виктор Хоров\" khorov69@mail.ru",
+      "subject": "Fwd[2]: Почта для вашего домена перестала работать",
+      "received_at": "2026-07-03T04:56:25",
+      "task_id": "beget-migration-202607",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f2655ab1e26207",
+      "thread_id": "19f2655ab1e26207",
+      "from": "\"Виктор Хоров\" khorov69@mail.ru",
+      "subject": "Fwd[2]: Подпись DKIM для исходящей почты с домена elecktro.ru отключена",
+      "received_at": "2026-07-03T04:56:12",
+      "task_id": "beget-migration-202607",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f26557a6c4622a",
+      "thread_id": "19f2654d2533bc2d",
+      "from": "\"Виктор Хоров\" khorov69@mail.ru",
+      "subject": "Fwd[2]: Почта для вашего домена перестала работать",
+      "received_at": "2026-07-03T04:56:00",
+      "task_id": "beget-migration-202607",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f265549d4fe49a",
+      "thread_id": "19f265549d4fe49a",
+      "from": "\"Виктор Хоров\" khorov69@mail.ru",
+      "subject": "Fwd[2]: Подпись DKIM для исходящей почты с домена otxodi.ru отключена",
+      "received_at": "2026-07-03T04:55:46",
+      "task_id": "otxodi-feedback-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "domain:otxodi.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f26550fdc56fe9",
+      "thread_id": "19f2654d2533bc2d",
+      "from": "\"Виктор Хоров\" khorov69@mail.ru",
+      "subject": "Fwd[2]: Почта для вашего домена перестала работать",
+      "received_at": "2026-07-03T04:55:32",
+      "task_id": "beget-migration-202607",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f2654d2533bc2d",
+      "thread_id": "19f2654d2533bc2d",
+      "from": "\"Виктор Хоров\" khorov69@mail.ru",
+      "subject": "Fwd[2]: Почта для вашего домена перестала работать",
+      "received_at": "2026-07-03T04:55:17",
+      "task_id": "otxodi-feedback-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "contact:khorov69@mail.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru",
+          "domain:otxodi.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f2174475cc5938",
+      "thread_id": "19f12b845ee6da36",
+      "from": "\"Виктор Хоров\" khorov69@mail.ru",
+      "subject": "Re:",
+      "received_at": "2026-07-02T06:11:31",
+      "task_id": "finance-ap-real-19f2174475cc5938",
+      "attachments": [
+        "image.png"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:apreal.spb.ru",
+          "domain:apreal-nn.ru",
+          "domain:license39.ru",
+          "domain:nousro.ru",
+          "domain:nousro-spb.ru",
+          "domain:mchs-spb.ru",
+          "domain:medlic.spb.ru",
+          "financial:договор"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f12b845ee6da36",
+      "thread_id": "19f12b845ee6da36",
+      "from": "\"Виктор Хоров\" khorov69@mail.ru",
+      "subject": "(No Subject)",
+      "received_at": "2026-06-29T09:31:28",
+      "task_id": "finance-ap-real-19f12b845ee6da36",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:apreal-nn.ru",
+          "financial:договор"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f65e5f86115815",
+      "thread_id": "19f65e5f86115815",
+      "from": "noreply@shopap.ru",
+      "subject": "[migration-check] shopap.ru 2026-07-15-1640",
+      "received_at": "2026-07-15T13:09:57",
+      "task_id": "form-acceptance-20260724",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "domain:shopap.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f6b9abd008a9ca",
+      "thread_id": "19f06049da709e03",
+      "from": "Support support@openai.com",
+      "subject": "New Case",
+      "received_at": "2026-07-16T15:45:30",
+      "task_id": "finance-ap-real-19f6b9abd008a9ca",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "financial:оплата"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f0a17563e10568",
+      "thread_id": "19f06049da709e03",
+      "from": "Support support@openai.com",
+      "subject": "Re: New Case",
+      "received_at": "2026-06-27T17:18:48",
+      "task_id": "finance-ap-real-19f0a17563e10568",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "financial:счет"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f09d176acd4fdf",
+      "thread_id": "19f06049da709e03",
+      "from": "Support support@openai.com",
+      "subject": "Re: New Case",
+      "received_at": "2026-06-27T16:02:29",
+      "task_id": "finance-ap-real-19f09d176acd4fdf",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "financial:счет"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f08afbc6275733",
+      "thread_id": "19f08a2eb47ef76a",
+      "from": "\"Банк Точка\" informer@tochka.com",
+      "subject": "Чек Оплата услуги по подбору персонала",
+      "received_at": "2026-06-27T10:46:02",
+      "task_id": "finance-ap-real-19f08afbc6275733",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "financial:оплата"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19f08a2eb47ef76a",
+      "thread_id": "19f08a2eb47ef76a",
+      "from": "\"Банк Точка\" informer@tochka.com",
+      "subject": "Чек Оплата услуги по подбору персонала",
+      "received_at": "2026-06-27T10:32:01",
+      "task_id": "finance-ap-real-19f08a2eb47ef76a",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "finance",
+        "evidence": [
+          "financial:оплата"
+        ],
+        "requires_technical_task": false
+      },
+      "state": "processed"
     }
   ],
   "ignored_messages": [
@@ -517,6 +2798,1666 @@
         "requires_technical_task": false
       },
       "state": "processed"
+    },
+    {
+      "id": "19f96262023bf1e1",
+      "thread_id": "19f96262023bf1e1",
+      "from": "Jory at Font Awesome hello@m.fontawesome.com",
+      "subject": "Awesome News - New Icons, a New Discord, a New Puzzle",
+      "received_at": "2026-07-24T22:01:15",
+      "task_id": "unrelated-ap-real-19f96262023bf1e1",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f95edab7e35a55",
+      "thread_id": "19f95edab7e35a55",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-07-24T21:00:08",
+      "task_id": "unrelated-ap-real-19f95edab7e35a55",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f958bf7e1fda3f",
+      "thread_id": "19f958bf7e1fda3f",
+      "from": "Google no-reply@accounts.google.com",
+      "subject": "Оповещение системы безопасности",
+      "received_at": "2026-07-24T19:13:24",
+      "task_id": "unrelated-ap-real-19f958bf7e1fda3f",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f949055454cc05",
+      "thread_id": "19f949055454cc05",
+      "from": "\"Госуслуги\" no-reply@gosuslugi.ru",
+      "subject": "«Чемпионат болельщиков» стартовал в мобильном приложении «Болельщик»",
+      "received_at": "2026-07-24T14:38:33",
+      "task_id": "unrelated-ap-real-19f949055454cc05",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f945a46900fe96",
+      "thread_id": "19f945a46900fe96",
+      "from": "\"Свои Плюсы\" hello@sp.yandex.ru",
+      "subject": "Новая цель: выполнить все задания",
+      "received_at": "2026-07-24T13:39:31",
+      "task_id": "unrelated-ap-real-19f945a46900fe96",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f91aee91ea5425",
+      "thread_id": "19f90c74cbdf576b",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-07-24T01:13:06",
+      "task_id": "unrelated-ap-real-19f91aee91ea5425",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f90ccbf150ba34",
+      "thread_id": "19f90ccbf150ba34",
+      "from": "Jory at Font Awesome jory@m.fontawesome.com",
+      "subject": "We lowered our prices",
+      "received_at": "2026-07-23T21:05:34",
+      "task_id": "unrelated-ap-real-19f90ccbf150ba34",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f90c74cbdf576b",
+      "thread_id": "19f90c74cbdf576b",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-07-23T21:00:08",
+      "task_id": "unrelated-ap-real-19f90c74cbdf576b",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f8f248509e8978",
+      "thread_id": "19f8c0cc49493889",
+      "from": "info@andimodul.lt",
+      "subject": "Заявка с сайта andimodul.lt",
+      "received_at": "2026-07-23T13:22:40",
+      "task_id": "unrelated-ap-real-19f8f248509e8978",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f8f214c6d4b692",
+      "thread_id": "19f8f214c6d4b692",
+      "from": "\"Яндекс ID \" noreply@id.yandex.ru",
+      "subject": "Кто-то входит в Ваш аккаунт на Яндексе",
+      "received_at": "2026-07-23T13:19:11",
+      "task_id": "unrelated-ap-real-19f8f214c6d4b692",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f8f0c7ff613d96",
+      "thread_id": "19f8f0c7ff613d96",
+      "from": "\"Urval från Quora\" swedish-personalized-digest@quora.com",
+      "subject": "Rysk toppmodern stridsvagn sprängs Massmördarna i Kreml har grovt överskattat sin mate...",
+      "received_at": "2026-07-23T12:56:27",
+      "task_id": "unrelated-ap-real-19f8f0c7ff613d96",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f8e888e3ac2abc",
+      "thread_id": "19f8e888e3ac2abc",
+      "from": "Instagram noreply@mail.instagram.com",
+      "subject": "072ham принял(-а) ваш запрос на подписку",
+      "received_at": "2026-07-23T10:32:20",
+      "task_id": "unrelated-ap-real-19f8e888e3ac2abc",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f8cbc5d9cc5fc3",
+      "thread_id": "19f8c0cc49493889",
+      "from": "info@andimodul.lt",
+      "subject": "Заявка с сайта andimodul.lt",
+      "received_at": "2026-07-23T02:09:40",
+      "task_id": "unrelated-ap-real-19f8cbc5d9cc5fc3",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f8c0cc49493889",
+      "thread_id": "19f8c0cc49493889",
+      "from": "info@andimodul.lt",
+      "subject": "Заявка с сайта andimodul.lt",
+      "received_at": "2026-07-22T22:57:52",
+      "task_id": "unrelated-ap-real-19f8c0cc49493889",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f8bf08e9365ded",
+      "thread_id": "19f8bf08e9365ded",
+      "from": "\"Link-Host.net\" support@link-host.net",
+      "subject": "Напоминание об окончании оплаченного периода (домен)",
+      "received_at": "2026-07-22T22:27:05",
+      "task_id": "unrelated-ap-real-19f8bf08e9365ded",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f8b9febf746b7b",
+      "thread_id": "19f8b9febf746b7b",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-07-22T20:59:00",
+      "task_id": "unrelated-ap-real-19f8b9febf746b7b",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f8ab46f4e72a38",
+      "thread_id": "19f8ab46f4e72a38",
+      "from": "\"Quoraダイジェスト\" japanese-personalized-digest@quora.com",
+      "subject": "英語かなり話せる人に質問です。 コツとかありますか？どうやったら話せるようになりましたか？",
+      "received_at": "2026-07-22T16:41:47",
+      "task_id": "unrelated-ap-real-19f8ab46f4e72a38",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f8a4238adc4fcf",
+      "thread_id": "19f8a4238adc4fcf",
+      "from": "\"Госуслуги\" no-reply@gosuslugi.ru",
+      "subject": "Опрос о деятельности фонда «Защитники Отечества»",
+      "received_at": "2026-07-22T14:36:57",
+      "task_id": "unrelated-ap-real-19f8a4238adc4fcf",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f8a39b6448edbf",
+      "thread_id": "19f8a39b6448edbf",
+      "from": "Global Domain Group accounts@globaldomaingroup.com",
+      "subject": "ideasmartapps.com expires in 30 days",
+      "received_at": "2026-07-22T14:26:09",
+      "task_id": "unrelated-ap-real-19f8a39b6448edbf",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f866e0ce3a6d99",
+      "thread_id": "19f866e0ce3a6d99",
+      "from": "OpenRouter Team welcome@openrouter.ai",
+      "subject": "The router picks the model now: Kimi K3, KAT-Coder V2.5 and more",
+      "received_at": "2026-07-21T20:46:26",
+      "task_id": "unrelated-ap-real-19f866e0ce3a6d99",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f862371814dc2a",
+      "thread_id": "19f862371814dc2a",
+      "from": "OpenRouter Team welcome@openrouter.ai",
+      "subject": "Uptime & Cost Control in a Chaotic Model Environment",
+      "received_at": "2026-07-21T19:24:56",
+      "task_id": "unrelated-ap-real-19f862371814dc2a",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f83b1211186b08",
+      "thread_id": "19f83b1211186b08",
+      "from": "Kwork news@kwork.ru",
+      "subject": "Поддержание сайта отнимает ваше время? Поручите эти заботы Kwork",
+      "received_at": "2026-07-21T08:00:50",
+      "task_id": "unrelated-ap-real-19f83b1211186b08",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f815493a64cd1b",
+      "thread_id": "19f815493a64cd1b",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-07-20T21:00:31",
+      "task_id": "unrelated-ap-real-19f815493a64cd1b",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f81104ba1742d1",
+      "thread_id": "19f81104ba1742d1",
+      "from": "\"Selección de Quora\" spanish-personalized-digest@quora.com",
+      "subject": "AL NARCISISTA LE ATRAEN DOS TIPOS DE MUJERES No es casualidad. Es selección. El narcis...",
+      "received_at": "2026-07-20T19:45:55",
+      "task_id": "unrelated-ap-real-19f81104ba1742d1",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f7ef93831f481c",
+      "thread_id": "19f7ef93831f481c",
+      "from": "Beget begetnews@beget.com",
+      "subject": "Вашему проекту подходит Kubernetes",
+      "received_at": "2026-07-20T10:01:28",
+      "task_id": "unrelated-ap-real-19f7ef93831f481c",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f7d40b2cce1c41",
+      "thread_id": "19f7c2f4ba0eb800",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-07-20T02:00:19",
+      "task_id": "unrelated-ap-real-19f7d40b2cce1c41",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f7c99d8f9c997e",
+      "thread_id": "19f7bc9e8d119a1a",
+      "from": "LTD Beget no-reply@beget.com",
+      "subject": "LTD Beget: Ответ на запрос в \"Панели управления\".",
+      "received_at": "2026-07-19T22:58:04",
+      "task_id": "unrelated-ap-real-19f7c99d8f9c997e",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f7c837e26cd5d7",
+      "thread_id": "19f7bc9e8d119a1a",
+      "from": "LTD Beget no-reply@beget.com",
+      "subject": "LTD Beget: Ответ на запрос в \"Панели управления\".",
+      "received_at": "2026-07-19T22:33:39",
+      "task_id": "unrelated-ap-real-19f7c837e26cd5d7",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f7c358b2774672",
+      "thread_id": "19f7bc9e8d119a1a",
+      "from": "LTD Beget no-reply@beget.com",
+      "subject": "LTD Beget: Ответ на запрос в \"Панели управления\".",
+      "received_at": "2026-07-19T21:08:31",
+      "task_id": "unrelated-ap-real-19f7c358b2774672",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f7c2f4ba0eb800",
+      "thread_id": "19f7c2f4ba0eb800",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-07-19T21:01:41",
+      "task_id": "unrelated-ap-real-19f7c2f4ba0eb800",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f7c06f37ee2265",
+      "thread_id": "19f7bc9e8d119a1a",
+      "from": "LTD Beget no-reply@beget.com",
+      "subject": "LTD Beget: Ответ на запрос в \"Панели управления\".",
+      "received_at": "2026-07-19T20:17:37",
+      "task_id": "unrelated-ap-real-19f7c06f37ee2265",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f7bfa6bb15f72a",
+      "thread_id": "19f7bfa6bb15f72a",
+      "from": "Beget support@beget.ru",
+      "subject": "LTD Beget: Виртуальный сервер «Stylish Selby» успешно создан",
+      "received_at": "2026-07-19T20:03:56",
+      "task_id": "unrelated-ap-real-19f7bfa6bb15f72a",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stylish selby"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f7bf4019dd5947",
+      "thread_id": "19f7bc9e8d119a1a",
+      "from": "LTD Beget no-reply@beget.com",
+      "subject": "LTD Beget: Ответ на запрос в \"Панели управления\".",
+      "received_at": "2026-07-19T19:56:55",
+      "task_id": "unrelated-ap-real-19f7bf4019dd5947",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f7bdbb516e6f96",
+      "thread_id": "19f7bc9e8d119a1a",
+      "from": "LTD Beget no-reply@beget.com",
+      "subject": "LTD Beget: Ответ на запрос в \"Панели управления\".",
+      "received_at": "2026-07-19T19:30:23",
+      "task_id": "unrelated-ap-real-19f7bdbb516e6f96",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f7bc9e8d119a1a",
+      "thread_id": "19f7bc9e8d119a1a",
+      "from": "LTD Beget no-reply@beget.com",
+      "subject": "LTD Beget: Ответ на запрос в \"Панели управления\".",
+      "received_at": "2026-07-19T19:10:57",
+      "task_id": "unrelated-ap-real-19f7bc9e8d119a1a",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f7bafbe80e710b",
+      "thread_id": "19f7bafbe80e710b",
+      "from": "LTD Beget no-reply@beget.ru",
+      "subject": "LTD Beget: Данные сервера Buoyant Tamara успешно восстановлены",
+      "received_at": "2026-07-19T18:42:22",
+      "task_id": "unrelated-ap-real-19f7bafbe80e710b",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65",
+          "excluded:buoyant tamara"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f7b2f0bc983823",
+      "thread_id": "19f7b2f0bc983823",
+      "from": "Beget support@beget.ru",
+      "subject": "LTD Beget: плановые работы на сетевом оборудовании; (аккаунт: stithc65)",
+      "received_at": "2026-07-19T16:21:48",
+      "task_id": "unrelated-ap-real-19f7b2f0bc983823",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f761ba70b8a55a",
+      "thread_id": "19f761ba70b8a55a",
+      "from": "Nikita-Tikhomirov notifications@github.com",
+      "subject": "[Nikita-Tikhomirov/weather] Run failed: Mobile APK Build - master (a8bcc8b)",
+      "received_at": "2026-07-18T16:42:30",
+      "task_id": "unrelated-ap-real-19f761ba70b8a55a",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f7603e13fd4d1b",
+      "thread_id": "19f7603e13fd4d1b",
+      "from": "Nikita-Tikhomirov notifications@github.com",
+      "subject": "[Nikita-Tikhomirov/weather] Run failed: Mobile APK Build - master (58d6f71)",
+      "received_at": "2026-07-18T16:16:32",
+      "task_id": "unrelated-ap-real-19f7603e13fd4d1b",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f75fbfcbe1ab84",
+      "thread_id": "19f75fbfcbe1ab84",
+      "from": "Nikita-Tikhomirov notifications@github.com",
+      "subject": "[Nikita-Tikhomirov/weather] Run failed: Mobile APK Build - master (9248b87)",
+      "received_at": "2026-07-18T16:07:55",
+      "task_id": "unrelated-ap-real-19f75fbfcbe1ab84",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f75eb67fe560e3",
+      "thread_id": "19f75eb67fe560e3",
+      "from": "Nikita-Tikhomirov notifications@github.com",
+      "subject": "[Nikita-Tikhomirov/weather] Run failed: Mobile APK Build - master (af752a2)",
+      "received_at": "2026-07-18T15:49:48",
+      "task_id": "unrelated-ap-real-19f75eb67fe560e3",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f75c47fdcc4596",
+      "thread_id": "19f75c47fdcc4596",
+      "from": "Nikita-Tikhomirov notifications@github.com",
+      "subject": "[Nikita-Tikhomirov/weather] Run failed: Kwork Lead Funnel APK - master (52d2dae)",
+      "received_at": "2026-07-18T15:07:18",
+      "task_id": "unrelated-ap-real-19f75c47fdcc4596",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f75bcd2f0d1fa9",
+      "thread_id": "19f75bcd2f0d1fa9",
+      "from": "\"Quora: Uitgelicht\" dutch-personalized-digest@quora.com",
+      "subject": "Volgende stelling werd geponeerd in lefties loosing it: do you support this US senator...",
+      "received_at": "2026-07-18T14:58:56",
+      "task_id": "unrelated-ap-real-19f75bcd2f0d1fa9",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f75ba5f36d57ce",
+      "thread_id": "19f75ba5f36d57ce",
+      "from": "Nikita-Tikhomirov notifications@github.com",
+      "subject": "[Nikita-Tikhomirov/weather] Run failed: Tests - master (872dfdb)",
+      "received_at": "2026-07-18T14:56:15",
+      "task_id": "unrelated-ap-real-19f75ba5f36d57ce",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f75ba00d93170e",
+      "thread_id": "19f75ba00d93170e",
+      "from": "Nikita-Tikhomirov notifications@github.com",
+      "subject": "[Nikita-Tikhomirov/weather] Run failed: Kwork Lead Funnel APK - master (872dfdb)",
+      "received_at": "2026-07-18T14:55:51",
+      "task_id": "unrelated-ap-real-19f75ba00d93170e",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f75b53b46d0815",
+      "thread_id": "19f75b53b46d0815",
+      "from": "Nikita-Tikhomirov notifications@github.com",
+      "subject": "[Nikita-Tikhomirov/weather] Run failed: Kwork Lead Funnel APK - master (ebd12ed)",
+      "received_at": "2026-07-18T14:50:38",
+      "task_id": "unrelated-ap-real-19f75b53b46d0815",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f75b53931eb600",
+      "thread_id": "19f75b53931eb600",
+      "from": "Nikita-Tikhomirov notifications@github.com",
+      "subject": "[Nikita-Tikhomirov/weather] Run failed: Tests - master (ebd12ed)",
+      "received_at": "2026-07-18T14:50:37",
+      "task_id": "unrelated-ap-real-19f75b53931eb600",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f75632e7445651",
+      "thread_id": "19f75632e7445651",
+      "from": "Nikita-Tikhomirov notifications@github.com",
+      "subject": "[Nikita-Tikhomirov/weather] Run failed: Mobile APK Build - master (93c978c)",
+      "received_at": "2026-07-18T13:21:01",
+      "task_id": "unrelated-ap-real-19f75632e7445651",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f75514c054f58b",
+      "thread_id": "19f75514c054f58b",
+      "from": "Nikita-Tikhomirov notifications@github.com",
+      "subject": "[Nikita-Tikhomirov/weather] Run failed: Mobile APK Build - master (2b8993e)",
+      "received_at": "2026-07-18T13:01:28",
+      "task_id": "unrelated-ap-real-19f75514c054f58b",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f7548b9d459f8e",
+      "thread_id": "19f7548b9d459f8e",
+      "from": "Nikita-Tikhomirov notifications@github.com",
+      "subject": "[Nikita-Tikhomirov/weather] Run failed: Mobile APK Build - master (042e689)",
+      "received_at": "2026-07-18T12:52:06",
+      "task_id": "unrelated-ap-real-19f7548b9d459f8e",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f71e26ec4aa8b9",
+      "thread_id": "19f71e26ec4aa8b9",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-07-17T21:01:32",
+      "task_id": "unrelated-ap-real-19f71e26ec4aa8b9",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f35d3a67643377",
+      "thread_id": "19f35d3a67643377",
+      "from": "\"Свои Плюсы\" hello@sp.yandex.ru",
+      "subject": "Вот и причина не ходить в магазин",
+      "received_at": "2026-07-06T05:08:10",
+      "task_id": "unrelated-ap-real-19f35d3a67643377",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f354dff0eafc11",
+      "thread_id": "19f3415d9d62d8ed",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-07-06T02:42:11",
+      "task_id": "unrelated-ap-real-19f354dff0eafc11",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f3415d9d62d8ed",
+      "thread_id": "19f3415d9d62d8ed",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-07-05T21:01:14",
+      "task_id": "unrelated-ap-real-19f3415d9d62d8ed",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f2ef50ed73ed39",
+      "thread_id": "19f2ef50ed73ed39",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-07-04T21:07:19",
+      "task_id": "unrelated-ap-real-19f2ef50ed73ed39",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f2bb6d44684fd2",
+      "thread_id": "19f2bb6d44684fd2",
+      "from": "IPweb support@ipweb.ru",
+      "subject": "IPweb: оплачиваемое письмо: Забирай Бонусы в Нашем Проекте!",
+      "received_at": "2026-07-04T06:00:29",
+      "task_id": "unrelated-ap-real-19f2bb6d44684fd2",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f29cf0d92a4d9d",
+      "thread_id": "19f29cf0d92a4d9d",
+      "from": "GitVerse no-reply@gitverse.ru",
+      "subject": "Уведомление GitVerse",
+      "received_at": "2026-07-03T21:07:24",
+      "task_id": "unrelated-ap-real-19f29cf0d92a4d9d",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f29c92fe5f4b8d",
+      "thread_id": "19f29c92fe5f4b8d",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-07-03T21:01:17",
+      "task_id": "unrelated-ap-real-19f29c92fe5f4b8d",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f29a162fef5ee7",
+      "thread_id": "19f29a162fef5ee7",
+      "from": "info@andimodul.lt",
+      "subject": "Заявка с сайта andimodul.lt",
+      "received_at": "2026-07-03T20:17:47",
+      "task_id": "unrelated-ap-real-19f29a162fef5ee7",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f284e78211c5a8",
+      "thread_id": "19f284e78211c5a8",
+      "from": "OpenRouter Team welcome@openrouter.ai",
+      "subject": "Three levers that lower your per-token cost",
+      "received_at": "2026-07-03T14:07:35",
+      "task_id": "unrelated-ap-real-19f284e78211c5a8",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f27b03bb9acc4d",
+      "thread_id": "19f27b03bb9acc4d",
+      "from": "\"Госуслуги\" no-reply@gosuslugi.ru",
+      "subject": "Куда звонить, если в квартире авария",
+      "received_at": "2026-07-03T11:14:47",
+      "task_id": "unrelated-ap-real-19f27b03bb9acc4d",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f2740f6a215429",
+      "thread_id": "19f2740f6a215429",
+      "from": "Beget support@beget.ru",
+      "subject": "LTD Beget: Напоминание, аккаунт stithc65",
+      "received_at": "2026-07-03T09:13:16",
+      "task_id": "unrelated-ap-real-19f2740f6a215429",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f272fe26183dec",
+      "thread_id": "19f272fe26183dec",
+      "from": "\"Свои Плюсы\" hello@sp.yandex.ru",
+      "subject": "Сколько-сколько кешбэка?!",
+      "received_at": "2026-07-03T08:54:36",
+      "task_id": "unrelated-ap-real-19f272fe26183dec",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f247f51ffded0b",
+      "thread_id": "19f247f51ffded0b",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-07-02T20:22:30",
+      "task_id": "unrelated-ap-real-19f247f51ffded0b",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f2418888f2d8b6",
+      "thread_id": "19f2418888f2d8b6",
+      "from": "OpenRouter Team welcome@openrouter.ai",
+      "subject": "Three June updates to lower your inference bill",
+      "received_at": "2026-07-02T18:30:12",
+      "task_id": "unrelated-ap-real-19f2418888f2d8b6",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f234de2d40432a",
+      "thread_id": "19f234de2d40432a",
+      "from": "\"Quora: Uitgelicht\" dutch-personalized-digest@quora.com",
+      "subject": "Als je rond je 20e in een land komt wonen, hoe lang zou er je over doen om de taal vl...?",
+      "received_at": "2026-07-02T14:48:53",
+      "task_id": "unrelated-ap-real-19f234de2d40432a",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f232811b845d4f",
+      "thread_id": "19f232811b845d4f",
+      "from": "OpenRouter Team welcome@openrouter.ai",
+      "subject": "Chain models for complex tasks",
+      "received_at": "2026-07-02T14:07:32",
+      "task_id": "unrelated-ap-real-19f232811b845d4f",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f22928d2c789ee",
+      "thread_id": "19f22928d2c789ee",
+      "from": "\"Яндекс 360\" info@360.yandex.ru",
+      "subject": "Файлы на Диске с логином tihomirov.n1kita удалены",
+      "received_at": "2026-07-02T11:24:16",
+      "task_id": "unrelated-ap-real-19f22928d2c789ee",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f1fca9f3faef6f",
+      "thread_id": "19f1fca9f3faef6f",
+      "from": "\"Link-Host.net\" support@link-host.net",
+      "subject": "Напоминание об окончании оплаченного периода (домен)",
+      "received_at": "2026-07-01T22:26:39",
+      "task_id": "unrelated-ap-real-19f1fca9f3faef6f",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f1f615e46042b9",
+      "thread_id": "19f1f615e46042b9",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-07-01T20:31:42",
+      "task_id": "unrelated-ap-real-19f1f615e46042b9",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f1eb6bed31ab77",
+      "thread_id": "19f1eb6bed31ab77",
+      "from": "\"Seleção do Quora\" portuguese-personalized-digest@quora.com",
+      "subject": "Quanta RAM tem o computador mais rápido do mundo?",
+      "received_at": "2026-07-01T17:25:19",
+      "task_id": "unrelated-ap-real-19f1eb6bed31ab77",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f1e00bba2e25e3",
+      "thread_id": "19f1e00bba2e25e3",
+      "from": "OpenRouter Team welcome@openrouter.ai",
+      "subject": "Your coding agent + 300 models",
+      "received_at": "2026-07-01T14:06:31",
+      "task_id": "unrelated-ap-real-19f1e00bba2e25e3",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f1cf09883f81c3",
+      "thread_id": "19f1cf09883f81c3",
+      "from": "\"Свои Плюсы\" hello@sp.yandex.ru",
+      "subject": "Готовы сделать первый шаг?",
+      "received_at": "2026-07-01T09:09:17",
+      "task_id": "unrelated-ap-real-19f1cf09883f81c3",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f1af0c9340e670",
+      "thread_id": "19f1af0c9340e670",
+      "from": "robot@wmmail.ru",
+      "subject": "Оплачиваемое письмо WMmail.ru #210287",
+      "received_at": "2026-06-30T18:19:37",
+      "task_id": "unrelated-ap-real-19f1af0c9340e670",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f1a9c6b6502061",
+      "thread_id": "19f1a9c6b6502061",
+      "from": "Instagram notification@priority.instagram.com",
+      "subject": "site_for_u, посмотрите, что вы пропустили",
+      "received_at": "2026-06-30T22:18:00",
+      "task_id": "unrelated-ap-real-19f1a9c6b6502061",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f18da1c72735d9",
+      "thread_id": "19f18da1c72735d9",
+      "from": "OpenRouter Team welcome@openrouter.ai",
+      "subject": "Three features that quietly save you money",
+      "received_at": "2026-06-30T14:06:14",
+      "task_id": "unrelated-ap-real-19f18da1c72735d9",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f189a73200d86f",
+      "thread_id": "19f189a73200d86f",
+      "from": "\"Urval från Quora\" swedish-personalized-digest@quora.com",
+      "subject": "Heter det \"jag känner de som bor där\" eller \"jag känner dem som bor där\"?",
+      "received_at": "2026-06-30T12:56:41",
+      "task_id": "unrelated-ap-real-19f189a73200d86f",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f17477393059f1",
+      "thread_id": "19f17477393059f1",
+      "from": "Kwork news@kwork.ru",
+      "subject": "Топовые заказы на Kwork за месяц",
+      "received_at": "2026-06-30T06:46:25",
+      "task_id": "unrelated-ap-real-19f17477393059f1",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f166d8b33b36ec",
+      "thread_id": "19f14b1856f0220b",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-06-30T02:48:25",
+      "task_id": "unrelated-ap-real-19f166d8b33b36ec",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f156f9349629d1",
+      "thread_id": "19f156f9349629d1",
+      "from": "Font Awesome hello@m.fontawesome.com",
+      "subject": "Font Awesome 7.3 is ready for action!",
+      "received_at": "2026-06-29T22:10:52",
+      "task_id": "unrelated-ap-real-19f156f9349629d1",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f14b1856f0220b",
+      "thread_id": "19f14b1856f0220b",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-06-29T18:43:25",
+      "task_id": "unrelated-ap-real-19f14b1856f0220b",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f13df0fd106d3d",
+      "thread_id": "19f13df0fd106d3d",
+      "from": "Instagram no-reply@mail.instagram.com",
+      "subject": "site_for_u, посмотрите новости jenyasokolov и cheodinmatta и других пользователей в своей ленте",
+      "received_at": "2026-06-29T14:53:25",
+      "task_id": "unrelated-ap-real-19f13df0fd106d3d",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f13b31803ecab0",
+      "thread_id": "19f13b31803ecab0",
+      "from": "OpenRouter Team welcome@openrouter.ai",
+      "subject": "What comes with a paid key",
+      "received_at": "2026-06-29T14:05:29",
+      "task_id": "unrelated-ap-real-19f13b31803ecab0",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f12a463d3740dd",
+      "thread_id": "19f12a463d3740dd",
+      "from": "\"Свои Плюсы\" hello@sp.yandex.ru",
+      "subject": "Дорогие, всё в порядке?",
+      "received_at": "2026-06-29T09:09:50",
+      "task_id": "unrelated-ap-real-19f12a463d3740dd",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f1008906f2c2cc",
+      "thread_id": "19f1008906f2c2cc",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-06-28T21:00:24",
+      "task_id": "unrelated-ap-real-19f1008906f2c2cc",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f0afae8014b28e",
+      "thread_id": "19f0afae8014b28e",
+      "from": "\"Link-Host.net\" support@link-host.net",
+      "subject": "Напоминание об окончании оплаченного периода (домен)",
+      "received_at": "2026-06-27T21:27:23",
+      "task_id": "unrelated-ap-real-19f0afae8014b28e",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f0ae655b985e23",
+      "thread_id": "19f0ae655b985e23",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-06-27T21:04:54",
+      "task_id": "unrelated-ap-real-19f0ae655b985e23",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f0a14b57728e8f",
+      "thread_id": "19f0a14b57728e8f",
+      "from": "Google google-noreply@google.com",
+      "subject": "Мы обновляем Условия использования",
+      "received_at": "2026-06-27T17:15:56",
+      "task_id": "unrelated-ap-real-19f0a14b57728e8f",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f07dea214778d2",
+      "thread_id": "19f07dea214778d2",
+      "from": "Pinterest recommendations@explore.pinterest.com",
+      "subject": "Рисунок Персонажа Мультфильма, Знаменитые Комиксы и другие идеи для поиска",
+      "received_at": "2026-06-27T06:57:38",
+      "task_id": "unrelated-ap-real-19f07dea214778d2",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f06b010c26e6da",
+      "thread_id": "19f05bc60cfa2284",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-06-27T01:27:09",
+      "task_id": "unrelated-ap-real-19f06b010c26e6da",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f05bc60cfa2284",
+      "thread_id": "19f05bc60cfa2284",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-06-26T21:00:58",
+      "task_id": "unrelated-ap-real-19f05bc60cfa2284",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f716d26479d31f",
+      "thread_id": "19f716d26479d31f",
+      "from": "stithc92@gmail.com",
+      "subject": "Новый заказ #81: score 65",
+      "received_at": "2026-07-17T18:53:26",
+      "task_id": "unrelated-ap-real-19f716d26479d31f",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f6a97b56f416c8",
+      "thread_id": "19f6a97b56f416c8",
+      "from": "IPweb support@ipweb.ru",
+      "subject": "IPweb: оплачиваемое письмо: Топ Telegram канал Игроков Casino",
+      "received_at": "2026-07-16T11:02:32",
+      "task_id": "unrelated-ap-real-19f6a97b56f416c8",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f6a3744133145e",
+      "thread_id": "19f6a3744133145e",
+      "from": "Beget support@beget.ru",
+      "subject": "LTD Beget: Напоминание, аккаунт stithc65",
+      "received_at": "2026-07-16T09:17:14",
+      "task_id": "unrelated-ap-real-19f6a3744133145e",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f671bfdd3de604",
+      "thread_id": "19f671bfdd3de604",
+      "from": "LTD Beget no-reply@beget.com",
+      "subject": "LTD Beget: Зачислен платеж. Аккаунт stithc65",
+      "received_at": "2026-07-15T18:48:32",
+      "task_id": "unrelated-ap-real-19f671bfdd3de604",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f5c726eeebe4fd",
+      "thread_id": "19f5c726eeebe4fd",
+      "from": "\"Свои Плюсы\" hello@sp.yandex.ru",
+      "subject": "Скидка 500 ₽ в Яндекс Еде",
+      "received_at": "2026-07-13T17:07:10",
+      "task_id": "unrelated-ap-real-19f5c726eeebe4fd",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f55c8307695d3c",
+      "thread_id": "19f55c8307695d3c",
+      "from": "IPweb support@ipweb.ru",
+      "subject": "IPweb: оплачиваемое письмо: Поиграй у Нас С Пивом. Новый Топ Проект Пиво",
+      "received_at": "2026-07-12T10:03:30",
+      "task_id": "unrelated-ap-real-19f55c8307695d3c",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f4b088f06ae10b",
+      "thread_id": "19f4b088f06ae10b",
+      "from": "Beget support@beget.ru",
+      "subject": "LTD Beget: Виртуальный сервер Buoyant Tamara заблокирован в связи с отрицательным балансом аккаунта stithc65",
+      "received_at": "2026-07-10T07:57:58",
+      "task_id": "unrelated-ap-real-19f4b088f06ae10b",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65",
+          "excluded:buoyant tamara"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f4b0883fbc565f",
+      "thread_id": "19f4b0883fbc565f",
+      "from": "Beget support@beget.ru",
+      "subject": "LTD Beget: Ваш аккаунт stithc65 заблокирован!",
+      "received_at": "2026-07-10T07:57:54",
+      "task_id": "unrelated-ap-real-19f4b0883fbc565f",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f45b3d6548938f",
+      "thread_id": "19f45b3d6548938f",
+      "from": "Google Play googleplay-noreply@google.com",
+      "subject": "Обновление Условий использования Google Play",
+      "received_at": "2026-07-09T07:07:21",
+      "task_id": "unrelated-ap-real-19f45b3d6548938f",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f43535927173ac",
+      "thread_id": "19f43535927173ac",
+      "from": "IPweb support@ipweb.ru",
+      "subject": "IPweb: оплачиваемое письмо: Лучший сервис по продвижению социальных сетей!",
+      "received_at": "2026-07-08T20:02:42",
+      "task_id": "unrelated-ap-real-19f43535927173ac",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f412e2207f1faa",
+      "thread_id": "19f412e2207f1faa",
+      "from": "IPweb support@ipweb.ru",
+      "subject": "IPweb: оплачиваемое письмо: Бесплатный траффик на ваши сайты и видео",
+      "received_at": "2026-07-08T10:02:50",
+      "task_id": "unrelated-ap-real-19f412e2207f1faa",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f412baecbcd2af",
+      "thread_id": "19f412baecbcd2af",
+      "from": "IPweb support@ipweb.ru",
+      "subject": "IPweb: оплачиваемое письмо: От 500$ в неделю!",
+      "received_at": "2026-07-08T10:00:09",
+      "task_id": "unrelated-ap-real-19f412baecbcd2af",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f4109769ee27c7",
+      "thread_id": "19f4109769ee27c7",
+      "from": "Beget support@beget.ru",
+      "subject": "LTD Beget: Напоминание, аккаунт stithc65",
+      "received_at": "2026-07-08T09:22:46",
+      "task_id": "unrelated-ap-real-19f4109769ee27c7",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f3be2a206348e3",
+      "thread_id": "19f3be2a206348e3",
+      "from": "Beget support@beget.ru",
+      "subject": "LTD Beget: Напоминание, аккаунт stithc65",
+      "received_at": "2026-07-07T09:22:14",
+      "task_id": "unrelated-ap-real-19f3be2a206348e3",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f64d2acf0a73b2",
+      "thread_id": "19f64d2acf0a73b2",
+      "from": "LTD Beget support@beget.ru",
+      "subject": "LTD Beget: Приближается дата удаления виртуальных серверов на аккаунте stithc65",
+      "received_at": "2026-07-15T08:09:14",
+      "task_id": "unrelated-ap-real-19f64d2acf0a73b2",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65",
+          "excluded:buoyant tamara"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f5a85477b4c6af",
+      "thread_id": "19f5a85477b4c6af",
+      "from": "LTD Beget support@beget.ru",
+      "subject": "LTD Beget: Приближается дата удаления виртуальных серверов на аккаунте stithc65",
+      "received_at": "2026-07-13T08:08:30",
+      "task_id": "unrelated-ap-real-19f5a85477b4c6af",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65",
+          "excluded:buoyant tamara"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19f4b08911aecef1",
+      "thread_id": "19f4b08911aecef1",
+      "from": "Beget support@beget.ru",
+      "subject": "LTD Beget: Объектное хранилище S3 «Messenger Media» заблокировано",
+      "received_at": "2026-07-10T07:57:58",
+      "task_id": "unrelated-ap-real-19f4b08911aecef1",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
     }
   ]
 }
