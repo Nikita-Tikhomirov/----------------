@@ -22,6 +22,7 @@ class ClientProfile:
     provider_domains: tuple[str, ...]
     provider_keywords: tuple[str, ...]
     mail_lookback_days: int
+    mail_incremental_lookback_days: int
 
     @classmethod
     def from_mapping(cls, value: dict[str, Any]) -> "ClientProfile":
@@ -39,6 +40,12 @@ class ClientProfile:
         if not isinstance(lookback_days, int) or not 1 <= lookback_days <= 365:
             raise ValueError("profile field mail_lookback_days must be between 1 and 365")
 
+        incremental_lookback_days = value.get("mail_incremental_lookback_days", 3)
+        if not isinstance(incremental_lookback_days, int) or not 1 <= incremental_lookback_days <= lookback_days:
+            raise ValueError(
+                "profile field mail_incremental_lookback_days must be between 1 and mail_lookback_days"
+            )
+
         return cls(
             id=identifier,
             company_names=strings("company_names"),
@@ -49,6 +56,7 @@ class ClientProfile:
             provider_domains=strings("provider_domains"),
             provider_keywords=strings("provider_keywords"),
             mail_lookback_days=lookback_days,
+            mail_incremental_lookback_days=incremental_lookback_days,
         )
 
     @classmethod
@@ -63,12 +71,16 @@ class RoutingDecision:
     requires_technical_task: bool
 
 
-def build_search_queries(profile: ClientProfile) -> tuple[str, ...]:
+def build_search_queries(profile: ClientProfile, *, lookback_days: int | None = None) -> tuple[str, ...]:
     """Return Gmail queries that surface known and newly discovered client mail."""
     def grouped(values: tuple[str, ...]) -> str:
         return " OR ".join(f'"{value}"' for value in values)
 
-    scope = f"in:inbox newer_than:{profile.mail_lookback_days}d"
+    days = profile.mail_lookback_days if lookback_days is None else lookback_days
+    if not 1 <= days <= profile.mail_lookback_days:
+        raise ValueError("lookback_days must be between 1 and profile.mail_lookback_days")
+
+    scope = f"in:inbox newer_than:{days}d"
     queries = [f"is:unread {scope}"]
     if profile.contacts:
         queries.append(f"{scope} ({grouped(profile.contacts)})")

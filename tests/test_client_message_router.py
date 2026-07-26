@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from tools.client_cycle import known_message_ids
+from tools.client_cycle import ScanState, build_cycle_plan, known_message_ids
 from tools.client_message_router import ClientProfile, build_search_queries, classify_message
 
 
@@ -94,3 +94,19 @@ def test_cycle_reads_known_message_ids_from_the_intake_ledger():
     assert known_message_ids(
         {"messages": [{"id": "first"}], "ignored_messages": [{"id": "second"}]}
     ) == {"first", "second"}
+
+
+def test_cycle_uses_full_window_until_a_successful_scan_is_recorded():
+    plan = build_cycle_plan(PROFILE, None)
+
+    assert plan.mode == "bootstrap"
+    assert "newer_than:30d" in plan.queries[0]
+    assert plan.max_pages == 10
+
+
+def test_cycle_uses_small_recovery_window_after_successful_scan():
+    plan = build_cycle_plan(PROFILE, ScanState(last_success_at="2026-07-27T00:30:00+03:00"))
+
+    assert plan.mode == "incremental"
+    assert "newer_than:3d" in plan.queries[0]
+    assert plan.max_pages == 3

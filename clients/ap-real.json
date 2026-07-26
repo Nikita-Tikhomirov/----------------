@@ -1,6 +1,7 @@
 {
   "id": "ap-real",
   "mail_lookback_days": 30,
+  "mail_incremental_lookback_days": 3,
   "company_names": [
     "ГК АП-Риал",
     "Группа компаний АП-Риал",
