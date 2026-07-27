@@ -5,7 +5,6 @@ from __future__ import annotations
 import argparse
 import json
 import time
-from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -14,6 +13,7 @@ from urllib.request import Request, urlopen
 
 
 USER_AGENT = "APRealSiteMonitor/1.0 (+https://www.apreal.ru/)"
+NETWORK_ATTEMPTS = 2
 
 
 def evaluate_response(
@@ -48,21 +48,29 @@ def check_target(target: dict[str, Any], timeout_seconds: float) -> dict[str, An
     """Fetch a target and convert HTTP or network failures to a health result."""
     request = Request(target["url"], headers={"User-Agent": USER_AGENT})
     started = time.monotonic()
-    try:
-        with urlopen(request, timeout=timeout_seconds) as response:
-            status_code = response.status
-            body = response.read().decode("utf-8", errors="replace")
-    except HTTPError as error:
-        status_code = error.code
-        body = error.read().decode("utf-8", errors="replace")
-    except (OSError, URLError) as error:
+    network_error: OSError | URLError | None = None
+    for _ in range(NETWORK_ATTEMPTS):
+        try:
+            with urlopen(request, timeout=timeout_seconds) as response:
+                status_code = response.status
+                body = response.read().decode("utf-8", errors="replace")
+            break
+        except HTTPError as error:
+            status_code = error.code
+            body = error.read().decode("utf-8", errors="replace")
+            break
+        except (OSError, URLError) as error:
+            network_error = error
+    else:
         return {
             "target_id": target["id"],
             "url": target["url"],
             "status_code": None,
             "elapsed_ms": int((time.monotonic() - started) * 1000),
             "healthy": False,
-            "issues": [f"network error: {error.reason if isinstance(error, URLError) else error}"],
+            "issues": [
+                f"network error: {network_error.reason if isinstance(network_error, URLError) else network_error}"
+            ],
         }
 
     return evaluate_response(
@@ -98,8 +106,8 @@ def load_targets(config_path: Path) -> list[dict[str, Any]]:
 
 def run_monitor(config_path: Path, timeout_seconds: float) -> dict[str, Any]:
     targets = load_targets(config_path)
-    with ThreadPoolExecutor(max_workers=min(6, len(targets))) as executor:
-        results = list(executor.map(lambda target: check_target(target, timeout_seconds), targets))
+    # The monitored sites share hosting infrastructure; parallel probes produce false timeouts.
+    results = [check_target(target, timeout_seconds) for target in targets]
     return {
         "checked_at": datetime.now(timezone.utc).isoformat(),
         "healthy": all(result["healthy"] for result in results),
