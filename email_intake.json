@@ -2634,6 +2634,26 @@
         "requires_technical_task": false
       },
       "state": "processed"
+    },
+    {
+      "id": "19fa20e093abee5c",
+      "thread_id": "19f8a977b2aba2e9",
+      "from": "Группа компаний АП-Риал <upreal@bk.ru>",
+      "subject": "Re: Итог по исправлениям сайтов от 22.07.2026",
+      "received_at": "2026-07-27T05:30:34",
+      "task_id": "triage-ap-real-19fa20e093abee5c",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал",
+          "domain:apreal.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
     }
   ],
   "ignored_messages": [
