@@ -4523,6 +4523,21 @@
         "evidence": [],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19fa4423ef1189f1",
+      "thread_id": "19fa4423ef1189f1",
+      "from": "Quora <portuguese-personalized-digest@quora.com>",
+      "subject": "Quora digest",
+      "received_at": "2026-07-27T15:47:11",
+      "task_id": "unrelated-ap-real-19fa4423ef1189f1",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
     }
   ]
 }
