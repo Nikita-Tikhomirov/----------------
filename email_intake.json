@@ -4508,6 +4508,21 @@
         "evidence": [],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19fa2da07c0ac275",
+      "thread_id": "19fa2da07c0ac275",
+      "from": "Beget <support@beget.ru>",
+      "subject": "LTD Beget: Напоминание, аккаунт andreji4",
+      "received_at": "2026-07-27T09:13:44",
+      "task_id": "unrelated-ap-real-19fa2da07c0ac275",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
     }
   ]
 }
