@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from tools import monitor_live_sites
-from tools.monitor_live_sites import check_target, evaluate_response, load_targets
+from tools.monitor_live_sites import DEFAULT_TIMEOUT_SECONDS, check_target, evaluate_response, load_targets
 
 
 def target(**overrides):
@@ -64,7 +64,7 @@ def test_duplicate_monitor_target_ids_are_rejected(tmp_path):
         load_targets(config)
 
 
-def test_monitor_checks_sites_sequentially_to_avoid_shared_host_timeouts(tmp_path, monkeypatch):
+def test_monitor_limits_concurrent_site_checks_to_two_workers(tmp_path, monkeypatch):
     config = tmp_path / "targets.json"
     config.write_text(
         json.dumps(
@@ -87,7 +87,7 @@ def test_monitor_checks_sites_sequentially_to_avoid_shared_host_timeouts(tmp_pat
 
     monitor_live_sites.run_monitor(config, timeout_seconds=1)
 
-    assert peak_active == 1
+    assert peak_active == 2
 
 
 def test_check_target_retries_a_transient_network_error(monkeypatch):
@@ -118,3 +118,7 @@ def test_check_target_retries_a_transient_network_error(monkeypatch):
 
     assert attempts == 2
     assert result["healthy"] is True
+
+
+def test_monitor_default_timeout_keeps_a_full_cycle_within_its_budget():
+    assert DEFAULT_TIMEOUT_SECONDS == 12.0

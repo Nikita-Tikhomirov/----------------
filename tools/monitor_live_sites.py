@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -14,6 +15,7 @@ from urllib.request import Request, urlopen
 
 USER_AGENT = "APRealSiteMonitor/1.0 (+https://www.apreal.ru/)"
 NETWORK_ATTEMPTS = 2
+DEFAULT_TIMEOUT_SECONDS = 12.0
 
 
 def evaluate_response(
@@ -106,8 +108,9 @@ def load_targets(config_path: Path) -> list[dict[str, Any]]:
 
 def run_monitor(config_path: Path, timeout_seconds: float) -> dict[str, Any]:
     targets = load_targets(config_path)
-    # The monitored sites share hosting infrastructure; parallel probes produce false timeouts.
-    results = [check_target(target, timeout_seconds) for target in targets]
+    # A small pool keeps the cycle bounded without overloading shared hosting.
+    with ThreadPoolExecutor(max_workers=min(2, len(targets))) as executor:
+        results = list(executor.map(lambda target: check_target(target, timeout_seconds), targets))
     return {
         "checked_at": datetime.now(timezone.utc).isoformat(),
         "healthy": all(result["healthy"] for result in results),
@@ -119,7 +122,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=Path("monitoring_targets.json"))
     parser.add_argument("--output", type=Path, default=Path("output/monitoring/latest.json"))
-    parser.add_argument("--timeout", type=float, default=20.0)
+    parser.add_argument("--timeout", type=float, default=DEFAULT_TIMEOUT_SECONDS)
     parser.add_argument("--fail-on-error", action="store_true")
     args = parser.parse_args()
 
