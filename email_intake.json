@@ -4553,6 +4553,21 @@
         "evidence": [],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19fa7764b876d780",
+      "thread_id": "19fa7764b876d780",
+      "from": "Kwork news@kwork.ru",
+      "subject": "Топовые заказы на Kwork за месяц",
+      "received_at": "2026-07-28T06:42:53",
+      "task_id": "unrelated-ap-real-19fa7764b876d780",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
     }
   ]
 }
