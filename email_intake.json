@@ -4583,6 +4583,21 @@
         "evidence": [],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19fa9b9920898d6b",
+      "thread_id": "19fa9b9920898d6b",
+      "from": "Свои Плюсы hello@sp.yandex.ru",
+      "subject": "Выберите до 50% кешбэка на август",
+      "received_at": "2026-07-28T17:15:38",
+      "task_id": "unrelated-ap-real-19fa9b9920898d6b",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
     }
   ]
 }
