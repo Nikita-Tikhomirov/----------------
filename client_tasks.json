@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-28T15:04:27+03:00",
+  "updated_at": "2026-07-29T00:26:48+03:00",
   "tasks": [
     {
       "id": "beget-migration-202607",
@@ -133,7 +133,12 @@
       "client_report": {
         "email_message_id": "19f9a306689f3bcd",
         "sent_at": "2026-07-25T16:51:30"
-      }
+      },
+      "client_follow_up": {
+        "email_message_id": "19faa9f47cd123d9",
+        "sent_at": "2026-07-29T00:26:48+03:00"
+      },
+      "next_action_at": "2026-08-03"
     },
     {
       "id": "awaiting-client-details-20260724",
@@ -142,7 +147,11 @@
       "financial_classification": "warranty_fix",
       "request": { "email_message_id": "19f9527a105053af" },
       "blocker": "Client announced further form issues but has not supplied their sites, descriptions, or attachments.",
-      "next_action_at": "2026-07-29"
+      "client_follow_up": {
+        "email_message_id": "19faa9f5d316a2d2",
+        "sent_at": "2026-07-29T00:26:48+03:00"
+      },
+      "next_action_at": "2026-08-03"
     }
   ]
 }
