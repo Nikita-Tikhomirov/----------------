@@ -4598,6 +4598,21 @@
         "evidence": [],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19faad580e96ff71",
+      "thread_id": "19faad580e96ff71",
+      "from": "support@link-host.net",
+      "subject": "Неоплаченный счет № 176209 от 24.07.2026",
+      "received_at": "2026-07-28T22:25:45",
+      "task_id": "unrelated-ap-real-19faad580e96ff71",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
     }
   ]
 }

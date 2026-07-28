@@ -80,7 +80,10 @@ def build_action_queue(registry: dict[str, Any], today: date | None = None) -> l
                 actions.append(
                     _action(task, "record_report_timestamp", "client report timestamp is required for follow-up")
                 )
-            elif _business_days_since(report_date, today) >= FOLLOW_UP_AFTER_BUSINESS_DAYS:
+            elif (
+                (_scheduled_action_date(task) is None or today >= _scheduled_action_date(task))
+                and _business_days_since(report_date, today) >= FOLLOW_UP_AFTER_BUSINESS_DAYS
+            ):
                 actions.append(
                     _action(
                         task,

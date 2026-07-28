@@ -62,6 +62,26 @@ def test_client_review_is_followed_up_after_three_business_days():
     assert actions[0]["action"] == "follow_up_client_review"
 
 
+def test_client_review_waits_for_the_scheduled_next_follow_up():
+    actions = build_action_queue(
+        {
+            "tasks": [
+                task(
+                    "client_review",
+                    client_report={
+                        "email_message_id": "abc12345",
+                        "sent_at": "2026-07-20T12:00:00+03:00",
+                    },
+                    next_action_at="2026-07-30",
+                )
+            ]
+        },
+        today=date(2026, 7, 29),
+    )
+
+    assert actions == []
+
+
 def test_blocked_task_waits_until_its_scheduled_follow_up_date():
     registry = {
         "tasks": [task("blocked", next_action_at="2026-07-29")],
