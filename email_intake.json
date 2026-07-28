@@ -4568,6 +4568,21 @@
         "evidence": [],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19fa90e34da3bb51",
+      "thread_id": "19fa90e34da3bb51",
+      "from": "OpenRouter Team welcome@openrouter.ai",
+      "subject": "Ship with generated images and video, not just text",
+      "received_at": "2026-07-28T14:06:39",
+      "task_id": "unrelated-ap-real-19fa90e34da3bb51",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
     }
   ]
 }
