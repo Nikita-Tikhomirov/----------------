@@ -4668,6 +4668,23 @@
         "evidence": [],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19fad23d2113af57",
+      "thread_id": "19fad23d2113af57",
+      "from": "Beget <support@beget.ru>",
+      "subject": "LTD Beget: Напоминание, аккаунт stithc65",
+      "received_at": "2026-07-29T09:10:33+00:00",
+      "task_id": "unrelated-ap-real-19fad23d2113af57",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65"
+        ],
+        "requires_technical_task": false
+      }
     }
   ],
   "unreadable_messages": []
