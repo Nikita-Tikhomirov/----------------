@@ -4797,6 +4797,21 @@
         "evidence": [],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19faf73dc630b7d8",
+      "thread_id": "19faf73dc630b7d8",
+      "from": "Pinterest <recommendations@explore.pinterest.com>",
+      "subject": "Подборки Hetalia axis powers",
+      "received_at": "2026-07-29T19:57:13Z",
+      "task_id": "unrelated-ap-real-19faf73dc630b7d8",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
     }
   ],
   "unreadable_messages": []
