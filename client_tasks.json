@@ -127,7 +127,8 @@
         "additional_message_ids": [
           "19fadcf4dccc1756",
           "19fadcf91905b5e6",
-          "19faee58ae65ce9a"
+          "19faee58ae65ce9a",
+          "19faf0fdc839bb02"
         ],
         "attachments": [
           "Проблемы на сайте MEDLIC.SPB.RU на 29.07.2026.docx"
@@ -146,7 +147,9 @@
           "WordPress outbound delivery reached Gmail as message 19faded0d42d94ff",
           "info@medlic.spb.ru mailbox was created on Beget with forwarding to the client's mailbox and server-side retention",
           "both Beget MX servers accepted SMTP RCPT for info@medlic.spb.ru",
-          "callback and question forms returned success after the recipient was restored to info@medlic.spb.ru"
+          "callback and question forms returned success after the recipient was restored to info@medlic.spb.ru",
+          "forwarding was corrected to upreal@bk.ru with server-side retention after the client's clarification",
+          "fresh callback and question submissions succeeded after the forwarding correction"
         ],
         "visual": {
           "desktop": "output/ap-real-cycle-2026-07-29-medlic/medlic-desktop-callback.png; output/ap-real-cycle-2026-07-29-medlic/medlic-desktop-question.png",
@@ -159,8 +162,8 @@
         "sent_at": "2026-07-25T16:51:30"
       },
       "client_report": {
-        "email_message_id": "19faef4146bc81d1",
-        "sent_at": "2026-07-29T20:37:39+03:00",
+        "email_message_id": "19faf3cc3f9bb196",
+        "sent_at": "2026-07-29T21:57:02+03:00",
         "thread_id": "19f9a005ec1821e7"
       },
       "client_follow_up": {
@@ -168,7 +171,7 @@
         "sent_at": "2026-07-29T00:26:48+03:00"
       },
       "prevention": {
-        "root_cause": "info@medlic.spb.ru was absent after migration and both custom forms targeted that nonexistent mailbox; the fixed footer actions also competed with the chat widget on mobile",
+        "root_cause": "the active Beget MX had no info@medlic.spb.ru mailbox after migration, while the client's existing mailbox expectations still referenced the previous mail setup; forwarding was initially restored to the wrong operational address, and the fixed footer actions also competed with the chat widget on mobile",
         "regression_protection": "tests/test_medlic_forms_20260729.py and tests/live_medlic_forms_20260729.js verify recipients, fields, removed fixed actions, modal behavior, real submissions and desktop/mobile rendering"
       },
       "next_action_at": "2026-08-03"

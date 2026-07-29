@@ -1,0 +1,14 @@
+{
+  "mailbox": "info@medlic.spb.ru",
+  "provider": "Beget",
+  "captured_at": "2026-07-29T21:55:00+03:00",
+  "before": {
+    "forward_to": "khorov69@mail.ru",
+    "keep_on_server": true
+  },
+  "after": {
+    "forward_to": "upreal@bk.ru",
+    "keep_on_server": true
+  },
+  "secrets_recorded": false
+}
