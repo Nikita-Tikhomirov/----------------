@@ -119,24 +119,53 @@
       "id": "medlic-seo-20260725",
       "site": "medlic.spb.ru",
       "status": "client_review",
+      "reopened": true,
       "financial_classification": "warranty_fix",
-      "request": { "email_message_id": "19f9a005ec1821e7" },
-      "backup": { "location": "/home/n/nousroc9/_backups/20260725-193552-medlic-spb-seo" },
+      "request": {
+        "email_message_id": "19f9a005ec1821e7",
+        "thread_id": "19f9a005ec1821e7",
+        "additional_message_ids": [
+          "19fadcf4dccc1756",
+          "19fadcf91905b5e6"
+        ],
+        "attachments": [
+          "Проблемы на сайте MEDLIC.SPB.RU на 29.07.2026.docx"
+        ]
+      },
+      "backup": {
+        "location": "/home/n/nousroc9/_backups/20260729-154056-medlic-spb-forms; /home/n/nousroc9/_backups/20260729-154705-medlic-spb-chat-overlap"
+      },
       "publication": { "live_url": "https://medlic.spb.ru/" },
       "verification": {
-        "functional": ["HTTP 200, title and description present, noindex removed, no X-Robots-Tag"],
+        "functional": [
+          "HTTP 200, title and description present, noindex removed, no X-Robots-Tag",
+          "callback and question forms returned the live success response for real submissions",
+          "callback exposes name and phone; question exposes name, phone and question",
+          "fixed footer actions were removed and the chat widget is hidden while a contact modal is open",
+          "WordPress outbound delivery reached Gmail as message 19faded0d42d94ff"
+        ],
         "visual": {
-          "desktop": "output/visual-qa/2026-07-25/medlic-desktop.png",
-          "mobile": "output/visual-qa/2026-07-25/medlic-mobile.png"
-        }
+          "desktop": "output/ap-real-cycle-2026-07-29-medlic/medlic-desktop-callback.png; output/ap-real-cycle-2026-07-29-medlic/medlic-desktop-question.png",
+          "mobile": "output/ap-real-cycle-2026-07-29-medlic/medlic-mobile-question.png"
+        },
+        "results": "output/ap-real-cycle-2026-07-29-medlic/results.json; output/ap-real-cycle-2026-07-29-medlic/results-submission.json"
       },
-      "client_report": {
+      "previous_client_report": {
         "email_message_id": "19f9a306689f3bcd",
         "sent_at": "2026-07-25T16:51:30"
+      },
+      "client_report": {
+        "email_message_id": "19fadee6434bb706",
+        "sent_at": "2026-07-29T15:51:49+03:00",
+        "thread_id": "19f9a005ec1821e7"
       },
       "client_follow_up": {
         "email_message_id": "19faa9f47cd123d9",
         "sent_at": "2026-07-29T00:26:48+03:00"
+      },
+      "prevention": {
+        "root_cause": "info@medlic.spb.ru was absent after migration and both custom forms targeted that nonexistent mailbox; the fixed footer actions also competed with the chat widget on mobile",
+        "regression_protection": "tests/test_medlic_forms_20260729.py and tests/live_medlic_forms_20260729.js verify recipients, fields, removed fixed actions, modal behavior, real submissions and desktop/mobile rendering"
       },
       "next_action_at": "2026-08-03"
     },

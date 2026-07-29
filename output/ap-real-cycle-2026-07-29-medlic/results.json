@@ -1,0 +1,43 @@
+{
+  "stamp": "20260729125437",
+  "desktop": {
+    "status": 200,
+    "fixedActions": 0,
+    "callbackFields": [
+      "name",
+      "phone",
+      "captcha"
+    ],
+    "callbackResult": "submission skipped",
+    "questionFields": [
+      "name",
+      "phone",
+      "question",
+      "captcha"
+    ],
+    "questionResult": "submission skipped",
+    "pageErrors": [
+      "n.component.bootComponents is not a function"
+    ]
+  },
+  "mobile": {
+    "status": 200,
+    "questionFields": [
+      "name",
+      "phone",
+      "question",
+      "captcha"
+    ],
+    "geometry": {
+      "left": 14,
+      "right": 376,
+      "width": 362,
+      "viewport": 390,
+      "scrollWidth": 362,
+      "clientWidth": 362
+    },
+    "pageErrors": [
+      "n.component.bootComponents is not a function"
+    ]
+  }
+}

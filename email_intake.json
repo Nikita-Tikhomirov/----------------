@@ -2679,6 +2679,46 @@
         "requires_technical_task": true
       },
       "state": "processed"
+    },
+    {
+      "id": "19fadcf4dccc1756",
+      "thread_id": "19f9a005ec1821e7",
+      "from": "\"Альберт\" <khorov69@mail.ru>",
+      "subject": "Re: MEDLIC.SPB.RU",
+      "received_at": "2026-07-29T12:17:48Z",
+      "task_id": "medlic-seo-20260725",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:medlic.spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19fadcf91905b5e6",
+      "thread_id": "19f9a005ec1821e7",
+      "from": "\"Альберт\" <khorov69@mail.ru>",
+      "subject": "Re: MEDLIC.SPB.RU",
+      "received_at": "2026-07-29T12:18:05Z",
+      "task_id": "medlic-seo-20260725",
+      "attachments": [
+        "Проблемы на сайте MEDLIC.SPB.RU на 29.07.2026.docx"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:medlic.spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
     }
   ],
   "ignored_messages": [
