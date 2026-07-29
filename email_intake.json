@@ -2737,6 +2737,25 @@
         "requires_technical_task": true
       },
       "state": "processed"
+    },
+    {
+      "id": "19faee58ae65ce9a",
+      "thread_id": "19f9a005ec1821e7",
+      "from": "Альберт <khorov69@mail.ru>",
+      "subject": "Re: MEDLIC.SPB.RU",
+      "received_at": "2026-07-29T17:21:43Z",
+      "task_id": "medlic-seo-20260725",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:khorov69@mail.ru",
+          "domain:medlic.spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
     }
   ],
   "ignored_messages": [

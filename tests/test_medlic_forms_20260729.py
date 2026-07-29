@@ -13,7 +13,7 @@ PLUGIN = (
 def test_medlic_forms_match_client_contract():
     source = PLUGIN.read_text(encoding="utf-8")
 
-    assert "const CSF_RECIPIENT = 'khorov69@mail.ru';" in source
+    assert "const CSF_RECIPIENT = 'info@medlic.spb.ru';" in source
     assert '<div class="csf-actions"' not in source
     assert ".csf-actions{" not in source
     assert "html.client-contact-modal-open body > jdiv" in source

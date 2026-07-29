@@ -1,5 +1,5 @@
 {
-  "stamp": "20260729125437",
+  "stamp": "20260729173617",
   "desktop": {
     "status": 200,
     "fixedActions": 0,
@@ -8,14 +8,14 @@
       "phone",
       "captcha"
     ],
-    "callbackResult": "submission skipped",
+    "callbackResult": "Спасибо за Ваше сообщение. Оно успешно отправлено",
     "questionFields": [
       "name",
       "phone",
       "question",
       "captcha"
     ],
-    "questionResult": "submission skipped",
+    "questionResult": "Спасибо за Ваше сообщение. Оно успешно отправлено",
     "pageErrors": [
       "n.component.bootComponents is not a function"
     ]

@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
 }
 
 const CSF_DOMAIN = 'medlic.spb.ru';
-const CSF_RECIPIENT = 'khorov69@mail.ru';
+const CSF_RECIPIENT = 'info@medlic.spb.ru';
 const CSF_SENDER = 'wordpress@medlic.spb.ru';
 const CSF_SUCCESS = 'Спасибо за Ваше сообщение. Оно успешно отправлено';
 

@@ -126,14 +126,15 @@
         "thread_id": "19f9a005ec1821e7",
         "additional_message_ids": [
           "19fadcf4dccc1756",
-          "19fadcf91905b5e6"
+          "19fadcf91905b5e6",
+          "19faee58ae65ce9a"
         ],
         "attachments": [
           "Проблемы на сайте MEDLIC.SPB.RU на 29.07.2026.docx"
         ]
       },
       "backup": {
-        "location": "/home/n/nousroc9/_backups/20260729-154056-medlic-spb-forms; /home/n/nousroc9/_backups/20260729-154705-medlic-spb-chat-overlap"
+        "location": "/home/n/nousroc9/_backups/20260729-154056-medlic-spb-forms; /home/n/nousroc9/_backups/20260729-154705-medlic-spb-chat-overlap; /home/n/nousroc9/_backups/20260729-203540-medlic-info-mailbox"
       },
       "publication": { "live_url": "https://medlic.spb.ru/" },
       "verification": {
@@ -142,7 +143,10 @@
           "callback and question forms returned the live success response for real submissions",
           "callback exposes name and phone; question exposes name, phone and question",
           "fixed footer actions were removed and the chat widget is hidden while a contact modal is open",
-          "WordPress outbound delivery reached Gmail as message 19faded0d42d94ff"
+          "WordPress outbound delivery reached Gmail as message 19faded0d42d94ff",
+          "info@medlic.spb.ru mailbox was created on Beget with forwarding to the client's mailbox and server-side retention",
+          "both Beget MX servers accepted SMTP RCPT for info@medlic.spb.ru",
+          "callback and question forms returned success after the recipient was restored to info@medlic.spb.ru"
         ],
         "visual": {
           "desktop": "output/ap-real-cycle-2026-07-29-medlic/medlic-desktop-callback.png; output/ap-real-cycle-2026-07-29-medlic/medlic-desktop-question.png",
@@ -155,8 +159,8 @@
         "sent_at": "2026-07-25T16:51:30"
       },
       "client_report": {
-        "email_message_id": "19fadee6434bb706",
-        "sent_at": "2026-07-29T15:51:49+03:00",
+        "email_message_id": "19faef4146bc81d1",
+        "sent_at": "2026-07-29T20:37:39+03:00",
         "thread_id": "19f9a005ec1821e7"
       },
       "client_follow_up": {
