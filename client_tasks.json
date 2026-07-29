@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-29T00:26:48+03:00",
+  "updated_at": "2026-07-29T11:51:22+03:00",
   "tasks": [
     {
       "id": "beget-migration-202607",
@@ -142,16 +142,54 @@
     },
     {
       "id": "awaiting-client-details-20260724",
-      "site": "other client sites",
-      "status": "blocked",
+      "site": "otxodi.ru, mchs-spb.ru, lfsb.ru",
+      "status": "client_review",
+      "reopened": true,
       "financial_classification": "warranty_fix",
-      "request": { "email_message_id": "19f9527a105053af" },
-      "blocker": "Client announced further form issues but has not supplied their sites, descriptions, or attachments.",
+      "request": {
+        "email_message_id": "19fac62b6c35455f",
+        "thread_id": "19f935839b9d04c9",
+        "attachments": [
+          "Проблемы на сайте otxodi.ru на 24.07.2026.docx",
+          "Проблемы на сайте MCHS-SPB.RU на 24.07.2026.docx"
+        ]
+      },
+      "related_tasks": [
+        "otxodi-feedback-20260724",
+        "mchs-forms-mail-20260724"
+      ],
+      "backup": {
+        "location": "No site files changed; deployed fixes remain covered by /home/n/nousroc9/_backups/20260724-150919-otxodi.ru-feedback.php and /home/n/nousroc9/_backups/20260724-173618-mchs-spb-forms"
+      },
+      "publication": {
+        "live_url": "https://otxodi.ru/; https://mchs-spb.ru/"
+      },
+      "verification": {
+        "functional": [
+          "OTXODI question form opened by ordinary pointer click on desktop and mobile",
+          "MCHS callback and question forms expose the requested name, phone and question fields",
+          "MCHS callback and question submissions returned the live success response",
+          "LFSB was explicitly confirmed working by the client"
+        ],
+        "visual": {
+          "desktop": "output/ap-real-cycle-2026-07-29/otxodi.ru-desktop-question.png; output/ap-real-cycle-2026-07-29/mchs-spb.ru-desktop-question.png",
+          "mobile": "output/ap-real-cycle-2026-07-29/otxodi.ru-mobile-question.png; output/ap-real-cycle-2026-07-29/mchs-spb.ru-mobile-question.png"
+        },
+        "results": "output/ap-real-cycle-2026-07-29/results.json"
+      },
+      "prevention": {
+        "root_cause": "The client replied to a details request by resending the July issue documents; fresh live verification found the previously published fixes still active.",
+        "regression_protection": "tmp/ap-real-cycle-20260729-qa.js verifies ordinary clicks, required fields, live submissions and desktop/mobile rendering."
+      },
+      "client_report": {
+        "email_message_id": "19fad124044ca5a1",
+        "sent_at": "2026-07-29T11:51:22+03:00",
+        "thread_id": "19f935839b9d04c9"
+      },
       "client_follow_up": {
         "email_message_id": "19faa9f5d316a2d2",
         "sent_at": "2026-07-29T00:26:48+03:00"
-      },
-      "next_action_at": "2026-08-03"
+      }
     }
   ]
 }

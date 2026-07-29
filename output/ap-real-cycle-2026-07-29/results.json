@@ -1,0 +1,95 @@
+{
+  "stamp": "20260729084756",
+  "otxodi": {
+    "desktop": {
+      "url": "https://otxodi.ru/",
+      "status": 200,
+      "title": "Лицензия на отходы 1-4 класса опасности в Москве",
+      "triggerBox": {
+        "x": 440,
+        "y": 16.203125,
+        "width": 220,
+        "height": 20.578125
+      },
+      "fields": [
+        "name",
+        "phone",
+        "question",
+        "captcha"
+      ],
+      "pageErrors": [],
+      "overflow": {
+        "viewport": 1360,
+        "html": 1360,
+        "body": 1360
+      }
+    },
+    "mobile": {
+      "url": "https://otxodi.ru/",
+      "status": 200,
+      "title": "Лицензия на отходы 1-4 класса опасности в Москве",
+      "triggerBox": {
+        "x": 199,
+        "y": 589.09375,
+        "width": 171,
+        "height": 36.390625
+      },
+      "fields": [
+        "name",
+        "phone",
+        "question",
+        "captcha"
+      ],
+      "pageErrors": [],
+      "overflow": {
+        "viewport": 390,
+        "html": 390,
+        "body": 525
+      }
+    }
+  },
+  "mchs": {
+    "desktop": {
+      "status": 200,
+      "callbackFields": [
+        "name",
+        "phone",
+        "captcha"
+      ],
+      "callbackResult": "Спасибо за Ваше сообщение. Оно успешно отправлено",
+      "questionFields": [
+        "name",
+        "phone",
+        "question",
+        "captcha"
+      ],
+      "questionResult": "Спасибо за Ваше сообщение. Оно успешно отправлено",
+      "overflow": {
+        "viewport": 1360,
+        "html": 1360,
+        "body": 1360
+      }
+    },
+    "mobile": {
+      "status": 200,
+      "callbackFields": [
+        "name",
+        "phone",
+        "captcha"
+      ],
+      "callbackResult": "",
+      "questionFields": [
+        "name",
+        "phone",
+        "question",
+        "captcha"
+      ],
+      "questionResult": "",
+      "overflow": {
+        "viewport": 390,
+        "html": 390,
+        "body": 600
+      }
+    }
+  }
+}
