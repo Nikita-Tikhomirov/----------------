@@ -4743,6 +4743,21 @@
         ],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19fadfe0485e74f6",
+      "thread_id": "19fadfe0485e74f6",
+      "from": "Госуслуги <no-reply@gosuslugi.ru>",
+      "subject": "Следите за сроками поверки счётчиков",
+      "received_at": "2026-07-29T13:08:51Z",
+      "task_id": "unrelated-ap-real-19fadfe0485e74f6",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
     }
   ],
   "unreadable_messages": []
