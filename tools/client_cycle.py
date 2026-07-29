@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -77,8 +78,9 @@ def known_message_ids(ledger: dict[str, Any]) -> set[str]:
     """Return already-routed Gmail IDs so a cron run reads only new messages."""
     messages = ledger.get("messages", [])
     ignored = ledger.get("ignored_messages", [])
-    if not isinstance(messages, list) or not isinstance(ignored, list):
-        raise ValueError("ledger messages and ignored_messages must be lists")
+    unreadable = ledger.get("unreadable_messages", [])
+    if not isinstance(messages, list) or not isinstance(ignored, list) or not isinstance(unreadable, list):
+        raise ValueError("ledger messages, ignored_messages and unreadable_messages must be lists")
     return {
         message["id"]
         for message in (*messages, *ignored)
@@ -86,12 +88,65 @@ def known_message_ids(ledger: dict[str, Any]) -> set[str]:
     }
 
 
+def record_unreadable_message(
+    ledger: dict[str, Any],
+    message_id: str,
+    error: str,
+    attempted_at: str,
+) -> tuple[dict[str, Any], bool]:
+    """Quarantine one connector failure while keeping it eligible for retry."""
+    updated = copy.deepcopy(ledger)
+    unreadable = updated.setdefault("unreadable_messages", [])
+    if not isinstance(unreadable, list):
+        raise ValueError("ledger unreadable_messages must be a list")
+
+    for item in unreadable:
+        if isinstance(item, dict) and item.get("id") == message_id:
+            item["last_attempt_at"] = attempted_at
+            item["attempts"] = int(item.get("attempts", 0)) + 1
+            item["error"] = error
+            return updated, False
+
+    unreadable.append(
+        {
+            "id": message_id,
+            "first_seen_at": attempted_at,
+            "last_attempt_at": attempted_at,
+            "attempts": 1,
+            "error": error,
+        }
+    )
+    return updated, True
+
+
+def resolve_unreadable_message(
+    ledger: dict[str, Any], message_id: str
+) -> tuple[dict[str, Any], bool]:
+    """Remove a quarantine record after the message becomes readable and routed."""
+    updated = copy.deepcopy(ledger)
+    unreadable = updated.setdefault("unreadable_messages", [])
+    if not isinstance(unreadable, list):
+        raise ValueError("ledger unreadable_messages must be a list")
+    retained = [
+        item
+        for item in unreadable
+        if not (isinstance(item, dict) and item.get("id") == message_id)
+    ]
+    removed = len(retained) != len(unreadable)
+    updated["unreadable_messages"] = retained
+    return updated, removed
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--profile", required=True, type=Path)
     parser.add_argument("--ledger", default=Path("email_intake.json"), type=Path)
     parser.add_argument("--state", type=Path)
-    parser.add_argument("--mark-success", action="store_true")
+    action_group = parser.add_mutually_exclusive_group()
+    action_group.add_argument("--mark-success", action="store_true")
+    action_group.add_argument("--record-unreadable-message-id")
+    action_group.add_argument("--resolve-unreadable-message-id")
+    parser.add_argument("--connector-error")
     args = parser.parse_args()
 
     try:
@@ -102,6 +157,46 @@ def main() -> int:
             _write_json_atomically(args.ledger, ledger)
         seen_ids = known_message_ids(ledger)
         state_path = args.state or default_state_path(profile)
+        if args.record_unreadable_message_id:
+            if not args.connector_error:
+                raise ValueError("--connector-error is required with --record-unreadable-message-id")
+            attempted_at = datetime.now(timezone.utc).isoformat()
+            ledger, created = record_unreadable_message(
+                ledger,
+                args.record_unreadable_message_id,
+                args.connector_error,
+                attempted_at,
+            )
+            _write_json_atomically(args.ledger, ledger)
+            print(
+                json.dumps(
+                    {
+                        "profile_id": profile.id,
+                        "quarantined_message_id": args.record_unreadable_message_id,
+                        "created": created,
+                        "attempted_at": attempted_at,
+                    },
+                    ensure_ascii=False,
+                )
+            )
+            return 0
+        if args.resolve_unreadable_message_id:
+            ledger, removed = resolve_unreadable_message(
+                ledger, args.resolve_unreadable_message_id
+            )
+            if removed:
+                _write_json_atomically(args.ledger, ledger)
+            print(
+                json.dumps(
+                    {
+                        "profile_id": profile.id,
+                        "resolved_message_id": args.resolve_unreadable_message_id,
+                        "removed": removed,
+                    },
+                    ensure_ascii=False,
+                )
+            )
+            return 0
         if args.mark_success:
             state = mark_scan_success(state_path)
             print(json.dumps({"profile_id": profile.id, "scan_state": state.__dict__}, ensure_ascii=False))
@@ -118,11 +213,13 @@ def main() -> int:
                 "profile_id": profile.id,
                 "gmail_queries": plan.queries,
                 "seen_message_ids": sorted(seen_ids),
+                "unreadable_messages": ledger.get("unreadable_messages", []),
                 "scan_contract": {
                     "mode": plan.mode,
                     "max_pages": plan.max_pages,
                     "stop_when_page_is_fully_known": plan.stop_when_page_is_fully_known,
-                    "mark_success_command": "run this command with --mark-success only after every Gmail query completes without errors",
+                    "message_error_policy": "after direct, batch and thread reads fail, record the ID as unreadable, continue processing other IDs, and retry quarantined IDs on every later run",
+                    "mark_success_command": "run with --mark-success after every Gmail query paginates without errors and every readable new ID is routed; quarantined IDs remain pending and must not enter seen_message_ids",
                 },
             },
             ensure_ascii=False,

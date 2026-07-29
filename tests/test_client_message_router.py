@@ -5,7 +5,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from tools.client_cycle import ScanState, build_cycle_plan, known_message_ids
+from tools.client_cycle import (
+    ScanState,
+    build_cycle_plan,
+    known_message_ids,
+    record_unreadable_message,
+    resolve_unreadable_message,
+)
 from tools.client_message_router import ClientProfile, build_search_queries, classify_message
 
 
@@ -108,6 +114,61 @@ def test_cycle_reads_known_message_ids_from_the_intake_ledger():
     assert known_message_ids(
         {"messages": [{"id": "first"}], "ignored_messages": [{"id": "second"}]}
     ) == {"first", "second"}
+
+
+def test_cycle_keeps_unreadable_messages_out_of_seen_ids_for_retry():
+    assert known_message_ids(
+        {
+            "messages": [],
+            "ignored_messages": [],
+            "unreadable_messages": [{"id": "retry-me"}],
+        }
+    ) == set()
+
+
+def test_cycle_records_and_retries_unreadable_message_without_duplicates():
+    ledger, created = record_unreadable_message(
+        {"messages": [], "ignored_messages": []},
+        "retry-me",
+        "Invalid IPv6 URL",
+        "2026-07-29T10:00:00+03:00",
+    )
+
+    assert created is True
+    assert ledger["unreadable_messages"] == [
+        {
+            "id": "retry-me",
+            "first_seen_at": "2026-07-29T10:00:00+03:00",
+            "last_attempt_at": "2026-07-29T10:00:00+03:00",
+            "attempts": 1,
+            "error": "Invalid IPv6 URL",
+        }
+    ]
+
+    ledger, created = record_unreadable_message(
+        ledger,
+        "retry-me",
+        "Invalid IPv6 URL",
+        "2026-07-29T10:30:00+03:00",
+    )
+
+    assert created is False
+    assert ledger["unreadable_messages"][0]["attempts"] == 2
+    assert ledger["unreadable_messages"][0]["last_attempt_at"] == "2026-07-29T10:30:00+03:00"
+
+
+def test_cycle_resolves_quarantined_message_after_successful_read():
+    ledger, removed = resolve_unreadable_message(
+        {
+            "messages": [],
+            "ignored_messages": [],
+            "unreadable_messages": [{"id": "retry-me"}, {"id": "other"}],
+        },
+        "retry-me",
+    )
+
+    assert removed is True
+    assert ledger["unreadable_messages"] == [{"id": "other"}]
 
 
 def test_cycle_uses_full_window_until_a_successful_scan_is_recorded():

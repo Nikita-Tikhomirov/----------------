@@ -4613,6 +4613,30 @@
         "evidence": [],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19fac723670c82e0",
+      "thread_id": "19fac723670c82e0",
+      "from": "no-reply@gosuslugi.ru",
+      "subject": "Сохраните безопасный доступ к важным сайтам",
+      "received_at": "2026-07-29T05:56:32",
+      "task_id": "unrelated-ap-real-19fac723670c82e0",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    }
+  ],
+  "unreadable_messages": [
+    {
+      "id": "19fac62b6c35455f",
+      "first_seen_at": "2026-07-29T07:57:51.649268+00:00",
+      "last_attempt_at": "2026-07-29T07:57:51.649268+00:00",
+      "attempts": 1,
+      "error": "Invalid IPv6 URL after direct, batch and thread reads"
     }
   ]
 }
