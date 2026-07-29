@@ -2719,6 +2719,24 @@
         "requires_technical_task": true
       },
       "state": "processed"
+    },
+    {
+      "id": "19faded0d42d94ff",
+      "thread_id": "19faded0d42d94ff",
+      "from": "WordPress wordpress@medlic.spb.ru",
+      "subject": "MEDLIC-QA-20260729-1549",
+      "received_at": "2026-07-29T12:50:21Z",
+      "task_id": "medlic-seo-20260725",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "domain:medlic.spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
     }
   ],
   "ignored_messages": [
