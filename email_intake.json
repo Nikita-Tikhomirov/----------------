@@ -4812,6 +4812,21 @@
         "evidence": [],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19fafad6796a679f",
+      "thread_id": "19fafad6796a679f",
+      "from": "Twitch <no-reply@twitch.tv>",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-07-29T21:00:04Z",
+      "task_id": "unrelated-ap-real-19fafad6796a679f",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
     }
   ],
   "unreadable_messages": []
