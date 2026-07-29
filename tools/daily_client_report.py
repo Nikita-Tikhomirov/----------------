@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
@@ -18,6 +18,23 @@ except ModuleNotFoundError:  # Supports direct execution from tools/.
 MOSCOW = ZoneInfo("Europe/Moscow")
 
 
+def report_target_date(
+    now: datetime,
+    *,
+    cutoff_hour: int,
+    cutoff_minute: int,
+) -> date:
+    """Return the latest Moscow date whose report should already exist."""
+    local_now = now.astimezone(MOSCOW)
+    cutoff_reached = (local_now.hour, local_now.minute) >= (
+        cutoff_hour,
+        cutoff_minute,
+    )
+    if cutoff_reached:
+        return local_now.date()
+    return local_now.date() - timedelta(days=1)
+
+
 def report_due(
     state: dict[str, Any],
     now: datetime,
@@ -25,13 +42,13 @@ def report_due(
     cutoff_hour: int,
     cutoff_minute: int,
 ) -> bool:
-    """Return whether today's report is due and has not been sent."""
-    local_now = now.astimezone(MOSCOW)
-    cutoff_reached = (local_now.hour, local_now.minute) >= (
-        cutoff_hour,
-        cutoff_minute,
+    """Return whether the latest reportable date has not been sent."""
+    target_date = report_target_date(
+        now,
+        cutoff_hour=cutoff_hour,
+        cutoff_minute=cutoff_minute,
     )
-    return cutoff_reached and state.get("last_report_date") != local_now.date().isoformat()
+    return state.get("last_report_date") != target_date.isoformat()
 
 
 def _load_state(path: Path) -> dict[str, Any]:
@@ -58,9 +75,14 @@ def main() -> int:
     try:
         state = _load_state(args.state)
         now = datetime.now(MOSCOW)
+        target_date = report_target_date(
+            now,
+            cutoff_hour=args.cutoff_hour,
+            cutoff_minute=args.cutoff_minute,
+        )
         if args.mark_sent:
             state = {
-                "last_report_date": now.date().isoformat(),
+                "last_report_date": target_date.isoformat(),
                 "last_report_at": now.isoformat(),
             }
             _write_json_atomically(args.state, state)
@@ -78,6 +100,7 @@ def main() -> int:
         json.dumps(
             {
                 "moscow_date": now.date().isoformat(),
+                "report_date": target_date.isoformat(),
                 "due": due,
                 "last_report_date": state.get("last_report_date"),
                 "state_path": str(args.state),

@@ -1,7 +1,7 @@
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-from tools.daily_client_report import report_due
+from tools.daily_client_report import report_due, report_target_date
 
 
 MOSCOW = ZoneInfo("Europe/Moscow")
@@ -25,4 +25,21 @@ def test_report_is_due_once_after_cutoff():
 def test_report_is_not_due_before_cutoff():
     now = datetime(2026, 7, 29, 22, 59, tzinfo=MOSCOW)
 
-    assert report_due({}, now, cutoff_hour=23, cutoff_minute=30) is False
+    assert report_target_date(now, cutoff_hour=23, cutoff_minute=30).isoformat() == "2026-07-28"
+    assert report_due({}, now, cutoff_hour=23, cutoff_minute=30) is True
+
+
+def test_missed_report_is_due_after_midnight_for_previous_date():
+    now = datetime(2026, 7, 30, 0, 10, tzinfo=MOSCOW)
+
+    assert report_target_date(now, cutoff_hour=23, cutoff_minute=30).isoformat() == "2026-07-29"
+    assert report_due({}, now, cutoff_hour=23, cutoff_minute=30) is True
+    assert (
+        report_due(
+            {"last_report_date": "2026-07-29"},
+            now,
+            cutoff_hour=23,
+            cutoff_minute=30,
+        )
+        is False
+    )
