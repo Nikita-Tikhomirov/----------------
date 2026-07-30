@@ -4889,15 +4889,30 @@
         "evidence": [],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19fb3eb01c98451c",
+      "thread_id": "19fb3eb01c98451c",
+      "from": "no-reply@accounts.google.com",
+      "subject": "Оповещение системы безопасности",
+      "received_at": "2026-07-30T16:45:49",
+      "task_id": "unrelated-ap-real-19fb3eb01c98451c",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
     }
   ],
   "unreadable_messages": [
     {
       "id": "19fb3e6002599f23",
       "first_seen_at": "2026-07-30T16:43:56.667721+00:00",
-      "last_attempt_at": "2026-07-30T16:43:56.667721+00:00",
-      "attempts": 1,
-      "error": "Gmail parser: Invalid IPv6 URL; direct, raw, batch and thread reads failed; authenticated browser session unavailable"
+      "last_attempt_at": "2026-07-30T16:48:45.269652+00:00",
+      "attempts": 2,
+      "error": "Gmail parser after integration reconnect: Invalid IPv6 URL; direct, raw, batch and thread reads still fail"
     }
   ]
 }
