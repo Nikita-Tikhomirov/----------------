@@ -4827,6 +4827,21 @@
         "evidence": [],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19fb001fc27dd55e",
+      "thread_id": "19fb001fc27dd55e",
+      "from": "Font Awesome <hello@m.fontawesome.com>",
+      "subject": "Something magical is coming",
+      "received_at": "2026-07-29T22:32:26",
+      "task_id": "unrelated-ap-real-19fb001fc27dd55e",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
     }
   ],
   "unreadable_messages": []
