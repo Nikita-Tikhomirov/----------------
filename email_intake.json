@@ -4842,6 +4842,21 @@
         "evidence": [],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19fb1dcf37e67a5b",
+      "thread_id": "19fb1dcf37e67a5b",
+      "from": "hello@sp.yandex.ru",
+      "subject": "Выполняйте задания и получайте подарки",
+      "received_at": "2026-07-30T07:11:14",
+      "task_id": "unrelated-ap-real-19fb1dcf37e67a5b",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
     }
   ],
   "unreadable_messages": []
