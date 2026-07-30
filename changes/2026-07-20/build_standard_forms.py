@@ -56,9 +56,19 @@ LEGACY_CF7_FORMS = {
 }
 
 HIDDEN_STANDARD_ACTIONS = {
-    "docp.ru",
+    "39mchs.ru",
     "ed-kgd.ru",
+    "medtex78.ru",
+    "minkult78.ru",
     "nousro.ru",
+}
+
+INLINE_STANDARD_ACTIONS = {
+    "apreal-volgograd.ru",
+    "docp.ru",
+    "dpomuc.ru",
+    "elecktro.ru",
+    "mchs78.ru",
 }
 
 
@@ -285,6 +295,156 @@ respond(
 """
 
 
+MEDTEX39_HANDLER_TEMPLATE = r"""<?php
+ini_set('display_errors', '0');
+error_reporting(E_ALL);
+header('Content-Type: application/json; charset=UTF-8');
+header('Cache-Control: no-store');
+header('X-Content-Type-Options: nosniff');
+
+const CSF_DOMAIN = '__DOMAIN__';
+const CSF_RECIPIENT = '__RECIPIENT__';
+const CSF_SENDER = 'wordpress@__DOMAIN__';
+const CSF_SUCCESS = '__SUCCESS__';
+const CSF_TOKEN_MIN_AGE = 2;
+const CSF_TOKEN_MAX_AGE = 1800;
+const CSF_RATE_SECONDS = 30;
+
+session_name('medtex39_form');
+session_set_cookie_params(CSF_TOKEN_MAX_AGE, '/', '', true, true);
+session_start();
+
+function respond($success, $message, $status = 200, $extra = array())
+{
+    http_response_code($status);
+    $payload = array('success' => $success, 'message' => $message);
+    foreach ($extra as $key => $value) {
+        $payload[$key] = $value;
+    }
+    echo json_encode($payload, JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+function clean_value($name)
+{
+    if (!isset($_POST[$name]) || is_array($_POST[$name])) {
+        return '';
+    }
+    return trim(strip_tags((string) $_POST[$name]));
+}
+
+function issue_challenge()
+{
+    $bytes = function_exists('random_bytes')
+        ? random_bytes(24)
+        : openssl_random_pseudo_bytes(24);
+    $token = bin2hex($bytes);
+    $_SESSION['csf_form_token'] = $token;
+    $_SESSION['csf_form_issued'] = time();
+    respond(true, '', 200, array('token' => $token));
+}
+
+function verify_challenge()
+{
+    $provided = clean_value('form_token');
+    $stored = isset($_SESSION['csf_form_token'])
+        ? (string) $_SESSION['csf_form_token']
+        : '';
+    $issued = isset($_SESSION['csf_form_issued'])
+        ? (int) $_SESSION['csf_form_issued']
+        : 0;
+    $age = time() - $issued;
+
+    unset($_SESSION['csf_form_token'], $_SESSION['csf_form_issued']);
+    if ($provided === '' || $stored === '' || !hash_equals($stored, $provided)) {
+        respond(false, 'Обновите форму и повторите отправку.', 400);
+    }
+    if ($age < CSF_TOKEN_MIN_AGE) {
+        respond(false, 'Подождите пару секунд и отправьте форму снова.', 429);
+    }
+    if ($age > CSF_TOKEN_MAX_AGE) {
+        respond(false, 'Форма устарела. Откройте ее повторно.', 400);
+    }
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['challenge'])) {
+    issue_challenge();
+}
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    respond(false, 'Метод не поддерживается.', 405);
+}
+
+verify_challenge();
+if (clean_value('website') !== '') {
+    respond(false, 'Ошибка проверки формы.', 400);
+}
+if (clean_value('captcha') !== '5') {
+    respond(false, 'Введите цифру 5.', 400);
+}
+
+$ip = isset($_SERVER['REMOTE_ADDR']) ? (string) $_SERVER['REMOTE_ADDR'] : 'unknown';
+$rate_file = sys_get_temp_dir() . '/medtex39-csf-' . sha1($ip);
+if (is_file($rate_file) && filemtime($rate_file) > time() - CSF_RATE_SECONDS) {
+    respond(false, 'Подождите немного перед повторной отправкой.', 429);
+}
+
+$kind = clean_value('kind');
+$page = isset($_POST['page'])
+    ? filter_var((string) $_POST['page'], FILTER_SANITIZE_URL)
+    : '';
+$headers = array(
+    'MIME-Version: 1.0',
+    'Content-Type: text/html; charset=UTF-8',
+    'From: ' . CSF_DOMAIN . ' <' . CSF_SENDER . '>',
+);
+
+if ($kind === 'callback') {
+    $name = clean_value('name');
+    $phone = clean_value('phone');
+    $phone_digits = preg_replace('/\D+/', '', $phone);
+    if (strlen($phone_digits) < 7 || strlen($phone_digits) > 18) {
+        respond(false, 'Введите корректный телефон.', 400);
+    }
+    $subject = 'ЗАКАЗАТЬ ЗВОНОК — ' . CSF_DOMAIN;
+    $message = '<p><strong>Имя:</strong> '
+        . htmlspecialchars($name, ENT_QUOTES, 'UTF-8') . '</p>';
+    $message .= '<p><strong>Телефон:</strong> '
+        . htmlspecialchars($phone, ENT_QUOTES, 'UTF-8') . '</p>';
+} elseif ($kind === 'question') {
+    $name = clean_value('name');
+    $phone = clean_value('phone');
+    $phone_digits = preg_replace('/\D+/', '', $phone);
+    $question = clean_value('question');
+    if (strlen($phone_digits) < 7 || strlen($phone_digits) > 18) {
+        respond(false, 'Введите корректный телефон.', 400);
+    }
+    $subject = 'ЗАДАТЬ ВОПРОС — ' . CSF_DOMAIN;
+    $message = '<p><strong>Имя:</strong> '
+        . htmlspecialchars($name, ENT_QUOTES, 'UTF-8') . '</p>';
+    $message .= '<p><strong>Телефон:</strong> '
+        . htmlspecialchars($phone, ENT_QUOTES, 'UTF-8') . '</p>';
+    if ($question !== '') {
+        $message .= '<p><strong>Вопрос:</strong><br>'
+            . nl2br(htmlspecialchars($question, ENT_QUOTES, 'UTF-8')) . '</p>';
+    }
+} else {
+    respond(false, 'Неизвестная форма.', 400);
+}
+
+$message .= '<p><strong>Страница:</strong> '
+    . htmlspecialchars($page, ENT_QUOTES, 'UTF-8') . '</p>';
+$sent = mail(CSF_RECIPIENT, $subject, $message, implode("\r\n", $headers));
+if ($sent) {
+    @touch($rate_file);
+}
+respond(
+    $sent,
+    $sent ? CSF_SUCCESS : 'Не удалось отправить сообщение. Попробуйте еще раз.',
+    $sent ? 200 : 500
+);
+"""
+
+
 STATIC_SCRIPT_TEMPLATE = r"""(function(){
 if(document.querySelector('.csf-root'))return;
 var policy='__POLICY__';
@@ -348,6 +508,18 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
             1,
         )
     site_bindings = {
+        "39mchs.ru": (
+            (".js-feedback", "callback", "ЗАКАЗАТЬ ЗВОНОК"),
+            (".js-calculate", "question", "ЗАДАТЬ ВОПРОС"),
+        ),
+        "minkult78.ru": (
+            (".js-feedback", "callback", "ЗАКАЗАТЬ ЗВОНОК"),
+            (".js-calculate", "question", "ЗАДАТЬ ВОПРОС"),
+        ),
+        "medtex78.ru": (
+            (".js-feedback", "callback", "ЗАКАЗАТЬ ЗВОНОК"),
+            (".js-calculate", "question", "ЗАДАТЬ ВОПРОС"),
+        ),
         "apreal.spb.ru": (
             (".phones .phones__callback", "callback", "ЗАКАЗАТЬ ЗВОНОК"),
             (".ap-mobile-navs .phones__callback", "callback", "ЗАКАЗАТЬ ЗВОНОК"),
@@ -374,6 +546,21 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
             ('a[href="#phone-modal"]', "callback", "ЗАКАЗАТЬ ЗВОНОК"),
             ('a[href="#license-modal"]', "question", "ЗАДАТЬ ВОПРОС"),
             ('a[href="#back-modal"]', "question", "ЗАДАТЬ ВОПРОС"),
+        ),
+        "nousro.ru": (
+            ("#mail-us", "callback", "ЗАКАЗАТЬ ЗВОНОК"),
+        ),
+        "ed-kgd.ru": (
+            ("#mail-us", "callback", "ЗАКАЗАТЬ ЗВОНОК"),
+        ),
+        "muc-vrn.ru": (
+            (".fixed-line-right a", "callback", "ЗАКАЗАТЬ ЗВОНОК"),
+            (
+                '.full-navigation > a[href="#modal-full"]',
+                "question",
+                "ЗАДАТЬ ВОПРОС",
+            ),
+            (".mob-dop-btns a", "callback", "ЗАКАЗАТЬ ЗВОНОК"),
         ),
         "nousro-nn.ru": (
             ("#mail-us", "callback", "ОТПРАВИТЬ ЗАЯВКУ"),
@@ -482,6 +669,104 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
             "if(el.dataset.csfBound==='1')return;if(el.closest('.csf-root')||el.closest('form'))return;",
             1,
         )
+        if domain in ("nousro.ru", "ed-kgd.ru", "nousro-nn.ru"):
+            source = source.replace(
+                ".csf-actions{display:none!important}",
+                '.csf-actions{display:none!important}'
+                '.fixed-info__buttons{width:min(100%,420px)!important}'
+                '.fixed-info__buttons .stacked-buttons{display:grid!important;'
+                'grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;'
+                'align-items:stretch!important}'
+                '.fixed-info__buttons .stacked-buttons>.btn{width:100%!important;'
+                'min-width:0!important;margin:0!important;padding:0 10px!important;'
+                'white-space:normal!important;font-size:11px!important}'
+                '.fixed-info__buttons .stacked-buttons>a:last-child,'
+                '.fixed-info__buttons .stacked-buttons>noindex{grid-column:1/-1}'
+                '.fixed-info__buttons .stacked-buttons>noindex>a{width:100%!important;'
+                'margin:0!important}',
+                1,
+            )
+            question_trigger = (
+                "var callbackButton=document.querySelector('#mail-us');"
+                "if(callbackButton&&callbackButton.parentElement&&!document.querySelector('.csf-template-question')){"
+                "var questionButton=callbackButton.cloneNode(false);"
+                "questionButton.removeAttribute('id');questionButton.removeAttribute('data-target');"
+                "questionButton.classList.remove('modal-trigger');"
+                "questionButton.classList.add('csf-template-question');"
+                "questionButton.dataset.csfBound='1';questionButton.type='button';"
+                "questionButton.textContent='ЗАДАТЬ ВОПРОС';"
+                "questionButton.addEventListener('click',function(event){"
+                "event.preventDefault();event.stopImmediatePropagation();openModal('question');},true);"
+                "callbackButton.insertAdjacentElement('afterend',questionButton);}"
+            )
+            source = source.replace(
+                "root.querySelectorAll('.csf-form')",
+                question_trigger + "root.querySelectorAll('.csf-form')",
+                1,
+            )
+    if domain in INLINE_STANDARD_ACTIONS:
+        source = source.replace(
+            "html.client-contact-modal-open body > jdiv",
+            ".csf-actions.csf-actions-inline{position:static!important;"
+            "left:auto!important;right:auto!important;bottom:auto!important;"
+            "display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));"
+            "width:min(100%,560px);max-width:none!important;margin:0 auto 18px!important;"
+            "padding:0!important;justify-content:stretch!important}"
+            ".csf-actions.csf-actions-inline .csf-action{width:100%;min-width:0;"
+            "white-space:normal;text-align:center}"
+            ".csf-actions.csf-actions-inline.csf-actions-narrow{"
+            "grid-template-columns:1fr;width:100%;margin:8px 0 0!important}"
+            "html.client-contact-modal-open body > jdiv",
+            1,
+        )
+        placements = {
+            "docp.ru": (
+                "var actions=root.querySelector('.csf-actions');"
+                "var desktopTarget=document.querySelector('.full-navigation');"
+                "var mobileTarget=document.querySelector('main,.tm-main .tm-content,.tm-content');"
+                "var isMobile=window.matchMedia('(max-width:767px)').matches;"
+                "var target=isMobile?mobileTarget:desktopTarget;"
+                "var legacy=desktopTarget?desktopTarget.querySelector('.uk-button-danger'):null;"
+                "if(actions&&target){if(legacy)legacy.style.display='none';"
+                "actions.classList.add('csf-actions-inline');"
+                "if(!isMobile)actions.classList.add('csf-actions-narrow');"
+                "target.insertBefore(actions,target.firstChild);}"
+            ),
+            "mchs78.ru": (
+                "var actions=root.querySelector('.csf-actions');"
+                "var target=document.querySelector('.callback-link');"
+                "var legacy=target?target.querySelector('.callback-link__link'):null;"
+                "if(actions&&target){if(legacy)legacy.style.display='none';"
+                "actions.classList.add('csf-actions-inline','csf-actions-narrow');"
+                "target.appendChild(actions);}"
+            ),
+            "apreal-volgograd.ru": (
+                "var actions=root.querySelector('.csf-actions');"
+                "var legacy=document.querySelector('.eModal-7');"
+                "var target=legacy?legacy.closest('.textwidget'):null;"
+                "if(actions&&target){if(legacy&&legacy.parentElement)"
+                "legacy.parentElement.style.display='none';"
+                "actions.classList.add('csf-actions-inline','csf-actions-narrow');"
+                "target.appendChild(actions);}"
+            ),
+            "dpomuc.ru": (
+                "var actions=root.querySelector('.csf-actions');"
+                "var target=document.querySelector('.tm-main .tm-content');"
+                "if(actions&&target){actions.classList.add('csf-actions-inline');"
+                "target.insertBefore(actions,target.firstChild);}"
+            ),
+            "elecktro.ru": (
+                "var actions=root.querySelector('.csf-actions');"
+                "var target=document.querySelector('#tm-top-b .uk-container');"
+                "if(actions&&target){actions.classList.add('csf-actions-inline');"
+                "target.insertBefore(actions,target.firstChild);}"
+            ),
+        }
+        source = source.replace(
+            "root.querySelectorAll('.csf-form')",
+            placements[domain] + "root.querySelectorAll('.csf-form')",
+            1,
+        )
     if domain in {"otxodi.ru", "mchs-spb.ru"}:
         source = source.replace(
             "html.client-contact-modal-open body > jdiv",
@@ -518,7 +803,9 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
             "html.client-contact-modal-open body > jdiv",
             ".csf-actions{display:none!important}"
             ".csf-muc-header-callback{box-sizing:border-box;display:inline-flex!important;align-items:center;justify-content:center;align-self:center;width:190px;height:40px;padding:0 18px;background:#ef476f;color:#fff!important;font:700 13px/1.2 Arial,sans-serif;text-decoration:none!important;box-shadow:0 3px 10px rgba(0,0,0,.18)}"
-            ".csf-muc-mobile-callback{background:#ef476f!important;color:#fff!important;font-weight:700!important;text-align:center!important;text-decoration:none!important}"
+            ".mob-dop-btns{display:flex!important;flex:1;gap:8px;margin-left:16px}"
+            ".csf-muc-mobile-callback,.csf-muc-mobile-question{display:inline-flex!important;align-items:center;justify-content:center;flex:1;min-width:0;height:40px;padding:0 8px;background:#ef476f!important;color:#fff!important;font:700 11px/1.15 Arial,sans-serif!important;text-align:center!important;text-decoration:none!important}"
+            "@media(min-width:768px){.csf-muc-mobile-callback,.csf-muc-mobile-question{display:none!important}}"
             "html.client-contact-modal-open body > jdiv",
             1,
         )
@@ -531,7 +818,14 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
             "header.insertBefore(headerCallback,contacts);}"
             "var mobileCallback=document.querySelector('.mob-dop-btns a');"
             "if(mobileCallback){mobileCallback.classList.add('csf-muc-mobile-callback');"
-            "mobileCallback.removeAttribute('target');mobileCallback.setAttribute('href','#');}"
+            "mobileCallback.removeAttribute('target');mobileCallback.setAttribute('href','#');"
+            "var mobileQuestion=mobileCallback.cloneNode(false);"
+            "mobileQuestion.classList.remove('csf-muc-mobile-callback');"
+            "mobileQuestion.classList.add('csf-muc-mobile-question');"
+            "mobileQuestion.dataset.csfBound='1';mobileQuestion.textContent='ЗАДАТЬ ВОПРОС';"
+            "mobileQuestion.addEventListener('click',function(event){"
+            "event.preventDefault();event.stopImmediatePropagation();openModal('question');},true);"
+            "mobileCallback.insertAdjacentElement('afterend',mobileQuestion);}"
         )
         source = source.replace(
             "root.querySelectorAll('.csf-form')",
@@ -569,7 +863,12 @@ add_action('wp_head', 'csf_hide_legacy_cf7', 1000);"""
 
 
 def render_static_handler(domain: str, recipient: str) -> str:
-    return replace_contract(STATIC_HANDLER_TEMPLATE, domain, recipient)
+    template = (
+        MEDTEX39_HANDLER_TEMPLATE
+        if domain == "medtex39.ru"
+        else STATIC_HANDLER_TEMPLATE
+    )
+    return replace_contract(template, domain, recipient)
 
 
 def render_static_script(domain: str = "") -> str:
@@ -600,6 +899,64 @@ def render_static_script(domain: str = "") -> str:
         source = source.replace(
             "var sidebar=document.querySelector('#leblok');if(sidebar&&actions){actions.classList.add('csf-actions-sidebar');sidebar.insertBefore(actions,sidebar.firstChild);}",
             "var shopContent=document.querySelector('#content');if(shopContent&&actions){actions.classList.add('csf-actions-shop');shopContent.insertBefore(actions,shopContent.firstChild);}",
+            1,
+        )
+    if domain == "medtex39.ru":
+        source = source.replace(
+            '<input type="hidden" name="page">',
+            '<input type="hidden" name="page">'
+            '<input type="hidden" name="form_token">',
+        )
+        source = source.replace(
+            ".csf-actions{position:fixed;right:96px;bottom:16px;"
+            "z-index:2147483600;display:flex;gap:8px;flex-wrap:wrap;"
+            "justify-content:flex-end;max-width:calc(100vw - 112px)}",
+            ".csf-actions{position:static;display:grid;gap:8px;"
+            "max-width:none;margin:0 0 20px}",
+            1,
+        )
+        source = source.replace(
+            "document.body.appendChild(root);",
+            "var actionHost=document.querySelector('.navigation-left.full-navigation');"
+            "if(actionHost)actionHost.insertAdjacentElement('afterend',root);"
+            "else document.body.appendChild(root);",
+            1,
+        )
+        source = source.replace(
+            "var overlay=root.querySelector('.csf-overlay');var actions=",
+            "var overlay=root.querySelector('.csf-overlay');"
+            "function loadChallenge(form){var token=form.querySelector('[name=\"form_token\"]');"
+            "var submit=form.querySelector('.csf-submit');var result=form.querySelector('.csf-result');"
+            "token.value='';submit.disabled=true;"
+            "return fetch('/client-standard-mail.php?challenge=1',"
+            "{credentials:'same-origin',cache:'no-store'}).then(function(response){"
+            "return response.json().then(function(payload){return {ok:response.ok,payload:payload};});"
+            "}).then(function(outcome){if(!outcome.ok||!outcome.payload.token)"
+            "throw new Error('Не удалось подготовить форму.');token.value=outcome.payload.token;"
+            "}).catch(function(error){result.textContent=error.message||"
+            "'Не удалось подготовить форму.';result.classList.add('is-visible','is-error');"
+            "}).finally(function(){submit.disabled=false;});}var actions=",
+            1,
+        )
+        source = source.replace(
+            "document.documentElement.style.overflow='hidden';",
+            "loadChallenge(modal.querySelector('.csf-form'));"
+            "document.documentElement.style.overflow='hidden';",
+            1,
+        )
+        source = source.replace(
+            "var result=form.querySelector('.csf-result');"
+            "form.querySelector('[name=\"page\"]').value=window.location.href;",
+            "var result=form.querySelector('.csf-result');"
+            "if(!form.querySelector('[name=\"form_token\"]').value){"
+            "result.textContent='Подождите, форма загружается.';"
+            "result.className='csf-result is-visible is-error';loadChallenge(form);return;}"
+            "form.querySelector('[name=\"page\"]').value=window.location.href;",
+            1,
+        )
+        source = source.replace(
+            "form.reset();",
+            "form.reset();loadChallenge(form);",
             1,
         )
     return "".join(

@@ -178,13 +178,14 @@
 		<h2 class="unipop-title">ЗАКАЗАТЬ ЗВОНОК</h2>
 
 		<form class="unipop-form" data-form="callback">
-			<input type="text" name="phone" required placeholder="+7 (___) ___-__-__">
+			<input type="text" name="name" placeholder="Имя (необязательно)" autocomplete="name">
+			<input type="tel" name="phone" required placeholder="+7 (___) ___-__-__" autocomplete="tel">
 
 			<input placeholder="Введите цифру пять:" type="text" name="captcha" required>
 			<div class="conf">
 				<span class="policity">
-					Нажимая на кнопку "Отправить" я даю согласие на обработку персональных данных на условиях <br> <a
-						href="https://www.apreal.ru/konfedencialnost.html" target="_blank">Политики обработки персональных данных</a><br>
+					Нажимая на кнопку "Отправить" я даю согласие на обработку персональных данных на условиях <a
+						href="https://www.apreal.ru/konfedencialnost.html" target="_blank" rel="noopener noreferrer">Политики обработки персональных данных</a>
 				</span>
 			</div>
 			<input type="hidden" name="page" class="siteUrl">
@@ -209,8 +210,8 @@
 			<input placeholder="Введите цифру пять:" type="text" name="captcha" required>
 			<div class="conf">
 				<span class="policity">
-					Нажимая на кнопку "Отправить" я даю согласие на обработку персональных данных на условиях <br> <a
-						href="https://www.apreal.ru/konfedencialnost.html" target="_blank">Политики обработки персональных данных</a><br>
+					Нажимая на кнопку "Отправить" я даю согласие на обработку персональных данных на условиях <a
+						href="https://www.apreal.ru/konfedencialnost.html" target="_blank" rel="noopener noreferrer">Политики обработки персональных данных</a>
 				</span>
 			</div>
 			<input type="hidden" name="page" class="siteUrl">

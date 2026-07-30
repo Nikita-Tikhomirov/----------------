@@ -142,11 +142,13 @@ class StandardFormGeneratorTests(unittest.TestCase):
         )
         self.assertNotIn('name="email"', question_form)
 
-    def test_docp_omits_duplicate_fixed_actions(self):
+    def test_docp_places_standard_actions_in_the_existing_sidebar_slot(self):
         module = load_module()
         source = module.render_wordpress_plugin("docp.ru", "info@docp.ru")
 
-        self.assertNotIn('class="csf-actions"', source)
+        self.assertIn("csf-actions-inline", source)
+        self.assertIn("document.querySelector('.full-navigation')", source)
+        self.assertIn("legacy.style.display='none'", source)
         self.assertIn('data-modal="callback"', source)
         self.assertIn('data-modal="question"', source)
 

@@ -59,6 +59,26 @@ def test_routes_accounting_message_as_finance_without_technical_task():
     assert decision.requires_technical_task is False
 
 
+def test_technical_request_is_not_lost_when_it_also_mentions_an_invoice():
+    decision = classify_message(
+        PROFILE,
+        {
+            "from": "info@nousro.ru",
+            "subject": "Сайты и счет",
+            "body": "Во вложении проблемы с формами заявок на сайтах ГК АП-Риал.",
+            "attachments": [
+                "Сайты в т.ч. с битыми заявками.docx",
+                "Проблемы с сайтами на 18.07.2026.docx",
+            ],
+        },
+    )
+
+    assert decision.bucket == "technical"
+    assert decision.requires_technical_task is True
+    assert "technical:проблем" in decision.evidence
+    assert "financial:счет" in decision.evidence
+
+
 def test_does_not_route_unrelated_finance_notice_into_client_finances():
     decision = classify_message(
         PROFILE,

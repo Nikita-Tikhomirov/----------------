@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 define('WP_USE_THEMES', false);
 require_once $_SERVER['DOCUMENT_ROOT'] . '/wp-load.php';
 
-if (isset($_POST['captcha']) && trim((string) $_POST['captcha']) !== '5') {
+if (trim((string) (isset($_POST['captcha']) ? $_POST['captcha'] : '')) !== '5') {
     respond(false, 'Неверно введено контрольное число.');
 }
 
@@ -29,12 +29,13 @@ $headers = [
 ];
 
 if ($form_id === 'callback') {
+    $name = sanitize_text_field(wp_unslash(isset($_POST['name']) ? $_POST['name'] : ''));
     $phone = esc_html(wp_unslash(isset($_POST['phone']) ? $_POST['phone'] : ''));
     if ($phone === '') {
         respond(false, 'Введите телефон.');
     }
     $subject = 'Заказать звонок';
-    $message = "<p><strong>Телефон:</strong> {$phone}</p><p><strong>Страница:</strong> {$page}</p>";
+    $message = "<p><strong>Имя:</strong> {$name}</p><p><strong>Телефон:</strong> {$phone}</p><p><strong>Страница:</strong> {$page}</p>";
 } elseif ($form_id === 'question') {
     $name = esc_html(wp_unslash(isset($_POST['name']) ? $_POST['name'] : ''));
     $phone = esc_html(wp_unslash(isset($_POST['phone']) ? $_POST['phone'] : ''));

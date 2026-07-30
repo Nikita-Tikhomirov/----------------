@@ -48,7 +48,10 @@ class FormAdjustmentTests(unittest.TestCase):
             / "footer.php"
         ).read_text(encoding="utf-8")
 
-        self.assertIn('<textarea name="coment" placeholder="Вопрос"></textarea>', footer)
+        self.assertIn(
+            '<textarea name="coment" placeholder="Ваш вопрос (необязательно)"></textarea>',
+            footer,
+        )
         self.assertNotIn('<textarea name="coment" required', footer)
 
     def test_mca_handler_accepts_an_empty_question(self):

@@ -1882,7 +1882,7 @@
       "from": "\"Виктор Хоров\" khorov69@mail.ru",
       "subject": "Заявки",
       "received_at": "2026-07-18T18:20:32",
-      "task_id": "finance-ap-real-19f76757e8d2018e",
+      "task_id": "apreal-portfolio-form-unification-20260730",
       "attachments": [
         "Заявки на сайт-какие они.docx",
         "Сайты в т.ч. с битыми заявками.docx",
@@ -1890,7 +1890,7 @@
       ],
       "routing": {
         "profile_id": "ap-real",
-        "bucket": "finance",
+        "bucket": "technical",
         "evidence": [
           "contact:khorov69@mail.ru",
           "contact:info@nousro.ru",
@@ -1908,9 +1908,12 @@
           "domain:otxodi.ru",
           "domain:lfsb.ru",
           "domain:medlic.spb.ru",
+          "technical:заявк",
+          "technical:сайт",
+          "technical:форм",
           "financial:счет"
         ],
-        "requires_technical_task": false
+        "requires_technical_task": true
       },
       "state": "processed"
     },
@@ -2772,6 +2775,27 @@
           "contact:upreal@bk.ru",
           "contact:khorov69@mail.ru",
           "domain:medlic.spb.ru"
+        ],
+        "requires_technical_task": true
+      },
+      "state": "processed"
+    },
+    {
+      "id": "19fb3e6002599f23",
+      "thread_id": "19fb3e6002599f23",
+      "from": "Группа компаний АП-Риал <upreal@bk.ru>",
+      "subject": "[subject unavailable in supplied Gmail screenshot]",
+      "received_at": "2026-07-30T19:43:56+03:00",
+      "task_id": "apreal-portfolio-form-unification-20260730",
+      "attachments": [
+        "C:/Users/user/AppData/Local/Temp/codex-clipboard-f6a02bc1-dc18-4194-84e1-80f14d9b7cc2.png"
+      ],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "technical",
+        "evidence": [
+          "contact:upreal@bk.ru",
+          "company:группа компаний ап-риал"
         ],
         "requires_technical_task": true
       },
@@ -4906,13 +4930,5 @@
       }
     }
   ],
-  "unreadable_messages": [
-    {
-      "id": "19fb3e6002599f23",
-      "first_seen_at": "2026-07-30T16:43:56.667721+00:00",
-      "last_attempt_at": "2026-07-30T16:48:45.269652+00:00",
-      "attempts": 2,
-      "error": "Gmail parser after integration reconnect: Invalid IPv6 URL; direct, raw, batch and thread reads still fail"
-    }
-  ]
+  "unreadable_messages": []
 }

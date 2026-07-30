@@ -9,6 +9,20 @@ from pathlib import Path
 from typing import Any
 
 
+TECHNICAL_KEYWORDS = (
+    "проблем",
+    "ошиб",
+    "не работает",
+    "бит",
+    "сайт",
+    "форм",
+    "заявк",
+    "кнопк",
+    "правк",
+    "доработ",
+)
+
+
 @dataclass(frozen=True)
 class ClientProfile:
     """Business identity and routing rules for one client."""
@@ -117,8 +131,16 @@ def classify_message(profile: ClientProfile, message: dict[str, Any]) -> Routing
     evidence.extend(_matches(text, profile.company_names, "company"))
     evidence.extend(_matches(text, profile.domains, "domain"))
     finance = _matches(text, profile.financial_keywords, "financial")
+    technical = _matches(text, TECHNICAL_KEYWORDS, "technical")
     provider = _matches(text, profile.provider_domains, "provider")
     provider_context = _matches(text, profile.provider_keywords, "provider_topic")
+
+    if finance and evidence and technical:
+        return RoutingDecision(
+            "technical",
+            tuple(evidence + technical + finance),
+            True,
+        )
 
     if finance and evidence:
         return RoutingDecision("finance", tuple(evidence + finance), False)

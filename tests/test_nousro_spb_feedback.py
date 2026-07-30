@@ -83,6 +83,17 @@ class NousroSpbFeedbackTests(unittest.TestCase):
         self.assertIn("#modal1,#modal2", source)
         self.assertIn("#modal1 .form-modal-close,#modal2 .form-modal-close", source)
 
+    def test_plugin_exposes_both_forms_in_the_mobile_header(self):
+        source = PLUGIN_PATH.read_text(encoding="utf-8")
+
+        self.assertIn("nousro-spb-mobile-question", source)
+        self.assertIn("mobileRow", source)
+        self.assertIn("#modal1", source)
+        self.assertIn("M.Modal.getInstance", source)
+        self.assertIn("@media(max-width:600px)", source)
+        self.assertIn("grid-template-columns:1fr 1fr", source)
+        self.assertIn("font-size:28px!important", source)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -179,16 +179,17 @@
 <div class="unipop" id="popup-callback">
     <div class="unipop-inner">
         <button class="unipop-close">&times;</button>
-        <h2 class="unipop-title">Заказать звонок</h2>
+        <h2 class="unipop-title">ЗАКАЗАТЬ ЗВОНОК</h2>
 
         <form class="unipop-form" data-form="callback">
-            <input type="text" name="phone" required placeholder="+7 (___) ___-__-__">
+            <input type="text" name="name" placeholder="Имя (необязательно)" autocomplete="name">
+            <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__" autocomplete="tel">
 
             <input placeholder="Введите цифру пять:" type="text" name="captcha" required>
             <div class="conf">
                 <span class="policity">
-                    Нажимая на кнопку "Отправить" я даю согласие на обработку персональных данных на условиях <br> <a
-                        href="/konfedencialnost.html" target="_blank">Политики обработки персональных данных</a><br>
+                    Нажимая на кнопку "Отправить" я даю согласие на обработку персональных данных на условиях <a
+                        href="https://www.apreal.ru/konfedencialnost.html" target="_blank" rel="noopener noreferrer">Политики обработки персональных данных</a>
                 </span>
             </div>
             <input type="hidden" name="page" class="siteUrl">
@@ -204,17 +205,17 @@
 <div class="unipop" id="popup-question">
     <div class="unipop-inner">
         <button class="unipop-close">&times;</button>
-        <h2 class="unipop-title">Задать вопрос</h2>
+        <h2 class="unipop-title">ЗАДАТЬ ВОПРОС</h2>
 
         <form class="unipop-form" data-form="question">
-            <input type="text" name="name" required placeholder="Имя">
-            <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__">
-            <textarea name="coment" placeholder="Вопрос"></textarea>
+            <input type="text" name="name" placeholder="Имя (необязательно)" autocomplete="name">
+            <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__" autocomplete="tel">
+            <textarea name="coment" placeholder="Ваш вопрос (необязательно)"></textarea>
             <input placeholder="Введите цифру пять:" type="text" name="captcha" required>
             <div class="conf">
                 <span class="policity">
-                    Нажимая на кнопку "Отправить" я даю согласие на обработку персональных данных на условиях <br> <a
-                        href="/konfedencialnost.html" target="_blank">Политики обработки персональных данных</a><br>
+                    Нажимая на кнопку "Отправить" я даю согласие на обработку персональных данных на условиях <a
+                        href="https://www.apreal.ru/konfedencialnost.html" target="_blank" rel="noopener noreferrer">Политики обработки персональных данных</a>
                 </span>
             </div>
             <input type="hidden" name="page" class="siteUrl">
@@ -326,6 +327,10 @@
         transform: translate(-50%, -50%) scale(0.8);
         background: #fff;
         width: 600px;
+        max-width: calc(100vw - 30px);
+        max-height: calc(100vh - 30px);
+        overflow-y: auto;
+        box-sizing: border-box;
         padding: 30px;
         /* border-radius: 12px; */
         display: none;

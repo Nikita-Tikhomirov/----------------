@@ -28,7 +28,11 @@ def test_question_form_uses_name_phone_question_order(domain: str) -> None:
 
     assert name < phone < question < captcha
     assert '<input type="tel" name="phone" required' in block
-    assert '<input type="text" name="name" placeholder="Имя">' in block
+    assert (
+        '<input type="text" name="name" placeholder="Имя (необязательно)"'
+        in block
+    )
+    assert '<textarea name="coment" placeholder="Ваш вопрос (необязательно)">' in block
     assert 'name="email"' not in block
     assert "z-index: 2147483600" in footer
     assert "z-index: 2147483601" in footer

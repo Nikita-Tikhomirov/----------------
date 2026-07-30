@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-29T11:51:22+03:00",
+  "updated_at": "2026-07-31T04:30:00+03:00",
   "tasks": [
     {
       "id": "beget-migration-202607",
@@ -225,6 +225,75 @@
       "client_follow_up": {
         "email_message_id": "19faa9f5d316a2d2",
         "sent_at": "2026-07-29T00:26:48+03:00"
+      }
+    },
+    {
+      "id": "apreal-portfolio-form-unification-20260730",
+      "site": "39mchs.ru, apreal-nn.ru, apreal-volgograd.ru, apreal.ru, apreal.spb.ru, apreal36.ru, apreal72.ru, docp.ru, dpomuc.ru, ed-kgd.ru, elecktro.ru, fsa-lab.ru, fste.ru, lfsb.ru, license39.ru, mca24.ru, mchs-spb.ru, mchs78.ru, med-license.ru, medlic.spb.ru, medtex39.ru, medtex78.ru, mhsl.ru, minkult78.ru, muc-vrn.ru, nousro-nn.ru, nousro-spb.ru, nousro.ru, otxodi.ru, shopap.ru",
+      "status": "verifying",
+      "reopened": true,
+      "financial_classification": "warranty_fix",
+      "request": {
+        "email_message_id": "19f76757e8d2018e",
+        "thread_id": "19f76757e8d2018e",
+        "additional_message_ids": [
+          "19fb3e6002599f23"
+        ],
+        "attachments": [
+          "Заявки на сайт-какие они.docx",
+          "Сайты в т.ч. с битыми заявками.docx",
+          "Проблемы с сайтами на 18.07.2026.docx"
+        ],
+        "requirements": [
+          "two contact forms on every included site, placed in the existing site layout",
+          "callback: optional name, required phone and captcha",
+          "question: optional name, required phone, optional question and captcha, without an email field",
+          "exact consent text and privacy-policy link",
+          "exact success text and a visible close control",
+          "apply equivalent fixes across both related template families instead of closing one domain at a time"
+        ]
+      },
+      "backup": {
+        "location": "/home/n/nousroc9/_backups/20260731-003209-ap-real-portfolio-completion; /home/n/nousroc9/_backups/20260731-011200-ap-real-custom-form-completion; /home/n/nousroc9/_backups/20260731-012336-ap-real-custom-form-completion; /home/n/nousroc9/_backups/20260731-012750-ap-real-custom-form-completion; /home/n/nousroc9/_backups/20260731-020347-ap-real-standard-corrections; /home/n/nousroc9/_backups/20260731-020848-ap-real-standard-corrections; /home/n/nousroc9/_backups/20260731-021456-ap-real-standard-corrections"
+      },
+      "publication": {
+        "live_url": "30 included production domains listed in site; representative URL https://apreal.ru/"
+      },
+      "verification": {
+        "functional": [
+          "all 30 included domains passed fresh ordinary-click checks on desktop and mobile: 60 of 60 views passed",
+          "callback and question controls open the correct modal, required fields match the reconciled contract, policy links are present and the visible close control works",
+          "all 23 standardized handlers rejected invalid submissions before delivery",
+          "both forms on all five custom mail.php handlers rejected invalid captcha before mail delivery: 10 of 10 requests passed",
+          "the five explicit exclusions remained outside the standard form rollout; apreal-samara.ru currently has a DNS resolution failure"
+        ],
+        "visual": {
+          "desktop": "output/ap-real-full-live-acceptance-2026-07-31/*-desktop-page.png and *-desktop-*.png",
+          "mobile": "output/ap-real-full-live-acceptance-2026-07-31/*-mobile-page.png and *-mobile-*.png"
+        },
+        "results": "output/ap-real-full-live-acceptance-2026-07-31/results.all.json; output/ap-real-full-live-acceptance-2026-07-31/stats.json; output/ap-real-invalid-delivery-2026-07-31.json; output/ap-real-custom-invalid-delivery-2026-07-31.json"
+      },
+      "excluded_domains": [
+        "rectavr.ru",
+        "fstek.spb.ru",
+        "lic-k.ru",
+        "apreal-samara.ru",
+        "ed-krd.ru"
+      ],
+      "contact_policy": {
+        "status": "blocked_by_user",
+        "instruction": "Do not draft, send, reply to or forward any client email until the user explicitly reverses this instruction."
+      },
+      "finance": {
+        "status": "collection_paused",
+        "nominal_invoice_balance_rub": 20000,
+        "previously_quoted_additional_work_rub": 15000,
+        "new_billable_work_rub": 0,
+        "note": "Amounts are internal reconciliation only and must not be sent or requested while client contact is blocked."
+      },
+      "prevention": {
+        "root_cause": "The original message combined technical attachments with finance wording and was incorrectly routed as finance-only. Subsequent work was closed domain by domain without a complete family-wide matrix or mandatory fresh visual comparison, so equivalent defects remained on sibling sites.",
+        "regression_protection": "tests/test_client_message_router.py prevents finance wording from suppressing technical intake; tests/test_apreal_portfolio_completion.py and tests/test_standard_form_generator.py enforce the 30-domain contract; tests/live_apreal_portfolio_acceptance.cjs performs ordinary-click desktop/mobile checks and preserves screenshots for every included domain."
       }
     }
   ]
