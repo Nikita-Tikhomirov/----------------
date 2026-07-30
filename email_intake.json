@@ -4891,5 +4891,13 @@
       }
     }
   ],
-  "unreadable_messages": []
+  "unreadable_messages": [
+    {
+      "id": "19fb3e6002599f23",
+      "first_seen_at": "2026-07-30T16:43:56.667721+00:00",
+      "last_attempt_at": "2026-07-30T16:43:56.667721+00:00",
+      "attempts": 1,
+      "error": "Gmail parser: Invalid IPv6 URL; direct, raw, batch and thread reads failed; authenticated browser session unavailable"
+    }
+  ]
 }
