@@ -4874,6 +4874,21 @@
         ],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19fb37f8b6147fb7",
+      "thread_id": "19fb37f8b6147fb7",
+      "from": "dutch-personalized-digest@quora.com",
+      "subject": "GAAT POETIN NU ARMENIË AANVALLEN?",
+      "received_at": "2026-07-30T14:48:26",
+      "task_id": "unrelated-ap-real-19fb37f8b6147fb7",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
     }
   ],
   "unreadable_messages": []
