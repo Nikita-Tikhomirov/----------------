@@ -1,0 +1,330 @@
+{
+  "marker_prefix": "APREAL-ROUTE-RESTORE-20260802-1335",
+  "submissions": [
+    {
+      "domain": "39mchs.ru",
+      "kind": "callback",
+      "marker": "APREAL-ROUTE-RESTORE-20260802-1335-39mchs.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://39mchs.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T13:34:58+03:00"
+    },
+    {
+      "domain": "39mchs.ru",
+      "kind": "question",
+      "marker": "APREAL-ROUTE-RESTORE-20260802-1335-39mchs.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://39mchs.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T13:34:59+03:00"
+    },
+    {
+      "domain": "docp.ru",
+      "kind": "callback",
+      "marker": "APREAL-ROUTE-RESTORE-20260802-1335-docp.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://docp.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T13:35:01+03:00"
+    },
+    {
+      "domain": "docp.ru",
+      "kind": "question",
+      "marker": "APREAL-ROUTE-RESTORE-20260802-1335-docp.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://docp.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T13:35:03+03:00"
+    },
+    {
+      "domain": "dpomuc.ru",
+      "kind": "callback",
+      "marker": "APREAL-ROUTE-RESTORE-20260802-1335-dpomuc.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://dpomuc.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T13:35:06+03:00"
+    },
+    {
+      "domain": "dpomuc.ru",
+      "kind": "question",
+      "marker": "APREAL-ROUTE-RESTORE-20260802-1335-dpomuc.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://dpomuc.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T13:35:08+03:00"
+    },
+    {
+      "domain": "ed-kgd.ru",
+      "kind": "callback",
+      "marker": "APREAL-ROUTE-RESTORE-20260802-1335-ed-kgd.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://ed-kgd.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T13:35:09+03:00"
+    },
+    {
+      "domain": "ed-kgd.ru",
+      "kind": "question",
+      "marker": "APREAL-ROUTE-RESTORE-20260802-1335-ed-kgd.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://ed-kgd.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T13:35:11+03:00"
+    },
+    {
+      "domain": "minkult78.ru",
+      "kind": "callback",
+      "marker": "APREAL-ROUTE-RESTORE-20260802-1335-minkult78.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://minkult78.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T13:35:12+03:00"
+    },
+    {
+      "domain": "minkult78.ru",
+      "kind": "question",
+      "marker": "APREAL-ROUTE-RESTORE-20260802-1335-minkult78.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://minkult78.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T13:35:13+03:00"
+    },
+    {
+      "domain": "muc-vrn.ru",
+      "kind": "callback",
+      "marker": "APREAL-ROUTE-RESTORE-20260802-1335-muc-vrn.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://muc-vrn.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T13:35:15+03:00"
+    },
+    {
+      "domain": "muc-vrn.ru",
+      "kind": "question",
+      "marker": "APREAL-ROUTE-RESTORE-20260802-1335-muc-vrn.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://muc-vrn.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T13:35:17+03:00"
+    },
+    {
+      "domain": "nousro.ru",
+      "kind": "callback",
+      "marker": "APREAL-ROUTE-RESTORE-20260802-1335-nousro.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://nousro.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T13:35:19+03:00"
+    },
+    {
+      "domain": "nousro.ru",
+      "kind": "question",
+      "marker": "APREAL-ROUTE-RESTORE-20260802-1335-nousro.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://nousro.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T13:35:21+03:00"
+    },
+    {
+      "domain": "nousro-nn.ru",
+      "kind": "callback",
+      "marker": "APREAL-ROUTE-RESTORE-20260802-1335-nousro-nn.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://nousro-nn.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T13:35:23+03:00"
+    },
+    {
+      "domain": "nousro-nn.ru",
+      "kind": "question",
+      "marker": "APREAL-ROUTE-RESTORE-20260802-1335-nousro-nn.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://nousro-nn.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T13:35:25+03:00"
+    },
+    {
+      "domain": "nousro-spb.ru",
+      "kind": "callback",
+      "marker": "APREAL-ROUTE-RESTORE-20260802-1335-nousro-spb.ru-callback",
+      "contract": "cf7",
+      "page_status": 200,
+      "endpoint": "https://nousro-spb.ru/wp-json/contact-form-7/v1/contact-forms/2438/feedback",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "into": "#wpcf7-f2438-o4",
+        "status": "mail_sent",
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено",
+        "posted_data_hash": "d68b66a9748328c91cc6d24e1d882e26",
+        "quiz": {
+          "callback-quiz": [
+            "Введите цифрами: пять",
+            "d86443a6debe94dd9c28f3379b1966da"
+          ]
+        }
+      },
+      "submitted_at": "2026-08-02T13:35:26+03:00"
+    },
+    {
+      "domain": "nousro-spb.ru",
+      "kind": "question",
+      "marker": "APREAL-ROUTE-RESTORE-20260802-1335-nousro-spb.ru-question",
+      "contract": "cf7",
+      "page_status": 200,
+      "endpoint": "https://nousro-spb.ru/wp-json/contact-form-7/v1/contact-forms/2005/feedback",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "into": "#wpcf7-f2005-o3",
+        "status": "mail_sent",
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено",
+        "posted_data_hash": "2f9a8277fba0bb65ff993448bb3752ab",
+        "quiz": {
+          "question-quiz": [
+            "Введите цифрами: пять",
+            "d86443a6debe94dd9c28f3379b1966da"
+          ]
+        }
+      },
+      "submitted_at": "2026-08-02T13:35:27+03:00"
+    }
+  ],
+  "receipts": [],
+  "summary": {
+    "total": 18,
+    "accepted": 18,
+    "delivered": 0,
+    "complete": false
+  }
+}

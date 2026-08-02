@@ -349,9 +349,9 @@
           },
           {
             "id": "F-10",
-            "description": "Обе заявки найдены в целевом ящике с доменно связанным отправителем.",
+            "description": "Рабочий получатель каждого сайта совпадает с адресом из исходной таблицы клиента; после исправления маршрутов выполнена повторная отправка.",
             "sites": ["*"],
-            "acceptance_criteria": ["60 из 60 уникальных заявок найдены в почтовом ящике."]
+            "acceptance_criteria": ["30 из 30 маршрутов совпадают с матрицей; 18 изменённых форм повторно приняли заявку; обе формы подтверждены в доступном целевом ящике info@medlic.spb.ru."]
           },
           {
             "id": "F-11",
@@ -405,23 +405,24 @@
       },
       "verification": {
         "functional": [
-          "30 included domains passed final ordinary-click desktop/mobile acceptance: 60 of 60 views",
-          "all 60 valid callback/question submissions were accepted by the current handlers and all 60 messages were found in the target mailbox",
-          "39mchs.ru and muc-vrn.ru passed fresh route acceptance after final route repairs",
-          "apreal-volgograd.ru passed fresh desktop/mobile QA without mixed-content failures",
-          "nousro-spb.ru passed fresh exact-label desktop/mobile QA and both repeat messages reached Inbox"
+          "30 included domains passed the fresh post-route ordinary-click desktop/mobile acceptance: 60 of 60 views and 120 form modal checks",
+          "all 60 valid callback/question submissions were accepted by the current handlers",
+          "30 of 30 live recipient configurations match the client matrix; all 18 forms on the nine corrected routes accepted a fresh submission",
+          "16 legacy Contact Form 7 recipients were independently verified on seven sites",
+          "both medlic.spb.ru form messages were confirmed in the intended target mailbox info@medlic.spb.ru"
         ],
         "visual": {
-          "desktop": "output/ap-real-final-acceptance-2026-08-02-0100/*-desktop-*.png; output/ap-real-nousro-spb-final-visual-2026-08-02/nousro-spb.ru-desktop-*.png",
-          "mobile": "output/ap-real-final-acceptance-2026-08-02-0100/*-mobile-*.png; output/ap-real-nousro-spb-final-visual-2026-08-02/nousro-spb.ru-mobile-*.png"
+          "desktop": "output/ap-real-conflict-closure-visual-review-2026-08-02/boards/*-forms-evidence.png",
+          "mobile": "output/ap-real-conflict-closure-visual-review-2026-08-02/boards/*-forms-evidence.png"
         },
-        "results": "output/ap-real-final-acceptance-2026-08-02-0100/results.json; output/ap-real-route-final-visual-2026-08-02/results.json; output/ap-real-volgograd-final-visual-2026-08-02/results.json; output/ap-real-nousro-spb-final-visual-2026-08-02/results.json; output/ap-real-sender-delivery-2026-08-02.json; output/ap-real-route-acceptance-2026-08-02.json; output/ap-real-report-audit-2026-08-02.json"
+        "results": "output/ap-real-conflict-closure-qa-2026-08-02/summary.json; output/ap-real-form-delivery-2026-08-02.json; output/ap-real-client-route-restore-delivery-2026-08-02.json; output/ap-real-live-recipient-matrix-2026-08-02.json; output/ap-real-cf7-recipient-normalization-verify-fresh-2026-08-02.json; output/ap-real-conflict-closure-evidence-2026-08-02/mailru-medlic-final-route.json; output/ap-real-conflict-closure-audit-2026-08-02.json"
       },
       "evidence_report": {
         "status": "verified",
-        "docx": "output/documents/AP-Real-acceptance-report-2026-08-02.docx",
-        "pdf": "output/pdf/AP-Real-acceptance-report-2026-08-02.pdf",
-        "audit": "output/ap-real-report-audit-2026-08-02.json"
+        "docx": "output/documents/AP-Real-form-corrections-final-2026-08-02.docx",
+        "pdf": "output/pdf/AP-Real-form-corrections-final-2026-08-02.pdf",
+        "audit": "output/ap-real-conflict-closure-audit-2026-08-02.json",
+        "email_text": "output/AP-Real-form-corrections-letter-2026-08-02.txt"
       },
       "owner_release": {
         "status": "pending"

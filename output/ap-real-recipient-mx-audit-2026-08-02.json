@@ -1,0 +1,310 @@
+{
+  "checked_at": "2026-08-02T15:16:39.8973048+03:00",
+  "summary": {
+    "sites": 30,
+    "passed": 30,
+    "failed": []
+  },
+  "sites": [
+    {
+      "domain": "apreal.ru",
+      "recipient": "info@apreal.ru",
+      "mail_domain": "apreal.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "docp.ru",
+      "recipient": "info@docp.ru",
+      "mail_domain": "docp.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "mca24.ru",
+      "recipient": "info@mca24.ru",
+      "mail_domain": "mca24.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "fsa-lab.ru",
+      "recipient": "info@fsa-lab.ru",
+      "mail_domain": "fsa-lab.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "elecktro.ru",
+      "recipient": "info@elecktro.ru",
+      "mail_domain": "elecktro.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "med-license.ru",
+      "recipient": "info@med-license.ru",
+      "mail_domain": "med-license.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "mhsl.ru",
+      "recipient": "info@mhsl.ru",
+      "mail_domain": "mhsl.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "fste.ru",
+      "recipient": "info@fste.ru",
+      "mail_domain": "fste.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "otxodi.ru",
+      "recipient": "info@otxodi.ru",
+      "mail_domain": "otxodi.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "lfsb.ru",
+      "recipient": "info@lfsb.ru",
+      "mail_domain": "lfsb.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "apreal.spb.ru",
+      "recipient": "spb@apreal.ru",
+      "mail_domain": "apreal.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "minkult78.ru",
+      "recipient": "info@minkult78.ru",
+      "mail_domain": "minkult78.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "medlic.spb.ru",
+      "recipient": "info@medlic.spb.ru",
+      "mail_domain": "medlic.spb.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "medtex78.ru",
+      "recipient": "info@medtex78.ru",
+      "mail_domain": "medtex78.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "mchs-spb.ru",
+      "recipient": "info@mchs-spb.ru",
+      "mail_domain": "mchs-spb.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "mchs78.ru",
+      "recipient": "info@mchs78.ru",
+      "mail_domain": "mchs78.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "license39.ru",
+      "recipient": "info@license39.ru",
+      "mail_domain": "license39.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "medtex39.ru",
+      "recipient": "info@medtex39.ru",
+      "mail_domain": "medtex39.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "39mchs.ru",
+      "recipient": "info@39mchs.ru",
+      "mail_domain": "39mchs.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "apreal36.ru",
+      "recipient": "info@apreal36.ru",
+      "mail_domain": "apreal36.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "apreal-nn.ru",
+      "recipient": "info@apreal-nn.ru",
+      "mail_domain": "apreal-nn.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "apreal-volgograd.ru",
+      "recipient": "vlg-ap@bk.ru",
+      "mail_domain": "bk.ru",
+      "mx": [
+        "mxs.mail.ru"
+      ],
+      "expected_mx": "mxs.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "apreal72.ru",
+      "recipient": "info@apreal72.ru",
+      "mail_domain": "apreal72.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "nousro.ru",
+      "recipient": "info@nousro.ru",
+      "mail_domain": "nousro.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "dpomuc.ru",
+      "recipient": "info@dpomuc.ru",
+      "mail_domain": "dpomuc.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "nousro-spb.ru",
+      "recipient": "spb@nousro.ru",
+      "mail_domain": "nousro.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "ed-kgd.ru",
+      "recipient": "info@ed-kgd.ru",
+      "mail_domain": "ed-kgd.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "muc-vrn.ru",
+      "recipient": "info@muc-vrn.ru",
+      "mail_domain": "muc-vrn.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "nousro-nn.ru",
+      "recipient": "info@nousro-nn.ru",
+      "mail_domain": "nousro-nn.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    },
+    {
+      "domain": "shopap.ru",
+      "recipient": "info@shopap.ru",
+      "mail_domain": "shopap.ru",
+      "mx": [
+        "emx.mail.ru"
+      ],
+      "expected_mx": "emx.mail.ru",
+      "passed": true
+    }
+  ]
+}

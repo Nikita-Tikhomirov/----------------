@@ -1,0 +1,218 @@
+{
+  "generated_at": "2026-08-02T16:57:15+03:00",
+  "scope": {
+    "included_sites": [
+      "apreal.ru",
+      "docp.ru",
+      "mca24.ru",
+      "fsa-lab.ru",
+      "elecktro.ru",
+      "med-license.ru",
+      "mhsl.ru",
+      "fste.ru",
+      "otxodi.ru",
+      "lfsb.ru",
+      "apreal.spb.ru",
+      "minkult78.ru",
+      "medlic.spb.ru",
+      "medtex78.ru",
+      "mchs-spb.ru",
+      "mchs78.ru",
+      "license39.ru",
+      "medtex39.ru",
+      "39mchs.ru",
+      "apreal36.ru",
+      "apreal-nn.ru",
+      "apreal-volgograd.ru",
+      "apreal72.ru",
+      "nousro.ru",
+      "dpomuc.ru",
+      "nousro-spb.ru",
+      "ed-kgd.ru",
+      "muc-vrn.ru",
+      "nousro-nn.ru",
+      "shopap.ru"
+    ],
+    "excluded_sites": [
+      "rectavr.ru",
+      "fstek.spb.ru",
+      "lic-k.ru",
+      "apreal-samara.ru",
+      "ed-krd.ru"
+    ],
+    "requirements": [
+      {
+        "title": "Две формы на каждом сайте",
+        "criterion": "Доступны формы «ЗАКАЗАТЬ ЗВОНОК» и «ЗАДАТЬ ВОПРОС».",
+        "status": "passed"
+      },
+      {
+        "title": "Форма заказа звонка",
+        "criterion": "Имя необязательно, телефон обязателен, капча есть; email и тип клиента убраны.",
+        "status": "passed"
+      },
+      {
+        "title": "Форма вопроса",
+        "criterion": "Имя и вопрос необязательны, телефон обязателен, капча есть; email убран.",
+        "status": "passed"
+      },
+      {
+        "title": "Согласие и политика",
+        "criterion": "Согласованный текст показан без отдельной галочки; ссылка ведёт на политику конфиденциальности.",
+        "status": "passed"
+      },
+      {
+        "title": "Работа окон",
+        "criterion": "Крестик виден, окна закрываются и не перекрываются другими элементами.",
+        "status": "passed"
+      },
+      {
+        "title": "Корректная отправка",
+        "criterion": "Нет пустой страницы, 404, вечной загрузки и ложного успеха; подтверждение появляется после принятия заявки.",
+        "status": "passed"
+      },
+      {
+        "title": "Почтовые получатели",
+        "criterion": "Каждый сайт отправляет заявку на адрес, указанный для него в исходной таблице клиента.",
+        "status": "passed"
+      },
+      {
+        "title": "Повторная проверка",
+        "criterion": "Каждый сайт и обе формы проверены после исправлений на компьютере и телефоне.",
+        "status": "passed"
+      }
+    ]
+  },
+  "verification": {
+    "visual": {
+      "sites": 30,
+      "views": 60,
+      "failed_views": 0,
+      "failures": []
+    },
+    "functional_submissions": 60,
+    "route_retest_submissions": 18,
+    "recipient_routes": {
+      "sites": 30,
+      "passed": 30,
+      "failed": []
+    },
+    "legacy_cf7_forms": 16,
+    "mx_sites": 30,
+    "mailbox_delivery_example": {
+      "checked_at": "2026-08-02T13:40:00.644Z",
+      "mailbox": "info@medlic.spb.ru",
+      "subject": "ЗАДАТЬ ВОПРОС — medlic.spb.ru",
+      "to": [
+        "info@medlic.spb.ru"
+      ],
+      "from": [
+        "info@medlic.spb.ru"
+      ],
+      "marker": "APREAL-MEDLIC-ROUTE-20260802-1530-",
+      "status": 200
+    },
+    "document_qa": {
+      "docx_zip_ok": true,
+      "docx_tables": 6,
+      "docx_inline_images": 10,
+      "docx_external_links": 30,
+      "docx_explicit_page_breaks": 13,
+      "docx_missing_required_text": [],
+      "docx_forbidden_text": [],
+      "pdf_pages": 14,
+      "pdf_missing_required_text": [],
+      "pdf_forbidden_text": []
+    }
+  },
+  "sources": [
+    {
+      "path": "output/ap-real-conflict-closure-qa-2026-08-02/summary.json",
+      "sha256": "4e4ba507bce7f861444c30a74c5e3ec3239c418ba5f70d7788d341bc17e44c10"
+    },
+    {
+      "path": "output/ap-real-live-recipient-matrix-2026-08-02.json",
+      "sha256": "5715a30c771f54c7f3ca6caa177879facc6551145d31581b902a16123a0dba1a"
+    },
+    {
+      "path": "output/ap-real-form-delivery-2026-08-02.json",
+      "sha256": "f7681ad9e1352a63f420b83cfbc2f4536f4afd3e5602b0cd9c1da22cedec62ba"
+    },
+    {
+      "path": "output/ap-real-client-route-restore-delivery-2026-08-02.json",
+      "sha256": "17f223d300d337496d5bfe6f990976c8506369ab8dc5a222b70e41d62553ba01"
+    },
+    {
+      "path": "output/ap-real-cf7-recipient-normalization-verify-fresh-2026-08-02.json",
+      "sha256": "e5181160c4f7b0f15e545b97d7ed5c35743353ce12f8ee1c0879aa88ff2527b8"
+    },
+    {
+      "path": "output/ap-real-recipient-mx-audit-2026-08-02.json",
+      "sha256": "e0270d247fd78f299f7fd9bb84223badddcc16d6a62c18f8e14fd2f319f91fcf"
+    },
+    {
+      "path": "output/ap-real-conflict-closure-evidence-2026-08-02/mailru-medlic-final-route.json",
+      "sha256": "ccb6652f0917b4fd29480826ad0e21945a2d7727133c1ba8b0317477b6ae44e8"
+    },
+    {
+      "path": "output/ap-real-conflict-closure-evidence-2026-08-02/mailru-medlic-final-route.png",
+      "sha256": "da400e875e3b27aca593dfca0e37ea5b45755c295688a899a008f0b8c97a63e1"
+    },
+    {
+      "path": "output/ap-real-conflict-closure-visual-review-2026-08-02/sheets/sheet-01.png",
+      "sha256": "a99448e3239fc779879852e469d33c6fb6e0f1f659b58c9fdc6da73cdf2b6567"
+    },
+    {
+      "path": "output/ap-real-conflict-closure-visual-review-2026-08-02/sheets/sheet-02.png",
+      "sha256": "6356861ee3df1a38db5c00675d831853cf9316a55aea39eaf189ac769500c365"
+    },
+    {
+      "path": "output/ap-real-conflict-closure-visual-review-2026-08-02/sheets/sheet-03.png",
+      "sha256": "ef2b7cedebdc03a47b5df14195275034b0518914e13ee27cdea46b9c5e72ae51"
+    },
+    {
+      "path": "output/ap-real-conflict-closure-visual-review-2026-08-02/sheets/sheet-04.png",
+      "sha256": "87d023006c94830dfcd13ea051b62493e0c4be2d5c411d30f006ea7129ac5a68"
+    },
+    {
+      "path": "output/ap-real-conflict-closure-visual-review-2026-08-02/sheets/sheet-05.png",
+      "sha256": "019a264f21c5762b031e95898a4113e077e4e6b948d0301165998eed3acd9b1d"
+    },
+    {
+      "path": "output/ap-real-conflict-closure-visual-review-2026-08-02/sheets/sheet-06.png",
+      "sha256": "c1a5c943a7c2fb1b4a7cdbc3231ee56e5895355081590f7e15352832eb80406a"
+    },
+    {
+      "path": "output/ap-real-conflict-closure-visual-review-2026-08-02/sheets/sheet-07.png",
+      "sha256": "416103c365a55960f17146ace2c9636f27af13eb61fe6eec83e591afd1edabdb"
+    },
+    {
+      "path": "output/ap-real-conflict-closure-visual-review-2026-08-02/sheets/sheet-08.png",
+      "sha256": "1906653f4e30155571e06f3ff388623a867a6394b7123d1ddceaf69e5169bfce"
+    },
+    {
+      "path": "output/ap-real-conflict-closure-visual-review-2026-08-02/sheets/sheet-09.png",
+      "sha256": "9678b952b0233121d377f07a07974f753ffe2656c38308d9f6bbe9106b1c64b7"
+    },
+    {
+      "path": "output/ap-real-conflict-closure-visual-review-2026-08-02/sheets/sheet-10.png",
+      "sha256": "510d3db7268db5a0b821c520a34ac67cd4322130c7c94b82472d0e706a7c365d"
+    }
+  ],
+  "outputs": {
+    "docx": {
+      "path": "output/documents/AP-Real-form-corrections-final-2026-08-02.docx",
+      "sha256": "34b58daf9cb1c49f29d3894c36a7bc1067e1603aa5ebd71fe636f24a40a4d6e0"
+    },
+    "pdf": {
+      "path": "output/pdf/AP-Real-form-corrections-final-2026-08-02.pdf",
+      "sha256": "38bfb973784f85a930b4b13884ed5234c9aef326fc087067814b22b19ea6b1c2",
+      "pages": 14
+    },
+    "email": {
+      "path": "output/AP-Real-form-corrections-letter-2026-08-02.txt",
+      "sha256": "e4cdac6f41941ae74cedc6a677ed509a3f421f56eaae116d44f5a83fa78cb51f"
+    }
+  },
+  "client_contacted": false
+}
