@@ -10,6 +10,7 @@ from pathlib import Path, PurePosixPath
 import shlex
 
 try:
+    from tools.apreal_mail_headers import remove_bcc_recipient
     from tools.deploy_apreal_custom_form_completion import (
         CF7_FORMS,
         REMOTE_HOME,
@@ -21,6 +22,7 @@ try:
         write_remote_json,
     )
 except ModuleNotFoundError:
+    from apreal_mail_headers import remove_bcc_recipient
     from deploy_apreal_custom_form_completion import (  # type: ignore[no-redef]
         CF7_FORMS,
         REMOTE_HOME,
@@ -44,17 +46,17 @@ def route_forms() -> dict[str, dict[str, object]]:
     return {
         "callback": {
             "id": forms["callback"]["id"],
-            "recipient": "spb@nousro.ru, upreal@bk.ru",
+            "recipient": "spb@nousro.ru",
         },
         "question": {
             "id": forms["question"]["id"],
-            "recipient": "spb@nousro.ru, info@nousro.ru, upreal@bk.ru",
+            "recipient": "spb@nousro.ru",
         },
     }
 
 
 def desired_mail_state(current: dict[str, object], recipient: str) -> dict[str, object]:
-    target = dict(current)
+    target = remove_bcc_recipient(current, "upreal@bk.ru")
     target["recipient"] = recipient
     return target
 

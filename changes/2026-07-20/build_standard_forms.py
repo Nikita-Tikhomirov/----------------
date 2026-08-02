@@ -22,26 +22,6 @@ EXCLUDED = {
     "ed-krd.ru",
 }
 
-# Keep the domain mailbox as the primary recipient and add a direct copy where
-# fresh live submissions did not reach the client's central inbox.
-CENTRAL_COPY_SITES = {
-    "39mchs.ru",
-    "docp.ru",
-    "dpomuc.ru",
-    "ed-kgd.ru",
-    "minkult78.ru",
-    "muc-vrn.ru",
-    "nousro.ru",
-    "nousro-nn.ru",
-}
-
-# These domains accepted Bcc submissions but did not place the central copy in
-# the mailbox. Keep the site mailbox primary and require a second direct send.
-SEPARATE_CENTRAL_COPY_SITES = {
-    "39mchs.ru",
-    "muc-vrn.ru",
-}
-
 WORDPRESS_SITES = {
     "docp.ru": "info@docp.ru",
     "elecktro.ru": "info@elecktro.ru",
@@ -515,50 +495,6 @@ def replace_contract(template: str, domain: str = "", recipient: str = "") -> st
 
 def render_wordpress_plugin(domain: str, recipient: str) -> str:
     source = replace_contract(WORDPRESS_TEMPLATE, domain, recipient)
-    if domain in CENTRAL_COPY_SITES:
-        source = source.replace(
-            f"const CSF_RECIPIENT = '{recipient}';",
-            f"const CSF_RECIPIENT = '{recipient}';\n"
-            "const CSF_CENTRAL_RECIPIENT = 'upreal@bk.ru';",
-            1,
-        )
-        if domain in SEPARATE_CENTRAL_COPY_SITES:
-            if domain == "39mchs.ru":
-                central_send = (
-                    "    $central_message = preg_replace('/<br\\s*\\/?>/i', \"\\n\", $message);\n"
-                    "    $central_message = str_ireplace('</p>', \"\\n\", $central_message);\n"
-                    "    $central_message = trim(wp_strip_all_tags($central_message));\n"
-                    "    $central_headers = array(\n"
-                    "        'From: ' . CSF_DOMAIN . ' <' . CSF_SENDER . '>',\n"
-                    "        'Reply-To: ' . CSF_SENDER,\n"
-                    "    );\n"
-                    "    $central_sent = wp_mail(CSF_CENTRAL_RECIPIENT, $subject, $central_message, $central_headers);\n"
-                )
-            else:
-                central_send = (
-                    "    $central_sent = wp_mail(CSF_CENTRAL_RECIPIENT, $subject, $message, $headers);\n"
-                )
-            replacement = (
-                central_send
-                + "    $sent = wp_mail(CSF_RECIPIENT, $subject, $message, $headers);\n"
-                + "    remove_action('phpmailer_init', 'csf_set_envelope_sender', 999);\n"
-                "    if (!$sent || !$central_sent) {"
-            )
-            source = source.replace(
-                "    $sent = wp_mail(CSF_RECIPIENT, $subject, $message, $headers);\n"
-                "    remove_action('phpmailer_init', 'csf_set_envelope_sender', 999);\n"
-                "    if (!$sent) {",
-                replacement,
-                1,
-            )
-        else:
-            source = source.replace(
-                "    );\n\n    if ($kind === 'callback') {",
-                "    );\n"
-                "    $headers[] = 'Bcc: ' . CSF_CENTRAL_RECIPIENT;\n\n"
-                "    if ($kind === 'callback') {",
-                1,
-            )
     if domain in HIDDEN_STANDARD_ACTIONS:
         source = source.replace(
             '''        <div class="csf-actions" aria-label="Формы связи">

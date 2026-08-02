@@ -28,19 +28,24 @@ def load_module():
 
 
 class NousroSpbFeedbackTests(unittest.TestCase):
-    def test_question_mail_keeps_regional_and_adds_central_recipient(self):
+    def test_question_mail_uses_only_the_client_site_mailbox(self):
         module = load_module()
         original = {
             "active": True,
-            "recipient": "spb@nousro.ru",
+            "recipient": "spb@nousro.ru, info@nousro.ru, upreal@bk.ru",
             "subject": "Вопрос с сайта nousro-spb.ru",
+            "additional_headers": "Reply-To: [your-email]\nBcc: upreal@bk.ru",
         }
 
-        updated = module.with_fallback_recipient(original)
+        updated = module.with_client_recipient(original)
 
-        self.assertEqual("spb@nousro.ru, info@nousro.ru", updated["recipient"])
+        self.assertEqual("spb@nousro.ru", updated["recipient"])
+        self.assertEqual("Reply-To: [your-email]", updated["additional_headers"])
         self.assertEqual(original["subject"], updated["subject"])
-        self.assertEqual("spb@nousro.ru", original["recipient"])
+        self.assertEqual(
+            "spb@nousro.ru, info@nousro.ru, upreal@bk.ru",
+            original["recipient"],
+        )
 
     def test_contact_form_consent_is_not_prechecked(self):
         module = load_module()

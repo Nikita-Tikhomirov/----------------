@@ -197,71 +197,22 @@ class StandardFormGeneratorTests(unittest.TestCase):
         source = module.render_wordpress_plugin("docp.ru", "info@docp.ru")
 
         self.assertIn("csf-actions-inline", source)
-        self.assertIn("const CSF_CENTRAL_RECIPIENT = 'upreal@bk.ru';", source)
-        self.assertIn("'Bcc: ' . CSF_CENTRAL_RECIPIENT", source)
+        self.assertNotIn("CSF_CENTRAL_RECIPIENT", source)
+        self.assertNotIn("upreal@bk.ru", source)
         self.assertIn("document.querySelector('.full-navigation')", source)
         self.assertIn("legacy.style.display='none'", source)
         self.assertIn('data-modal="callback"', source)
         self.assertIn('data-modal="question"', source)
 
-    def test_central_copy_is_limited_to_failed_delivery_routes(self):
+    def test_all_standard_sites_send_only_to_the_client_site_mailbox(self):
         module = load_module()
-        expected = {
-            "39mchs.ru",
-            "docp.ru",
-            "dpomuc.ru",
-            "ed-kgd.ru",
-            "minkult78.ru",
-            "muc-vrn.ru",
-            "nousro.ru",
-            "nousro-nn.ru",
-        }
-
-        self.assertEqual(module.CENTRAL_COPY_SITES, expected)
-        selected = module.render_wordpress_plugin("dpomuc.ru", "info@dpomuc.ru")
-        ordinary = module.render_wordpress_plugin("otxodi.ru", "info@otxodi.ru")
-        self.assertIn("const CSF_CENTRAL_RECIPIENT = 'upreal@bk.ru';", selected)
-        self.assertNotIn("CSF_CENTRAL_RECIPIENT", ordinary)
-
-    def test_unreliable_bcc_routes_send_the_central_copy_separately(self):
-        module = load_module()
-
-        self.assertEqual(
-            module.SEPARATE_CENTRAL_COPY_SITES,
-            {"39mchs.ru", "muc-vrn.ru"},
-        )
-        for domain in module.SEPARATE_CENTRAL_COPY_SITES:
-            source = module.render_wordpress_plugin(
-                domain,
-                module.WORDPRESS_SITES[domain],
-            )
-            self.assertNotIn("'Bcc: ' . CSF_CENTRAL_RECIPIENT", source, domain)
-            self.assertIn("if (!$sent || !$central_sent)", source, domain)
-
-        muc_source = module.render_wordpress_plugin(
-            "muc-vrn.ru",
-            module.WORDPRESS_SITES["muc-vrn.ru"],
-        )
-        self.assertIn(
-            "$central_sent = wp_mail(CSF_CENTRAL_RECIPIENT, $subject, $message, $headers);",
-            muc_source,
-        )
-
-        plain_source = module.render_wordpress_plugin(
-            "39mchs.ru",
-            module.WORDPRESS_SITES["39mchs.ru"],
-        )
-        self.assertIn("$central_message = preg_replace", plain_source)
-        self.assertIn("wp_strip_all_tags($central_message)", plain_source)
-        self.assertIn("$central_headers = array(", plain_source)
-        self.assertIn(
-            "$central_sent = wp_mail(CSF_CENTRAL_RECIPIENT, $subject, $central_message, $central_headers);",
-            plain_source,
-        )
-        self.assertLess(
-            plain_source.index("$central_sent = wp_mail("),
-            plain_source.index("$sent = wp_mail(CSF_RECIPIENT"),
-        )
+        for domain, recipient in module.WORDPRESS_SITES.items():
+            source = module.render_wordpress_plugin(domain, recipient)
+            self.assertIn(f"const CSF_RECIPIENT = '{recipient}';", source, domain)
+            self.assertNotIn("CSF_CENTRAL_RECIPIENT", source, domain)
+            self.assertNotIn("Bcc:", source, domain)
+            self.assertNotIn("$central_sent", source, domain)
+            self.assertNotIn("upreal@bk.ru", source, domain)
 
     def test_apreal_spb_uses_existing_buttons_with_correct_form_kinds(self):
         module = load_module()

@@ -121,7 +121,7 @@ CF7_FORMS = {
             "mail": {
                 "subject": "Заказ звонка с сайта nousro-spb.ru",
                 "sender": "nousro-spb.ru <wordpress@nousro-spb.ru>",
-                "recipient": "spb@nousro.ru, upreal@bk.ru",
+                "recipient": "spb@nousro.ru",
                 "body": (
                     "Имя: [callback-name]\nТелефон: [callback-phone]\n"
                     "Страница: [_url]"
@@ -137,7 +137,7 @@ CF7_FORMS = {
             "mail": {
                 "subject": "Вопрос с сайта nousro-spb.ru",
                 "sender": "nousro-spb.ru <wordpress@nousro-spb.ru>",
-                "recipient": "spb@nousro.ru, info@nousro.ru, upreal@bk.ru",
+                "recipient": "spb@nousro.ru",
                 "body": (
                     "Имя: [question-name]\nТелефон: [question-phone]\n"
                     "Вопрос: [question-message]\nСтраница: [_url]"

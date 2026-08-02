@@ -10,8 +10,14 @@ import json
 import os
 from pathlib import Path, PurePosixPath
 import shlex
+import sys
 
 import paramiko
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+
+from tools.apreal_mail_headers import remove_bcc_recipient
 
 
 REMOTE_HOME = PurePosixPath("/home/n/nousroc9")
@@ -21,17 +27,9 @@ QUESTION_FORM_ID = 2005
 CALLBACK_FORM_ID = 2438
 
 
-def with_fallback_recipient(mail: dict) -> dict:
-    updated = dict(mail)
-    recipients = [
-        item.strip()
-        for item in str(updated.get("recipient", "")).split(",")
-        if item.strip()
-    ]
-    for required in ("spb@nousro.ru", "info@nousro.ru"):
-        if required not in recipients:
-            recipients.append(required)
-    updated["recipient"] = ", ".join(recipients)
+def with_client_recipient(mail: dict) -> dict:
+    updated = remove_bcc_recipient(mail, "upreal@bk.ru")
+    updated["recipient"] = "spb@nousro.ru"
     return updated
 
 
@@ -116,7 +114,7 @@ def deploy(ssh: paramiko.SSHClient, source: Path) -> str:
         raise RuntimeError(f"Missing deployment file: {source}")
 
     original_mail = get_mail_config(ssh)
-    updated_mail = with_fallback_recipient(original_mail)
+    updated_mail = with_client_recipient(original_mail)
     original_question_form = get_form_config(ssh, QUESTION_FORM_ID)
     updated_question_form = with_required_unchecked_consent(
         original_question_form,
