@@ -5,15 +5,26 @@ const { chromium } = require('playwright');
 const OUTPUT = path.resolve(
   process.env.QA_OUTPUT || 'output/ap-real-full-live-acceptance-2026-07-31'
 );
-const BROWSER_EXECUTABLE = process.env.BROWSER_EXECUTABLE
-  || 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe';
+const BROWSER_EXECUTABLES = [
+  process.env.BROWSER_EXECUTABLE,
+  'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',
+  'C:/Program Files/Google/Chrome/Application/chrome.exe',
+].filter((value, index, values) => value && values.indexOf(value) === index);
 const QA_CONCURRENCY = Math.max(
   1,
-  Number.parseInt(process.env.QA_CONCURRENCY || '4', 10) || 1
+  Number.parseInt(process.env.QA_CONCURRENCY || '2', 10) || 1
+);
+const QA_ATTEMPTS = Math.max(
+  1,
+  Number.parseInt(process.env.QA_ATTEMPTS || '2', 10) || 1
 );
 const QA_SCREENSHOT_TIMEOUT_MS = Math.max(
   1000,
   Number.parseInt(process.env.QA_SCREENSHOT_TIMEOUT_MS || '15000', 10) || 15000
+);
+const QA_VISUAL_STABILITY_TIMEOUT_MS = Math.max(
+  1000,
+  Number.parseInt(process.env.QA_VISUAL_STABILITY_TIMEOUT_MS || '12000', 10) || 12000
 );
 const POLICY_URL = 'https://www.apreal.ru/konfedencialnost.html';
 const CONSENT_TEXT = 'Нажимая на кнопку "Отправить" я даю согласие на обработку персональных данных на условиях Политики обработки персональных данных';
@@ -66,9 +77,39 @@ async function screenshot(page, domain, viewport, state) {
   await page.screenshot({
     path: file,
     fullPage: false,
+    animations: 'disabled',
     timeout: QA_SCREENSHOT_TIMEOUT_MS,
   });
   return file;
+}
+
+async function waitForVisualStability(page, result) {
+  await page.waitForTimeout(1200);
+  const hasPendingSmartSlider = await page.locator('[data-creator="Smart Slider 3"]').evaluateAll(sliders => (
+    sliders.some(slider => {
+      const rect = slider.getBoundingClientRect();
+      const style = getComputedStyle(slider);
+      const visible = style.display !== 'none' && style.visibility !== 'hidden'
+        && rect.width > 0 && rect.height > 0;
+      return visible && !slider.classList.contains('n2-ss-loaded');
+    })
+  ));
+  if (!hasPendingSmartSlider) return;
+
+  try {
+    await page.waitForFunction(() => (
+      [...document.querySelectorAll('[data-creator="Smart Slider 3"]')].every(slider => {
+        const rect = slider.getBoundingClientRect();
+        const style = getComputedStyle(slider);
+        const visible = style.display !== 'none' && style.visibility !== 'hidden'
+          && rect.width > 0 && rect.height > 0;
+        return !visible || slider.classList.contains('n2-ss-loaded');
+      })
+    ), null, { timeout: QA_VISUAL_STABILITY_TIMEOUT_MS });
+    await page.waitForTimeout(250);
+  } catch (_) {
+    result.failures.push('visual loading state did not settle: Smart Slider 3');
+  }
 }
 
 function isFirstParty(url, domain) {
@@ -454,17 +495,12 @@ async function auditExcluded(page, domain, result) {
   if (roots || scripts) result.failures.push(`excluded site has standardized forms: roots=${roots}, assets=${scripts}`);
 }
 
-async function auditView(browser, domain, type, viewport) {
-  const context = await browser.newContext({
-    viewport: { width: viewport.width, height: viewport.height },
-  });
-  const page = await context.newPage();
-  const canonicalUrl = `https://${domain}/`;
-  const result = {
+function emptyAuditResult(domain, type, viewport) {
+  return {
     domain,
     type,
     viewport: viewport.name,
-    canonicalUrl,
+    canonicalUrl: `https://${domain}/`,
     status: null,
     finalUrl: '',
     title: '',
@@ -481,6 +517,20 @@ async function auditView(browser, domain, type, viewport) {
     customForms: [],
     actions: {},
   };
+}
+
+async function auditView(browser, domain, type, viewport) {
+  const context = await browser.newContext({
+    viewport: { width: viewport.width, height: viewport.height },
+  });
+  let page;
+  try {
+    page = await context.newPage();
+  } catch (error) {
+    await context.close().catch(() => null);
+    throw error;
+  }
+  const result = emptyAuditResult(domain, type, viewport);
   page.on('pageerror', error => {
     result.pageErrors.push(error.message);
     result.pageErrorDetails.push(error.stack || error.message);
@@ -524,7 +574,7 @@ async function auditView(browser, domain, type, viewport) {
     });
     result.status = response?.status() ?? null;
     result.finalUrl = page.url();
-    await page.waitForTimeout(1200);
+    await waitForVisualStability(page, result);
     result.title = await page.title();
     if (!result.status || result.status >= 400) result.failures.push(`page returned ${result.status}`);
     if (!normalize(await page.locator('body').innerText().catch(() => ''))) result.failures.push('page body is blank');
@@ -553,6 +603,63 @@ async function auditView(browser, domain, type, viewport) {
   return result;
 }
 
+function isRetryableBrowserFailure(value) {
+  return /(?:target crashed|target page, context or browser has been closed|browser has been closed|connection closed)/i
+    .test(String(value || ''));
+}
+
+async function auditViewWithRetry(browser, domain, type, viewport) {
+  let lastError = null;
+  for (let attempt = 1; attempt <= QA_ATTEMPTS; attempt += 1) {
+    try {
+      const result = await auditView(browser, domain, type, viewport);
+      result.attempts = attempt;
+      const retryable = result.failures.some(isRetryableBrowserFailure);
+      if (!retryable || attempt === QA_ATTEMPTS) return result;
+      process.stdout.write(`RETRY ${domain} ${viewport.name} after browser target failure\n`);
+    } catch (error) {
+      lastError = error;
+      if (!isRetryableBrowserFailure(error?.message) || attempt === QA_ATTEMPTS) {
+        const result = emptyAuditResult(domain, type, viewport);
+        result.attempts = attempt;
+        result.failures.push(
+          `browser infrastructure failure after ${attempt} attempt(s): ${error?.message || error}`
+        );
+        return result;
+      }
+      process.stdout.write(`RETRY ${domain} ${viewport.name} after browser infrastructure failure\n`);
+    }
+    await new Promise(resolve => setTimeout(resolve, 500));
+  }
+  const result = emptyAuditResult(domain, type, viewport);
+  result.attempts = QA_ATTEMPTS;
+  result.failures.push(
+    `browser infrastructure failure after ${QA_ATTEMPTS} attempt(s): ${lastError?.message || lastError || 'unknown'}`
+  );
+  return result;
+}
+
+async function launchAuditBrowser() {
+  const errors = [];
+  for (const executablePath of BROWSER_EXECUTABLES) {
+    if (!fs.existsSync(executablePath)) {
+      errors.push(`${executablePath}: executable is absent`);
+      continue;
+    }
+    for (let attempt = 1; attempt <= QA_ATTEMPTS; attempt += 1) {
+      try {
+        return await chromium.launch({ executablePath, headless: true });
+      } catch (error) {
+        errors.push(`${executablePath} attempt ${attempt}: ${error?.message || error}`);
+        if (attempt < QA_ATTEMPTS) {
+          await new Promise(resolve => setTimeout(resolve, 500));
+        }
+      }
+    }
+  }
+  throw new Error(`browser launch failed for all configured executables: ${errors.join(' | ')}`);
+}
+
 (async () => {
   fs.mkdirSync(OUTPUT, { recursive: true });
   const targets = [
@@ -563,7 +670,7 @@ async function auditView(browser, domain, type, viewport) {
   const filter = process.env.TARGET_DOMAINS
     ? new Set(process.env.TARGET_DOMAINS.split(',').map(item => item.trim()).filter(Boolean))
     : null;
-  const browser = await chromium.launch({ executablePath: BROWSER_EXECUTABLE, headless: true });
+  const browser = await launchAuditBrowser();
   const results = [];
   try {
     const queue = targets.filter(target => !filter || filter.has(target.domain));
@@ -574,7 +681,7 @@ async function auditView(browser, domain, type, viewport) {
         nextIndex += 1;
         for (const viewport of VIEWPORTS) {
           process.stdout.write(`ACCEPT ${target.domain} ${viewport.name}\n`);
-          const result = await auditView(browser, target.domain, target.type, viewport);
+          const result = await auditViewWithRetry(browser, target.domain, target.type, viewport);
           results.push(result);
           fs.writeFileSync(path.join(OUTPUT, 'results.partial.json'), JSON.stringify(results, null, 2));
         }

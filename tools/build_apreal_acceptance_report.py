@@ -30,6 +30,13 @@ MAIL_EVIDENCE_DIR = ROOT / "output" / "ap-real-evidence-2026-08-02"
 
 SENDER_DELIVERY_PATH = ROOT / "output" / "ap-real-sender-delivery-2026-08-02.json"
 ROUTE_DELIVERY_PATH = ROOT / "output" / "ap-real-route-acceptance-2026-08-02.json"
+RECIPIENT_MATRIX_PATH = ROOT / "output" / "ap-real-recipient-matrix-final-2026-08-03.json"
+MAILBOX_RECEIPT_PATH = ROOT / "output" / "ap-real-post-send-main-mailru-accounts-2026-08-02.json"
+MAILBOX_RECEIPT_SCREENSHOT = ROOT / "output" / "ap-real-post-send-main-mailru-accounts-2026-08-02.png"
+MAILBOX_RECEIPT_MARKERS = {
+    "APREAL-POST-SEND-20260802-1900-medlic.spb.ru-callback",
+    "APREAL-POST-SEND-20260802-1900-medlic.spb.ru-question",
+}
 
 BLUE = "2E74B5"
 DARK_BLUE = "1F4D78"
@@ -547,7 +554,7 @@ def add_title_page(doc: Document) -> None:
         ("30", "включённых доменов"),
         ("60/60", "desktop/mobile без отказов"),
         ("60/60", "обработчиков приняли заявки"),
-        ("60/60", "писем найдено в ящике"),
+        ("48/48", "маршрутов получателей верны"),
     ]
     table = doc.add_table(rows=1, cols=4)
     set_table_width(table, [1.625, 1.625, 1.625, 1.625])
@@ -710,11 +717,14 @@ def add_form_domain_pages(
     doc.add_heading("3. Доказательства по каждому включённому домену", level=1)
     p = doc.add_paragraph(
         "На каждой карточке показаны четыре фактических снимка опубликованного сайта после последней правки: "
-        "обе формы на desktop и mobile. Маркеры доставки уникальны и сохранены в почтовом ящике."
+        "обе формы на desktop и mobile. Для каждой формы сохранён уникальный маркер контрольной отправки."
     )
     p.paragraph_format.space_after = Pt(7)
     p = doc.add_paragraph()
-    r = p.add_run("Общий итог: 30 доменов × 2 формы × 2 viewport = 120 визуальных доказательств; 60 принятых заявок; 60 найденных писем.")
+    r = p.add_run(
+        "Общий итог: 30 доменов × 2 формы × 2 viewport = 120 визуальных доказательств; "
+        "60 принятых заявок; 48 проверенных конфигураций получателей."
+    )
     set_run_font(r, size=11, bold=True, color=GREEN)
 
     for ordinal, domain in enumerate(INCLUDED_DOMAINS, start=1):
@@ -731,7 +741,11 @@ def add_form_domain_pages(
             [
                 ("Просил клиент", issue),
                 ("Что сделано", implementation_for(domain)),
-                ("Проверка", "Обе формы, desktop/mobile, чистый URL; обработчики приняли callback и question; письма найдены в ящике."),
+                (
+                    "Проверка",
+                    "Обе формы, desktop/mobile, чистый URL; обработчики приняли callback и question; "
+                    "адрес получателя сверен с клиентской матрицей.",
+                ),
                 ("Маркер", marker_prefix),
                 ("Статус", "ГОТОВО по формам"),
             ],
@@ -781,36 +795,36 @@ def add_excluded_section(doc: Document, spec: dict[str, dict[str, str]]) -> None
 
 def add_mail_evidence_section(doc: Document) -> None:
     doc.add_page_break()
-    doc.add_heading("5. Реальная доставка и доменный отправитель", level=1)
+    doc.add_heading("5. Маршрутизация заявок и доменный отправитель", level=1)
     p = doc.add_paragraph(
-        "Серверный ответ сам по себе не принят как достаточное доказательство. После валидных отправок выполнен "
-        "поиск уникальных маркеров в фактическом почтовом ящике."
+        "Принятие заявки обработчиком и получение письма в почтовом ящике учитываются раздельно. "
+        "Для всех форм проверен адрес получателя в конфигурации. Фактическое получение обеих форм "
+        "отдельно подтверждено только в доступном ящике info@medlic.spb.ru."
     )
     p.paragraph_format.space_after = Pt(7)
     rows = [
         ("Обработчики", "60/60 валидных заявок приняты: callback и question на каждом из 30 доменов."),
-        ("Почтовый ящик", "56 сообщений найдены по APREAL-SENDER-QA-20260802; ещё 4 после финального исправления маршрутов 39mchs.ru и muc-vrn.ru."),
-        ("Итого", "60/60 сообщений найдены; итоговая четвёрка находится во «Входящих»."),
-        ("Финальная перепроверка", "После исправления подписей nousro-spb.ru обе формы повторно приняты и оба новых письма найдены во «Входящих»."),
+        ("Маршруты", "48/48 актуальных и дополнительных конфигураций совпадают с клиентской матрицей."),
+        ("Почтовый ящик", "Обе формы medlic.spb.ru найдены в целевом ящике info@medlic.spb.ru."),
+        (
+            "Граница доказательства",
+            "По остальным сайтам подтверждены принятие обработчиком и адрес получателя, но не заявляется "
+            "получение письма внутри закрытого клиентского ящика без доступа к нему.",
+        ),
         ("Отправитель", "Проверены доменно связанные From/Reply-To; на примерах docp.ru и minkult78.ru подтверждены SPF/DKIM/выравнивание."),
     ]
     add_label_detail_table(doc, rows, status_fill=PALE_GREEN)
 
-    for image_name, caption in (
-        ("mailru-APREAL-SENDER-QA-20260802-56.png", "56 писем по основному маркеру после валидных отправок"),
-        ("mailru-APREAL-ROUTE-ACCEPT-20260802-4-inbox.png", "4 финальных письма 39mchs.ru и muc-vrn.ru во «Входящих»"),
-        ("mailru-APREAL-NOUSRO-LABELS-20260802.png", "2 повторные заявки nousro-spb.ru после финального исправления подписей"),
-    ):
-        p = doc.add_paragraph()
-        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        p.paragraph_format.space_before = Pt(5)
-        p.paragraph_format.space_after = Pt(1)
-        p.add_run().add_picture(str(MAIL_EVIDENCE_DIR / image_name), width=Inches(6.35))
-        p = doc.add_paragraph()
-        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        p.paragraph_format.space_after = Pt(3)
-        r = p.add_run(caption)
-        set_run_font(r, size=8, italic=True, color=DARK_GRAY)
+    p = doc.add_paragraph()
+    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p.paragraph_format.space_before = Pt(5)
+    p.paragraph_format.space_after = Pt(1)
+    p.add_run().add_picture(str(MAILBOX_RECEIPT_SCREENSHOT), width=Inches(6.35))
+    p = doc.add_paragraph()
+    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p.paragraph_format.space_after = Pt(3)
+    r = p.add_run("В info@medlic.spb.ru видны контрольные письма от обеих форм medlic.spb.ru.")
+    set_run_font(r, size=8, italic=True, color=DARK_GRAY)
 
     doc.add_page_break()
     doc.add_heading("5.1. Проверка заголовков письма", level=2)
@@ -982,7 +996,11 @@ def add_audit_section(doc: Document, audit: dict[str, Any]) -> None:
         ("Все 30 включённых доменов имеют desktop/mobile PASS", audit["summary"]["visual_views_passed"] == 60),
         ("Для 30 доменов сохранены четыре снимка форм", audit["summary"]["form_screenshots_present"] == 120),
         ("Текущие обработчики приняли обе формы", audit["summary"]["handler_submissions_accepted"] == 60),
-        ("Фактические письма найдены по двум итоговым маркерам", audit["summary"]["mailbox_messages_found"] == 60),
+        ("Все адреса получателей совпадают с клиентской матрицей", audit["summary"]["recipient_routes_verified"] == 48),
+        (
+            "Обе формы medlic.spb.ru подтверждены в доступном целевом ящике",
+            audit["summary"]["mailbox_confirmed_messages"] == 2,
+        ),
         ("Пять исключённых доменов вынесены отдельно", audit["summary"]["excluded_domains"] == 5),
         ("Миграционные блокеры и конфликт объёма раскрыты", len(audit["migration"]["unresolved_or_qualified"]) == 7),
         ("Автоматическая отправка клиенту запрещена", audit["contact_policy"] == "manual_owner_release_only"),
@@ -1014,7 +1032,8 @@ def add_audit_section(doc: Document, audit: dict[str, Any]) -> None:
     set_run_font(r, bold=True, color=GREEN)
     r = p.add_run(
         "все 30 включённых сайтов имеют обе требуемые формы; формы зрительно проверены на desktop/mobile; "
-        "60 валидных заявок приняты и 60 писем найдены."
+        "60 валидных заявок приняты; 48 конфигураций получателей совпадают с клиентской матрицей; "
+        "обе формы medlic.spb.ru подтверждены в доступном целевом ящике."
     )
     set_run_font(r)
     p = doc.add_paragraph()
@@ -1044,6 +1063,27 @@ def build_audit(
     result_index: dict[tuple[str, str], dict[str, Any]],
     delivery_index: dict[tuple[str, str], dict[str, Any]],
 ) -> dict[str, Any]:
+    recipient_matrix = load_json(RECIPIENT_MATRIX_PATH)
+    recipient_summary = recipient_matrix.get("summary", {})
+    if (
+        recipient_summary.get("checks") != 48
+        or recipient_summary.get("passed") != 48
+        or recipient_summary.get("failed")
+        or recipient_summary.get("personal_recipient_hits")
+        or recipient_summary.get("complete") is not True
+    ):
+        raise RuntimeError("Recipient matrix does not prove 48 correct production routes")
+
+    mailbox_receipt = load_json(MAILBOX_RECEIPT_PATH)
+    visible_accounts = set(mailbox_receipt.get("account_emails_visible_in_menu", []))
+    marker_hits = set(mailbox_receipt.get("marker_hits", []))
+    if "info@medlic.spb.ru" not in visible_accounts:
+        raise RuntimeError("Mailbox evidence is not tied to info@medlic.spb.ru")
+    if marker_hits != MAILBOX_RECEIPT_MARKERS:
+        raise RuntimeError("Mailbox evidence does not prove both medlic.spb.ru form messages")
+    if not MAILBOX_RECEIPT_SCREENSHOT.exists():
+        raise FileNotFoundError(MAILBOX_RECEIPT_SCREENSHOT)
+
     domains: list[dict[str, Any]] = []
     screenshot_count = 0
     visual_pass_count = 0
@@ -1112,11 +1152,12 @@ def build_audit(
             "visual_views_passed": visual_pass_count,
             "form_screenshots_present": screenshot_count,
             "handler_submissions_accepted": accepted_count,
-            "mailbox_messages_found": 60,
+            "recipient_routes_verified": recipient_summary.get("passed"),
+            "mailbox_confirmed_messages": len(marker_hits),
+            "mailbox_confirmed_sites": ["medlic.spb.ru"],
             "mailbox_evidence": [
-                str((MAIL_EVIDENCE_DIR / "mailru-APREAL-SENDER-QA-20260802-56.png").relative_to(ROOT)),
-                str((MAIL_EVIDENCE_DIR / "mailru-APREAL-ROUTE-ACCEPT-20260802-4-inbox.png").relative_to(ROOT)),
-                str((MAIL_EVIDENCE_DIR / "mailru-APREAL-NOUSRO-LABELS-20260802.png").relative_to(ROOT)),
+                str(MAILBOX_RECEIPT_PATH.relative_to(ROOT)),
+                str(MAILBOX_RECEIPT_SCREENSHOT.relative_to(ROOT)),
             ],
         },
         "migration": {

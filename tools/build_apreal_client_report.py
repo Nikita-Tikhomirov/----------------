@@ -3,7 +3,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import re
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Iterable
@@ -34,14 +33,24 @@ ASSET_DIR = ROOT / "output/ap-real-client-report-assets-2026-08-02"
 
 FRESH_QA_DIR = ROOT / "output/ap-real-final-client-qa-2026-08-02"
 FRESH_QA_RESULTS = FRESH_QA_DIR / "results.json"
+POST_CORRECTION_QA_DIR = ROOT / "output/ap-real-main-chrome-responsive-final-native-click-2026-08-03"
 FORM_BOARD_DIR = ROOT / "output/ap-real-final-client-visual-review-2026-08-02"
 MIGRATION_QA_DIR = ROOT / "output/ap-real-migration-qa-2026-08-02"
 MIGRATION_QA_RESULTS = MIGRATION_QA_DIR / "final-results.json"
 MCHS_VRN_RESULTS = MIGRATION_QA_DIR / "mchs-vrn-staged-results.json"
 VIDEO_QA_DIR = ROOT / "output/ap-real-video-review-2026-08-02"
 MAIL_EVIDENCE_DIR = ROOT / "output/ap-real-evidence-2026-08-02"
-SENDER_DELIVERY_PATH = ROOT / "output/ap-real-sender-delivery-2026-08-02.json"
-ROUTE_DELIVERY_PATH = ROOT / "output/ap-real-route-acceptance-2026-08-02.json"
+SENDER_DELIVERY_PATH = ROOT / "output/ap-real-post-send-form-submissions-2026-08-02.json"
+RECIPIENT_MATRIX_PATH = ROOT / "output/ap-real-recipient-matrix-final-2026-08-03.json"
+MAILBOX_RECEIPT_PATH = ROOT / "output/ap-real-post-send-main-mailru-accounts-2026-08-02.json"
+MAILBOX_RECEIPT_SCREENSHOT = ROOT / "output/ap-real-post-send-main-mailru-accounts-2026-08-02.png"
+HIDDEN_VIDEO_EVIDENCE_PATH = ROOT / "output/ap-real-hidden-video-live-check-2026-08-03.json"
+MAIL_DELIVERY_SCOPE = "mailbox_confirmed_sites_only"
+MAILBOX_CONFIRMED_SITES = ("medlic.spb.ru",)
+MAILBOX_RECEIPT_MARKERS = {
+    "APREAL-POST-SEND-20260802-1900-medlic.spb.ru-callback",
+    "APREAL-POST-SEND-20260802-1900-medlic.spb.ru-question",
+}
 
 BLUE = "2E74B5"
 DARK_BLUE = "1F4D78"
@@ -118,7 +127,10 @@ FORM_REQUIREMENTS = [
     ("Ошибочные сценарии", "Убраны пустые страницы, 404, вечная загрузка и ложное сообщение об успехе."),
     ("Успешная отправка", "Подтверждение показывается только после фактического принятия заявки."),
     ("Обработчики", "Обе формы на каждом включённом сайте приняли тестовую заявку."),
-    ("Почта", "Все 60 контрольных писем найдены в целевых почтовых ящиках."),
+    (
+        "Почта",
+        "Получатели всех форм сверены со штатной матрицей. Фактическое получение обеих форм отдельно подтверждено в доступном ящике info@medlic.spb.ru; по остальным сайтам заявлено только принятие обработчиком.",
+    ),
     ("Внешний вид", "После публикации каждый сайт просмотрен на компьютере и телефоне."),
 ]
 
@@ -157,11 +169,6 @@ CLIENT_INPUT_REQUIRED = [
         "othodi-spb.ru",
         "Перенесён весь доступный источник, но и на прежнем хостинге, и в веб-архиве была только стандартная страница хостинга.",
         "Файлы реального сайта или подтверждение, что служебная страница соответствует ожидаемому состоянию.",
-    ),
-    (
-        "nousro.ru / nousro-nn.ru",
-        "После восстановления отсутствующего штатного ресурса снова работает фоновая анимация сайта.",
-        "Подтвердить: оставить анимацию включённой или убрать её на обоих сайтах.",
     ),
     (
         "Ivideon-камера",
@@ -213,8 +220,8 @@ ADDITIONAL_WORK = [
     ),
     (
         "nousro.ru / nousro-nn.ru",
-        "Фоновая анимация",
-        "Восстановлен отсутствующий штатный видеофайл; анимация снова отображается. Решение оставить/убрать вынесено отдельно.",
+        "Фоновый видеоэлемент",
+        "Старый фоновый видеоэлемент временно появился при устранении JavaScript-ошибок, но не относился к поручению. После проверки он скрыт на обоих сайтах.",
     ),
 ]
 
@@ -234,12 +241,8 @@ def load_result_index(path: Path = FRESH_QA_RESULTS) -> dict[tuple[str, str], di
 
 
 def load_delivery_index() -> dict[tuple[str, str], dict[str, Any]]:
-    sender = load_json(SENDER_DELIVERY_PATH)["submissions"]
-    routes = load_json(ROUTE_DELIVERY_PATH)["submissions"]
-    index = {(item["domain"], item["kind"]): item for item in sender}
-    for item in routes:
-        index[(item["domain"], item["kind"])] = item
-    return index
+    submissions = load_json(SENDER_DELIVERY_PATH)["submissions"]
+    return {(item["domain"], item["kind"]): item for item in submissions}
 
 
 def as_path(raw: str | Path) -> Path:
@@ -477,7 +480,7 @@ def add_report_cover(doc: Document) -> None:
     p = doc.add_paragraph()
     p.paragraph_format.space_after = Pt(18)
     set_run_font(
-        p.add_run("Перенос сайтов, формы обратной связи, доставка заявок и последующие исправления"),
+        p.add_run("Перенос сайтов, формы обратной связи, маршрутизация заявок и последующие исправления"),
         size=13,
         color=DARK_GRAY,
     )
@@ -498,7 +501,7 @@ def add_report_cover(doc: Document) -> None:
         [
             ("30", "сайтов с формами"),
             ("60 из 60", "заявок приняты"),
-            ("60 из 60", "писем получены"),
+            ("48 из 48", "маршрутов верны"),
             ("28", "переносов в работе"),
         ],
     )
@@ -520,8 +523,9 @@ def add_form_results(doc: Document) -> None:
     add_page_break(doc)
     doc.add_heading("1. Формы обратной связи", level=1)
     p = doc.add_paragraph(
-        "На 30 сайтах выполнена единая доработка двух форм. Проверялся не только внешний вид: "
-        "обе формы на каждом сайте были реально отправлены, а письма найдены в почте."
+        "На 30 сайтах выполнена единая доработка двух форм. Внешний вид и работа обеих форм "
+        "проверены на каждом сайте; все контрольные заявки приняты обработчиками. Получатели "
+        "сверены отдельно по полной матрице маршрутов."
     )
     p.paragraph_format.space_after = Pt(8)
 
@@ -608,36 +612,34 @@ def add_form_results(doc: Document) -> None:
 
 def add_delivery_results(doc: Document) -> None:
     add_page_break(doc)
-    doc.add_heading("2. Отправка и получение заявок", level=1)
+    doc.add_heading("2. Отправка и маршрутизация заявок", level=1)
     p = doc.add_paragraph(
         "Выполнено 60 контрольных отправок: по две формы на каждом из 30 сайтов. "
-        "Все запросы приняты обработчиками. Получение подтверждено поиском писем в целевых ящиках: "
-        "56 писем в основной итоговой выборке и 4 письма после повторной проверки маршрутов."
+        "Все 60 обработчиков приняли заявки. Отдельная проверка 48 актуальных и дополнительных "
+        "конфигураций показала, что каждая форма направляет письмо на адрес из клиентской матрицы. "
+        "Фактическое получение обеих форм в почте отдельно подтверждено для medlic.spb.ru."
     )
     p.paragraph_format.space_after = Pt(8)
     add_metric_strip(
         doc,
-        [("60", "отправлено"), ("60", "принято"), ("60", "получено"), ("0", "потеряно")],
+        [("60", "отправлено"), ("60", "принято"), ("48", "маршрутов верны"), ("2", "письма в medlic")],
     )
 
-    doc.add_heading("Подтверждение в почте", level=2)
+    doc.add_heading("Подтверждённое получение в почте", level=2)
     table = doc.add_table(rows=1, cols=1)
     set_table_width(table, [6.5])
     set_table_borders(table)
     add_picture_with_caption(
         table.cell(0, 0),
-        MAIL_EVIDENCE_DIR / "mailru-APREAL-SENDER-QA-20260802-56.png",
-        "Основная итоговая выборка: 56 полученных писем.",
+        MAILBOX_RECEIPT_SCREENSHOT,
+        "В доступном ящике info@medlic.spb.ru подтверждены письма от обеих форм сайта medlic.spb.ru.",
         6.22,
     )
-    table = doc.add_table(rows=1, cols=1)
-    set_table_width(table, [6.5])
-    set_table_borders(table)
-    add_picture_with_caption(
-        table.cell(0, 0),
-        MAIL_EVIDENCE_DIR / "mailru-APREAL-ROUTE-ACCEPT-20260802-4-inbox.png",
-        "Повторная проверка двух специальных маршрутов: ещё 4 письма. Итого 60 из 60.",
-        6.22,
+    add_callout(
+        doc,
+        "Для остальных сайтов подтверждены принятие заявки обработчиком и правильный адрес "
+        "получателя в конфигурации. Получение письма непосредственно в каждом закрытом клиентском "
+        "ящике без доступа к этому ящику в отчёте не заявляется.",
     )
 
 
@@ -763,11 +765,11 @@ def add_additional_results(doc: Document) -> None:
         set_run_font(row.cells[1].paragraphs[0].add_run(work), size=8.2, bold=True, color=DARK_BLUE)
         set_run_font(row.cells[2].paragraphs[0].add_run(result), size=8.2, color=DARK_GRAY)
 
-    doc.add_heading("Отдельно о фоновой анимации и камере", level=2)
+    doc.add_heading("Скрытый фоновый видеоэлемент и существующая камера", level=2)
     p = doc.add_paragraph(
-        "Фоновая анимация на nousro.ru и nousro-nn.ru не была новой секцией. Во время устранения "
-        "JavaScript-ошибок обнаружился отсутствующий штатный файл bg_balls_1080.mp4. Файл восстановлен, "
-        "поэтому прежняя анимация снова отображается. Оставлять её включённой или убрать — отдельное решение заказчика."
+        "Фоновый видеоэлемент на nousro.ru и nousro-nn.ru не входил в поручение. Он временно появился "
+        "при устранении JavaScript-ошибок, после чего был повторно проверен и скрыт на обоих сайтах. "
+        "Дополнительное решение заказчика по этому элементу не требуется."
     )
     p.paragraph_format.space_after = Pt(6)
     p = doc.add_paragraph(
@@ -781,14 +783,14 @@ def add_additional_results(doc: Document) -> None:
     set_table_borders(table)
     add_picture_with_caption(
         table.cell(0, 0),
-        VIDEO_QA_DIR / "nousro.ru-background-video-top.png",
-        "nousro.ru: восстановленная штатная фоновая анимация.",
+        POST_CORRECTION_QA_DIR / "nousro.ru-desktop-page.png",
+        "nousro.ru после исправления: фоновый видеоэлемент скрыт.",
         3.02,
     )
     add_picture_with_caption(
         table.cell(0, 1),
-        VIDEO_QA_DIR / "nousro-nn.ru-background-video-top.png",
-        "nousro-nn.ru: восстановленная штатная фоновая анимация.",
+        POST_CORRECTION_QA_DIR / "nousro-nn.ru-desktop-page.png",
+        "nousro-nn.ru после исправления: фоновый видеоэлемент скрыт.",
         3.02,
     )
     add_page_break(doc)
@@ -1033,13 +1035,36 @@ def validate_inputs(
         if not item.get("accepted"):
             raise ValueError(f"Submission was not accepted: {key[0]} {key[1]}")
 
-    mailbox_snapshot = MAIL_EVIDENCE_DIR / "mailru-APREAL-SENDER-QA-20260802-snapshot.md"
-    snapshot_text = mailbox_snapshot.read_text(encoding="utf-8")
-    if not re.search(r'generic \[[^\]]+\]: "56"', snapshot_text):
-        raise ValueError("Mailbox snapshot does not prove the 56-message main result")
-    route_screenshot = MAIL_EVIDENCE_DIR / "mailru-APREAL-ROUTE-ACCEPT-20260802-4-inbox.png"
-    if not route_screenshot.exists():
-        raise FileNotFoundError(route_screenshot)
+    recipient_matrix = load_json(RECIPIENT_MATRIX_PATH)
+    recipient_summary = recipient_matrix.get("summary", {})
+    if (
+        recipient_summary.get("checks") != 48
+        or recipient_summary.get("passed") != 48
+        or recipient_summary.get("failed")
+        or recipient_summary.get("personal_recipient_hits")
+        or recipient_summary.get("complete") is not True
+    ):
+        raise ValueError("Recipient matrix does not prove 48 correct production routes")
+
+    mailbox_receipt = load_json(MAILBOX_RECEIPT_PATH)
+    visible_accounts = set(mailbox_receipt.get("account_emails_visible_in_menu", []))
+    if "info@medlic.spb.ru" not in visible_accounts:
+        raise ValueError("Mailbox evidence is not tied to info@medlic.spb.ru")
+    marker_hits = set(mailbox_receipt.get("marker_hits", []))
+    if marker_hits != MAILBOX_RECEIPT_MARKERS:
+        raise ValueError("Mailbox evidence does not prove both medlic.spb.ru form messages")
+    if not MAILBOX_RECEIPT_SCREENSHOT.exists():
+        raise FileNotFoundError(MAILBOX_RECEIPT_SCREENSHOT)
+
+    hidden_video_evidence = load_json(HIDDEN_VIDEO_EVIDENCE_PATH)
+    hidden_video_summary = hidden_video_evidence.get("summary", {})
+    if (
+        hidden_video_summary.get("checks") != 2
+        or hidden_video_summary.get("passed") != 2
+        or hidden_video_summary.get("failed")
+        or hidden_video_summary.get("complete") is not True
+    ):
+        raise ValueError("Live evidence does not prove both background videos are hidden")
 
     migration_results = load_json(MIGRATION_QA_RESULTS)
     if len(migration_results) != 16:
@@ -1068,7 +1093,10 @@ def validate_inputs(
         "fresh_views": len(result_index),
         "fresh_screenshots": screenshot_count,
         "accepted_submissions": len(delivery_index),
-        "mailbox_messages": 60,
+        "recipient_routes": recipient_summary.get("passed"),
+        "mailbox_confirmed_messages": len(marker_hits),
+        "mailbox_confirmed_sites": list(MAILBOX_CONFIRMED_SITES),
+        "hidden_background_videos": hidden_video_summary.get("passed"),
         "migration_views": len(migration_results),
         "mchs_vrn_staged_views": len(mchs_results),
     }
@@ -1095,8 +1123,9 @@ def build_cover_note() -> None:
         ),
         (
             "Повторно составлять список замечаний вам не требуется. Я заново сверил исходные поручения, "
-            "проверил опубликованные версии на компьютере и телефоне, выполнил контрольные отправки форм, "
-            "подтвердил получение писем и устранил найденные дефекты."
+            "проверил опубликованные версии на компьютере и телефоне, выполнил 60 контрольных отправок форм, "
+            "сверил 48 настроек получателей с согласованной матрицей и отдельно подтвердил обе формы "
+            "medlic.spb.ru в доступном ящике info@medlic.spb.ru. Найденные дефекты устранены."
         ),
         (
             "В приложенном отчёте простым языком указано, что выполнено и чем это подтверждено. Отдельно "
@@ -1171,7 +1200,7 @@ def build_report() -> dict[str, Any]:
     configure_document(doc, title="ГК «АП-Риал» | Итоговый отчёт по сайтам")
     properties = doc.core_properties
     properties.title = "Итоговый отчёт о работах по сайтам ГК «АП-Риал»"
-    properties.subject = "Перенос, формы, доставка заявок и последующие исправления"
+    properties.subject = "Перенос, формы, маршрутизация заявок и последующие исправления"
     properties.author = "Никита Тихомиров"
     properties.last_modified_by = "Никита Тихомиров"
     properties.keywords = "АП-Риал, сайты, перенос, формы, проверка, отчёт"
@@ -1227,7 +1256,7 @@ def build_report() -> dict[str, Any]:
     return result
 
 
-def finalize_audit() -> dict[str, Any]:
+def finalize_audit(visual_review_manifest: Path | None = None) -> dict[str, Any]:
     from pypdf import PdfReader
 
     audit = load_json(OUTPUT_AUDIT)
@@ -1235,22 +1264,54 @@ def finalize_audit() -> dict[str, Any]:
     for path in required:
         if not path.exists():
             raise FileNotFoundError(path)
-    audit["status"] = "verified_artifacts"
+    client_report_pages = len(PdfReader(str(OUTPUT_PDF)).pages)
+    cover_note_pages = len(PdfReader(str(COVER_NOTE_PDF)).pages)
+    visual_review: dict[str, Any] = {
+        "client_report_pages": client_report_pages,
+        "cover_note_pages": cover_note_pages,
+        "all_pages_reviewed": False,
+        "result": "pending",
+        "reviewed_at": None,
+        "reviewer": None,
+        "manifest": None,
+    }
+    if visual_review_manifest is not None:
+        review = load_json(visual_review_manifest)
+        expected_client_pages = set(range(1, client_report_pages + 1))
+        expected_cover_pages = set(range(1, cover_note_pages + 1))
+        reviewed_client_pages = set(review.get("client_report_pages", []))
+        reviewed_cover_pages = set(review.get("cover_note_pages", []))
+        if reviewed_client_pages != expected_client_pages:
+            raise ValueError("Visual review manifest does not cover every client report page")
+        if reviewed_cover_pages != expected_cover_pages:
+            raise ValueError("Visual review manifest does not cover every cover-note page")
+        if not review.get("reviewer") or not review.get("reviewed_at"):
+            raise ValueError("Visual review manifest must record reviewer and reviewed_at")
+        try:
+            manifest_label = str(visual_review_manifest.relative_to(ROOT))
+        except ValueError:
+            manifest_label = str(visual_review_manifest)
+        visual_review.update(
+            {
+                "all_pages_reviewed": True,
+                "result": "passed",
+                "reviewed_at": review["reviewed_at"],
+                "reviewer": review["reviewer"],
+                "manifest": manifest_label,
+            }
+        )
+
+    audit["status"] = "verified_artifacts" if visual_review["all_pages_reviewed"] else "pending_visual_review"
     audit["finalized_at"] = datetime.now().astimezone().isoformat(timespec="seconds")
     audit["artifact_hashes"] = {
         str(path.relative_to(ROOT)): file_sha256(path) for path in required
     }
     audit["pdf_renderer"] = "reportlab"
-    audit["visual_review"] = {
-        "client_report_pages": len(PdfReader(str(OUTPUT_PDF)).pages),
-        "cover_note_pages": len(PdfReader(str(COVER_NOTE_PDF)).pages),
-        "all_pages_reviewed": True,
-        "result": "passed",
-        "reviewed_at": datetime.now().astimezone().isoformat(timespec="seconds"),
-    }
+    audit["visual_review"] = visual_review
     audit["recipient_control"] = {
         "personal_gmail_in_production_recipients": False,
-        "client_mailbox_delivery_evidence": "56 main messages + 4 route-control messages",
+        "configured_recipient_routes": "48/48 matched the client matrix",
+        "client_mailbox_delivery_evidence": "2 form messages in info@medlic.spb.ru only",
     }
     OUTPUT_AUDIT.write_text(json.dumps(audit, ensure_ascii=False, indent=2), encoding="utf-8")
     return audit
@@ -1259,8 +1320,9 @@ def finalize_audit() -> dict[str, Any]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--finalize-audit", action="store_true")
+    parser.add_argument("--visual-review-manifest", type=Path)
     args = parser.parse_args()
-    result = finalize_audit() if args.finalize_audit else build_report()
+    result = finalize_audit(args.visual_review_manifest) if args.finalize_audit else build_report()
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
 

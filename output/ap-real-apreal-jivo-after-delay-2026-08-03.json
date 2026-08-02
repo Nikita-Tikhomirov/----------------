@@ -1,0 +1,1061 @@
+{
+  "point": {
+    "x": 242.5,
+    "y": 395.6875
+  },
+  "question": {
+    "className": "uk-button uk-button-danger",
+    "display": "inline-block",
+    "opacity": "1",
+    "pointerEvents": "auto",
+    "rect": {
+      "bottom": 415.78125,
+      "height": 40.1875,
+      "left": 15,
+      "right": 470,
+      "top": 375.59375,
+      "width": 455
+    },
+    "tag": "BUTTON",
+    "text": "ЗАДАТЬ ВОПРОС",
+    "visibility": "visible",
+    "zIndex": "auto"
+  },
+  "stack": [
+    {
+      "className": "scroll__DAEYt",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 681,
+        "height": 316,
+        "left": 119,
+        "right": 455,
+        "top": 365,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "wrap__iTxSG",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 681,
+        "height": 316,
+        "left": 119,
+        "right": 455,
+        "top": 365,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "main__a4xFd",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 681,
+        "height": 316,
+        "left": 119,
+        "right": 455,
+        "top": 365,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "body__MBdns show__g8lSW",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 791,
+        "height": 426,
+        "left": 119,
+        "right": 455,
+        "top": 365,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "bodyWrap__OK9Ut",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 861,
+        "height": 496,
+        "left": 119,
+        "right": 455,
+        "top": 365,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "main__cRIrs",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 791,
+        "height": 496,
+        "left": 119,
+        "right": 455,
+        "top": 295,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Отправьте нам сообщение Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "wrapper__lpMRA",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 397,
+        "height": 32,
+        "left": 119,
+        "right": 455,
+        "top": 365,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "-1"
+    },
+    {
+      "className": "notranslate",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 791,
+        "height": 496,
+        "left": 119,
+        "right": 455,
+        "top": 295,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Отправьте нам сообщение Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "2147483646"
+    },
+    {
+      "className": "uk-button-danger__inner",
+      "display": "inline",
+      "opacity": "1",
+      "pointerEvents": "auto",
+      "rect": {
+        "bottom": 404.59375,
+        "height": 19,
+        "left": 187.390625,
+        "right": 297.59375,
+        "top": 385.59375,
+        "width": 110.203125
+      },
+      "tag": "SPAN",
+      "text": "ЗАДАТЬ ВОПРОС",
+      "visibility": "visible",
+      "zIndex": "5"
+    },
+    {
+      "className": "uk-button uk-button-danger",
+      "display": "inline-block",
+      "opacity": "1",
+      "pointerEvents": "auto",
+      "rect": {
+        "bottom": 415.78125,
+        "height": 40.1875,
+        "left": 15,
+        "right": 470,
+        "top": 375.59375,
+        "width": 455
+      },
+      "tag": "BUTTON",
+      "text": "ЗАДАТЬ ВОПРОС",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "uk-width-1-6@m uk-grid-margin uk-first-column",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "auto",
+      "rect": {
+        "bottom": 1420.28125,
+        "height": 1044.6875,
+        "left": -15,
+        "right": 470,
+        "top": 375.59375,
+        "width": 485
+      },
+      "tag": "DIV",
+      "text": "ЗАДАТЬ ВОПРОС Компания: ГК \"АП-Риал\" Адрес: 107564, Москва, Краснобогатырская, 19А Телефоны: 8 (495) 137-54-58 8 (958) 7",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "uk-grid uk-grid-stack",
+      "display": "flex",
+      "opacity": "1",
+      "pointerEvents": "auto",
+      "rect": {
+        "bottom": 1420.28125,
+        "height": 3775.28125,
+        "left": -15,
+        "right": 470,
+        "top": -2355,
+        "width": 485
+      },
+      "tag": "DIV",
+      "text": "ГРУППА КОМПАНИЙ «АП-РИАЛ» Мы оказываем ПРАКТИЧЕСКОЕ содействие при взаимодействии бизнеса с государственными органами с ",
+      "visibility": "visible",
+      "zIndex": "auto"
+    }
+  ],
+  "viewport": {
+    "innerHeight": 791,
+    "innerWidth": 500,
+    "visualHeight": 791,
+    "visualWidth": 485
+  },
+  "visibleJdiv": [
+    {
+      "className": "notranslate",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 791,
+        "height": 496,
+        "left": 119,
+        "right": 455,
+        "top": 295,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Отправьте нам сообщение Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "2147483646"
+    },
+    {
+      "className": "wrap__OETVe __show__cpEPI",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 365,
+        "height": 70,
+        "left": 119,
+        "right": 455,
+        "top": 295,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "closeButton__y2K6U",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 318,
+        "height": 23,
+        "left": 85,
+        "right": 108,
+        "top": 295,
+        "width": 23
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "closeIcon__fm8Bo",
+      "display": "block",
+      "opacity": "0.85",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 323,
+        "height": 28,
+        "left": 85,
+        "right": 113,
+        "top": 295,
+        "width": 28
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "wrap__eC3Yr __short__toyWZ",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 365,
+        "height": 70,
+        "left": 119,
+        "right": 384.4375,
+        "top": 295,
+        "width": 265.4375
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "2147483647"
+    },
+    {
+      "className": "main__cRIrs",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 791,
+        "height": 496,
+        "left": 119,
+        "right": 455,
+        "top": 295,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Отправьте нам сообщение Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "headerBox__Od4yR",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 365,
+        "height": 70,
+        "left": 119,
+        "right": 455,
+        "top": 295,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Отправьте нам сообщение",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "header__c_PNY",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 365,
+        "height": 70,
+        "left": 119,
+        "right": 455,
+        "top": 295,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Отправьте нам сообщение",
+      "visibility": "visible",
+      "zIndex": "5"
+    },
+    {
+      "className": "headerBox__zOMvg",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 365,
+        "height": 70,
+        "left": 119,
+        "right": 455,
+        "top": 295,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Отправьте нам сообщение",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "leaf__KxdxZ _bottom__Vdv_C",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 328,
+        "height": 33,
+        "left": 422,
+        "right": 455,
+        "top": 295,
+        "width": 33
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "6"
+    },
+    {
+      "className": "cssLeaf__pKL_G",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 329,
+        "height": 34,
+        "left": 423,
+        "right": 455,
+        "top": 295,
+        "width": 32
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "header__slBj_ _light__xRUPX _offline__D7_OX __showContent__x7796",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 365,
+        "height": 70,
+        "left": 135,
+        "right": 439,
+        "top": 295,
+        "width": 304
+      },
+      "tag": "JDIV",
+      "text": "Отправьте нам сообщение",
+      "visibility": "visible",
+      "zIndex": "6"
+    },
+    {
+      "className": "headerContainer__Pijas",
+      "display": "table",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 365,
+        "height": 70,
+        "left": 135,
+        "right": 439,
+        "top": 295,
+        "width": 304
+      },
+      "tag": "JDIV",
+      "text": "Отправьте нам сообщение",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "info__CehdE",
+      "display": "table-cell",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 365,
+        "height": 70,
+        "left": 135,
+        "right": 439,
+        "top": 295,
+        "width": 304
+      },
+      "tag": "JDIV",
+      "text": "Отправьте нам сообщение",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "agentName__sA0cr __agents__serVK __call__tES5z",
+      "display": "flow-root",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 339,
+        "height": 18,
+        "left": 135,
+        "right": 394,
+        "top": 321,
+        "width": 259
+      },
+      "tag": "JDIV",
+      "text": "Отправьте нам сообщение",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "callMe__vWhCw",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 347,
+        "height": 34,
+        "left": 393,
+        "right": 427,
+        "top": 313,
+        "width": 34
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "1"
+    },
+    {
+      "className": "callIcon__J799Z",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 347,
+        "height": 34,
+        "left": 393,
+        "right": 427,
+        "top": 313,
+        "width": 34
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "bodyWrap__OK9Ut",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 861,
+        "height": 496,
+        "left": 119,
+        "right": 455,
+        "top": 365,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "body__MBdns show__g8lSW",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 791,
+        "height": 426,
+        "left": 119,
+        "right": 455,
+        "top": 365,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "main__a4xFd",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 681,
+        "height": 316,
+        "left": 119,
+        "right": 455,
+        "top": 365,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "wrap__iTxSG",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 681,
+        "height": 316,
+        "left": 119,
+        "right": 455,
+        "top": 365,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "scroll__DAEYt",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 681,
+        "height": 316,
+        "left": 119,
+        "right": 455,
+        "top": 365,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 681,
+        "height": 128.5625,
+        "left": 119,
+        "right": 470,
+        "top": 552.4375,
+        "width": 351
+      },
+      "tag": "JDIV",
+      "text": "Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "container__vnNzR",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 681,
+        "height": 128.5625,
+        "left": 119,
+        "right": 455,
+        "top": 552.4375,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "main__TA4to _noagent__w_7Cx",
+      "display": "flex",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 655,
+        "height": 92.5625,
+        "left": 119,
+        "right": 455,
+        "top": 562.4375,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "content__CjQq1",
+      "display": "flex",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 655,
+        "height": 92.5625,
+        "left": 135,
+        "right": 387.796875,
+        "top": 562.4375,
+        "width": 252.796875
+      },
+      "tag": "JDIV",
+      "text": "Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "main__eqh9I __agent__F5Ao8",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 655,
+        "height": 92.5625,
+        "left": 135,
+        "right": 387.796875,
+        "top": 562.4375,
+        "width": 252.796875
+      },
+      "tag": "JDIV",
+      "text": "Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "message__iVV7l textWrap__BfiMe",
+      "display": "inline-block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 650,
+        "height": 87.5625,
+        "left": 135,
+        "right": 387.796875,
+        "top": 562.4375,
+        "width": 252.796875
+      },
+      "tag": "JDIV",
+      "text": "Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "text__MZ9P6",
+      "display": "inline",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 634.8125,
+        "height": 59.375,
+        "left": 151,
+        "right": 370.90625,
+        "top": 575.4375,
+        "width": 219.90625
+      },
+      "tag": "JDIV",
+      "text": "Здравствуйте. У вас возникли вопросы? Мы с удовольствием ответим!",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "moreBox__jWC97",
+      "display": "block",
+      "opacity": "0.5",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 721,
+        "height": 35,
+        "left": 408,
+        "right": 443,
+        "top": 686,
+        "width": 35
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "10"
+    },
+    {
+      "className": "moreBtn___g0xl",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 722,
+        "height": 35,
+        "left": 409,
+        "right": 444,
+        "top": 687,
+        "width": 35
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "wrapper__lpMRA",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 397,
+        "height": 32,
+        "left": 119,
+        "right": 455,
+        "top": 365,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "-1"
+    },
+    {
+      "className": "main__hDwvb",
+      "display": "flex",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 365,
+        "height": 32,
+        "left": 119,
+        "right": 455,
+        "top": 333,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "input__epb_Q show__g8lSW",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 791,
+        "height": 110,
+        "left": 119,
+        "right": 455,
+        "top": 681,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Скачать историю диалога",
+      "visibility": "visible",
+      "zIndex": "4"
+    },
+    {
+      "className": "wrapMargin__Yk0H9",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 791,
+        "height": 110,
+        "left": 119,
+        "right": 455,
+        "top": 681,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "Скачать историю диалога",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "input__j0rTw",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 791,
+        "height": 110,
+        "left": 119,
+        "right": 455,
+        "top": 681,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "inputContainer__iJbwM",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 791,
+        "height": 109,
+        "left": 119,
+        "right": 455,
+        "top": 682,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "tdTextarea__Rwc55 __filedisabled__ASI5S",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 791,
+        "height": 109,
+        "left": 119,
+        "right": 455,
+        "top": 682,
+        "width": 336
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "sendButton__goXt2 __disabled__FGvrD",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 728,
+        "height": 34,
+        "left": 408,
+        "right": 442,
+        "top": 694,
+        "width": 34
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "10"
+    },
+    {
+      "className": "iconPanel__aPvHF",
+      "display": "flex",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 775,
+        "height": 24,
+        "left": 125,
+        "right": 245,
+        "top": 751,
+        "width": 120
+      },
+      "tag": "JDIV",
+      "text": "Скачать историю диалога",
+      "visibility": "visible",
+      "zIndex": "10"
+    },
+    {
+      "className": "menuWrap__JWAEg",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 775,
+        "height": 24,
+        "left": 125,
+        "right": 149,
+        "top": 751,
+        "width": 24
+      },
+      "tag": "JDIV",
+      "text": "Скачать историю диалога",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "iconMenu__YY8Y7",
+      "display": "inline-block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 775,
+        "height": 24,
+        "left": 125,
+        "right": 149,
+        "top": 751,
+        "width": 24
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "emojiWrap__mQ9Yp",
+      "display": "block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 775,
+        "height": 24,
+        "left": 149,
+        "right": 173,
+        "top": 751,
+        "width": 24
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "",
+      "display": "inline",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 778,
+        "height": 17,
+        "left": 149,
+        "right": 173,
+        "top": 761,
+        "width": 24
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "auto"
+    },
+    {
+      "className": "iconEmoji__HzpqH",
+      "display": "inline-block",
+      "opacity": "1",
+      "pointerEvents": "all",
+      "rect": {
+        "bottom": 775,
+        "height": 24,
+        "left": 149,
+        "right": 173,
+        "top": 751,
+        "width": 24
+      },
+      "tag": "JDIV",
+      "text": "",
+      "visibility": "visible",
+      "zIndex": "auto"
+    }
+  ],
+  "screenshot": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-apreal-jivo-after-delay-2026-08-03.png"
+}

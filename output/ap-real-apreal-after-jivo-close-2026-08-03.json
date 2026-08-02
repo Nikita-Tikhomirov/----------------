@@ -1,0 +1,15 @@
+{
+  "jivo_close_found": false,
+  "jivo_panel_still_visible": false,
+  "callback": {
+    "label": "ЗАКАЗАТЬ ЗВОНОК",
+    "opened": true,
+    "closed": true
+  },
+  "question": {
+    "label": "ЗАДАТЬ ВОПРОС",
+    "opened": true,
+    "closed": true
+  },
+  "screenshot": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-apreal-after-jivo-close-2026-08-03.png"
+}

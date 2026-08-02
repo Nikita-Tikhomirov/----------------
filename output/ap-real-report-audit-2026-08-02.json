@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-02T04:43:42+03:00",
+  "generated_at": "2026-08-03T02:28:51+03:00",
   "specification": "docs\\AP-REAL-TECHNICAL-SPEC-2026-08-01.md",
   "contact_policy": "manual_owner_release_only",
   "requirements": [
@@ -943,11 +943,14 @@
     "visual_views_passed": 60,
     "form_screenshots_present": 120,
     "handler_submissions_accepted": 60,
-    "mailbox_messages_found": 60,
+    "recipient_routes_verified": 48,
+    "mailbox_confirmed_messages": 2,
+    "mailbox_confirmed_sites": [
+      "medlic.spb.ru"
+    ],
     "mailbox_evidence": [
-      "output\\ap-real-evidence-2026-08-02\\mailru-APREAL-SENDER-QA-20260802-56.png",
-      "output\\ap-real-evidence-2026-08-02\\mailru-APREAL-ROUTE-ACCEPT-20260802-4-inbox.png",
-      "output\\ap-real-evidence-2026-08-02\\mailru-APREAL-NOUSRO-LABELS-20260802.png"
+      "output\\ap-real-post-send-main-mailru-accounts-2026-08-02.json",
+      "output\\ap-real-post-send-main-mailru-accounts-2026-08-02.png"
     ]
   },
   "migration": {
@@ -995,16 +998,6 @@
   "report": {
     "docx": "output\\documents\\AP-Real-acceptance-report-2026-08-02.docx",
     "pdf": "output/pdf/AP-Real-acceptance-report-2026-08-02.pdf",
-    "render_review": "pass",
-    "page_count": 50,
-    "pdf_bytes": 6878448,
-    "pdf_sha256": "ef88da92675aca6fbcfc74ff72cc00bb893987b2fc0bdb824b7f64315304c1b0",
-    "render_pages": "output/ap-real-report-render-2026-08-02-v6-final",
-    "contact_sheets": [
-      "output/ap-real-report-render-2026-08-02-v6-final/contact-sheet-1.png",
-      "output/ap-real-report-render-2026-08-02-v6-final/contact-sheet-2.png",
-      "output/ap-real-report-render-2026-08-02-v6-final/contact-sheet-3.png",
-      "output/ap-real-report-render-2026-08-02-v6-final/contact-sheet-4.png"
-    ]
+    "render_review": "pending"
   }
 }

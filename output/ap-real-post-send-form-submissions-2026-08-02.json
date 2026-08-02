@@ -1,0 +1,1024 @@
+{
+  "marker_prefix": "APREAL-POST-SEND-20260802-1900",
+  "submissions": [
+    {
+      "domain": "39mchs.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-39mchs.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://39mchs.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:57:54+03:00"
+    },
+    {
+      "domain": "39mchs.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-39mchs.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://39mchs.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:57:54+03:00"
+    },
+    {
+      "domain": "apreal-nn.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-apreal-nn.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://apreal-nn.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:57:55+03:00"
+    },
+    {
+      "domain": "apreal-nn.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-apreal-nn.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://apreal-nn.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:57:56+03:00"
+    },
+    {
+      "domain": "apreal-volgograd.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-apreal-volgograd.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://apreal-volgograd.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:57:59+03:00"
+    },
+    {
+      "domain": "apreal-volgograd.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-apreal-volgograd.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://apreal-volgograd.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:01+03:00"
+    },
+    {
+      "domain": "apreal.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-apreal.ru-callback",
+      "contract": "cf7",
+      "page_status": 200,
+      "endpoint": "https://apreal.ru/wp-json/contact-form-7/v1/contact-forms/6740/feedback",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "contact_form_id": 6740,
+        "status": "mail_sent",
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено",
+        "posted_data_hash": "4ed1b05ed2ee25c5809979fc066233b1",
+        "into": "#wpcf7-f6740-o2",
+        "invalid_fields": [],
+        "quiz": {
+          "callback-quiz": [
+            "Введите цифрами: пять",
+            "7f2eeec1b8d066a31ea1b79b568e9821"
+          ]
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:05+03:00"
+    },
+    {
+      "domain": "apreal.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-apreal.ru-question",
+      "contract": "cf7",
+      "page_status": 200,
+      "endpoint": "https://apreal.ru/wp-json/contact-form-7/v1/contact-forms/4399/feedback",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "contact_form_id": 4399,
+        "status": "mail_sent",
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено",
+        "posted_data_hash": "80dd7181a82b1a6ede973b27440c1f4d",
+        "into": "#wpcf7-f4399-o1",
+        "invalid_fields": [],
+        "quiz": {
+          "question-quiz": [
+            "Введите цифрами: пять",
+            "7f2eeec1b8d066a31ea1b79b568e9821"
+          ]
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:08+03:00"
+    },
+    {
+      "domain": "apreal.spb.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-apreal.spb.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://apreal.spb.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:11+03:00"
+    },
+    {
+      "domain": "apreal.spb.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-apreal.spb.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://apreal.spb.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:12+03:00"
+    },
+    {
+      "domain": "apreal36.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-apreal36.ru-callback",
+      "contract": "custom_php",
+      "page_status": 200,
+      "endpoint": "https://apreal36.ru/mail.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+      },
+      "submitted_at": "2026-08-02T18:58:15+03:00"
+    },
+    {
+      "domain": "apreal36.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-apreal36.ru-question",
+      "contract": "custom_php",
+      "page_status": 200,
+      "endpoint": "https://apreal36.ru/mail.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+      },
+      "submitted_at": "2026-08-02T18:58:16+03:00"
+    },
+    {
+      "domain": "apreal72.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-apreal72.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://apreal72.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:17+03:00"
+    },
+    {
+      "domain": "apreal72.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-apreal72.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://apreal72.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:18+03:00"
+    },
+    {
+      "domain": "docp.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-docp.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://docp.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:20+03:00"
+    },
+    {
+      "domain": "docp.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-docp.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://docp.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:22+03:00"
+    },
+    {
+      "domain": "dpomuc.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-dpomuc.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://dpomuc.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:24+03:00"
+    },
+    {
+      "domain": "dpomuc.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-dpomuc.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://dpomuc.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:26+03:00"
+    },
+    {
+      "domain": "ed-kgd.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-ed-kgd.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://ed-kgd.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:27+03:00"
+    },
+    {
+      "domain": "ed-kgd.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-ed-kgd.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://ed-kgd.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:29+03:00"
+    },
+    {
+      "domain": "elecktro.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-elecktro.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://elecktro.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:31+03:00"
+    },
+    {
+      "domain": "elecktro.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-elecktro.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://elecktro.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:32+03:00"
+    },
+    {
+      "domain": "fsa-lab.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-fsa-lab.ru-callback",
+      "contract": "custom_php",
+      "page_status": 200,
+      "endpoint": "https://fsa-lab.ru/mail.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+      },
+      "submitted_at": "2026-08-02T18:58:33+03:00"
+    },
+    {
+      "domain": "fsa-lab.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-fsa-lab.ru-question",
+      "contract": "custom_php",
+      "page_status": 200,
+      "endpoint": "https://fsa-lab.ru/mail.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+      },
+      "submitted_at": "2026-08-02T18:58:33+03:00"
+    },
+    {
+      "domain": "fste.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-fste.ru-callback",
+      "contract": "static",
+      "page_status": 200,
+      "endpoint": "https://www.fste.ru/client-standard-mail.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "message": "РЎРїР°СЃРёР±Рѕ Р·Р° Р’Р°С€Рµ СЃРѕРѕР±С‰РµРЅРёРµ. РћРЅРѕ СѓСЃРїРµС€РЅРѕ РѕС‚РїСЂР°РІР»РµРЅРѕ"
+      },
+      "submitted_at": "2026-08-02T18:58:35+03:00"
+    },
+    {
+      "domain": "fste.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-fste.ru-question",
+      "contract": "static",
+      "page_status": 200,
+      "endpoint": "https://www.fste.ru/client-standard-mail.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "message": "РЎРїР°СЃРёР±Рѕ Р·Р° Р’Р°С€Рµ СЃРѕРѕР±С‰РµРЅРёРµ. РћРЅРѕ СѓСЃРїРµС€РЅРѕ РѕС‚РїСЂР°РІР»РµРЅРѕ"
+      },
+      "submitted_at": "2026-08-02T18:58:36+03:00"
+    },
+    {
+      "domain": "lfsb.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-lfsb.ru-callback",
+      "contract": "static",
+      "page_status": 200,
+      "endpoint": "https://lfsb.ru/client-standard-mail.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+      },
+      "submitted_at": "2026-08-02T18:58:37+03:00"
+    },
+    {
+      "domain": "lfsb.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-lfsb.ru-question",
+      "contract": "static",
+      "page_status": 200,
+      "endpoint": "https://lfsb.ru/client-standard-mail.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+      },
+      "submitted_at": "2026-08-02T18:58:37+03:00"
+    },
+    {
+      "domain": "license39.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-license39.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://license39.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:38+03:00"
+    },
+    {
+      "domain": "license39.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-license39.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://license39.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:39+03:00"
+    },
+    {
+      "domain": "mca24.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-mca24.ru-callback",
+      "contract": "custom_php",
+      "page_status": 200,
+      "endpoint": "https://mca24.ru/mail.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+      },
+      "submitted_at": "2026-08-02T18:58:40+03:00"
+    },
+    {
+      "domain": "mca24.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-mca24.ru-question",
+      "contract": "custom_php",
+      "page_status": 200,
+      "endpoint": "https://mca24.ru/mail.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+      },
+      "submitted_at": "2026-08-02T18:58:41+03:00"
+    },
+    {
+      "domain": "mchs-spb.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-mchs-spb.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://mchs-spb.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:43+03:00"
+    },
+    {
+      "domain": "mchs-spb.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-mchs-spb.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://mchs-spb.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:44+03:00"
+    },
+    {
+      "domain": "mchs78.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-mchs78.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://mchs78.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:46+03:00"
+    },
+    {
+      "domain": "mchs78.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-mchs78.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://mchs78.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:48+03:00"
+    },
+    {
+      "domain": "med-license.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-med-license.ru-callback",
+      "contract": "custom_php",
+      "page_status": 200,
+      "endpoint": "https://med-license.ru/mail.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+      },
+      "submitted_at": "2026-08-02T18:58:49+03:00"
+    },
+    {
+      "domain": "med-license.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-med-license.ru-question",
+      "contract": "custom_php",
+      "page_status": 200,
+      "endpoint": "https://med-license.ru/mail.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+      },
+      "submitted_at": "2026-08-02T18:58:50+03:00"
+    },
+    {
+      "domain": "medlic.spb.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-medlic.spb.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://medlic.spb.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:51+03:00"
+    },
+    {
+      "domain": "medlic.spb.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-medlic.spb.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://medlic.spb.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:58:52+03:00"
+    },
+    {
+      "domain": "medtex39.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-medtex39.ru-callback",
+      "contract": "static",
+      "page_status": 200,
+      "endpoint": "https://medtex39.ru/client-standard-mail.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+      },
+      "submitted_at": "2026-08-02T18:58:56+03:00"
+    },
+    {
+      "domain": "medtex39.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-medtex39.ru-question",
+      "contract": "static",
+      "page_status": 200,
+      "endpoint": "https://medtex39.ru/client-standard-mail.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+      },
+      "submitted_at": "2026-08-02T18:59:30+03:00"
+    },
+    {
+      "domain": "medtex78.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-medtex78.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://medtex78.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:59:31+03:00"
+    },
+    {
+      "domain": "medtex78.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-medtex78.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://medtex78.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:59:32+03:00"
+    },
+    {
+      "domain": "mhsl.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-mhsl.ru-callback",
+      "contract": "custom_php",
+      "page_status": 200,
+      "endpoint": "https://mhsl.ru/mail.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+      },
+      "submitted_at": "2026-08-02T18:59:34+03:00"
+    },
+    {
+      "domain": "mhsl.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-mhsl.ru-question",
+      "contract": "custom_php",
+      "page_status": 200,
+      "endpoint": "https://mhsl.ru/mail.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+      },
+      "submitted_at": "2026-08-02T18:59:35+03:00"
+    },
+    {
+      "domain": "minkult78.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-minkult78.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://minkult78.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:59:36+03:00"
+    },
+    {
+      "domain": "minkult78.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-minkult78.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://minkult78.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:59:37+03:00"
+    },
+    {
+      "domain": "muc-vrn.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-muc-vrn.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://muc-vrn.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:59:39+03:00"
+    },
+    {
+      "domain": "muc-vrn.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-muc-vrn.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://muc-vrn.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:59:40+03:00"
+    },
+    {
+      "domain": "nousro-nn.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-nousro-nn.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://nousro-nn.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:59:43+03:00"
+    },
+    {
+      "domain": "nousro-nn.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-nousro-nn.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://nousro-nn.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:59:45+03:00"
+    },
+    {
+      "domain": "nousro-spb.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-nousro-spb.ru-callback",
+      "contract": "cf7",
+      "page_status": 200,
+      "endpoint": "https://nousro-spb.ru/wp-json/contact-form-7/v1/contact-forms/2438/feedback",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "into": "#wpcf7-f2438-o4",
+        "status": "mail_sent",
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено",
+        "posted_data_hash": "7a48968519f3dfbb8a063b7c0732c7fb",
+        "quiz": {
+          "callback-quiz": [
+            "Введите цифрами: пять",
+            "d86443a6debe94dd9c28f3379b1966da"
+          ]
+        }
+      },
+      "submitted_at": "2026-08-02T18:59:47+03:00"
+    },
+    {
+      "domain": "nousro-spb.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-nousro-spb.ru-question",
+      "contract": "cf7",
+      "page_status": 200,
+      "endpoint": "https://nousro-spb.ru/wp-json/contact-form-7/v1/contact-forms/2005/feedback",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "into": "#wpcf7-f2005-o3",
+        "status": "mail_sent",
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено",
+        "posted_data_hash": "09bd4b46cfba89032b79c545a412a5eb",
+        "quiz": {
+          "question-quiz": [
+            "Введите цифрами: пять",
+            "d86443a6debe94dd9c28f3379b1966da"
+          ]
+        }
+      },
+      "submitted_at": "2026-08-02T18:59:48+03:00"
+    },
+    {
+      "domain": "nousro.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-nousro.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://nousro.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:59:50+03:00"
+    },
+    {
+      "domain": "nousro.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-nousro.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://nousro.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:59:52+03:00"
+    },
+    {
+      "domain": "otxodi.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-otxodi.ru-callback",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://otxodi.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:59:57+03:00"
+    },
+    {
+      "domain": "otxodi.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-otxodi.ru-question",
+      "contract": "wordpress",
+      "page_status": 200,
+      "endpoint": "https://otxodi.ru/wp-admin/admin-ajax.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "data": {
+          "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+        }
+      },
+      "submitted_at": "2026-08-02T18:59:58+03:00"
+    },
+    {
+      "domain": "shopap.ru",
+      "kind": "callback",
+      "marker": "APREAL-POST-SEND-20260802-1900-shopap.ru-callback",
+      "contract": "static",
+      "page_status": 200,
+      "endpoint": "https://shopap.ru/client-standard-mail.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+      },
+      "submitted_at": "2026-08-02T19:00:00+03:00"
+    },
+    {
+      "domain": "shopap.ru",
+      "kind": "question",
+      "marker": "APREAL-POST-SEND-20260802-1900-shopap.ru-question",
+      "contract": "static",
+      "page_status": 200,
+      "endpoint": "https://shopap.ru/client-standard-mail.php",
+      "status": 200,
+      "accepted": true,
+      "response": {
+        "success": true,
+        "message": "Спасибо за Ваше сообщение. Оно успешно отправлено"
+      },
+      "submitted_at": "2026-08-02T19:00:00+03:00"
+    }
+  ],
+  "receipts": [],
+  "summary": {
+    "total": 60,
+    "accepted": 60,
+    "delivered": 0,
+    "complete": false
+  }
+}

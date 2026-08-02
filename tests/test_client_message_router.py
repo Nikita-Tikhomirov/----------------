@@ -159,6 +159,15 @@ def test_apreal_profile_requires_both_owner_gates_and_browser_recovery():
     assert profile.workflow.owner_release_required is True
     assert profile.workflow.client_contact_mode == "manual_owner_release_only"
     assert profile.workflow.message_recovery_mode == "connector_then_main_chrome"
+    assert profile.workflow.browser_fallback_scope == "main_chrome_only_no_hideo_9223"
+    assert profile.workflow.mail_evidence_levels == (
+        "configured_recipient",
+        "handler_acceptance",
+        "smtp_mx_acceptance",
+        "mailbox_receipt",
+    )
+    assert profile.workflow.mailbox_receipt_required_for_delivery_claim is True
+    assert profile.workflow.post_release_reverification_required is True
     assert profile.workflow.allow_finance_outreach is False
 
 

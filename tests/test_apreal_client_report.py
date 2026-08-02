@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import inspect
+from pathlib import Path
 
 import pytest
 
@@ -37,7 +39,6 @@ def test_client_input_requests_are_specific_and_camera_is_not_claimed_fixed():
         "aklab-spb.ru",
         "elektro.spb.ru",
         "othodi-spb.ru",
-        "nousro.ru / nousro-nn.ru",
         "Ivideon-камера",
         "apreal-samara.ru",
     }
@@ -79,3 +80,159 @@ def test_fresh_result_loader_rejects_duplicate_or_failed_views(tmp_path):
 
     with pytest.raises(ValueError, match="Duplicate QA result"):
         report.load_result_index(results_path)
+
+
+def test_client_report_delivery_loader_uses_complete_post_send_matrix(tmp_path, monkeypatch):
+    from tools import build_apreal_client_report as report
+
+    delivery_path = tmp_path / "delivery.json"
+    delivery_path.write_text(
+        json.dumps(
+            {
+                "submissions": [
+                    {"domain": "example.ru", "kind": "callback", "accepted": True},
+                    {"domain": "example.ru", "kind": "question", "accepted": True},
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(report, "SENDER_DELIVERY_PATH", delivery_path)
+
+    assert set(report.load_delivery_index()) == {
+        ("example.ru", "callback"),
+        ("example.ru", "question"),
+    }
+
+
+def test_finalize_audit_requires_complete_visual_review_manifest(tmp_path, monkeypatch):
+    from pypdf import PdfWriter
+
+    from tools import build_apreal_client_report as report
+
+    output_audit = tmp_path / "audit.json"
+    output_docx = tmp_path / "report.docx"
+    output_pdf = tmp_path / "report.pdf"
+    cover_docx = tmp_path / "cover.docx"
+    cover_pdf = tmp_path / "cover.pdf"
+    internal_note = tmp_path / "note.md"
+
+    output_audit.write_text('{"status": "docx_generated"}', encoding="utf-8")
+    for path in (output_docx, cover_docx, internal_note):
+        path.write_bytes(b"test")
+
+    report_writer = PdfWriter()
+    report_writer.add_blank_page(width=100, height=100)
+    report_writer.add_blank_page(width=100, height=100)
+    with output_pdf.open("wb") as stream:
+        report_writer.write(stream)
+
+    cover_writer = PdfWriter()
+    cover_writer.add_blank_page(width=100, height=100)
+    with cover_pdf.open("wb") as stream:
+        cover_writer.write(stream)
+
+    for name, value in {
+        "ROOT": tmp_path,
+        "OUTPUT_AUDIT": output_audit,
+        "OUTPUT_DOCX": output_docx,
+        "OUTPUT_PDF": output_pdf,
+        "COVER_NOTE_DOCX": cover_docx,
+        "COVER_NOTE_PDF": cover_pdf,
+        "INTERNAL_NOTE": internal_note,
+    }.items():
+        monkeypatch.setattr(report, name, value)
+
+    pending = report.finalize_audit()
+    assert pending["visual_review"]["all_pages_reviewed"] is False
+    assert pending["visual_review"]["result"] == "pending"
+
+    manifest = tmp_path / "visual-review.json"
+    manifest.write_text(
+        json.dumps(
+            {
+                "reviewer": "test reviewer",
+                "reviewed_at": "2026-08-03T02:00:00+03:00",
+                "client_report_pages": [1, 2],
+                "cover_note_pages": [1],
+            }
+        ),
+        encoding="utf-8",
+    )
+    verified = report.finalize_audit(manifest)
+    assert verified["visual_review"]["all_pages_reviewed"] is True
+    assert verified["visual_review"]["result"] == "passed"
+
+
+def test_report_never_turns_handler_acceptance_into_universal_mailbox_delivery():
+    from tools import build_apreal_client_report as report
+
+    requirement_text = " ".join(detail for _, detail in report.FORM_REQUIREMENTS)
+    docx_report_source = inspect.getsource(report)
+    docx_delivery_source = inspect.getsource(report.add_delivery_results)
+    pdf_delivery_source = (
+        Path(__file__).resolve().parents[1] / "tools" / "build_apreal_client_pdf.py"
+    ).read_text(encoding="utf-8")
+    acceptance_report_source = (
+        Path(__file__).resolve().parents[1] / "tools" / "build_apreal_acceptance_report.py"
+    ).read_text(encoding="utf-8")
+    combined_report_source = docx_report_source + pdf_delivery_source + acceptance_report_source
+
+    assert report.MAIL_DELIVERY_SCOPE == "mailbox_confirmed_sites_only"
+    assert report.MAILBOX_CONFIRMED_SITES == ("medlic.spb.ru",)
+    assert "Все 60 контрольных писем найдены" not in requirement_text
+    assert "handler acceptance" not in requirement_text.lower()
+    assert "medlic.spb.ru" in docx_delivery_source
+    assert "medlic.spb.ru" in pdf_delivery_source
+
+    unsupported_claims = (
+        "60 из 60 контрольных писем",
+        "60 из 60 писем",
+        "писем получены",
+        "писем найдены",
+        "письма найдены в почте",
+        "Получение подтверждено поиском писем в целевых ящиках",
+        "56 писем в основной итоговой выборке",
+        "56 полученных писем",
+        "56 сообщений основного прогона",
+        "60\", \"получено",
+        "0\", \"потеряно",
+        '"mailbox_messages": 60',
+        "56 main messages + 4 route-control messages",
+        "60/60 сообщений найдены",
+        "60 валидных заявок приняты и 60 писем найдены",
+        '"mailbox_messages_found": 60',
+        "подтвердил получение писем",
+    )
+    for claim in unsupported_claims:
+        assert claim not in combined_report_source
+
+    assert "60 обработчиков" in docx_delivery_source
+    assert "48" in docx_delivery_source and "маршрут" in docx_delivery_source
+    assert "60 обработчиков" in pdf_delivery_source
+    assert "48" in pdf_delivery_source and "маршрут" in pdf_delivery_source
+    assert "medlic.spb.ru" in acceptance_report_source
+    assert "48" in acceptance_report_source and "маршрут" in acceptance_report_source
+
+
+def test_client_report_describes_hidden_background_videos_as_resolved():
+    from tools import build_apreal_client_report as report
+
+    pdf_source = (
+        Path(__file__).resolve().parents[1] / "tools" / "build_apreal_client_pdf.py"
+    ).read_text(encoding="utf-8")
+    combined_source = inspect.getsource(report) + pdf_source
+
+    assert not any(item[0] == "nousro.ru / nousro-nn.ru" for item in report.CLIENT_INPUT_REQUIRED)
+    background_row = next(
+        item for item in report.ADDITIONAL_WORK if item[0] == "nousro.ru / nousro-nn.ru"
+    )
+    assert "скры" in background_row[2].casefold()
+    for stale_claim in (
+        "анимация снова отображается",
+        "восстановленная штатная фоновая анимация",
+        "решение оставить/убрать",
+        "оставлять её включённой или убрать",
+        "подтвердить: оставить анимацию",
+    ):
+        assert stale_claim.casefold() not in combined_source.casefold()

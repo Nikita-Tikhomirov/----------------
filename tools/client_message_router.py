@@ -22,6 +22,13 @@ TECHNICAL_KEYWORDS = (
     "доработ",
 )
 
+DEFAULT_MAIL_EVIDENCE_LEVELS = (
+    "configured_recipient",
+    "handler_acceptance",
+    "smtp_mx_acceptance",
+    "mailbox_receipt",
+)
+
 
 @dataclass(frozen=True)
 class WorkflowPolicy:
@@ -31,6 +38,10 @@ class WorkflowPolicy:
     owner_release_required: bool
     client_contact_mode: str
     message_recovery_mode: str
+    browser_fallback_scope: str
+    mail_evidence_levels: tuple[str, ...]
+    mailbox_receipt_required_for_delivery_claim: bool
+    post_release_reverification_required: bool
     allow_finance_outreach: bool
 
     @classmethod
@@ -54,11 +65,38 @@ class WorkflowPolicy:
         if recovery_mode != "connector_then_main_chrome":
             raise ValueError("profile workflow field message_recovery_mode is invalid")
 
+        browser_scope = value.get(
+            "browser_fallback_scope",
+            "main_chrome_only_no_hideo_9223",
+        )
+        if browser_scope != "main_chrome_only_no_hideo_9223":
+            raise ValueError("profile workflow field browser_fallback_scope is invalid")
+
+        raw_evidence_levels = value.get(
+            "mail_evidence_levels",
+            list(DEFAULT_MAIL_EVIDENCE_LEVELS),
+        )
+        if (
+            not isinstance(raw_evidence_levels, list)
+            or tuple(raw_evidence_levels) != DEFAULT_MAIL_EVIDENCE_LEVELS
+        ):
+            raise ValueError("profile workflow field mail_evidence_levels is invalid")
+
         return cls(
             owner_approval_required=boolean("owner_approval_required", True),
             owner_release_required=boolean("owner_release_required", True),
             client_contact_mode=contact_mode,
             message_recovery_mode=recovery_mode,
+            browser_fallback_scope=browser_scope,
+            mail_evidence_levels=tuple(raw_evidence_levels),
+            mailbox_receipt_required_for_delivery_claim=boolean(
+                "mailbox_receipt_required_for_delivery_claim",
+                True,
+            ),
+            post_release_reverification_required=boolean(
+                "post_release_reverification_required",
+                True,
+            ),
             allow_finance_outreach=boolean("allow_finance_outreach", False),
         )
 

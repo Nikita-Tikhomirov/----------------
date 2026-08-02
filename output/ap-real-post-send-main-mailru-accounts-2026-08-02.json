@@ -1,0 +1,65 @@
+{
+  "checked_at": "2026-08-02T16:34:22.911Z",
+  "final_url": "https://e.mail.ru/inbox/",
+  "account_visible_before_menu": false,
+  "account_emails_visible_in_menu": [
+    "info@medlic.spb.ru"
+  ],
+  "marker_hits": [
+    "APREAL-POST-SEND-20260802-1900-medlic.spb.ru-callback",
+    "APREAL-POST-SEND-20260802-1900-medlic.spb.ru-question"
+  ],
+  "avatar_candidates": [],
+  "generic_avatar_candidates": [],
+  "top_right_chain": [
+    {
+      "tag": "IMG",
+      "text": "",
+      "aria": null,
+      "role": null,
+      "testid": null,
+      "className": "ph-avatar-img svelte-1qa2g89"
+    },
+    {
+      "tag": "DIV",
+      "text": "",
+      "aria": null,
+      "role": null,
+      "testid": null,
+      "className": "ph-project__user-icon-mask svelte-1diaot7"
+    },
+    {
+      "tag": "DIV",
+      "text": "",
+      "aria": null,
+      "role": null,
+      "testid": null,
+      "className": "ph-project__user-icon svelte-1diaot7"
+    },
+    {
+      "tag": "DIV",
+      "text": "",
+      "aria": null,
+      "role": null,
+      "testid": null,
+      "className": ""
+    },
+    {
+      "tag": "DIV",
+      "text": "",
+      "aria": "info@medlic.spb.ru",
+      "role": null,
+      "testid": null,
+      "className": "ph-project ph-project__account svelte-1diaot7"
+    },
+    {
+      "tag": "DIV",
+      "text": "",
+      "aria": null,
+      "role": null,
+      "testid": null,
+      "className": "ph-auth svelte-1diaot7"
+    }
+  ],
+  "screenshot": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-post-send-main-mailru-accounts-2026-08-02.png"
+}

@@ -45,5 +45,38 @@ def test_live_gate_bounds_screenshots_and_records_console_locations():
     text = source()
 
     assert "QA_SCREENSHOT_TIMEOUT_MS" in text
+    assert "animations: 'disabled'" in text
     assert "consoleErrorDetails" in text
     assert "message.location()" in text
+
+
+def test_live_gate_waits_for_smart_slider_before_visual_capture():
+    text = source()
+
+    assert "QA_VISUAL_STABILITY_TIMEOUT_MS" in text
+    assert "waitForVisualStability" in text
+    assert "n2-ss-loaded" in text
+    assert "visual loading state did not settle: Smart Slider 3" in text
+    assert text.index("await waitForVisualStability(page, result)") < text.index(
+        "result.pageScreenshot = await screenshot(page, domain, viewport.name, 'page')"
+    )
+
+
+def test_live_gate_retries_isolated_browser_crashes_without_aborting_matrix():
+    text = source()
+
+    assert "QA_ATTEMPTS" in text
+    assert "isRetryableBrowserFailure" in text
+    assert "auditViewWithRetry" in text
+    assert "browser infrastructure failure after" in text
+    assert "await context.close().catch" in text
+    assert "const result = await auditViewWithRetry" in text
+
+
+def test_live_gate_falls_back_when_primary_headless_browser_cannot_start():
+    text = source()
+
+    assert "launchAuditBrowser" in text
+    assert "C:/Program Files/Google/Chrome/Application/chrome.exe" in text
+    assert "browser launch failed for all configured executables" in text
+    assert "const browser = await launchAuditBrowser()" in text

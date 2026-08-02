@@ -1,0 +1,49 @@
+{
+  "checked_at": "2026-08-03T02:34:36+03:00",
+  "checks": [
+    {
+      "domain": "nousro.ru",
+      "url": "https://nousro.ru/",
+      "status": 200,
+      "html_sha256": "8ed1775f35c746beb64f9b7008985b61cfdd7a5a0a8b4ade72dac0c5a9ee1cfe",
+      "underlays": [
+        {
+          "hidden_attribute": true,
+          "aria_hidden": true,
+          "videos": [
+            {
+              "src": "/wp-content/themes/Nousro-theme/assets/bg_balls_1080.mp4",
+              "class": "underlay__video"
+            }
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "domain": "nousro-nn.ru",
+      "url": "https://nousro-nn.ru/",
+      "status": 200,
+      "html_sha256": "f61f0bc17662d94a249641aa27063e86c0ce5907ad3bdb5e4bae1d00534aa8d6",
+      "underlays": [
+        {
+          "hidden_attribute": true,
+          "aria_hidden": true,
+          "videos": [
+            {
+              "src": "/wp-content/themes/Nousro-theme/assets/bg_balls_1080.mp4",
+              "class": "underlay__video"
+            }
+          ]
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "summary": {
+    "checks": 2,
+    "passed": 2,
+    "failed": [],
+    "complete": true
+  }
+}

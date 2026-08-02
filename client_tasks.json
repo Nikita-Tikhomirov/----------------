@@ -230,7 +230,7 @@
     {
       "id": "apreal-portfolio-form-unification-20260730",
       "site": "39mchs.ru, apreal-nn.ru, apreal-volgograd.ru, apreal.ru, apreal.spb.ru, apreal36.ru, apreal72.ru, docp.ru, dpomuc.ru, ed-kgd.ru, elecktro.ru, fsa-lab.ru, fste.ru, lfsb.ru, license39.ru, mca24.ru, mchs-spb.ru, mchs78.ru, med-license.ru, medlic.spb.ru, medtex39.ru, medtex78.ru, mhsl.ru, minkult78.ru, muc-vrn.ru, nousro-nn.ru, nousro-spb.ru, nousro.ru, otxodi.ru, shopap.ru",
-      "status": "awaiting_user_release",
+      "status": "verifying",
       "workflow_version": 2,
       "reopened": true,
       "financial_classification": "warranty_fix",
@@ -405,27 +405,68 @@
       },
       "verification": {
         "functional": [
-          "30 included domains passed the fresh post-route ordinary-click desktop/mobile acceptance: 60 of 60 views and 120 form modal checks",
-          "all 60 valid callback/question submissions were accepted by the current handlers",
-          "30 of 30 live recipient configurations match the client matrix; all 18 forms on the nine corrected routes accepted a fresh submission",
-          "16 legacy Contact Form 7 recipients were independently verified on seven sites",
-          "both medlic.spb.ru form messages were confirmed in the intended target mailbox info@medlic.spb.ru"
+          "30 included domains passed the post-release ordinary-click desktop/mobile acceptance: 60 of 60 views and 120 form modal checks",
+          "all 60 post-release callback/question submissions were accepted by the current handlers; handler acceptance is not recorded as mailbox delivery",
+          "48 of 48 post-release live recipient checks match the client matrix across current handlers and 16 legacy Contact Form 7 forms",
+          "both post-release medlic.spb.ru form messages were visually confirmed in the intended target mailbox info@medlic.spb.ru",
+          "no post-release marker was found in the owner's personal Gmail account"
         ],
         "visual": {
-          "desktop": "output/ap-real-conflict-closure-visual-review-2026-08-02/boards/*-forms-evidence.png",
-          "mobile": "output/ap-real-conflict-closure-visual-review-2026-08-02/boards/*-forms-evidence.png"
+          "desktop": "output/ap-real-post-send-final-visual-review-2026-08-02-v3/boards/*",
+          "mobile": "output/ap-real-post-send-final-visual-review-2026-08-02-v3/boards/*"
         },
-        "results": "output/ap-real-conflict-closure-qa-2026-08-02/summary.json; output/ap-real-form-delivery-2026-08-02.json; output/ap-real-client-route-restore-delivery-2026-08-02.json; output/ap-real-live-recipient-matrix-2026-08-02.json; output/ap-real-cf7-recipient-normalization-verify-fresh-2026-08-02.json; output/ap-real-conflict-closure-evidence-2026-08-02/mailru-medlic-final-route.json; output/ap-real-conflict-closure-audit-2026-08-02.json"
+        "results": "output/ap-real-post-send-final-acceptance-2026-08-02-v3/results.json; output/ap-real-post-send-nousro-spb-recheck-2026-08-02/results.json; output/ap-real-post-send-mchs78-recheck-2026-08-02-v2/results.json; output/ap-real-post-send-recipient-matrix-2026-08-02.json; output/ap-real-post-send-form-submissions-2026-08-02.json; output/ap-real-post-send-main-mailru-accounts-2026-08-02.json"
       },
       "evidence_report": {
-        "status": "verified",
+        "status": "issued_with_evidence_scope_correction",
         "docx": "output/documents/AP-Real-form-corrections-final-2026-08-02.docx",
         "pdf": "output/pdf/AP-Real-form-corrections-final-2026-08-02.pdf",
         "audit": "output/ap-real-conflict-closure-audit-2026-08-02.json",
-        "email_text": "output/AP-Real-form-corrections-letter-2026-08-02.txt"
+        "email_text": "output/AP-Real-form-corrections-letter-2026-08-02.txt",
+        "limitation": "The report correctly records the 30-site form UI, handler acceptance and configured recipients, but its plain-language wording does not explicitly distinguish handler acceptance from mailbox delivery on every site. Fresh mailbox receipt is directly proven only for both medlic.spb.ru forms."
+      },
+      "client_report": {
+        "email_message_id": "19fc2f1355dc7b50",
+        "thread_id": "19f8393c25b2044c",
+        "sent_at": "2026-08-02T17:46:55+03:00",
+        "recipient": "upreal@bk.ru",
+        "drive_pdf": "https://drive.google.com/file/d/1CsMILyEYbcO-w_RfmHmGRTEfs1_zjReq/view"
       },
       "owner_release": {
-        "status": "pending"
+        "status": "approved",
+        "evidence": "Владелец явно разрешил отправить подготовленный отчёт сообщением: «Вот теперь это можно отправить клиенту»."
+      },
+      "post_release_review": {
+        "checked_at": "2026-08-03T02:37:43+03:00",
+        "status": "owner_review_required",
+        "confirmed": [
+          "30 included sites: a new post-correction pass completed 60 of 60 desktop/mobile views and 120 ordinary form open/close checks",
+          "60 of 60 valid callback/question submissions were accepted by the live handlers",
+          "48 of 48 current and legacy recipient configurations match the client matrix and no personal recipient remains",
+          "both fresh medlic.spb.ru messages reached info@medlic.spb.ru",
+          "all 12 fresh contact sheets were visually reviewed; no form is clipped or outside the desktop/mobile viewport",
+          "the unrequested non-working background videos on nousro.ru and nousro-nn.ru are hidden"
+        ],
+        "mistakes_found_after_sent_report": [
+          "23 standard-site modals still used parent-relative left:50% centering; changed to viewport-relative left:50vw",
+          "seven license-center page templates did not safely skip empty attachment fields; guards were added",
+          "mca24.ru could call ymaps.ready when the Yandex Maps library was unavailable; the call is now guarded",
+          "nousro.ru and nousro-nn.ru exposed old non-working background videos without a confirmed client requirement; both are hidden",
+          "two legacy report generators equated handler acceptance and temporary control-mailbox messages with universal client-mailbox delivery; both now state 60 handler acceptances, 48 verified recipient routes, and only two directly observed medlic.spb.ru mailbox receipts",
+          "the main client-report generator referenced an undefined ROUTE_DELIVERY_PATH and failed at runtime; it now reads the complete 60-entry post-send matrix and has a regression test",
+          "the artifact finalizer hardcoded all_pages_reviewed=true; it now remains pending until a complete page-by-page visual-review manifest is supplied",
+          "the cover note said 'confirmed receipt of emails' without evidence scope; it now states exactly 60 handler submissions, 48 configured routes and two directly observed medlic.spb.ru mailbox messages",
+          "the replacement report draft still described the background videos as visible and asked the client to decide whether to remove them even though they had already been hidden; the stale request and screenshots were replaced before any new client contact"
+        ],
+        "evidence_boundary": "Mailbox delivery is not independently observed for every site because the available main Chrome session contains only info@medlic.spb.ru. Configuration and handler acceptance must not be described as universal mailbox delivery.",
+        "evidence": "output/ap-real-post-report-correction-audit-2026-08-03.json; output/ap-real-main-chrome-responsive-final-native-click-2026-08-03/results.json; output/ap-real-main-chrome-responsive-final-native-click-2026-08-03/visual-boards/index.json; output/ap-real-recipient-matrix-final-2026-08-03.json; output/ap-real-hidden-video-live-check-2026-08-03.json",
+        "outside_report_scope": [
+          "lic-k.ru remains excluded from forms and has a JavaScript parse error plus one missing theme image; neither linked Beget account contains the site",
+          "apreal-samara.ru remains intentionally excluded and does not resolve in DNS",
+          "the existing external Ivideon camera block is separate from the form corrections and depends on the external camera service"
+        ],
+        "automation_status": "paused_pending_owner_decision",
+        "new_client_contact_allowed": false
       },
       "excluded_domains": [
         "rectavr.ru",

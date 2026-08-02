@@ -387,7 +387,7 @@ def build_report_pdf() -> dict[str, object]:
         bottomMargin=BOTTOM_MARGIN,
         title="Итоговый отчёт о работах по сайтам ГК «АП-Риал»",
         author="Никита Тихомиров",
-        subject="Перенос, формы, доставка заявок и последующие исправления",
+        subject="Перенос, формы, маршрутизация заявок и последующие исправления",
         creator="Никита Тихомиров",
     )
     story: list[object] = []
@@ -396,7 +396,7 @@ def build_report_pdf() -> dict[str, object]:
     story.append(paragraph("Работы по сайтам ГК «АП-Риал»", styles["title"]))
     story.append(
         paragraph(
-            "Перенос сайтов, формы обратной связи, доставка заявок и последующие исправления",
+            "Перенос сайтов, формы обратной связи, маршрутизация заявок и последующие исправления",
             styles["subtitle"],
         )
     )
@@ -413,13 +413,13 @@ def build_report_pdf() -> dict[str, object]:
         [
             paragraph("30", styles["metric"]),
             paragraph("60 из 60", styles["metric"]),
-            paragraph("60 из 60", styles["metric"]),
+            paragraph("48 из 48", styles["metric"]),
             paragraph("28", styles["metric"]),
         ],
         [
             paragraph("сайтов с формами", styles["metric_label"]),
             paragraph("заявок приняты", styles["metric_label"]),
-            paragraph("писем найдены", styles["metric_label"]),
+            paragraph("маршрутов верны", styles["metric_label"]),
             paragraph("рабочих переносов", styles["metric_label"]),
         ],
     ]
@@ -455,8 +455,9 @@ def build_report_pdf() -> dict[str, object]:
     add_heading(story, "1. Формы обратной связи", styles)
     story.append(
         paragraph(
-            "На 30 сайтах выполнена единая доработка двух форм. Проверялся внешний вид, фактическая "
-            "отправка и получение письма по каждой форме.",
+            "На 30 сайтах выполнена единая доработка двух форм. Внешний вид и работа обеих форм "
+            "проверены на каждом сайте; все контрольные заявки приняты обработчиками. Получатели "
+            "сверены отдельно по полной матрице маршрутов.",
             styles["body"],
         )
     )
@@ -488,28 +489,39 @@ def build_report_pdf() -> dict[str, object]:
     story.append(styled_table(excluded_rows, [2.1 * inch, 4.7 * inch], styles))
 
     story.append(PageBreak())
-    add_heading(story, "2. Отправка и получение заявок", styles)
+    add_heading(story, "2. Отправка и маршрутизация заявок", styles)
     story.append(
         paragraph(
             "Проведены 60 контрольных отправок: две формы на каждом из 30 сайтов. Все 60 обработчиков "
-            "приняли заявку. В почте подтверждены 56 сообщений основного прогона и 4 сообщения "
-            "контрольной проверки маршрутов - всего 60 из 60.",
+            "приняли заявки. Отдельная проверка 48 актуальных и дополнительных конфигураций показала, "
+            "что каждая форма направляет письмо на адрес из клиентской матрицы. Фактическое получение "
+            "обеих форм в почте отдельно подтверждено для medlic.spb.ru.",
             styles["body"],
         )
     )
-    add_callout(story, "Результат доставки: 60 из 60 контрольных писем найдены в целевых ящиках.", styles)
     story.append(
-        image_pair(
-            (
-                source.MAIL_EVIDENCE_DIR / "mailru-APREAL-SENDER-QA-20260802-56.png",
-                "Основной прогон: в папке подтверждены 56 писем.",
-            ),
-            (
-                source.MAIL_EVIDENCE_DIR / "mailru-APREAL-ROUTE-ACCEPT-20260802-4-inbox.png",
-                "Контроль маршрутов: подтверждены ещё 4 письма.",
-            ),
+        styled_table(
+            [
+                [image_flowable(source.MAILBOX_RECEIPT_SCREENSHOT, CONTENT_WIDTH - 0.2 * inch, 3.2 * inch)],
+                [
+                    paragraph(
+                        "В доступном ящике info@medlic.spb.ru подтверждены письма от обеих форм сайта medlic.spb.ru.",
+                        styles["caption"],
+                    )
+                ],
+            ],
+            [CONTENT_WIDTH],
             styles,
+            header=False,
+            repeat_rows=0,
         )
+    )
+    add_callout(
+        story,
+        "Для остальных сайтов подтверждены принятие заявки обработчиком и правильный адрес получателя "
+        "в конфигурации. Получение письма непосредственно в каждом закрытом клиентском ящике без "
+        "доступа к этому ящику в отчёте не заявляется.",
+        styles,
     )
 
     story.append(PageBreak())
@@ -568,12 +580,12 @@ def build_report_pdf() -> dict[str, object]:
             styles,
         )
     )
-    add_heading(story, "Фоновая анимация и камера", styles, 2)
+    add_heading(story, "Скрытый фоновый видеоэлемент и существующая камера", styles, 2)
     story.append(
         paragraph(
-            "Фоновая анимация на nousro.ru и nousro-nn.ru не была новой секцией. При устранении "
-            "JavaScript-ошибок обнаружился отсутствующий штатный файл bg_balls_1080.mp4. Файл восстановлен, "
-            "поэтому прежняя анимация снова отображается. Оставить её или убрать - решение заказчика.",
+            "Фоновый видеоэлемент на nousro.ru и nousro-nn.ru не входил в поручение. Он временно появился "
+            "при устранении JavaScript-ошибок, после чего был повторно проверен и скрыт на обоих сайтах. "
+            "Дополнительное решение заказчика по этому элементу не требуется.",
             styles["body"],
         )
     )
@@ -588,12 +600,12 @@ def build_report_pdf() -> dict[str, object]:
     story.append(
         image_pair(
             (
-                source.VIDEO_QA_DIR / "nousro.ru-background-video-top.png",
-                "nousro.ru: восстановленная штатная фоновая анимация.",
+                source.POST_CORRECTION_QA_DIR / "nousro.ru-desktop-page.png",
+                "nousro.ru после исправления: фоновый видеоэлемент скрыт.",
             ),
             (
-                source.VIDEO_QA_DIR / "nousro-nn.ru-background-video-top.png",
-                "nousro-nn.ru: восстановленная штатная фоновая анимация.",
+                source.POST_CORRECTION_QA_DIR / "nousro-nn.ru-desktop-page.png",
+                "nousro-nn.ru после исправления: фоновый видеоэлемент скрыт.",
             ),
             styles,
             max_height=2.2 * inch,
@@ -755,8 +767,9 @@ def build_cover_pdf() -> dict[str, object]:
         ),
         (
             "Повторно составлять список замечаний вам не требуется. Я заново сверил исходные поручения, "
-            "проверил опубликованные версии на компьютере и телефоне, выполнил контрольные отправки форм, "
-            "подтвердил получение писем и устранил найденные дефекты."
+            "проверил опубликованные версии на компьютере и телефоне, выполнил 60 контрольных отправок форм, "
+            "сверил 48 настроек получателей с согласованной матрицей и отдельно подтвердил обе формы "
+            "medlic.spb.ru в доступном ящике info@medlic.spb.ru. Найденные дефекты устранены."
         ),
         (
             "В приложенном отчёте простым языком указано, что выполнено и чем это подтверждено. Отдельно "

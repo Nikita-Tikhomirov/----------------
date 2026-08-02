@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-02T12:03:26+03:00",
+  "generated_at": "2026-08-03T02:34:54+03:00",
   "status": "verified_artifacts",
   "client_contact_performed": false,
   "artifacts": {
@@ -13,7 +13,12 @@
     "fresh_views": 60,
     "fresh_screenshots": 180,
     "accepted_submissions": 60,
-    "mailbox_messages": 60,
+    "recipient_routes": 48,
+    "mailbox_confirmed_messages": 2,
+    "mailbox_confirmed_sites": [
+      "medlic.spb.ru"
+    ],
+    "hidden_background_videos": 2,
     "migration_views": 16,
     "mchs_vrn_staged_views": 2
   },
@@ -89,18 +94,17 @@
     "aklab-spb.ru",
     "elektro.spb.ru",
     "othodi-spb.ru",
-    "nousro.ru / nousro-nn.ru",
     "Ivideon-камера",
     "apreal-samara.ru"
   ],
-  "docx_sha256": "2b35e8600b679517c43775e67fef58e005c11f00125ce998bc2ff47fc416f6ab",
-  "cover_note_docx_sha256": "65a61a0a189bd30207544747db98f506a37834c91635d68fee3ad56203597b85",
-  "finalized_at": "2026-08-02T12:06:03+03:00",
+  "docx_sha256": "d6a122d36f92a282978e4a262c5ab8158eeac58c3b18365a11ad0f22e690608d",
+  "cover_note_docx_sha256": "56767b62dac0f540b751b654e64f21fbd358ae0906b279f61d2e3b3f7d016b0a",
+  "finalized_at": "2026-08-03T02:35:43+03:00",
   "artifact_hashes": {
-    "output\\documents\\AP-Real-client-report-2026-08-02.docx": "2b35e8600b679517c43775e67fef58e005c11f00125ce998bc2ff47fc416f6ab",
-    "output\\pdf\\AP-Real-client-report-2026-08-02.pdf": "35603f2a96076a34174e78da9f171b84a6959253956907a8d371e290e2c7a55a",
-    "output\\documents\\AP-Real-cover-note-draft-2026-08-02.docx": "65a61a0a189bd30207544747db98f506a37834c91635d68fee3ad56203597b85",
-    "output\\pdf\\AP-Real-cover-note-draft-2026-08-02.pdf": "d949bf44991e5ddffac254f6b53cf124ad6607ca0780af8864c538c5776ad494",
+    "output\\documents\\AP-Real-client-report-2026-08-02.docx": "d6a122d36f92a282978e4a262c5ab8158eeac58c3b18365a11ad0f22e690608d",
+    "output\\pdf\\AP-Real-client-report-2026-08-02.pdf": "fecef7b996c1eac92b994d89f0191631149a9488a5f71757586f5fe20d4bb659",
+    "output\\documents\\AP-Real-cover-note-draft-2026-08-02.docx": "56767b62dac0f540b751b654e64f21fbd358ae0906b279f61d2e3b3f7d016b0a",
+    "output\\pdf\\AP-Real-cover-note-draft-2026-08-02.pdf": "60f9e6f18861a3ff57c45ae49b8ec80d8ea489bcce70b0bde61fb0532cc8b058",
     "output\\AP-Real-internal-incident-note-2026-08-02.md": "21f33b0857d52f2cc44931b4174449a8ae22f978dc56e0d5ef86f2c3c5bbf4e8"
   },
   "pdf_renderer": "reportlab",
@@ -109,10 +113,13 @@
     "cover_note_pages": 1,
     "all_pages_reviewed": true,
     "result": "passed",
-    "reviewed_at": "2026-08-02T12:06:03+03:00"
+    "reviewed_at": "2026-08-03T02:32:01+03:00",
+    "reviewer": "Codex visual QA; owner release remains pending",
+    "manifest": "output\\ap-real-client-report-visual-review-2026-08-03.json"
   },
   "recipient_control": {
     "personal_gmail_in_production_recipients": false,
-    "client_mailbox_delivery_evidence": "56 main messages + 4 route-control messages"
+    "configured_recipient_routes": "48/48 matched the client matrix",
+    "client_mailbox_delivery_evidence": "2 form messages in info@medlic.spb.ru only"
   }
 }

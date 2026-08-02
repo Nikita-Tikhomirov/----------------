@@ -1,0 +1,449 @@
+{
+  "apply": true,
+  "backupRoot": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals",
+  "changes": [
+    {
+      "path": "/home/n/nousroc9/docp.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "cae6056a4b2c884126663496e7b7bd0a28ebad4968261b183ea951f2c41bea08",
+      "afterSha256": "74ba1e4e71c59be9e777a78306b3bba49b55c4bb916e7eba43c7d31ac80bfb8f",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/docp.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/elecktro.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "c302622ec2b8993ab96ad1ac9bf8e3fb95b5c386ef83f71470dc55a667b50d05",
+      "afterSha256": "a607a042a2024481a953d3bb5a810ce87b9aca5d3e23ef2cb2f613d0f9831563",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/elecktro.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/medlic.spb.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "eb583457b5fe59867de5232c5006b5310100ebe34423eb9bcebbad735f1825e7",
+      "afterSha256": "56bf5f829fa28331ae47b193c1d77ca45d6162115b8c24b2a315b5359063b50b",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/medlic.spb.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/mchs-spb.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "60f07a9872414b8dec6d62b3f684da09c939acebd8a1704f905c95305f72fd3f",
+      "afterSha256": "6d88c35791c98f7aef2bdc0e33aeccc18554e44bfdfaf7501b2ab762a991ea90",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/mchs-spb.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/otxodi.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "d7a6510ea139cec467ba3e6ef62c097b64ba7740faba622efd00afc2e1c6882e",
+      "afterSha256": "a4b44fed3dc6f5d1151cfc4c91e6ab543f416263edf78a75a49948d0c99ccd58",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/otxodi.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/apreal.spb.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "880fd7c5af4d154d51ae4629a06663527a99865e2017e41938f35c0a3f9bdcde",
+      "afterSha256": "dfa075c8ce2d50ffc34db492047cfb1d8532f1007907ce0308d20454b313aca6",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/apreal.spb.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/minkult78.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "cb561bf64ff5cfbf6f3b3b00acbef597ab523b686d991dd8f9705d1cf4155dcf",
+      "afterSha256": "7c81e3d3af662db2ac19009c3ee7582f70527d51edbafc870679fb359e7a314f",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/minkult78.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/medtex78.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "59165306273f19fc24e9edca2a0103422055d1fd9011af36a6a1c2e1f84993b4",
+      "afterSha256": "1aaf933b2937de23a86a234a95de4c6544e8c764e02ad643d9bf3e3660becbc5",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/medtex78.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/mchs78.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "e9c5bf2b4856a67141ac8799425bcd16ecc6d5c29204b935f4cd14d5fc69b6fe",
+      "afterSha256": "e37370f6727cf8bfcab6b68a079938b226ee4561de4858d81813759793dae457",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/mchs78.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/license39.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "185a4d60011994cd4737c1112fa514d181691026aac53fc54e3e8be6d7fb7418",
+      "afterSha256": "1e8df85c4e448e37c1b090769ab0d365ebb96b700d0edfa11dffa4005d802900",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/license39.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/39mchs.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "56e3b443b7af9b61c20852f3fee716095616e38d16ff6a2397ac2bc6582f8fce",
+      "afterSha256": "04a313ef029b8c425b2422fdbd0697d5203cf32f23f3a80b114957353e25010b",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/39mchs.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/39mchs.ru/public_html/__shared/medtex39/client-standard-forms.js",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "a750b0df58c8985f9b346e00de21ec561ff5b28075ba1a3409109988b2318143",
+      "afterSha256": "9ad69b1f32d537f61da4c8e2d5b0e5165ea03edc494b524b61641a9e264c9a5c",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/39mchs.ru/public_html/__shared/medtex39/client-standard-forms.js"
+    },
+    {
+      "path": "/home/n/nousroc9/apreal-nn.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "11a90af7dbbf5c7280d4c57c5e54c3139a9b9d717070cd1debef82129a538a2a",
+      "afterSha256": "d2ff147048e7c29c82faa215d15e0f2cb7425d613b43c484600d27cfb9dbb47f",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/apreal-nn.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/apreal-volgograd.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "c2354477d2dbc8a097b4e570fe700c61223253e97eba270ddb0abf5f99c8585a",
+      "afterSha256": "18faffc4ab736a879a00708506fa01daa91f18a315fa141f0fcb1216b6f517c6",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/apreal-volgograd.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/apreal72.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "ab1ac47365ff1d351128bd982e734b028968e2f9518d812fe6e6fa546ad52d1f",
+      "afterSha256": "cf43c99aaa17d993daedba89f0ce4929e878a891dccf29c4aaa6620c53e4857c",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/apreal72.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/nousro.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "b83b708336bc13aac4e36c1f346d10772750ecff61de99d9a0d3384548d4077e",
+      "afterSha256": "1a1cf5b1b3543d67c4e116739d1f66a03fe15c90d65f55185186d2492d16dbaa",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/nousro.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/dpomuc.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "1cf06cb44b329456f661702ca78f845d993636a6bf9a5388e138a9ee6ad4d224",
+      "afterSha256": "ba141368e1f84bd79eff3ef16ae60d4e69728de49c9aa277bbd69ebff912839a",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/dpomuc.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/ed-kgd.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "dd291168bf48f979b5257615169278c532a017a172abaff201efbffaac8bc030",
+      "afterSha256": "2ef178bd7a173549a907ffeb7ecc9bd00980ad7ca94f175d0fa1ece68a8f21e6",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/ed-kgd.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/muc-vrn.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "75265acf66c944903f267860f7e1abd7e49610164975f1d1de2b9102ea59b571",
+      "afterSha256": "15db75d29cf8f73c4abe43fe1519df2c25b0b72537bb1d5bcf0f18196559fe10",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/muc-vrn.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/nousro-nn.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "28965b0ca8785167cf6c1e189806982ffffa65385c1dbc5419e1db69c325d2bd",
+      "afterSha256": "363cd6ef46be9c4b89865b1e775ff624f839d09c74f7c9baad1e2d1f647b2278",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/nousro-nn.ru/public_html/wp-content/mu-plugins/client-standard-forms.php"
+    },
+    {
+      "path": "/home/n/nousroc9/fste.ru/public_html/client-standard-forms.js",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "0055606cf1215184ca5b0d696c12a18d18c62a7d45d689c8f48e3680b86c8a40",
+      "afterSha256": "4bd43831784a20f6fad14b1fcdd229f939aa74180052f312d9b27e70a072a385",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/fste.ru/public_html/client-standard-forms.js"
+    },
+    {
+      "path": "/home/n/nousroc9/lfsb.ru/public_html/client-standard-forms.js",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "56fb223eb62f9f1590c25b75c28dd228a78374ee06ce188122f6f32b0b47d5a6",
+      "afterSha256": "1f079e197050c00f2faded8bf53c0b2b06d100af314e7c3bd1347ecbe2edcf18",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/lfsb.ru/public_html/client-standard-forms.js"
+    },
+    {
+      "path": "/home/n/nousroc9/shopap.ru/public_html/client-standard-forms.js",
+      "kind": "standard",
+      "replacements": 1,
+      "beforeSha256": "3b3b15663fd0c2b202ce8892fc2230de66554088e3dee228baa947213f78b022",
+      "afterSha256": "e63e60a9ba6fb27e53259cb5bf8d3c94f73469993c62da37512183c507b90db6",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/shopap.ru/public_html/client-standard-forms.js"
+    },
+    {
+      "path": "/home/n/nousroc9/mchs-spb.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "kind": "images",
+      "replacements": 2,
+      "beforeSha256": "a9f1c64e6591f6522abf8329d5ea3fb33117d693d424ee966dbdb34a09f2f3f8",
+      "afterSha256": "91a62d278c600cbe63caa9848b2478f9b74194333539995dc2349f859abbd131",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/mchs-spb.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php"
+    },
+    {
+      "path": "/home/n/nousroc9/otxodi.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "kind": "images",
+      "replacements": 2,
+      "beforeSha256": "73a702cfde8bc085a3d8f5fc17938ad518b984c74a7e967fc150eb6a6667993e",
+      "afterSha256": "08c75761fbe48222c2d23545b1b941a822aa7f79cd65fe888d78ec073e974f45",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/otxodi.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php"
+    },
+    {
+      "path": "/home/n/nousroc9/minkult78.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "kind": "images",
+      "replacements": 2,
+      "beforeSha256": "9a633c1e5f0cd5ea76f1cff2e8c5f06a9f90bfa807ac54edc0dd2031d9457833",
+      "afterSha256": "25b2eed1540bb539492de38bb74c9fbd84124256693a703ad321f5f154a5f1a7",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/minkult78.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php"
+    },
+    {
+      "path": "/home/n/nousroc9/medtex78.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "kind": "images",
+      "replacements": 2,
+      "beforeSha256": "0fae64b838d927f0ade78a2c6ceb31e050818055926e2f63658c2f0f8b59e3d5",
+      "afterSha256": "cb460ff4569659639e567fb810ac80ace2af33bf73838bfe8d462f94916c8beb",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/medtex78.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php"
+    },
+    {
+      "path": "/home/n/nousroc9/39mchs.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "kind": "images",
+      "replacements": 2,
+      "beforeSha256": "c2aa012570aa2387c73d0889fd6b761a8e5bf5312f376141490a75baa5f692e3",
+      "afterSha256": "0e5acef0787d22276bb1b0b0272ce07df7fd1d3d50848d2d4df3ec22419826b5",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/39mchs.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php"
+    },
+    {
+      "path": "/home/n/nousroc9/med-license.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "kind": "images",
+      "replacements": 2,
+      "beforeSha256": "7ca282bb7c7ff2581dfd46076959c98080ed11629cde4c55b69c340754f6f629",
+      "afterSha256": "a7f49c94244a9ac5ab8a5739f083e299528800cd54b83caaca954a598e7e3b21",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/med-license.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php"
+    },
+    {
+      "path": "/home/n/nousroc9/mhsl.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "kind": "images",
+      "replacements": 2,
+      "beforeSha256": "fe55459c44b5d70d80d09aa258b7a9ddf1da98124f0fee57ddfbbe2687d7a1eb",
+      "afterSha256": "0d0052a0ce31be85c10da9baee90a04667a160eb015ee6fbfa915ca8296c2fdd",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/mhsl.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php"
+    },
+    {
+      "path": "/home/n/nousroc9/mca24.ru/public_html/wp-content/themes/mca/footer.php",
+      "kind": "mca",
+      "replacements": 1,
+      "beforeSha256": "325ce604d9f5eef75a600a11a14002c5b8dbdf8b3f80dbbad6042b876239ff9b",
+      "afterSha256": "8c41ccc37c5380060c87c892f388068f15b819766179e463573f0d79a4f89418",
+      "status": "applied",
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals/mca24.ru/public_html/wp-content/themes/mca/footer.php"
+    }
+  ],
+  "phpLint": [
+    {
+      "path": "/home/n/nousroc9/docp.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/docp.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/elecktro.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/elecktro.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/medlic.spb.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/medlic.spb.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/mchs-spb.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/mchs-spb.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/otxodi.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/otxodi.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/apreal.spb.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/apreal.spb.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/minkult78.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/minkult78.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/medtex78.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/medtex78.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/mchs78.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/mchs78.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/license39.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/license39.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/39mchs.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/39mchs.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/apreal-nn.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/apreal-nn.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/apreal-volgograd.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/apreal-volgograd.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/apreal72.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/apreal72.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/nousro.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/nousro.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/dpomuc.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/dpomuc.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/ed-kgd.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/ed-kgd.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/muc-vrn.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/muc-vrn.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/nousro-nn.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/nousro-nn.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/mchs-spb.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/mchs-spb.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/otxodi.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/otxodi.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/minkult78.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/minkult78.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/medtex78.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/medtex78.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/39mchs.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/39mchs.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/med-license.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/med-license.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/mhsl.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/mhsl.ru/public_html/wp-content/themes/license-center/template-parts/content-page.php",
+      "stderr": ""
+    },
+    {
+      "path": "/home/n/nousroc9/mca24.ru/public_html/wp-content/themes/mca/footer.php",
+      "exitCode": 0,
+      "stdout": "No syntax errors detected in /home/n/nousroc9/mca24.ru/public_html/wp-content/themes/mca/footer.php",
+      "stderr": ""
+    }
+  ]
+}

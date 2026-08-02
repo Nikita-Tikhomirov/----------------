@@ -1,0 +1,187 @@
+{
+  "scope": "Последний спорный пакет: унификация двух форм на 30 включенных сайтах АП-Риал",
+  "checked_at": "2026-08-03T02:37:43+03:00",
+  "client_contact": {
+    "allowed": false,
+    "note": "Новый отчет, письмо или иное сообщение клиенту не отправлялись и не готовились к отправке."
+  },
+  "sent_report": {
+    "gmail_message_id": "19fc2f1355dc7b50",
+    "sent_at": "2026-08-02T17:46:55+03:00",
+    "accurate_parts": [
+      "К моменту отправки формы были развернуты на 30 включенных сайтах.",
+      "К моменту отправки ошибочные дополнительные копии были удалены, а штатные получатели восстановлены.",
+      "60 валидных контрольных заявок были приняты действующими обработчиками.",
+      "Обе свежие заявки medlic.spb.ru были подтверждены непосредственно в info@medlic.spb.ru."
+    ],
+    "inaccurate_or_incomplete_parts": [
+      "Формулировка о почте недостаточно явно отделяла прием заявки обработчиком от фактического появления письма в каждом отдельном ящике.",
+      "После отправки отчета были обнаружены остаточные дефекты интерфейса и страниц, поэтому отчет не мог считаться окончательным подтверждением всей приемки.",
+      "В отчет не входило исправление самовольно восстановленных неработающих видеофонов на nousro.ru и nousro-nn.ru, потому что на момент отправки они еще были видимы."
+    ]
+  },
+  "mistakes_found_and_fixed_after_report": [
+    {
+      "id": "R-01",
+      "problem": "В общем коде 23 стандартных сайтов модальное окно центрировалось через left:50%, что зависело от геометрии родительского контейнера и могло смещать окно.",
+      "fix": "Центрирование переведено на координату окна браузера left:50vw без изменения обработчиков форм.",
+      "sites": [
+        "docp.ru",
+        "elecktro.ru",
+        "medlic.spb.ru",
+        "mchs-spb.ru",
+        "otxodi.ru",
+        "apreal.spb.ru",
+        "minkult78.ru",
+        "medtex78.ru",
+        "mchs78.ru",
+        "license39.ru",
+        "medtex39.ru",
+        "39mchs.ru",
+        "apreal-nn.ru",
+        "apreal-volgograd.ru",
+        "apreal72.ru",
+        "nousro.ru",
+        "dpomuc.ru",
+        "ed-kgd.ru",
+        "muc-vrn.ru",
+        "nousro-nn.ru",
+        "fste.ru",
+        "lfsb.ru",
+        "shopap.ru"
+      ],
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals",
+      "evidence": "output/ap-real-confirmed-residuals-apply-2026-08-03.json"
+    },
+    {
+      "id": "R-02",
+      "problem": "Семь шаблонов страниц пытались получить URL изображения даже при пустом поле вложения, что могло создавать пустые изображения и предупреждения.",
+      "fix": "Добавлены проверки непустого идентификатора и существующего URL до вывода изображения.",
+      "sites": [
+        "mchs-spb.ru",
+        "otxodi.ru",
+        "minkult78.ru",
+        "medtex78.ru",
+        "39mchs.ru",
+        "med-license.ru",
+        "mhsl.ru"
+      ],
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals",
+      "evidence": "output/ap-real-confirmed-residuals-apply-2026-08-03.json"
+    },
+    {
+      "id": "R-03",
+      "problem": "На mca24.ru инициализация карты вызывалась даже при недоступной библиотеке Яндекс Карт и могла создавать JavaScript-ошибку.",
+      "fix": "Инициализация выполняется только при наличии window.ymaps.",
+      "sites": [
+        "mca24.ru"
+      ],
+      "backup": "/home/n/nousroc9/_backups/20260803-003146-confirmed-residuals",
+      "evidence": "output/ap-real-confirmed-residuals-apply-2026-08-03.json"
+    },
+    {
+      "id": "R-04",
+      "problem": "На nousro.ru и nousro-nn.ru без подтвержденного требования были повторно показаны старые неработающие видеофоны.",
+      "fix": "Видеофоны скрыты атрибутами hidden и aria-hidden; остальная разметка не откатывалась.",
+      "sites": [
+        "nousro.ru",
+        "nousro-nn.ru"
+      ],
+      "backup": "/home/n/nousroc9/_backups/20260802-224926-hide-background-video",
+      "evidence": "output/ap-real-main-chrome-responsive-final-native-click-2026-08-03/results.json"
+    },
+    {
+      "id": "R-05",
+      "problem": "Два старых генератора отчетов ошибочно приравнивали 60 успешных ответов обработчиков и письма на временном контрольном адресе к доставке 60 писем во все клиентские ящики.",
+      "fix": "Отчеты теперь разделяют три разных факта: 60 из 60 заявок приняты обработчиками; 48 из 48 конфигураций получателей совпадают с клиентской матрицей; непосредственное получение подтверждено только для двух форм medlic.spb.ru в info@medlic.spb.ru. Добавлен автоматический тест, запрещающий прежние недостоверные формулировки.",
+      "sites": [
+        "30 включенных сайтов"
+      ],
+      "evidence": "tests/test_apreal_client_report.py; tools/build_apreal_client_report.py; tools/build_apreal_client_pdf.py; tools/build_apreal_acceptance_report.py"
+    },
+    {
+      "id": "R-06",
+      "problem": "Основной генератор клиентского отчета обращался к несуществующей константе ROUTE_DELIVERY_PATH и завершался с NameError при реальном запуске.",
+      "fix": "Загрузчик переведен на полный итоговый файл из 60 post-send проверок, который уже содержит все 30 сайтов и обе формы. Добавлен регрессионный тест реального загрузчика; DOCX, PDF и внутренний приемочный отчет заново собраны без LibreOffice.",
+      "sites": [
+        "контур отчетности"
+      ],
+      "evidence": "tests/test_apreal_client_report.py; tools/build_apreal_client_report.py; output/ap-real-client-report-audit-2026-08-02.json; output/ap-real-report-audit-2026-08-02.json"
+    },
+    {
+      "id": "R-07",
+      "problem": "Финализатор отчета автоматически записывал all_pages_reviewed=true без отдельного доказательства просмотра всех страниц.",
+      "fix": "По умолчанию отчет теперь остается pending_visual_review. Статус passed возможен только с манифестом, который перечисляет каждую страницу отчета и сопроводительного письма, а также фиксирует проверяющего и время. Все 47 страниц итогового PDF и 1 страница письма просмотрены; манифест принят шлюзом.",
+      "sites": [
+        "контур отчетности"
+      ],
+      "evidence": "output/ap-real-client-report-visual-review-2026-08-03.json; output/ap-real-client-report-audit-2026-08-02.json; tests/test_apreal_client_report.py"
+    },
+    {
+      "id": "R-08",
+      "problem": "Сопроводительное письмо содержало расплывчатую фразу 'подтвердил получение писем', которую можно было понять как подтверждение доставки во все клиентские ящики.",
+      "fix": "Фраза заменена точными числами и границами доказательства: 60 контрольных отправок, 48 сверенных маршрутов и непосредственное подтверждение обеих форм только в info@medlic.spb.ru. Итоговая страница письма заново собрана и просмотрена.",
+      "sites": [
+        "контур отчетности"
+      ],
+      "evidence": "output/pdf/AP-Real-cover-note-draft-2026-08-02.pdf; tests/test_apreal_client_report.py"
+    },
+    {
+      "id": "R-09",
+      "problem": "Новый черновик отчета продолжал описывать фоновые видео на nousro.ru и nousro-nn.ru как видимые и ошибочно предлагал заказчику решить, оставлять ли их, хотя они уже были скрыты по указанию владельца.",
+      "fix": "Пункт удален из списка запросов к заказчику. В отчете теперь прямо указано, что видеоэлементы не входили в поручение и уже скрыты; старые снимки с видимым видео заменены свежими снимками после скрытия. Добавлен регрессионный тест против возврата устаревшего текста.",
+      "sites": [
+        "nousro.ru",
+        "nousro-nn.ru"
+      ],
+      "evidence": "output/pdf/AP-Real-client-report-2026-08-02.pdf; output/ap-real-main-chrome-responsive-final-native-click-2026-08-03/nousro.ru-desktop-page.png; output/ap-real-main-chrome-responsive-final-native-click-2026-08-03/nousro-nn.ru-desktop-page.png; tests/test_apreal_client_report.py"
+    }
+  ],
+  "mail_route_mistake_resolved_before_sent_report": {
+    "problem": "Во время промежуточного тестирования на части сайтов были добавлены не согласованные центральные копии на upreal@bk.ru, а на nousro-spb.ru были дополнительные получатели.",
+    "fix": "Все центральные копии и Bcc удалены; каждый текущий и старый обработчик возвращен на адрес из клиентской матрицы.",
+    "current_result": "48 из 48 проверок действующей серверной конфигурации совпадают с матрицей; личные адреса не найдены.",
+    "evidence": "output/ap-real-recipient-matrix-final-2026-08-03.json"
+  },
+  "final_verification": {
+    "browser": "Обычный основной Chrome, debugger port 9224; Hideo/CDP 9223 не использовался.",
+    "sites": 30,
+    "desktop_mobile_views": 60,
+    "passed_views": 60,
+    "form_open_close_checks": 120,
+    "visible_or_legacy_consent_checkboxes": 0,
+    "recipient_configuration_checks": 48,
+    "recipient_configuration_passed": 48,
+    "personal_recipient_hits": 0,
+    "javascript_or_first_party_resource_failures": 0,
+    "visual_review_boards": 12,
+    "hidden_background_video_checks": 2,
+    "profile_tests": "226 passed, 3 subtests passed",
+    "task_quality_gate": "passed",
+    "report_generators": "DOCX, ReportLab PDF and internal acceptance report rebuilt successfully without LibreOffice; all 47 report pages and the one-page cover note passed manifest-backed visual review",
+    "evidence": [
+      "output/ap-real-main-chrome-responsive-final-native-click-2026-08-03/results.json",
+      "output/ap-real-main-chrome-responsive-final-native-click-2026-08-03/visual-boards/index.json",
+      "output/ap-real-recipient-matrix-final-2026-08-03.json",
+      "output/ap-real-hidden-video-live-check-2026-08-03.json",
+      "output/ap-real-post-send-form-submissions-2026-08-02.json",
+      "output/ap-real-post-send-main-mailru-accounts-2026-08-02.json",
+      "output/ap-real-apreal-after-jivo-close-2026-08-03.json"
+    ]
+  },
+  "observed_non_defect": {
+    "site": "apreal.ru",
+    "observation": "Через задержку штатный чат Jivo может раскрыться поверх страницы и закрыть кнопку формы.",
+    "result": "Чат видим и имеет рабочий крестик. После обычного закрытия обе формы открываются и закрываются обычным кликом. Настройки Jivo не менялись без требования клиента."
+  },
+  "remaining": [
+    {
+      "type": "evidence_limit",
+      "description": "Непосредственное появление свежих писем проверено в доступном ящике только для обеих форм medlic.spb.ru. Для остальных сайтов доказаны точный получатель в рабочей конфигурации и принятие заявок обработчиками, но это не выдается за визуально подтвержденную доставку в каждый отдельный ящик."
+    }
+  ],
+  "automation": {
+    "status": "paused",
+    "note": "Новая автоматизация и клиентская коммуникация не запускаются до отдельного решения владельца после проверки этого результата."
+  }
+}

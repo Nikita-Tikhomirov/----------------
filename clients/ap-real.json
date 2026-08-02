@@ -55,6 +55,15 @@
     "owner_release_required": true,
     "client_contact_mode": "manual_owner_release_only",
     "message_recovery_mode": "connector_then_main_chrome",
+    "browser_fallback_scope": "main_chrome_only_no_hideo_9223",
+    "mail_evidence_levels": [
+      "configured_recipient",
+      "handler_acceptance",
+      "smtp_mx_acceptance",
+      "mailbox_receipt"
+    ],
+    "mailbox_receipt_required_for_delivery_claim": true,
+    "post_release_reverification_required": true,
     "allow_finance_outreach": false
   }
 }

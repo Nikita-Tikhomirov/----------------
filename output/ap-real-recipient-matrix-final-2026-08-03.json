@@ -1,0 +1,468 @@
+{
+  "checked_at": "2026-08-03T01:40:35+03:00",
+  "expected_sites": {
+    "docp.ru": "info@docp.ru",
+    "elecktro.ru": "info@elecktro.ru",
+    "medlic.spb.ru": "info@medlic.spb.ru",
+    "mchs-spb.ru": "info@mchs-spb.ru",
+    "otxodi.ru": "info@otxodi.ru",
+    "apreal.spb.ru": "spb@apreal.ru",
+    "minkult78.ru": "info@minkult78.ru",
+    "medtex78.ru": "info@medtex78.ru",
+    "mchs78.ru": "info@mchs78.ru",
+    "license39.ru": "info@license39.ru",
+    "39mchs.ru": "info@39mchs.ru",
+    "apreal-nn.ru": "info@apreal-nn.ru",
+    "apreal-volgograd.ru": "vlg-ap@bk.ru",
+    "apreal72.ru": "info@apreal72.ru",
+    "nousro.ru": "info@nousro.ru",
+    "dpomuc.ru": "info@dpomuc.ru",
+    "ed-kgd.ru": "info@ed-kgd.ru",
+    "muc-vrn.ru": "info@muc-vrn.ru",
+    "nousro-nn.ru": "info@nousro-nn.ru",
+    "fste.ru": "info@fste.ru",
+    "lfsb.ru": "info@lfsb.ru",
+    "medtex39.ru": "info@medtex39.ru",
+    "shopap.ru": "info@shopap.ru",
+    "mca24.ru": "info@mca24.ru",
+    "fsa-lab.ru": "info@fsa-lab.ru",
+    "med-license.ru": "info@med-license.ru",
+    "mhsl.ru": "info@mhsl.ru",
+    "apreal36.ru": "info@apreal36.ru",
+    "apreal.ru": "info@apreal.ru",
+    "nousro-spb.ru": "spb@nousro.ru"
+  },
+  "summary": {
+    "checks": 48,
+    "passed": 48,
+    "failed": [],
+    "personal_recipient_hits": [],
+    "complete": true
+  },
+  "checks": [
+    {
+      "domain": "docp.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/docp.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "info@docp.ru",
+      "expected_recipient": "info@docp.ru",
+      "passed": true
+    },
+    {
+      "domain": "elecktro.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/elecktro.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "info@elecktro.ru",
+      "expected_recipient": "info@elecktro.ru",
+      "passed": true
+    },
+    {
+      "domain": "medlic.spb.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/medlic.spb.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "info@medlic.spb.ru",
+      "expected_recipient": "info@medlic.spb.ru",
+      "passed": true
+    },
+    {
+      "domain": "mchs-spb.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/mchs-spb.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "info@mchs-spb.ru",
+      "expected_recipient": "info@mchs-spb.ru",
+      "passed": true
+    },
+    {
+      "domain": "otxodi.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/otxodi.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "info@otxodi.ru",
+      "expected_recipient": "info@otxodi.ru",
+      "passed": true
+    },
+    {
+      "domain": "apreal.spb.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/apreal.spb.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "spb@apreal.ru",
+      "expected_recipient": "spb@apreal.ru",
+      "passed": true
+    },
+    {
+      "domain": "minkult78.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/minkult78.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "info@minkult78.ru",
+      "expected_recipient": "info@minkult78.ru",
+      "passed": true
+    },
+    {
+      "domain": "medtex78.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/medtex78.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "info@medtex78.ru",
+      "expected_recipient": "info@medtex78.ru",
+      "passed": true
+    },
+    {
+      "domain": "mchs78.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/mchs78.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "info@mchs78.ru",
+      "expected_recipient": "info@mchs78.ru",
+      "passed": true
+    },
+    {
+      "domain": "license39.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/license39.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "info@license39.ru",
+      "expected_recipient": "info@license39.ru",
+      "passed": true
+    },
+    {
+      "domain": "39mchs.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/39mchs.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "info@39mchs.ru",
+      "expected_recipient": "info@39mchs.ru",
+      "passed": true
+    },
+    {
+      "domain": "apreal-nn.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/apreal-nn.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "info@apreal-nn.ru",
+      "expected_recipient": "info@apreal-nn.ru",
+      "passed": true
+    },
+    {
+      "domain": "apreal-volgograd.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/apreal-volgograd.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "vlg-ap@bk.ru",
+      "expected_recipient": "vlg-ap@bk.ru",
+      "passed": true
+    },
+    {
+      "domain": "apreal72.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/apreal72.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "info@apreal72.ru",
+      "expected_recipient": "info@apreal72.ru",
+      "passed": true
+    },
+    {
+      "domain": "nousro.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/nousro.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "info@nousro.ru",
+      "expected_recipient": "info@nousro.ru",
+      "passed": true
+    },
+    {
+      "domain": "dpomuc.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/dpomuc.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "info@dpomuc.ru",
+      "expected_recipient": "info@dpomuc.ru",
+      "passed": true
+    },
+    {
+      "domain": "ed-kgd.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/ed-kgd.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "info@ed-kgd.ru",
+      "expected_recipient": "info@ed-kgd.ru",
+      "passed": true
+    },
+    {
+      "domain": "muc-vrn.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/muc-vrn.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "info@muc-vrn.ru",
+      "expected_recipient": "info@muc-vrn.ru",
+      "passed": true
+    },
+    {
+      "domain": "nousro-nn.ru",
+      "kind": "wordpress_standard",
+      "source": "/home/n/nousroc9/nousro-nn.ru/public_html/wp-content/mu-plugins/client-standard-forms.php",
+      "actual_recipient": "info@nousro-nn.ru",
+      "expected_recipient": "info@nousro-nn.ru",
+      "passed": true
+    },
+    {
+      "domain": "fste.ru",
+      "kind": "static_standard",
+      "source": "/home/n/nousroc9/fste.ru/public_html/client-standard-mail.php",
+      "actual_recipient": "info@fste.ru",
+      "expected_recipient": "info@fste.ru",
+      "passed": true
+    },
+    {
+      "domain": "lfsb.ru",
+      "kind": "static_standard",
+      "source": "/home/n/nousroc9/lfsb.ru/public_html/client-standard-mail.php",
+      "actual_recipient": "info@lfsb.ru",
+      "expected_recipient": "info@lfsb.ru",
+      "passed": true
+    },
+    {
+      "domain": "medtex39.ru",
+      "kind": "static_standard",
+      "source": "/home/n/nousroc9/39mchs.ru/public_html/__shared/medtex39/client-standard-mail.php",
+      "actual_recipient": "info@medtex39.ru",
+      "expected_recipient": "info@medtex39.ru",
+      "passed": true
+    },
+    {
+      "domain": "shopap.ru",
+      "kind": "static_standard",
+      "source": "/home/n/nousroc9/shopap.ru/public_html/client-standard-mail.php",
+      "actual_recipient": "info@shopap.ru",
+      "expected_recipient": "info@shopap.ru",
+      "passed": true
+    },
+    {
+      "domain": "mca24.ru",
+      "kind": "custom_php",
+      "source": "/home/n/nousroc9/mca24.ru/public_html/mail.php",
+      "actual_recipient": "info@mca24.ru",
+      "expected_recipient": "info@mca24.ru",
+      "passed": true
+    },
+    {
+      "domain": "fsa-lab.ru",
+      "kind": "custom_php",
+      "source": "/home/n/nousroc9/fsa-lab.ru/public_html/mail.php",
+      "actual_recipient": "info@fsa-lab.ru",
+      "expected_recipient": "info@fsa-lab.ru",
+      "passed": true
+    },
+    {
+      "domain": "med-license.ru",
+      "kind": "custom_php",
+      "source": "/home/n/nousroc9/med-license.ru/public_html/mail.php",
+      "actual_recipient": "info@med-license.ru",
+      "expected_recipient": "info@med-license.ru",
+      "passed": true
+    },
+    {
+      "domain": "mhsl.ru",
+      "kind": "custom_php",
+      "source": "/home/n/nousroc9/mhsl.ru/public_html/mail.php",
+      "actual_recipient": "info@mhsl.ru",
+      "expected_recipient": "info@mhsl.ru",
+      "passed": true
+    },
+    {
+      "domain": "apreal36.ru",
+      "kind": "custom_php",
+      "source": "/home/n/nousroc9/apreal36.ru/public_html/mail.php",
+      "actual_recipient": "info@apreal36.ru",
+      "expected_recipient": "info@apreal36.ru",
+      "passed": true
+    },
+    {
+      "domain": "apreal.ru",
+      "kind": "cf7_callback",
+      "source": "/home/n/nousroc9/apreal.ru/public_html#form-6740",
+      "form_id": 6740,
+      "title": "ЗАКАЗАТЬ ЗВОНОК",
+      "actual_recipient": "info@apreal.ru",
+      "expected_recipient": "info@apreal.ru",
+      "passed": true
+    },
+    {
+      "domain": "apreal.ru",
+      "kind": "cf7_question",
+      "source": "/home/n/nousroc9/apreal.ru/public_html#form-4399",
+      "form_id": 4399,
+      "title": "ЗАДАТЬ ВОПРОС",
+      "actual_recipient": "info@apreal.ru",
+      "expected_recipient": "info@apreal.ru",
+      "passed": true
+    },
+    {
+      "domain": "nousro-spb.ru",
+      "kind": "cf7_callback",
+      "source": "/home/n/nousroc9/nousro-spb.ru/public_html#form-2438",
+      "form_id": 2438,
+      "title": "ЗАКАЗАТЬ ЗВОНОК",
+      "actual_recipient": "spb@nousro.ru",
+      "expected_recipient": "spb@nousro.ru",
+      "passed": true
+    },
+    {
+      "domain": "nousro-spb.ru",
+      "kind": "cf7_question",
+      "source": "/home/n/nousroc9/nousro-spb.ru/public_html#form-2005",
+      "form_id": 2005,
+      "title": "ЗАДАТЬ ВОПРОС",
+      "actual_recipient": "spb@nousro.ru",
+      "expected_recipient": "spb@nousro.ru",
+      "passed": true
+    },
+    {
+      "domain": "apreal.ru",
+      "kind": "cf7_legacy",
+      "source": "/home/n/nousroc9/apreal.ru/public_html#form-6945",
+      "form_id": 6945,
+      "title": "шаблон",
+      "actual_recipient": "info@apreal.ru",
+      "expected_recipient": "info@apreal.ru",
+      "passed": true
+    },
+    {
+      "domain": "apreal.ru",
+      "kind": "cf7_legacy",
+      "source": "/home/n/nousroc9/apreal.ru/public_html#form-6947",
+      "form_id": 6947,
+      "title": "шаблон_copy",
+      "actual_recipient": "info@apreal.ru",
+      "expected_recipient": "info@apreal.ru",
+      "passed": true
+    },
+    {
+      "domain": "apreal.ru",
+      "kind": "cf7_legacy",
+      "source": "/home/n/nousroc9/apreal.ru/public_html#form-6959",
+      "form_id": 6959,
+      "title": "Контактная форма 1_copy",
+      "actual_recipient": "info@apreal.ru",
+      "expected_recipient": "info@apreal.ru",
+      "passed": true
+    },
+    {
+      "domain": "docp.ru",
+      "kind": "cf7_legacy",
+      "source": "/home/n/nousroc9/docp.ru/public_html#form-3260",
+      "form_id": 3260,
+      "title": "Контактная форма 1",
+      "actual_recipient": "info@docp.ru",
+      "expected_recipient": "info@docp.ru",
+      "passed": true
+    },
+    {
+      "domain": "docp.ru",
+      "kind": "cf7_legacy",
+      "source": "/home/n/nousroc9/docp.ru/public_html#form-3261",
+      "form_id": 3261,
+      "title": "Форма футер",
+      "actual_recipient": "info@docp.ru",
+      "expected_recipient": "info@docp.ru",
+      "passed": true
+    },
+    {
+      "domain": "docp.ru",
+      "kind": "cf7_legacy",
+      "source": "/home/n/nousroc9/docp.ru/public_html#form-3317",
+      "form_id": 3317,
+      "title": "Контакты",
+      "actual_recipient": "info@docp.ru",
+      "expected_recipient": "info@docp.ru",
+      "passed": true
+    },
+    {
+      "domain": "docp.ru",
+      "kind": "cf7_legacy",
+      "source": "/home/n/nousroc9/docp.ru/public_html#form-3497",
+      "form_id": 3497,
+      "title": "Бесплатная консультация",
+      "actual_recipient": "info@docp.ru",
+      "expected_recipient": "info@docp.ru",
+      "passed": true
+    },
+    {
+      "domain": "apreal.spb.ru",
+      "kind": "cf7_legacy",
+      "source": "/home/n/nousroc9/apreal.spb.ru/public_html#form-22",
+      "form_id": 22,
+      "title": "Контактная форма 1",
+      "actual_recipient": "spb@apreal.ru",
+      "expected_recipient": "spb@apreal.ru",
+      "passed": true
+    },
+    {
+      "domain": "apreal.spb.ru",
+      "kind": "cf7_legacy",
+      "source": "/home/n/nousroc9/apreal.spb.ru/public_html#form-1960",
+      "form_id": 1960,
+      "title": "Оставить заявку",
+      "actual_recipient": "spb@apreal.ru",
+      "expected_recipient": "spb@apreal.ru",
+      "passed": true
+    },
+    {
+      "domain": "mchs78.ru",
+      "kind": "cf7_legacy",
+      "source": "/home/n/nousroc9/mchs78.ru/public_html#form-63",
+      "form_id": 63,
+      "title": "Контактная форма 1",
+      "actual_recipient": "info@mchs78.ru",
+      "expected_recipient": "info@mchs78.ru",
+      "passed": true
+    },
+    {
+      "domain": "nousro-spb.ru",
+      "kind": "cf7_legacy",
+      "source": "/home/n/nousroc9/nousro-spb.ru/public_html#form-2006",
+      "form_id": 2006,
+      "title": "Front-footer",
+      "actual_recipient": "spb@nousro.ru",
+      "expected_recipient": "spb@nousro.ru",
+      "passed": true
+    },
+    {
+      "domain": "nousro-spb.ru",
+      "kind": "cf7_legacy",
+      "source": "/home/n/nousroc9/nousro-spb.ru/public_html#form-2400",
+      "form_id": 2400,
+      "title": "Call-back-form",
+      "actual_recipient": "spb@nousro.ru",
+      "expected_recipient": "spb@nousro.ru",
+      "passed": true
+    },
+    {
+      "domain": "nousro-spb.ru",
+      "kind": "cf7_legacy",
+      "source": "/home/n/nousroc9/nousro-spb.ru/public_html#form-2434",
+      "form_id": 2434,
+      "title": "Test",
+      "actual_recipient": "spb@nousro.ru",
+      "expected_recipient": "spb@nousro.ru",
+      "passed": true
+    },
+    {
+      "domain": "ed-kgd.ru",
+      "kind": "cf7_legacy",
+      "source": "/home/n/nousroc9/ed-kgd.ru/public_html#form-212",
+      "form_id": 212,
+      "title": "Контактная форма 1 попап основная форма",
+      "actual_recipient": "info@ed-kgd.ru",
+      "expected_recipient": "info@ed-kgd.ru",
+      "passed": true
+    },
+    {
+      "domain": "nousro-nn.ru",
+      "kind": "cf7_legacy",
+      "source": "/home/n/nousroc9/nousro-nn.ru/public_html#form-47",
+      "form_id": 47,
+      "title": "Contact form 1",
+      "actual_recipient": "info@nousro-nn.ru",
+      "expected_recipient": "info@nousro-nn.ru",
+      "passed": true
+    },
+    {
+      "domain": "nousro-nn.ru",
+      "kind": "cf7_legacy",
+      "source": "/home/n/nousroc9/nousro-nn.ru/public_html#form-3307",
+      "form_id": 3307,
+      "title": "Попап",
+      "actual_recipient": "info@nousro-nn.ru",
+      "expected_recipient": "info@nousro-nn.ru",
+      "passed": true
+    }
+  ]
+}

@@ -104,6 +104,14 @@ def workflow_v2_task(status="awaiting_user_approval"):
             "docx": "output/report.docx",
             "pdf": "output/report.pdf",
             "audit": "output/report-audit.json",
+            "mail_delivery_scope": "configuration_and_handler_acceptance_only",
+        }
+        task["verification"]["mail_evidence"] = {
+            "configured_recipient": "output/recipient-matrix.json",
+            "handler_acceptance": "output/form-submissions.json",
+            "delivery_claim_scope": "configuration_and_handler_acceptance_only",
+            "mailbox_confirmed_sites": [],
+            "mailbox_evidence": [],
         }
     if status in {"client_review", "accepted"}:
         task["owner_release"] = {
@@ -186,6 +194,40 @@ def test_workflow_v2_forbids_client_report_before_owner_release():
     errors = validate_register({"tasks": [task]})
 
     assert "portfolio-forms-v2: client report exists before explicit owner release" in errors
+
+
+def test_workflow_v2_release_requires_structured_mail_evidence():
+    task = workflow_v2_task(status="awaiting_user_release")
+    del task["verification"]["mail_evidence"]
+
+    errors = validate_register({"tasks": [task]})
+
+    assert "portfolio-forms-v2: release evidence is missing structured mail evidence" in errors
+
+
+def test_workflow_v2_cannot_claim_all_mailboxes_from_partial_receipts():
+    task = workflow_v2_task(status="awaiting_user_release")
+    task["verification"]["mail_evidence"].update(
+        {
+            "delivery_claim_scope": "mailbox_confirmed_all_sites",
+            "mailbox_confirmed_sites": ["a.ru"],
+            "mailbox_evidence": ["output/a.ru-mailbox.png"],
+        }
+    )
+    task["evidence_report"]["mail_delivery_scope"] = "mailbox_confirmed_all_sites"
+
+    errors = validate_register({"tasks": [task]})
+
+    assert "portfolio-forms-v2: all-site mailbox claim lacks receipts for b.ru" in errors
+
+
+def test_workflow_v2_report_mail_scope_must_match_verification_scope():
+    task = workflow_v2_task(status="awaiting_user_release")
+    task["evidence_report"]["mail_delivery_scope"] = "mailbox_confirmed_all_sites"
+
+    errors = validate_register({"tasks": [task]})
+
+    assert "portfolio-forms-v2: evidence report mail scope does not match verification" in errors
 
 
 def test_complete_workflow_v2_release_gate_passes():

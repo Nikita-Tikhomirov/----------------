@@ -32,6 +32,11 @@ VALID_FINANCIAL_CLASSES = {
     "warranty_fix",
     "new_work",
 }
+MAIL_DELIVERY_CLAIM_SCOPES = {
+    "configuration_and_handler_acceptance_only",
+    "mailbox_confirmed_sites_only",
+    "mailbox_confirmed_all_sites",
+}
 
 
 def _nonempty(value: Any) -> bool:
@@ -187,6 +192,53 @@ def _validate_workflow_v2(task: dict[str, Any], task_id: str, status: Any) -> li
             for field in ("docx", "pdf", "audit"):
                 if not _nonempty(report.get(field)):
                     errors.append(f"{task_id}: evidence report is missing {field}")
+
+        mail_evidence = _nested(task, "verification", "mail_evidence")
+        if not isinstance(mail_evidence, dict):
+            errors.append(f"{task_id}: release evidence is missing structured mail evidence")
+        else:
+            for field in ("configured_recipient", "handler_acceptance"):
+                if not _nonempty(mail_evidence.get(field)):
+                    errors.append(f"{task_id}: mail evidence is missing {field}")
+
+            claim_scope = mail_evidence.get("delivery_claim_scope")
+            if claim_scope not in MAIL_DELIVERY_CLAIM_SCOPES:
+                errors.append(f"{task_id}: mail evidence has invalid delivery claim scope")
+
+            confirmed_sites = mail_evidence.get("mailbox_confirmed_sites", [])
+            if not isinstance(confirmed_sites, list) or not all(
+                _nonempty(site) for site in confirmed_sites
+            ):
+                errors.append(f"{task_id}: mailbox_confirmed_sites must be a string list")
+                confirmed_sites = []
+            confirmed_set = set(confirmed_sites)
+            for site in sorted(confirmed_set - site_set):
+                errors.append(f"{task_id}: mailbox evidence references unknown site {site}")
+
+            mailbox_evidence = mail_evidence.get("mailbox_evidence", [])
+            if not isinstance(mailbox_evidence, list) or not all(
+                _nonempty(item) for item in mailbox_evidence
+            ):
+                errors.append(f"{task_id}: mailbox_evidence must be a string list")
+                mailbox_evidence = []
+
+            if claim_scope == "configuration_and_handler_acceptance_only" and confirmed_sites:
+                errors.append(f"{task_id}: configuration-only claim cannot list mailbox receipts")
+            if claim_scope == "mailbox_confirmed_sites_only" and (
+                not confirmed_sites or not mailbox_evidence
+            ):
+                errors.append(f"{task_id}: partial mailbox claim requires sites and evidence")
+            if claim_scope == "mailbox_confirmed_all_sites":
+                for site in sorted(site_set - confirmed_set):
+                    errors.append(f"{task_id}: all-site mailbox claim lacks receipts for {site}")
+                if not mailbox_evidence:
+                    errors.append(f"{task_id}: all-site mailbox claim lacks mailbox evidence")
+
+            report_scope = report.get("mail_delivery_scope") if isinstance(report, dict) else None
+            if report_scope != claim_scope:
+                errors.append(
+                    f"{task_id}: evidence report mail scope does not match verification"
+                )
 
     return errors
 
