@@ -8,6 +8,7 @@ sys.path.insert(0, str(ROOT))
 from tools.client_cycle import (
     ScanState,
     build_cycle_plan,
+    can_mark_scan_success,
     known_message_ids,
     record_unreadable_message,
     resolve_unreadable_message,
@@ -144,6 +145,21 @@ def test_cycle_keeps_unreadable_messages_out_of_seen_ids_for_retry():
             "unreadable_messages": [{"id": "retry-me"}],
         }
     ) == set()
+
+
+def test_cycle_cannot_mark_success_while_recovery_ids_remain():
+    assert can_mark_scan_success({"unreadable_messages": []}) is True
+    assert can_mark_scan_success({"unreadable_messages": [{"id": "retry-me"}]}) is False
+
+
+def test_apreal_profile_requires_both_owner_gates_and_browser_recovery():
+    profile = ClientProfile.from_json_file(ROOT / "clients" / "ap-real.json")
+
+    assert profile.workflow.owner_approval_required is True
+    assert profile.workflow.owner_release_required is True
+    assert profile.workflow.client_contact_mode == "manual_owner_release_only"
+    assert profile.workflow.message_recovery_mode == "connector_then_main_chrome"
+    assert profile.workflow.allow_finance_outreach is False
 
 
 def test_cycle_records_and_retries_unreadable_message_without_duplicates():

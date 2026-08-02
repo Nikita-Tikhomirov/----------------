@@ -91,6 +91,55 @@ def test_blocked_task_waits_until_its_scheduled_follow_up_date():
     assert build_action_queue(registry, today=date(2026, 7, 29))[0]["action"] == "request_unblock"
 
 
+def test_workflow_v2_waits_for_owner_approval_without_client_contact():
+    actions = build_action_queue(
+        {"tasks": [task("awaiting_user_approval", workflow_version=2)]},
+        today=date(2026, 8, 2),
+    )
+
+    assert actions[0]["action"] == "request_owner_approval"
+    assert "client" not in actions[0]["action"]
+
+
+def test_workflow_v2_completed_work_waits_for_owner_release():
+    actions = build_action_queue(
+        {"tasks": [task("awaiting_user_release", workflow_version=2)]},
+        today=date(2026, 8, 2),
+    )
+
+    assert actions[0]["action"] == "request_owner_release"
+
+
+def test_workflow_v2_blocker_is_reported_to_owner_not_client():
+    actions = build_action_queue(
+        {"tasks": [task("blocked", workflow_version=2)]},
+        today=date(2026, 8, 2),
+    )
+
+    assert actions[0]["action"] == "report_blocker_to_owner"
+
+
+def test_workflow_v2_client_review_never_generates_automatic_follow_up():
+    actions = build_action_queue(
+        {
+            "tasks": [
+                task(
+                    "client_review",
+                    workflow_version=2,
+                    owner_release={"status": "approved", "evidence": "owner released"},
+                    client_report={
+                        "email_message_id": "sent-1",
+                        "sent_at": "2026-07-20T12:00:00+03:00",
+                    },
+                )
+            ]
+        },
+        today=date(2026, 7, 23),
+    )
+
+    assert actions[0]["action"] == "report_client_review_wait_to_owner"
+
+
 def test_reopened_task_requires_root_cause_and_regression_protection():
     errors = validate_register(
         {

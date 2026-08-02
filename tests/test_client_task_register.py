@@ -31,6 +31,94 @@ def complete_task(status="client_review"):
     return task
 
 
+def workflow_v2_task(status="awaiting_user_approval"):
+    task = {
+        "id": "portfolio-forms-v2",
+        "site": "a.ru, b.ru",
+        "status": status,
+        "workflow_version": 2,
+        "financial_classification": "warranty_fix",
+        "request": {
+            "email_message_id": "message-1",
+            "thread_id": "thread-1",
+        },
+        "specification": {
+            "title": "Unify both forms on both sites",
+            "source_message_ids": ["message-1"],
+            "sites": ["a.ru", "b.ru"],
+            "requirements": [
+                {
+                    "id": "F-01",
+                    "description": "Both forms use the exact labels",
+                    "sites": ["a.ru", "b.ru"],
+                    "acceptance_criteria": ["Exact callback and question labels"],
+                }
+            ],
+            "site_matrix": [
+                {
+                    "site": "a.ru",
+                    "requirement_ids": ["F-01"],
+                    "status": "pending",
+                    "evidence": [],
+                },
+                {
+                    "site": "b.ru",
+                    "requirement_ids": ["F-01"],
+                    "status": "pending",
+                    "evidence": [],
+                },
+            ],
+        },
+        "owner_approval": {"status": "pending"},
+        "owner_release": {"status": "pending"},
+        "contact_policy": {
+            "status": "blocked_by_user",
+            "instruction": "No client contact without explicit owner release.",
+        },
+    }
+    if status in {"in_progress", "verifying", "awaiting_user_release", "client_review", "accepted"}:
+        task["owner_approval"] = {
+            "status": "approved",
+            "evidence": "Explicit owner instruction in the Codex task.",
+        }
+    if status in {"verifying", "awaiting_user_release", "client_review", "accepted"}:
+        task.update(
+            {
+                "backup": {"location": "/backups/task"},
+                "publication": {"live_url": "https://a.ru/"},
+                "verification": {
+                    "functional": ["Both handlers accepted valid requests"],
+                    "visual": {
+                        "desktop": "output/desktop.png",
+                        "mobile": "output/mobile.png",
+                    },
+                },
+            }
+        )
+    if status in {"awaiting_user_release", "client_review", "accepted"}:
+        for row in task["specification"]["site_matrix"]:
+            row["status"] = "passed"
+            row["evidence"] = [f"output/{row['site']}-evidence.png"]
+        task["evidence_report"] = {
+            "status": "verified",
+            "docx": "output/report.docx",
+            "pdf": "output/report.pdf",
+            "audit": "output/report-audit.json",
+        }
+    if status in {"client_review", "accepted"}:
+        task["owner_release"] = {
+            "status": "approved",
+            "evidence": "Explicit owner release in the Codex task.",
+        }
+        task["client_report"] = {
+            "email_message_id": "sent-message-1",
+            "sent_at": "2026-08-02T12:00:00+03:00",
+        }
+    if status == "accepted":
+        task["client_acceptance"] = {"evidence": "Client accepted in the original thread."}
+    return task
+
+
 def test_current_register_passes_quality_gate():
     registry = json.loads((ROOT / "client_tasks.json").read_text(encoding="utf-8"))
 
@@ -53,3 +141,52 @@ def test_accepted_task_requires_client_acceptance_evidence():
     errors = validate_register({"tasks": [task]})
 
     assert "medlic-seo-20260725: accepted task is missing client acceptance evidence" in errors
+
+
+def test_workflow_v2_waiting_for_approval_requires_complete_specification():
+    task = workflow_v2_task()
+    del task["specification"]["requirements"]
+
+    errors = validate_register({"tasks": [task]})
+
+    assert "portfolio-forms-v2: specification requirements must be a non-empty list" in errors
+
+
+def test_workflow_v2_cannot_start_without_explicit_owner_approval():
+    task = workflow_v2_task(status="in_progress")
+    task["owner_approval"] = {"status": "pending"}
+
+    errors = validate_register({"tasks": [task]})
+
+    assert "portfolio-forms-v2: work started without explicit owner approval" in errors
+
+
+def test_workflow_v2_release_requires_every_requirement_site_pair():
+    task = workflow_v2_task(status="awaiting_user_release")
+    task["specification"]["site_matrix"] = task["specification"]["site_matrix"][:1]
+
+    errors = validate_register({"tasks": [task]})
+
+    assert "portfolio-forms-v2: missing specification matrix row F-01@b.ru" in errors
+
+
+def test_workflow_v2_release_requires_verified_evidence_report():
+    task = workflow_v2_task(status="awaiting_user_release")
+    del task["evidence_report"]["pdf"]
+
+    errors = validate_register({"tasks": [task]})
+
+    assert "portfolio-forms-v2: evidence report is missing pdf" in errors
+
+
+def test_workflow_v2_forbids_client_report_before_owner_release():
+    task = workflow_v2_task(status="awaiting_user_release")
+    task["client_report"] = {"email_message_id": "unauthorized-send"}
+
+    errors = validate_register({"tasks": [task]})
+
+    assert "portfolio-forms-v2: client report exists before explicit owner release" in errors
+
+
+def test_complete_workflow_v2_release_gate_passes():
+    assert validate_register({"tasks": [workflow_v2_task(status="awaiting_user_release")]}) == []

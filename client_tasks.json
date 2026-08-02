@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-31T04:30:00+03:00",
+  "updated_at": "2026-08-02T04:55:07+03:00",
   "tasks": [
     {
       "id": "beget-migration-202607",
@@ -230,7 +230,8 @@
     {
       "id": "apreal-portfolio-form-unification-20260730",
       "site": "39mchs.ru, apreal-nn.ru, apreal-volgograd.ru, apreal.ru, apreal.spb.ru, apreal36.ru, apreal72.ru, docp.ru, dpomuc.ru, ed-kgd.ru, elecktro.ru, fsa-lab.ru, fste.ru, lfsb.ru, license39.ru, mca24.ru, mchs-spb.ru, mchs78.ru, med-license.ru, medlic.spb.ru, medtex39.ru, medtex78.ru, mhsl.ru, minkult78.ru, muc-vrn.ru, nousro-nn.ru, nousro-spb.ru, nousro.ru, otxodi.ru, shopap.ru",
-      "status": "verifying",
+      "status": "awaiting_user_release",
+      "workflow_version": 2,
       "reopened": true,
       "financial_classification": "warranty_fix",
       "request": {
@@ -253,25 +254,177 @@
           "apply equivalent fixes across both related template families instead of closing one domain at a time"
         ]
       },
+      "specification": {
+        "title": "Полная унификация двух форм на 30 включённых сайтах АП-Риал",
+        "source_message_ids": [
+          "19f76757e8d2018e",
+          "19fb3e6002599f23"
+        ],
+        "sites": [
+          "apreal.ru",
+          "docp.ru",
+          "mca24.ru",
+          "fsa-lab.ru",
+          "elecktro.ru",
+          "med-license.ru",
+          "mhsl.ru",
+          "fste.ru",
+          "otxodi.ru",
+          "lfsb.ru",
+          "apreal.spb.ru",
+          "minkult78.ru",
+          "medlic.spb.ru",
+          "medtex78.ru",
+          "mchs-spb.ru",
+          "mchs78.ru",
+          "license39.ru",
+          "medtex39.ru",
+          "39mchs.ru",
+          "apreal36.ru",
+          "apreal-nn.ru",
+          "apreal-volgograd.ru",
+          "apreal72.ru",
+          "nousro.ru",
+          "dpomuc.ru",
+          "nousro-spb.ru",
+          "ed-kgd.ru",
+          "muc-vrn.ru",
+          "nousro-nn.ru",
+          "shopap.ru"
+        ],
+        "requirements": [
+          {
+            "id": "F-01",
+            "description": "На каждом включённом сайте есть формы ЗАКАЗАТЬ ЗВОНОК и ЗАДАТЬ ВОПРОС.",
+            "sites": ["*"],
+            "acceptance_criteria": ["Обе формы доступны обычным кликом на desktop и mobile."]
+          },
+          {
+            "id": "F-02",
+            "description": "CTA и заголовки используют точные формулировки клиента.",
+            "sites": ["*"],
+            "acceptance_criteria": ["Точный текст ЗАКАЗАТЬ ЗВОНОК и ЗАДАТЬ ВОПРОС без сокращений и замен."]
+          },
+          {
+            "id": "F-03",
+            "description": "Форма звонка содержит необязательное имя, обязательный телефон и капчу без email и типа лица.",
+            "sites": ["*"],
+            "acceptance_criteria": ["Набор полей и обязательность совпадают с ТЗ."]
+          },
+          {
+            "id": "F-04",
+            "description": "Форма вопроса содержит необязательные имя и вопрос, обязательный телефон и капчу без email.",
+            "sites": ["*"],
+            "acceptance_criteria": ["Набор полей и обязательность совпадают с ТЗ."]
+          },
+          {
+            "id": "F-05",
+            "description": "Показан точный текст согласия без галочки и рабочая ссылка на политику.",
+            "sites": ["*"],
+            "acceptance_criteria": ["Ссылка ведёт на https://www.apreal.ru/konfedencialnost.html."]
+          },
+          {
+            "id": "F-06",
+            "description": "Модальное окно имеет видимый крестик и не перекрывается интерфейсом сайта.",
+            "sites": ["*"],
+            "acceptance_criteria": ["Свежая зрительная проверка desktop и mobile не выявляет перекрытий."]
+          },
+          {
+            "id": "F-07",
+            "description": "До отправки нет ложного успеха, пустой страницы, 404 или вечного спиннера.",
+            "sites": ["*"],
+            "acceptance_criteria": ["Обычный пользовательский сценарий открытия и валидации проходит без отказа."]
+          },
+          {
+            "id": "F-08",
+            "description": "После принятой заявки показан точный текст успешной отправки.",
+            "sites": ["*"],
+            "acceptance_criteria": ["Текст: Спасибо за Ваше сообщение. Оно успешно отправлено."]
+          },
+          {
+            "id": "F-09",
+            "description": "Оба обработчика принимают валидную заявку на каждом сайте.",
+            "sites": ["*"],
+            "acceptance_criteria": ["callback и question приняты на всех 30 доменах."]
+          },
+          {
+            "id": "F-10",
+            "description": "Обе заявки найдены в целевом ящике с доменно связанным отправителем.",
+            "sites": ["*"],
+            "acceptance_criteria": ["60 из 60 уникальных заявок найдены в почтовом ящике."]
+          },
+          {
+            "id": "F-11",
+            "description": "После последней публикации выполнена свежая визуальная приёмка.",
+            "sites": ["*"],
+            "acceptance_criteria": ["Для каждого сайта сохранены обе формы на desktop и mobile."]
+          }
+        ],
+        "site_matrix": [
+          {"site": "apreal.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/apreal.ru-forms-evidence.png"]},
+          {"site": "docp.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/docp.ru-forms-evidence.png"]},
+          {"site": "mca24.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/mca24.ru-forms-evidence.png"]},
+          {"site": "fsa-lab.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/fsa-lab.ru-forms-evidence.png"]},
+          {"site": "elecktro.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/elecktro.ru-forms-evidence.png"]},
+          {"site": "med-license.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/med-license.ru-forms-evidence.png"]},
+          {"site": "mhsl.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/mhsl.ru-forms-evidence.png"]},
+          {"site": "fste.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/fste.ru-forms-evidence.png"]},
+          {"site": "otxodi.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/otxodi.ru-forms-evidence.png"]},
+          {"site": "lfsb.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/lfsb.ru-forms-evidence.png"]},
+          {"site": "apreal.spb.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/apreal.spb.ru-forms-evidence.png"]},
+          {"site": "minkult78.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/minkult78.ru-forms-evidence.png"]},
+          {"site": "medlic.spb.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/medlic.spb.ru-forms-evidence.png"]},
+          {"site": "medtex78.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/medtex78.ru-forms-evidence.png"]},
+          {"site": "mchs-spb.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/mchs-spb.ru-forms-evidence.png"]},
+          {"site": "mchs78.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/mchs78.ru-forms-evidence.png"]},
+          {"site": "license39.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/license39.ru-forms-evidence.png"]},
+          {"site": "medtex39.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/medtex39.ru-forms-evidence.png"]},
+          {"site": "39mchs.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/39mchs.ru-forms-evidence.png"]},
+          {"site": "apreal36.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/apreal36.ru-forms-evidence.png"]},
+          {"site": "apreal-nn.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/apreal-nn.ru-forms-evidence.png"]},
+          {"site": "apreal-volgograd.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/apreal-volgograd.ru-forms-evidence.png"]},
+          {"site": "apreal72.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/apreal72.ru-forms-evidence.png"]},
+          {"site": "nousro.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/nousro.ru-forms-evidence.png"]},
+          {"site": "dpomuc.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/dpomuc.ru-forms-evidence.png"]},
+          {"site": "nousro-spb.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/nousro-spb.ru-forms-evidence.png"]},
+          {"site": "ed-kgd.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/ed-kgd.ru-forms-evidence.png"]},
+          {"site": "muc-vrn.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/muc-vrn.ru-forms-evidence.png"]},
+          {"site": "nousro-nn.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/nousro-nn.ru-forms-evidence.png"]},
+          {"site": "shopap.ru", "requirement_ids": ["F-01", "F-02", "F-03", "F-04", "F-05", "F-06", "F-07", "F-08", "F-09", "F-10", "F-11"], "status": "passed", "evidence": ["output/ap-real-report-assets-2026-08-02/shopap.ru-forms-evidence.png"]}
+        ]
+      },
+      "owner_approval": {
+        "status": "approved",
+        "evidence": "Владелец явно поручил продолжить работу и полностью закрыть все сайты в текущей задаче Codex."
+      },
       "backup": {
-        "location": "/home/n/nousroc9/_backups/20260731-003209-ap-real-portfolio-completion; /home/n/nousroc9/_backups/20260731-011200-ap-real-custom-form-completion; /home/n/nousroc9/_backups/20260731-012336-ap-real-custom-form-completion; /home/n/nousroc9/_backups/20260731-012750-ap-real-custom-form-completion; /home/n/nousroc9/_backups/20260731-020347-ap-real-standard-corrections; /home/n/nousroc9/_backups/20260731-020848-ap-real-standard-corrections; /home/n/nousroc9/_backups/20260731-021456-ap-real-standard-corrections"
+        "location": "/home/n/nousroc9/_backups/20260731-003209-ap-real-portfolio-completion; /home/n/nousroc9/_backups/20260731-011200-ap-real-custom-form-completion; /home/n/nousroc9/_backups/20260731-020347-ap-real-standard-corrections; /home/n/nousroc9/_backups/20260802-033908-ap-real-runtime-repairs; /home/n/nousroc9/_backups/20260802-042957-ap-real-runtime-repairs"
       },
       "publication": {
         "live_url": "30 included production domains listed in site; representative URL https://apreal.ru/"
       },
       "verification": {
         "functional": [
-          "all 30 included domains passed fresh ordinary-click checks on desktop and mobile: 60 of 60 views passed",
-          "callback and question controls open the correct modal, required fields match the reconciled contract, policy links are present and the visible close control works",
-          "all 23 standardized handlers rejected invalid submissions before delivery",
-          "both forms on all five custom mail.php handlers rejected invalid captcha before mail delivery: 10 of 10 requests passed",
-          "the five explicit exclusions remained outside the standard form rollout; apreal-samara.ru currently has a DNS resolution failure"
+          "30 included domains passed final ordinary-click desktop/mobile acceptance: 60 of 60 views",
+          "all 60 valid callback/question submissions were accepted by the current handlers and all 60 messages were found in the target mailbox",
+          "39mchs.ru and muc-vrn.ru passed fresh route acceptance after final route repairs",
+          "apreal-volgograd.ru passed fresh desktop/mobile QA without mixed-content failures",
+          "nousro-spb.ru passed fresh exact-label desktop/mobile QA and both repeat messages reached Inbox"
         ],
         "visual": {
-          "desktop": "output/ap-real-full-live-acceptance-2026-07-31/*-desktop-page.png and *-desktop-*.png",
-          "mobile": "output/ap-real-full-live-acceptance-2026-07-31/*-mobile-page.png and *-mobile-*.png"
+          "desktop": "output/ap-real-final-acceptance-2026-08-02-0100/*-desktop-*.png; output/ap-real-nousro-spb-final-visual-2026-08-02/nousro-spb.ru-desktop-*.png",
+          "mobile": "output/ap-real-final-acceptance-2026-08-02-0100/*-mobile-*.png; output/ap-real-nousro-spb-final-visual-2026-08-02/nousro-spb.ru-mobile-*.png"
         },
-        "results": "output/ap-real-full-live-acceptance-2026-07-31/results.all.json; output/ap-real-full-live-acceptance-2026-07-31/stats.json; output/ap-real-invalid-delivery-2026-07-31.json; output/ap-real-custom-invalid-delivery-2026-07-31.json"
+        "results": "output/ap-real-final-acceptance-2026-08-02-0100/results.json; output/ap-real-route-final-visual-2026-08-02/results.json; output/ap-real-volgograd-final-visual-2026-08-02/results.json; output/ap-real-nousro-spb-final-visual-2026-08-02/results.json; output/ap-real-sender-delivery-2026-08-02.json; output/ap-real-route-acceptance-2026-08-02.json; output/ap-real-report-audit-2026-08-02.json"
+      },
+      "evidence_report": {
+        "status": "verified",
+        "docx": "output/documents/AP-Real-acceptance-report-2026-08-02.docx",
+        "pdf": "output/pdf/AP-Real-acceptance-report-2026-08-02.pdf",
+        "audit": "output/ap-real-report-audit-2026-08-02.json"
+      },
+      "owner_release": {
+        "status": "pending"
       },
       "excluded_domains": [
         "rectavr.ru",
@@ -282,7 +435,7 @@
       ],
       "contact_policy": {
         "status": "blocked_by_user",
-        "instruction": "Do not draft, send, reply to or forward any client email until the user explicitly reverses this instruction."
+        "instruction": "Do not draft, send, reply, forward, follow up or request payment from the client until the owner explicitly approves the final evidence report and separately releases the exact communication."
       },
       "finance": {
         "status": "collection_paused",
@@ -293,7 +446,7 @@
       },
       "prevention": {
         "root_cause": "The original message combined technical attachments with finance wording and was incorrectly routed as finance-only. Subsequent work was closed domain by domain without a complete family-wide matrix or mandatory fresh visual comparison, so equivalent defects remained on sibling sites.",
-        "regression_protection": "tests/test_client_message_router.py prevents finance wording from suppressing technical intake; tests/test_apreal_portfolio_completion.py and tests/test_standard_form_generator.py enforce the 30-domain contract; tests/live_apreal_portfolio_acceptance.cjs performs ordinary-click desktop/mobile checks and preserves screenshots for every included domain."
+        "regression_protection": "Workflow-v2 validation requires explicit owner approval, complete requirement/site coverage and a verified evidence report; tests/test_apreal_portfolio_completion.py and tests/live_apreal_portfolio_acceptance.cjs enforce exact labels and fresh desktop/mobile checks on every included domain."
       }
     }
   ]

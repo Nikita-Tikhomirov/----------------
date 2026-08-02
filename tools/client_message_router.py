@@ -24,6 +24,46 @@ TECHNICAL_KEYWORDS = (
 
 
 @dataclass(frozen=True)
+class WorkflowPolicy:
+    """Owner gates and recovery rules applied to every task for a client."""
+
+    owner_approval_required: bool
+    owner_release_required: bool
+    client_contact_mode: str
+    message_recovery_mode: str
+    allow_finance_outreach: bool
+
+    @classmethod
+    def from_mapping(cls, value: Any) -> "WorkflowPolicy":
+        if value is None:
+            value = {}
+        if not isinstance(value, dict):
+            raise ValueError("profile field workflow must be an object")
+
+        def boolean(name: str, default: bool) -> bool:
+            result = value.get(name, default)
+            if not isinstance(result, bool):
+                raise ValueError(f"profile workflow field {name} must be boolean")
+            return result
+
+        contact_mode = value.get("client_contact_mode", "manual_owner_release_only")
+        if contact_mode not in {"manual_owner_release_only", "autonomous"}:
+            raise ValueError("profile workflow field client_contact_mode is invalid")
+
+        recovery_mode = value.get("message_recovery_mode", "connector_then_main_chrome")
+        if recovery_mode != "connector_then_main_chrome":
+            raise ValueError("profile workflow field message_recovery_mode is invalid")
+
+        return cls(
+            owner_approval_required=boolean("owner_approval_required", True),
+            owner_release_required=boolean("owner_release_required", True),
+            client_contact_mode=contact_mode,
+            message_recovery_mode=recovery_mode,
+            allow_finance_outreach=boolean("allow_finance_outreach", False),
+        )
+
+
+@dataclass(frozen=True)
 class ClientProfile:
     """Business identity and routing rules for one client."""
 
@@ -37,6 +77,7 @@ class ClientProfile:
     provider_keywords: tuple[str, ...]
     mail_lookback_days: int
     mail_incremental_lookback_days: int
+    workflow: WorkflowPolicy
 
     @classmethod
     def from_mapping(cls, value: dict[str, Any]) -> "ClientProfile":
@@ -71,6 +112,7 @@ class ClientProfile:
             provider_keywords=strings("provider_keywords"),
             mail_lookback_days=lookback_days,
             mail_incremental_lookback_days=incremental_lookback_days,
+            workflow=WorkflowPolicy.from_mapping(value.get("workflow")),
         )
 
     @classmethod

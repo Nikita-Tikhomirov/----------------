@@ -64,6 +64,74 @@ def build_action_queue(registry: dict[str, Any], today: date | None = None) -> l
             continue
 
         status = task.get("status")
+        if task.get("workflow_version") == 2:
+            if status == "new":
+                actions.append(
+                    _action(
+                        task,
+                        "prepare_specification",
+                        "read the complete request and attachments, then build the requirement/site matrix",
+                    )
+                )
+            elif status == "awaiting_user_approval":
+                actions.append(
+                    _action(
+                        task,
+                        "request_owner_approval",
+                        "the complete specification is ready; implementation remains blocked",
+                    )
+                )
+            elif status == "in_progress":
+                actions.append(_action(task, "continue_work", "owner-approved implementation is incomplete"))
+            elif status == "verifying":
+                actions.append(
+                    _action(
+                        task,
+                        "complete_verification",
+                        "finish every matrix row and build the evidence report",
+                    )
+                )
+            elif status == "awaiting_user_release":
+                actions.append(
+                    _action(
+                        task,
+                        "request_owner_release",
+                        "the verified evidence report is ready; all client contact remains blocked",
+                    )
+                )
+            elif status == "blocked":
+                scheduled_for = _scheduled_action_date(task)
+                if scheduled_for is None or today >= scheduled_for:
+                    actions.append(
+                        _action(
+                            task,
+                            "report_blocker_to_owner",
+                            "the blocker must be resolved internally or explicitly released by the owner",
+                        )
+                    )
+            elif status == "client_review":
+                report_date = _report_date(task)
+                if report_date is None:
+                    actions.append(
+                        _action(
+                            task,
+                            "record_report_timestamp",
+                            "the already owner-authorized report timestamp is required",
+                        )
+                    )
+                elif (
+                    (_scheduled_action_date(task) is None or today >= _scheduled_action_date(task))
+                    and _business_days_since(report_date, today) >= FOLLOW_UP_AFTER_BUSINESS_DAYS
+                ):
+                    actions.append(
+                        _action(
+                            task,
+                            "report_client_review_wait_to_owner",
+                            "client review is overdue; no follow-up may be sent automatically",
+                        )
+                    )
+            continue
+
         if status == "new":
             actions.append(
                 _action(task, "triage", "new client request needs full reading and task breakdown")

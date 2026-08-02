@@ -49,5 +49,12 @@
     "перенос",
     "dns",
     "почт"
-  ]
+  ],
+  "workflow": {
+    "owner_approval_required": true,
+    "owner_release_required": true,
+    "client_contact_mode": "manual_owner_release_only",
+    "message_recovery_mode": "connector_then_main_chrome",
+    "allow_finance_outreach": false
+  }
 }

@@ -88,13 +88,21 @@ def known_message_ids(ledger: dict[str, Any]) -> set[str]:
     }
 
 
+def can_mark_scan_success(ledger: dict[str, Any]) -> bool:
+    """Allow a success marker only after every recovery ID has been resolved."""
+    unreadable = ledger.get("unreadable_messages", [])
+    if not isinstance(unreadable, list):
+        raise ValueError("ledger unreadable_messages must be a list")
+    return not unreadable
+
+
 def record_unreadable_message(
     ledger: dict[str, Any],
     message_id: str,
     error: str,
     attempted_at: str,
 ) -> tuple[dict[str, Any], bool]:
-    """Quarantine one connector failure while keeping it eligible for retry."""
+    """Record one unresolved ID in the mandatory same-cycle recovery queue."""
     updated = copy.deepcopy(ledger)
     unreadable = updated.setdefault("unreadable_messages", [])
     if not isinstance(unreadable, list):
@@ -122,7 +130,7 @@ def record_unreadable_message(
 def resolve_unreadable_message(
     ledger: dict[str, Any], message_id: str
 ) -> tuple[dict[str, Any], bool]:
-    """Remove a quarantine record after the message becomes readable and routed."""
+    """Remove a recovery record after the message becomes readable and routed."""
     updated = copy.deepcopy(ledger)
     unreadable = updated.setdefault("unreadable_messages", [])
     if not isinstance(unreadable, list):
@@ -172,7 +180,7 @@ def main() -> int:
                 json.dumps(
                     {
                         "profile_id": profile.id,
-                        "quarantined_message_id": args.record_unreadable_message_id,
+                        "recovery_message_id": args.record_unreadable_message_id,
                         "created": created,
                         "attempted_at": attempted_at,
                     },
@@ -198,6 +206,10 @@ def main() -> int:
             )
             return 0
         if args.mark_success:
+            if not can_mark_scan_success(ledger):
+                raise ValueError(
+                    "scan cannot be marked successful while message recovery IDs remain"
+                )
             state = mark_scan_success(state_path)
             print(json.dumps({"profile_id": profile.id, "scan_state": state.__dict__}, ensure_ascii=False))
             return 0
@@ -214,12 +226,22 @@ def main() -> int:
                 "gmail_queries": plan.queries,
                 "seen_message_ids": sorted(seen_ids),
                 "unreadable_messages": ledger.get("unreadable_messages", []),
+                "recovery_queue": ledger.get("unreadable_messages", []),
+                "workflow_policy": profile.workflow.__dict__,
                 "scan_contract": {
                     "mode": plan.mode,
                     "max_pages": plan.max_pages,
                     "stop_when_page_is_fully_known": plan.stop_when_page_is_fully_known,
-                    "message_error_policy": "after direct, batch and thread reads fail, record the ID as unreadable, continue processing other IDs, and retry quarantined IDs on every later run",
-                    "mark_success_command": "run with --mark-success after every Gmail query paginates without errors and every readable new ID is routed; quarantined IDs remain pending and must not enter seen_message_ids",
+                    "message_error_policy": "read each ID through direct, raw MIME, batch, thread, then the authorized main Chrome Gmail session; an unresolved ID remains a blocking recovery item and never counts as processed",
+                    "recovery_steps": [
+                        "read_email",
+                        "read_email(include_raw_mime=true)",
+                        "batch_read_email",
+                        "read_email_thread",
+                        "authorized main Chrome Gmail",
+                    ],
+                    "must_resolve_before_mark_success": True,
+                    "mark_success_command": "run with --mark-success only after every Gmail query reaches the known boundary and every discovered ID has been read, routed, and removed from the recovery queue",
                 },
             },
             ensure_ascii=False,
