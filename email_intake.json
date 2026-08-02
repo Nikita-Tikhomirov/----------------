@@ -4928,6 +4928,186 @@
         "evidence": [],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19fbfaa6b811aa91",
+      "thread_id": "19fbfaa6b811aa91",
+      "from": "\"Link-Host.net\" support@link-host.net",
+      "subject": "Ваш домен gusapiapp.com удален",
+      "received_at": "2026-08-01T23:30:43",
+      "task_id": "unrelated-ap-real-19fbfaa6b811aa91",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19fbf23449990029",
+      "thread_id": "19fbf23449990029",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-08-01T21:03:07",
+      "task_id": "unrelated-ap-real-19fbf23449990029",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19fbee6dd312a64e",
+      "thread_id": "19fbee6dd312a64e",
+      "from": "Pinterest recommendations@discover.pinterest.com",
+      "subject": "Не оторваться",
+      "received_at": "2026-08-01T19:57:08",
+      "task_id": "unrelated-ap-real-19fbee6dd312a64e",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19fbe905e2a21c81",
+      "thread_id": "19fbe905e2a21c81",
+      "from": "Instagram no-reply@mail.instagram.com",
+      "subject": "site_for_u, посмотрите новости golev.art и valerka_morozov и других пользователей в своей ленте",
+      "received_at": "2026-08-01T18:22:37",
+      "task_id": "unrelated-ap-real-19fbe905e2a21c81",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19fbe3942ee7c294",
+      "thread_id": "19fbe3942ee7c294",
+      "from": "\"Quoraダイジェスト\" japanese-personalized-digest@quora.com",
+      "subject": "アメリカ人のお姉さんにmorning hunny bun と言われました。どんな意味だと思いますかこれ？",
+      "received_at": "2026-08-01T16:47:30",
+      "task_id": "unrelated-ap-real-19fbe3942ee7c294",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19fbc881a2a62c94",
+      "thread_id": "19fbc881a2a62c94",
+      "from": "Beget support@beget.ru",
+      "subject": "LTD Beget: Напоминание, аккаунт andreji4",
+      "received_at": "2026-08-01T08:54:23",
+      "task_id": "unrelated-ap-real-19fbc881a2a62c94",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19fb9fa3c4e604ee",
+      "thread_id": "19fb9fa3c4e604ee",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-07-31T21:00:11",
+      "task_id": "unrelated-ap-real-19fb9fa3c4e604ee",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19fb9c0901a0277d",
+      "thread_id": "19fb9c0901a0277d",
+      "from": "Pinterest recommendations@inspire.pinterest.com",
+      "subject": "Такой взгляд не повторить",
+      "received_at": "2026-07-31T19:57:12",
+      "task_id": "unrelated-ap-real-19fb9c0901a0277d",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19fb765adbfb9c03",
+      "thread_id": "19fb765adbfb9c03",
+      "from": "Beget support@beget.ru",
+      "subject": "LTD Beget: Напоминание, аккаунт andreji4",
+      "received_at": "2026-07-31T08:58:41",
+      "task_id": "unrelated-ap-real-19fb765adbfb9c03",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19fb5890450d888c",
+      "thread_id": "19fb5890450d888c",
+      "from": "Cognition Team theo@cognition.ai",
+      "subject": "New in Devin: Stacked PRs",
+      "received_at": "2026-07-31T00:15:40",
+      "task_id": "unrelated-ap-real-19fb5890450d888c",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19fb4d3e54dc8f74",
+      "thread_id": "19fb4d3e54dc8f74",
+      "from": "Twitch no-reply@twitch.tv",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-07-30T21:00:12",
+      "task_id": "unrelated-ap-real-19fb4d3e54dc8f74",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19fb49a469780c71",
+      "thread_id": "19fb49a469780c71",
+      "from": "Pinterest recommendations@discover.pinterest.com",
+      "subject": "Подборки Angel and devil",
+      "received_at": "2026-07-30T19:57:17",
+      "task_id": "unrelated-ap-real-19fb49a469780c71",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
     }
   ],
   "unreadable_messages": []
