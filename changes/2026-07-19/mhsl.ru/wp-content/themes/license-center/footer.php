@@ -172,12 +172,14 @@
 
         // --- Открытие попапов по классам ---
         document.querySelectorAll('.open-callback').forEach(btn => {
+            btn.textContent = 'ЗАКАЗАТЬ ЗВОНОК';
             btn.addEventListener('click', () => {
                 openPopup('popup-callback');
             });
         });
 
         document.querySelectorAll('.open-question').forEach(btn => {
+            btn.textContent = 'ЗАДАТЬ ВОПРОС';
             btn.addEventListener('click', () => {
                 openPopup('popup-question');
             });

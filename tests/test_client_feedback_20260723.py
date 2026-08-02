@@ -135,9 +135,9 @@ class ClientFeedback20260723Tests(unittest.TestCase):
         )
 
         self.assertIn(".csf-actions{display:none!important}", source)
-        self.assertIn("['#mail-us','callback','ОТПРАВИТЬ ЗАЯВКУ']", source)
+        self.assertIn("['#mail-us','callback','ЗАКАЗАТЬ ЗВОНОК']", source)
         self.assertIn(
-            '<h2 id="csf-callback-title">ОСТАВИТЬ ЗАЯВКУ</h2>',
+            '<h2 id="csf-callback-title">ЗАКАЗАТЬ ЗВОНОК</h2>',
             source,
         )
         self.assertIn("html.client-contact-modal-open body > jdiv", source)

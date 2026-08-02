@@ -1,0 +1,118 @@
+{
+  "generated_at": "2026-08-02T12:03:26+03:00",
+  "status": "verified_artifacts",
+  "client_contact_performed": false,
+  "artifacts": {
+    "client_report_docx": "output\\documents\\AP-Real-client-report-2026-08-02.docx",
+    "client_report_pdf": "output\\pdf\\AP-Real-client-report-2026-08-02.pdf",
+    "cover_note_docx": "output\\documents\\AP-Real-cover-note-draft-2026-08-02.docx",
+    "cover_note_pdf": "output\\pdf\\AP-Real-cover-note-draft-2026-08-02.pdf",
+    "internal_note": "output\\AP-Real-internal-incident-note-2026-08-02.md"
+  },
+  "checks": {
+    "fresh_views": 60,
+    "fresh_screenshots": 180,
+    "accepted_submissions": 60,
+    "mailbox_messages": 60,
+    "migration_views": 16,
+    "mchs_vrn_staged_views": 2
+  },
+  "forms": {
+    "included_domains": 30,
+    "excluded_domains": [
+      "rectavr.ru",
+      "fstek.spb.ru",
+      "lic-k.ru",
+      "apreal-samara.ru",
+      "ed-krd.ru"
+    ],
+    "requirements": 11,
+    "visual_boards": 30
+  },
+  "migration": {
+    "direct_scope": 35,
+    "live": [
+      "91web.ru",
+      "apreal-nn.ru",
+      "apreal-volgograd.ru",
+      "apreal.ru",
+      "apreal36.ru",
+      "apreal72.ru",
+      "docp.ru",
+      "elecktro.ru",
+      "fsa-lab.ru",
+      "fste.ru",
+      "lfsb.ru",
+      "mca24.ru",
+      "med-license.ru",
+      "mhsl.ru",
+      "moopb.ru",
+      "otxodi.ru",
+      "rectavr.ru",
+      "shopap.ru",
+      "apreal.spb.ru",
+      "fstek.spb.ru",
+      "medlic.spb.ru",
+      "electro-reg.ru",
+      "license39.ru",
+      "mchs78.ru",
+      "medtex39.ru",
+      "medtex78.ru",
+      "minkult78.ru",
+      "mchs-spb.ru"
+    ],
+    "source_placeholder": [
+      "othodi-spb.ru"
+    ],
+    "staged_waiting_domain": [
+      "mchs-vrn.ru"
+    ],
+    "blocked": [
+      "dpocenter.ru",
+      "feo-edem.ru",
+      "linkedin.com.moopb.ru",
+      "aklab-spb.ru"
+    ],
+    "scope_decision": [
+      "elektro.spb.ru"
+    ],
+    "additional": [
+      "39mchs.ru"
+    ],
+    "visual_sheets": 8
+  },
+  "client_inputs_required": [
+    "dpocenter.ru",
+    "feo-edem.ru",
+    "linkedin.com.moopb.ru",
+    "mchs-vrn.ru",
+    "aklab-spb.ru",
+    "elektro.spb.ru",
+    "othodi-spb.ru",
+    "nousro.ru / nousro-nn.ru",
+    "Ivideon-камера",
+    "apreal-samara.ru"
+  ],
+  "docx_sha256": "2b35e8600b679517c43775e67fef58e005c11f00125ce998bc2ff47fc416f6ab",
+  "cover_note_docx_sha256": "65a61a0a189bd30207544747db98f506a37834c91635d68fee3ad56203597b85",
+  "finalized_at": "2026-08-02T12:06:03+03:00",
+  "artifact_hashes": {
+    "output\\documents\\AP-Real-client-report-2026-08-02.docx": "2b35e8600b679517c43775e67fef58e005c11f00125ce998bc2ff47fc416f6ab",
+    "output\\pdf\\AP-Real-client-report-2026-08-02.pdf": "35603f2a96076a34174e78da9f171b84a6959253956907a8d371e290e2c7a55a",
+    "output\\documents\\AP-Real-cover-note-draft-2026-08-02.docx": "65a61a0a189bd30207544747db98f506a37834c91635d68fee3ad56203597b85",
+    "output\\pdf\\AP-Real-cover-note-draft-2026-08-02.pdf": "d949bf44991e5ddffac254f6b53cf124ad6607ca0780af8864c538c5776ad494",
+    "output\\AP-Real-internal-incident-note-2026-08-02.md": "21f33b0857d52f2cc44931b4174449a8ae22f978dc56e0d5ef86f2c3c5bbf4e8"
+  },
+  "pdf_renderer": "reportlab",
+  "visual_review": {
+    "client_report_pages": 47,
+    "cover_note_pages": 1,
+    "all_pages_reviewed": true,
+    "result": "passed",
+    "reviewed_at": "2026-08-02T12:06:03+03:00"
+  },
+  "recipient_control": {
+    "personal_gmail_in_production_recipients": false,
+    "client_mailbox_delivery_evidence": "56 main messages + 4 route-control messages"
+  }
+}

@@ -99,7 +99,7 @@ def test_nousro_family_exposes_both_forms_in_existing_header_actions():
     callback_labels = {
         "nousro.ru": "ЗАКАЗАТЬ ЗВОНОК",
         "ed-kgd.ru": "ЗАКАЗАТЬ ЗВОНОК",
-        "nousro-nn.ru": "ОТПРАВИТЬ ЗАЯВКУ",
+        "nousro-nn.ru": "ЗАКАЗАТЬ ЗВОНОК",
     }
     for domain, callback_label in callback_labels.items():
         source = module.render_wordpress_plugin(domain, f"info@{domain}")
@@ -110,6 +110,11 @@ def test_nousro_family_exposes_both_forms_in_existing_header_actions():
         assert "openModal('question')" in source
         assert "grid-template-columns:repeat(2,minmax(0,1fr))" in source
         assert ".fixed-info__buttons{width:min(100%,420px)!important}" in source
+
+    nousro_nn = module.render_wordpress_plugin("nousro-nn.ru", "info@nousro-nn.ru")
+    assert '<h2 id="csf-callback-title">ЗАКАЗАТЬ ЗВОНОК</h2>' in nousro_nn
+    assert "ОТПРАВИТЬ ЗАЯВКУ" not in nousro_nn
+    assert "ОСТАВИТЬ ЗАЯВКУ" not in nousro_nn
 
     ed_source = module.render_wordpress_plugin("ed-kgd.ru", "info@ed-kgd.ru")
     assert ".fixed-info__buttons .stacked-buttons>noindex{grid-column:1/-1}" in ed_source
@@ -153,6 +158,47 @@ def test_fsa_lab_question_uses_name_phone_and_question_without_email():
     assert "$_POST['phone']" in question_handler
     assert "$_POST['coment']" in question_handler
     assert "$_POST['email']" not in question_handler
+
+
+def test_fsa_lab_custom_triggers_do_not_reenter_materialize_modals():
+    module = load_custom_deploy()
+    fsa_page = next(
+        item["source"]
+        for item in module.deployment_files()
+        if item["domain"] == "fsa-lab.ru" and item["remote"].name == "index.html"
+    )
+    page = fsa_page.read_text(encoding="utf-8")
+    triggers = re.findall(r"<[^>]+class=\"[^\"]*open-(?:callback|question)[^\"]*\"[^>]*>", page)
+
+    assert triggers
+    assert all("modal-trigger" not in trigger for trigger in triggers)
+
+
+def test_custom_deploy_can_isolate_domains_and_uses_canonical_fsa_candidate():
+    module = load_custom_deploy()
+    files = module.deployment_files({"fsa-lab.ru", "med-license.ru"})
+
+    assert {item["domain"] for item in files} == {"fsa-lab.ru", "med-license.ru"}
+    fsa_page = next(
+        item["source"]
+        for item in files
+        if item["domain"] == "fsa-lab.ru" and item["remote"].name == "index.html"
+    )
+    assert fsa_page == (
+        ROOT / "changes/2026-08-01/runtime-repairs/fsa-lab.ru/public_html/index.html"
+    )
+
+
+def test_license_center_custom_triggers_are_normalized_to_exact_labels():
+    pages = (
+        ROOT / "changes/2026-07-19/med-license.ru/wp-content/themes/license-center/footer.php",
+        ROOT / "changes/2026-07-19/mhsl.ru/wp-content/themes/license-center/footer.php",
+    )
+
+    for path in pages:
+        page = path.read_text(encoding="utf-8")
+        assert "btn.textContent = 'ЗАКАЗАТЬ ЗВОНОК';" in page, path
+        assert "btn.textContent = 'ЗАДАТЬ ВОПРОС';" in page, path
 
 
 def form_blocks(page: str, kind: str) -> list[str]:
@@ -298,3 +344,5 @@ def test_live_acceptance_rejects_inexact_action_and_modal_titles():
     assert "EXPECTED_ACTION_LABELS" in source
     assert "trigger label mismatch" in source
     assert "modal title mismatch" in source
+    assert "#csf-${kind}-title:visible" in source
+    assert "modal.locator('.csf-title')" not in source

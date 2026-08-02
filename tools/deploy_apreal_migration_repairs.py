@@ -38,6 +38,8 @@ OUTPUT = ROOT / "output/ap-real-migration-repairs-deploy-2026-08-02.json"
 OHRANA_ROOT = REMOTE_HOME / "ohrana-truda.nousro.ru/public_html"
 MOOPB_ROOT = REMOTE_HOME / "moopb.ru/public_html"
 ELECTRO_ROOT = REMOTE_HOME / "electro-reg.ru/public_html"
+RECTAVR_ROOT = REMOTE_HOME / "rectavr.ru/public_html"
+MCHS_VRN_ROOT = REMOTE_HOME / "mchs-vrn.ru/public_html"
 ICON_SOURCE = REMOTE_HOME / "nousro.ru/public_html/img/icon_folder.png"
 
 ELECTRO_MOBILE_CSS = br"""
@@ -459,6 +461,127 @@ OHRANA_MOBILE_CSS = br"""
 }
 """
 
+RECTAVR_MOBILE_CSS_V1 = br"""
+
+/* AP-REAL-RECTAVR-MOBILE-REPAIR: contain the fixed-width branding row. */
+@media (max-width: 767px) {
+  .site-branding .container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: flex-start;
+    max-width: 100% !important;
+  }
+
+  .site-branding .container > div:first-child {
+    flex: 0 0 70px;
+  }
+
+  .site-branding .left-brand {
+    flex: 1 1 240px;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    float: none !important;
+    box-sizing: border-box;
+  }
+
+  .site-branding .container > div:nth-of-type(3) {
+    flex: 1 1 260px;
+    float: none !important;
+    box-sizing: border-box;
+  }
+}
+"""
+
+RECTAVR_MOBILE_CSS_V2 = RECTAVR_MOBILE_CSS_V1.replace(
+    b"AP-REAL-RECTAVR-MOBILE-REPAIR:",
+    b"AP-REAL-RECTAVR-MOBILE-REPAIR-V2:",
+).replace(
+    b"  .site-branding .container > div:nth-of-type(3) {",
+    b"  .site-title-centered .site-title {\n"
+    b"    width: 100% !important;\n"
+    b"    max-width: 100% !important;\n"
+    b"    overflow-wrap: anywhere;\n"
+    b"  }\n\n"
+    b"  .site-branding .container > div:nth-of-type(3) {",
+)
+
+RECTAVR_MOBILE_CSS = RECTAVR_MOBILE_CSS_V2.replace(
+    b"AP-REAL-RECTAVR-MOBILE-REPAIR-V2:",
+    b"AP-REAL-RECTAVR-MOBILE-REPAIR-V3:",
+).replace(
+    b"    display: flex !important;\n"
+    b"    flex-wrap: wrap !important;\n"
+    b"    align-items: flex-start;",
+    b"    display: block !important;",
+).replace(
+    b"    flex: 0 0 70px;",
+    b"    width: 100%;\n"
+    b"    float: none !important;\n"
+    b"    text-align: center;",
+).replace(
+    b"    flex: 1 1 240px;\n    width: auto !important;",
+    b"    width: 100% !important;",
+).replace(
+    b"    flex: 1 1 260px;",
+    b"    width: 100% !important;",
+)
+
+MCHS_VRN_MOBILE_CSS_V1 = br"""
+
+/* AP-REAL-MCHS-VRN-MOBILE-REPAIR: keep the staged banner inside phones. */
+@media (max-width: 767px) {
+  html,
+  body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .top-banner {
+    overflow: hidden;
+    padding: 70px 0;
+  }
+
+  .top-banner .container,
+  .top-banner .row,
+  .top-banner [class*="col-"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+  }
+
+  .section-banner__title {
+    width: auto !important;
+    max-width: 100% !important;
+    margin-bottom: 28px;
+    font-size: 38px;
+    line-height: 1.15;
+    overflow-wrap: anywhere;
+  }
+
+  .section-banner__text {
+    width: auto !important;
+    max-width: 100% !important;
+    overflow-wrap: anywhere;
+  }
+}
+"""
+
+MCHS_VRN_MOBILE_CSS = MCHS_VRN_MOBILE_CSS_V1.replace(
+    b"AP-REAL-MCHS-VRN-MOBILE-REPAIR:",
+    b"AP-REAL-MCHS-VRN-MOBILE-REPAIR-V2:",
+).replace(
+    b"    font-size: 38px;\n"
+    b"    line-height: 1.15;\n"
+    b"    overflow-wrap: anywhere;",
+    b"    font-size: 32px;\n"
+    b"    line-height: 1.15;\n"
+    b"    overflow-wrap: normal;\n"
+    b"    word-break: normal;",
+    1,
+)
+
 
 Transform = Callable[[bytes], bytes]
 
@@ -543,6 +666,30 @@ def repair_ohrana_style(data: bytes) -> bytes:
     return repaired
 
 
+def repair_rectavr_style(data: bytes) -> bytes:
+    if b"AP-REAL-RECTAVR-MOBILE-REPAIR-V3" in data:
+        return data
+    if b"AP-REAL-RECTAVR-MOBILE-REPAIR-V2" in data:
+        if RECTAVR_MOBILE_CSS_V2 not in data:
+            raise RuntimeError("Existing rectavr mobile repair differs from v2")
+        return data.replace(RECTAVR_MOBILE_CSS_V2, RECTAVR_MOBILE_CSS)
+    if b"AP-REAL-RECTAVR-MOBILE-REPAIR:" in data:
+        if RECTAVR_MOBILE_CSS_V1 not in data:
+            raise RuntimeError("Existing rectavr mobile repair differs from v1")
+        return data.replace(RECTAVR_MOBILE_CSS_V1, RECTAVR_MOBILE_CSS)
+    return data.rstrip() + RECTAVR_MOBILE_CSS
+
+
+def repair_mchs_vrn_style(data: bytes) -> bytes:
+    if b"AP-REAL-MCHS-VRN-MOBILE-REPAIR-V2" in data:
+        return data
+    if b"AP-REAL-MCHS-VRN-MOBILE-REPAIR:" in data:
+        if MCHS_VRN_MOBILE_CSS_V1 not in data:
+            raise RuntimeError("Existing mchs-vrn mobile repair differs from v1")
+        return data.replace(MCHS_VRN_MOBILE_CSS_V1, MCHS_VRN_MOBILE_CSS)
+    return data.rstrip() + MCHS_VRN_MOBILE_CSS
+
+
 def repair_ohrana_html(data: bytes) -> bytes:
     repaired = data.replace(
         b"http://counter.rambler.ru", b"https://counter.rambler.ru"
@@ -624,6 +771,16 @@ def remote_targets() -> tuple[RepairTarget, ...]:
             repair_ohrana_html,
         ),
         RepairTarget("moopb.ru", MOOPB_ROOT / "style.css", repair_moopb_style),
+        RepairTarget(
+            "rectavr.ru",
+            RECTAVR_ROOT / "wp-content/themes/miteri/style.css",
+            repair_rectavr_style,
+        ),
+        RepairTarget(
+            "mchs-vrn.ru",
+            MCHS_VRN_ROOT / "wp-content/themes/license-center/css/style.css",
+            repair_mchs_vrn_style,
+        ),
         RepairTarget(
             "ohrana-truda.nousro.ru",
             OHRANA_ROOT / "scripts/slider1.js",

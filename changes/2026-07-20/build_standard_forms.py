@@ -661,7 +661,7 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
             (".mob-dop-btns a", "callback", "ЗАКАЗАТЬ ЗВОНОК"),
         ),
         "nousro-nn.ru": (
-            ("#mail-us", "callback", "ОТПРАВИТЬ ЗАЯВКУ"),
+            ("#mail-us", "callback", "ЗАКАЗАТЬ ЗВОНОК"),
         ),
     }.get(domain)
     if site_bindings:
@@ -741,12 +741,6 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
                 '.csf-actions{display:none!important}'
                 '.text3.info-texts{background:#fff!important;opacity:1!important;'
                 'z-index:2!important}',
-                1,
-            )
-        if domain == "nousro-nn.ru":
-            source = source.replace(
-                '<h2 id="csf-callback-title">ЗАКАЗАТЬ ЗВОНОК</h2>',
-                '<h2 id="csf-callback-title">ОСТАВИТЬ ЗАЯВКУ</h2>',
                 1,
             )
         binding_items = ",".join(

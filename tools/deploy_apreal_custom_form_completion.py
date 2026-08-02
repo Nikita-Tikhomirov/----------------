@@ -150,7 +150,9 @@ CF7_FORMS = {
 }
 
 
-def deployment_files() -> tuple[dict[str, object], ...]:
+def deployment_files(
+    domains: set[str] | None = None,
+) -> tuple[dict[str, object], ...]:
     entries = (
         (
             "apreal.ru",
@@ -206,7 +208,7 @@ def deployment_files() -> tuple[dict[str, object], ...]:
         ),
         (
             "fsa-lab.ru",
-            ROOT / "changes/2026-07-19/fsa-lab.ru/index.html",
+            ROOT / "changes/2026-08-01/runtime-repairs/fsa-lab.ru/public_html/index.html",
             REMOTE_HOME / "fsa-lab.ru/public_html/index.html",
         ),
         (
@@ -221,10 +223,13 @@ def deployment_files() -> tuple[dict[str, object], ...]:
             / "nousro-spb.ru/public_html/wp-content/mu-plugins/nousro-spb-question-fix.php",
         ),
     )
-    return tuple(
+    files = tuple(
         {"domain": domain, "source": source, "remote": remote}
         for domain, source, remote in entries
     )
+    if domains is None:
+        return files
+    return tuple(item for item in files if item["domain"] in domains)
 
 
 def sha256(data: bytes) -> str:
@@ -366,9 +371,10 @@ def take_snapshot(
     ssh: paramiko.SSHClient,
     sftp: paramiko.SFTPClient,
     snapshot_root: Path,
+    domains: set[str] | None = None,
 ) -> dict[str, object]:
     manifest: dict[str, object] = {"files": {}, "cf7": {}}
-    for item in deployment_files():
+    for item in deployment_files(domains):
         remote = item["remote"]
         data = read_remote_optional(sftp, remote)
         local = snapshot_file(snapshot_root, remote)
@@ -384,6 +390,8 @@ def take_snapshot(
             "sha256": sha256(data) if data is not None else None,
         }
     for domain, forms in CF7_FORMS.items():
+        if domains is not None and domain not in domains:
+            continue
         root = forms["root"]
         manifest["cf7"][domain] = {}
         for kind in ("callback", "question"):
@@ -413,15 +421,22 @@ def deploy(
     ssh: paramiko.SSHClient,
     sftp: paramiko.SFTPClient,
     snapshot_root: Path,
+    domains: set[str] | None = None,
 ) -> dict[str, object]:
     snapshot = load_snapshot(snapshot_root)
     stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     backup_root = REMOTE_HOME / f"_backups/{stamp}-ap-real-custom-form-completion"
+    files = deployment_files(domains)
+    selected_cf7 = tuple(
+        (domain, forms)
+        for domain, forms in CF7_FORMS.items()
+        if domains is None or domain in domains
+    )
     staged: list[tuple[dict[str, object], str, bytes, bool]] = []
     changed_forms: list[tuple[str, str, dict[str, object]]] = []
     published_files: list[dict[str, object]] = []
     try:
-        for item in deployment_files():
+        for item in files:
             source = item["source"]
             remote = item["remote"]
             if not source.is_file():
@@ -451,7 +466,7 @@ def deploy(
             if item["remote"].suffix == ".php":
                 run_remote(ssh, f"php -l {shlex.quote(temporary)}")
 
-        for domain, forms in CF7_FORMS.items():
+        for domain, forms in selected_cf7:
             root = forms["root"]
             for kind in ("callback", "question"):
                 form_id = forms[kind]["id"]
@@ -476,7 +491,7 @@ def deploy(
             )
         write_remote_json(sftp, backup_root / "cf7-before.json", snapshot["cf7"])
 
-        for domain, forms in CF7_FORMS.items():
+        for domain, forms in selected_cf7:
             root = forms["root"]
             for kind in ("callback", "question"):
                 definition = forms[kind]
@@ -506,7 +521,7 @@ def deploy(
                 }
             )
 
-        for domain, forms in CF7_FORMS.items():
+        for domain, forms in selected_cf7:
             root = forms["root"]
             run_remote(ssh, wp_command(root, "cache", "flush"))
             code = base64.b64encode(
@@ -540,7 +555,7 @@ def deploy(
                 set_form_state(ssh, forms["root"], forms[kind]["id"], baseline)
             except Exception:
                 pass
-        for item in deployment_files():
+        for item in files:
             remote = item["remote"]
             relative = str(remote).removeprefix(str(REMOTE_HOME)).lstrip("/")
             backup = backup_root / "files" / relative
@@ -574,15 +589,17 @@ def main() -> int:
     parser.add_argument("--credentials", type=Path, default=ROOT / "Упавшая сессия.txt")
     parser.add_argument("--host", default="nousroc9.beget.tech")
     parser.add_argument("--user", default="nousroc9")
+    parser.add_argument("--domains", nargs="*")
     args = parser.parse_args()
+    domains = set(args.domains) if args.domains else None
 
     ssh = connect(args)
     sftp = ssh.open_sftp()
     try:
         result = (
-            take_snapshot(ssh, sftp, args.snapshot_root)
+            take_snapshot(ssh, sftp, args.snapshot_root, domains)
             if args.snapshot
-            else deploy(ssh, sftp, args.snapshot_root)
+            else deploy(ssh, sftp, args.snapshot_root, domains)
         )
     finally:
         sftp.close()

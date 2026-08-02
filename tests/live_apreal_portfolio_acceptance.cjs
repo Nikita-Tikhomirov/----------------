@@ -222,7 +222,10 @@ async function exerciseStandard(page, domain, viewport, kind, result) {
   }
   const modal = page.locator(`.csf-modal[data-modal="${kind}"]`);
   const modalSnapshot = await assertModalGeometry(modal, viewport, kind, result.failures);
-  const modalTitle = await modal.locator('.csf-title').innerText().catch(() => '');
+  const titleLocator = modal.locator(
+    `#csf-${kind}-title:visible, .csf-title:visible, h1:visible, h2:visible, h3:visible, h4:visible`
+  ).first();
+  const modalTitle = await titleLocator.innerText().catch(() => '');
   validateActionCopy(kind, triggerSnapshot, modalTitle, result.failures);
   const file = await screenshot(page, domain, viewport.name, kind);
   const close = modal.locator('.csf-close:visible').first();
