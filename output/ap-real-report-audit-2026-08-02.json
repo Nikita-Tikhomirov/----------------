@@ -1,0 +1,1010 @@
+{
+  "generated_at": "2026-08-02T04:43:42+03:00",
+  "specification": "docs\\AP-REAL-TECHNICAL-SPEC-2026-08-01.md",
+  "contact_policy": "manual_owner_release_only",
+  "requirements": [
+    {
+      "id": "F-01",
+      "text": "На каждом включённом сайте есть две формы: «ЗАКАЗАТЬ ЗВОНОК» и «ЗАДАТЬ ВОПРОС».",
+      "status": "pass"
+    },
+    {
+      "id": "F-02",
+      "text": "Заголовки и CTA совпадают с утверждёнными названиями, без заменяющих формулировок.",
+      "status": "pass"
+    },
+    {
+      "id": "F-03",
+      "text": "В форме звонка: необязательное имя, обязательный телефон, капча; email и тип лица отсутствуют.",
+      "status": "pass"
+    },
+    {
+      "id": "F-04",
+      "text": "В форме вопроса: необязательное имя и вопрос, обязательный телефон, капча; email отсутствует.",
+      "status": "pass"
+    },
+    {
+      "id": "F-05",
+      "text": "Использован точный текст согласия; ссылка ведёт на apreal.ru/konfedencialnost.html; галочки нет.",
+      "status": "pass"
+    },
+    {
+      "id": "F-06",
+      "text": "Виден крестик закрытия; окно не перекрывается чатом, меню или капчей на desktop/mobile.",
+      "status": "pass"
+    },
+    {
+      "id": "F-07",
+      "text": "До отправки результат не показан; нет пустой страницы, 404, вечного спиннера или ложного успеха.",
+      "status": "pass"
+    },
+    {
+      "id": "F-08",
+      "text": "После реальной отправки показан точный текст: «Спасибо за Ваше сообщение. Оно успешно отправлено».",
+      "status": "pass"
+    },
+    {
+      "id": "F-09",
+      "text": "Обе формы принимаются обработчиком на каждом включённом домене.",
+      "status": "pass"
+    },
+    {
+      "id": "F-10",
+      "text": "Обе заявки реально найдены в целевом почтовом ящике; отправитель связан с доменом сайта.",
+      "status": "pass"
+    },
+    {
+      "id": "F-11",
+      "text": "После последней публикации выполнена свежая зрительная проверка desktop и mobile.",
+      "status": "pass"
+    }
+  ],
+  "domains": [
+    {
+      "domain": "apreal.ru",
+      "scope": "included",
+      "family": "Contact Form 7",
+      "client_request": "Mobile «Перезвонить» вёл на несуществующую страницу; позже замечания по названиям, полям, капче и компоновке",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-apreal.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-apreal.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "docp.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Опечатка «Врем звонка»",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\docp.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\docp.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\docp.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\docp.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-docp.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-docp.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "mca24.ru",
+      "scope": "included",
+      "family": "Пользовательский mail.php",
+      "client_request": "Форма не работала; позже неверный набор полей формы вопроса",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\mca24.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\mca24.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\mca24.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\mca24.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-mca24.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-mca24.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "fsa-lab.ru",
+      "scope": "included",
+      "family": "Пользовательский mail.php",
+      "client_request": "В исходной таблице «ОК», затем включён в унификацию",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\fsa-lab.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\fsa-lab.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\fsa-lab.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\fsa-lab.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-fsa-lab.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-fsa-lab.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "elecktro.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Изначально «ОК», затем обязательная унификация CTA и полей",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\elecktro.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\elecktro.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\elecktro.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\elecktro.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-elecktro.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-elecktro.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "med-license.ru",
+      "scope": "included",
+      "family": "Пользовательский mail.php",
+      "client_request": "Ложный успех, письма не доходили",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\med-license.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\med-license.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\med-license.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\med-license.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-med-license.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-med-license.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "mhsl.ru",
+      "scope": "included",
+      "family": "Пользовательский mail.php",
+      "client_request": "Ложный успех, письма не доходили",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\mhsl.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\mhsl.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\mhsl.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\mhsl.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-mhsl.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-mhsl.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "fste.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "После отправки уводило на пустую страницу",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\fste.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\fste.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\fste.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\fste.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-fste.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-fste.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "otxodi.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Позже замечания по CTA, форме и пересечению с чатом",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\otxodi.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\otxodi.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\otxodi.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\otxodi.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-otxodi.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-otxodi.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "lfsb.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "После отправки уводило на пустую страницу",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\lfsb.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\lfsb.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\lfsb.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\lfsb.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-lfsb.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-lfsb.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "apreal.spb.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Капча накладывалась на текст; затем вопросы доставки и компоновки callback",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal.spb.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal.spb.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal.spb.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal.spb.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-apreal.spb.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-apreal.spb.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "minkult78.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Изначально «ОК», затем портфельная унификация",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\minkult78.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\minkult78.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\minkult78.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\minkult78.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-minkult78.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-minkult78.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "medlic.spb.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Форм не было; позже неверные поля, пересечение с чатом и почтовый маршрут",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\medlic.spb.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\medlic.spb.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\medlic.spb.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\medlic.spb.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-medlic.spb.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-medlic.spb.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "medtex78.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Неверные названия CTA, ложный успех, письма не доходили",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\medtex78.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\medtex78.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\medtex78.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\medtex78.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-medtex78.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-medtex78.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "mchs-spb.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Неверные CTA, ложный успех, письма не доходили; требовалась почтовая маршрутизация",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\mchs-spb.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\mchs-spb.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\mchs-spb.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\mchs-spb.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-mchs-spb.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-mchs-spb.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "mchs78.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Неверные CTA, ложный успех, письма не доходили",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\mchs78.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\mchs78.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\mchs78.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\mchs78.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-mchs78.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-mchs78.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "license39.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Callback не доходил; «Оставить заявку» вела на 404",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\license39.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\license39.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\license39.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\license39.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-license39.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-license39.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "medtex39.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Сайт/формы были сломаны или отсутствовали",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\medtex39.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\medtex39.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\medtex39.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\medtex39.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-medtex39.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-medtex39.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "39mchs.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Неверные CTA, ложный успех, письма не доходили",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-route-final-visual-2026-08-02\\39mchs.ru-desktop-callback.png",
+        "output\\ap-real-route-final-visual-2026-08-02\\39mchs.ru-desktop-question.png",
+        "output\\ap-real-route-final-visual-2026-08-02\\39mchs.ru-mobile-callback.png",
+        "output\\ap-real-route-final-visual-2026-08-02\\39mchs.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-ROUTE-ACCEPT-20260802-39mchs.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-ROUTE-ACCEPT-20260802-39mchs.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "apreal36.ru",
+      "scope": "included",
+      "family": "Пользовательский mail.php",
+      "client_request": "Ложный успех, письма не доходили",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal36.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal36.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal36.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal36.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-apreal36.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-apreal36.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "apreal-nn.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Непонятная маска телефона, письма не доходили",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal-nn.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal-nn.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal-nn.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal-nn.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-apreal-nn.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-apreal-nn.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "apreal-volgograd.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Форм не было",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-volgograd-final-visual-2026-08-02\\apreal-volgograd.ru-desktop-callback.png",
+        "output\\ap-real-volgograd-final-visual-2026-08-02\\apreal-volgograd.ru-desktop-question.png",
+        "output\\ap-real-volgograd-final-visual-2026-08-02\\apreal-volgograd.ru-mobile-callback.png",
+        "output\\ap-real-volgograd-final-visual-2026-08-02\\apreal-volgograd.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-apreal-volgograd.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-apreal-volgograd.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "apreal72.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Сайт был припаркован/сломался; формы не доставляли письма",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal72.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal72.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal72.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\apreal72.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-apreal72.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-apreal72.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "nousro.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Убрать тип лица/компании и email, оставить телефон",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\nousro.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\nousro.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\nousro.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\nousro.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-nousro.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-nousro.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "dpomuc.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Бесконечный спиннер, email не нужен",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\dpomuc.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\dpomuc.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\dpomuc.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\dpomuc.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-dpomuc.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-dpomuc.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "nousro-spb.ru",
+      "scope": "included",
+      "family": "Contact Form 7",
+      "client_request": "Поля молча очищались; позже замечания по компоновке, крестику и галочке",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-nousro-spb-final-visual-2026-08-02\\nousro-spb.ru-desktop-callback.png",
+        "output\\ap-real-nousro-spb-final-visual-2026-08-02\\nousro-spb.ru-desktop-question.png",
+        "output\\ap-real-nousro-spb-final-visual-2026-08-02\\nousro-spb.ru-mobile-callback.png",
+        "output\\ap-real-nousro-spb-final-visual-2026-08-02\\nousro-spb.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-nousro-spb.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-nousro-spb.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "ed-kgd.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Изначально «ОК», затем портфельная унификация",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\ed-kgd.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\ed-kgd.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\ed-kgd.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\ed-kgd.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-ed-kgd.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-ed-kgd.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "muc-vrn.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Изначально «ОК», затем отдельные desktop/mobile элементы",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-route-final-visual-2026-08-02\\muc-vrn.ru-desktop-callback.png",
+        "output\\ap-real-route-final-visual-2026-08-02\\muc-vrn.ru-desktop-question.png",
+        "output\\ap-real-route-final-visual-2026-08-02\\muc-vrn.ru-mobile-callback.png",
+        "output\\ap-real-route-final-visual-2026-08-02\\muc-vrn.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-ROUTE-ACCEPT-20260802-muc-vrn.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-ROUTE-ACCEPT-20260802-muc-vrn.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "nousro-nn.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Убрать email, оставить телефон",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\nousro-nn.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\nousro-nn.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\nousro-nn.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\nousro-nn.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-nousro-nn.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-nousro-nn.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "shopap.ru",
+      "scope": "included",
+      "family": "Стандартный",
+      "client_request": "Письмо выглядело отправленным от Beget; позже требовались телефон, вопрос и капча",
+      "status": "ready_forms",
+      "visual_pass": true,
+      "screenshots": [
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\shopap.ru-desktop-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\shopap.ru-desktop-question.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\shopap.ru-mobile-callback.png",
+        "output\\ap-real-final-acceptance-2026-08-02-0100\\shopap.ru-mobile-question.png"
+      ],
+      "submissions": [
+        {
+          "kind": "callback",
+          "marker": "APREAL-SENDER-QA-20260802-shopap.ru-callback",
+          "status": 200,
+          "accepted": true
+        },
+        {
+          "kind": "question",
+          "marker": "APREAL-SENDER-QA-20260802-shopap.ru-question",
+          "status": 200,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "domain": "rectavr.ru",
+      "scope": "excluded",
+      "client_request": "«Заявка не нужна»",
+      "status": "исключено",
+      "detail": "Формы не требовались по прямому указанию клиента; массовая унификация их не добавила."
+    },
+    {
+      "domain": "fstek.spb.ru",
+      "scope": "excluded",
+      "client_request": "«Заявка не нужна»",
+      "status": "исключено",
+      "detail": "Формы не требовались по прямому указанию клиента; массовая унификация их не добавила."
+    },
+    {
+      "domain": "lic-k.ru",
+      "scope": "excluded",
+      "client_request": "«Заявка не нужна»",
+      "status": "исключено_/_дефект",
+      "detail": "Формы не требовались; остаются отдельные legacy JS/404 ошибки страницы."
+    },
+    {
+      "domain": "apreal-samara.ru",
+      "scope": "excluded",
+      "client_request": "Формы не нужны; сайт заражён/заблокирован",
+      "status": "блокировано",
+      "detail": "Домен не разрешается; формы не требовались, восстановление — отдельная задача."
+    },
+    {
+      "domain": "ed-krd.ru",
+      "scope": "excluded",
+      "client_request": "«Заявка не нужна»",
+      "status": "исключено",
+      "detail": "Формы не требовались по прямому указанию клиента; массовая унификация их не добавила."
+    }
+  ],
+  "summary": {
+    "portfolio_domains": 35,
+    "included_domains": 30,
+    "excluded_domains": 5,
+    "visual_views_passed": 60,
+    "form_screenshots_present": 120,
+    "handler_submissions_accepted": 60,
+    "mailbox_messages_found": 60,
+    "mailbox_evidence": [
+      "output\\ap-real-evidence-2026-08-02\\mailru-APREAL-SENDER-QA-20260802-56.png",
+      "output\\ap-real-evidence-2026-08-02\\mailru-APREAL-ROUTE-ACCEPT-20260802-4-inbox.png",
+      "output\\ap-real-evidence-2026-08-02\\mailru-APREAL-NOUSRO-LABELS-20260802.png"
+    ]
+  },
+  "migration": {
+    "directly_requested_transfers_proven": 29,
+    "fresh_visual_qa_domains": [
+      "91web.ru",
+      "moopb.ru",
+      "electro-reg.ru",
+      "othodi-spb.ru",
+      "ed-crimea.ru",
+      "ohrana-truda.nousro.ru"
+    ],
+    "fresh_visual_views_passed": 12,
+    "unresolved_or_qualified": [
+      {
+        "domain": "dpocenter.ru",
+        "reason": "Нет полного исходного комплекта или рабочего доступа к источнику."
+      },
+      {
+        "domain": "feo-edem.ru",
+        "reason": "Нет полного исходного комплекта или рабочего доступа к источнику."
+      },
+      {
+        "domain": "linkedin.com.moopb.ru",
+        "reason": "Нет полного исходного комплекта или рабочего доступа к источнику."
+      },
+      {
+        "domain": "mchs-vrn.ru",
+        "reason": "Нет полного исходного комплекта или рабочего доступа к источнику."
+      },
+      {
+        "domain": "aklab-spb.ru",
+        "reason": "Нет полного исходного комплекта или рабочего доступа к источнику."
+      },
+      {
+        "domain": "elektro.spb.ru",
+        "reason": "Конфликт объёма: поручение найдено, подтверждённого снятия из объёма нет."
+      },
+      {
+        "domain": "39mchs.ru",
+        "reason": "Перенос выполнен, но первичный источник авторизации переноса не найден."
+      }
+    ]
+  },
+  "report": {
+    "docx": "output\\documents\\AP-Real-acceptance-report-2026-08-02.docx",
+    "pdf": "output/pdf/AP-Real-acceptance-report-2026-08-02.pdf",
+    "render_review": "pass",
+    "page_count": 50,
+    "pdf_bytes": 6878448,
+    "pdf_sha256": "ef88da92675aca6fbcfc74ff72cc00bb893987b2fc0bdb824b7f64315304c1b0",
+    "render_pages": "output/ap-real-report-render-2026-08-02-v6-final",
+    "contact_sheets": [
+      "output/ap-real-report-render-2026-08-02-v6-final/contact-sheet-1.png",
+      "output/ap-real-report-render-2026-08-02-v6-final/contact-sheet-2.png",
+      "output/ap-real-report-render-2026-08-02-v6-final/contact-sheet-3.png",
+      "output/ap-real-report-render-2026-08-02-v6-final/contact-sheet-4.png"
+    ]
+  }
+}

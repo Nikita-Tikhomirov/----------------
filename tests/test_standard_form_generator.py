@@ -97,6 +97,29 @@ class StandardFormGeneratorTests(unittest.TestCase):
         self.assertIn("document.querySelector('#leblok')", script)
         self.assertNotIn("csf-actions-has-legacy-callback", script)
 
+    def test_wordpress_handler_aligns_from_reply_to_and_envelope_sender(self):
+        module = load_module()
+        source = module.render_wordpress_plugin("mchs78.ru", "info@mchs78.ru")
+
+        self.assertIn("'Reply-To: ' . CSF_SENDER", source)
+        self.assertIn("function csf_set_envelope_sender($phpmailer)", source)
+        self.assertIn("$phpmailer->Sender = $phpmailer->From;", source)
+        self.assertIn(
+            "add_action('phpmailer_init', 'csf_set_envelope_sender', 999);",
+            source,
+        )
+        self.assertIn(
+            "remove_action('phpmailer_init', 'csf_set_envelope_sender', 999);",
+            source,
+        )
+
+    def test_static_handler_aligns_from_reply_to_and_envelope_sender(self):
+        module = load_module()
+        for domain in module.STATIC_SITES:
+            source = module.render_static_handler(domain, f"info@{domain}")
+            self.assertIn("'Reply-To: ' . CSF_SENDER", source, domain)
+            self.assertIn("'-f' . CSF_SENDER", source, domain)
+
     def test_lfsb_uses_existing_sidebar_button_location(self):
         module = load_module()
         script = module.render_static_script("lfsb.ru")
@@ -133,6 +156,23 @@ class StandardFormGeneratorTests(unittest.TestCase):
         self.assertIn(".header-top .backform", source)
         self.assertIn("csf-actions-mobile", source)
 
+    def test_medlic_uses_existing_content_buttons_without_chat_overlap(self):
+        module = load_module()
+        source = module.render_wordpress_plugin(
+            "medlic.spb.ru",
+            "info@medlic.spb.ru",
+        )
+
+        self.assertIn(".csf-actions{display:none!important}", source)
+        self.assertIn(
+            "['.client-form-actions a:first-child','callback','ЗАКАЗАТЬ ЗВОНОК']",
+            source,
+        )
+        self.assertIn(
+            "['.client-form-actions a:last-child','question','ЗАДАТЬ ВОПРОС']",
+            source,
+        )
+
         question_form = source.split('data-modal="question"', 1)[1]
         self.assertTrue(
             question_form.index('name="name"')
@@ -142,15 +182,86 @@ class StandardFormGeneratorTests(unittest.TestCase):
         )
         self.assertNotIn('name="email"', question_form)
 
+        self.assertIn(
+            "#n2-ss-2.n2-ss-load-fade.n2-ss-loaded{opacity:1!important}",
+            source,
+        )
+        ordinary = module.render_wordpress_plugin(
+            "example.ru",
+            "info@example.ru",
+        )
+        self.assertNotIn("#n2-ss-2.n2-ss-load-fade", ordinary)
+
     def test_docp_places_standard_actions_in_the_existing_sidebar_slot(self):
         module = load_module()
         source = module.render_wordpress_plugin("docp.ru", "info@docp.ru")
 
         self.assertIn("csf-actions-inline", source)
+        self.assertIn("const CSF_CENTRAL_RECIPIENT = 'upreal@bk.ru';", source)
+        self.assertIn("'Bcc: ' . CSF_CENTRAL_RECIPIENT", source)
         self.assertIn("document.querySelector('.full-navigation')", source)
         self.assertIn("legacy.style.display='none'", source)
         self.assertIn('data-modal="callback"', source)
         self.assertIn('data-modal="question"', source)
+
+    def test_central_copy_is_limited_to_failed_delivery_routes(self):
+        module = load_module()
+        expected = {
+            "39mchs.ru",
+            "docp.ru",
+            "dpomuc.ru",
+            "ed-kgd.ru",
+            "minkult78.ru",
+            "muc-vrn.ru",
+            "nousro.ru",
+            "nousro-nn.ru",
+        }
+
+        self.assertEqual(module.CENTRAL_COPY_SITES, expected)
+        selected = module.render_wordpress_plugin("dpomuc.ru", "info@dpomuc.ru")
+        ordinary = module.render_wordpress_plugin("otxodi.ru", "info@otxodi.ru")
+        self.assertIn("const CSF_CENTRAL_RECIPIENT = 'upreal@bk.ru';", selected)
+        self.assertNotIn("CSF_CENTRAL_RECIPIENT", ordinary)
+
+    def test_unreliable_bcc_routes_send_the_central_copy_separately(self):
+        module = load_module()
+
+        self.assertEqual(
+            module.SEPARATE_CENTRAL_COPY_SITES,
+            {"39mchs.ru", "muc-vrn.ru"},
+        )
+        for domain in module.SEPARATE_CENTRAL_COPY_SITES:
+            source = module.render_wordpress_plugin(
+                domain,
+                module.WORDPRESS_SITES[domain],
+            )
+            self.assertNotIn("'Bcc: ' . CSF_CENTRAL_RECIPIENT", source, domain)
+            self.assertIn("if (!$sent || !$central_sent)", source, domain)
+
+        muc_source = module.render_wordpress_plugin(
+            "muc-vrn.ru",
+            module.WORDPRESS_SITES["muc-vrn.ru"],
+        )
+        self.assertIn(
+            "$central_sent = wp_mail(CSF_CENTRAL_RECIPIENT, $subject, $message, $headers);",
+            muc_source,
+        )
+
+        plain_source = module.render_wordpress_plugin(
+            "39mchs.ru",
+            module.WORDPRESS_SITES["39mchs.ru"],
+        )
+        self.assertIn("$central_message = preg_replace", plain_source)
+        self.assertIn("wp_strip_all_tags($central_message)", plain_source)
+        self.assertIn("$central_headers = array(", plain_source)
+        self.assertIn(
+            "$central_sent = wp_mail(CSF_CENTRAL_RECIPIENT, $subject, $central_message, $central_headers);",
+            plain_source,
+        )
+        self.assertLess(
+            plain_source.index("$central_sent = wp_mail("),
+            plain_source.index("$sent = wp_mail(CSF_RECIPIENT"),
+        )
 
     def test_apreal_spb_uses_existing_buttons_with_correct_form_kinds(self):
         module = load_module()

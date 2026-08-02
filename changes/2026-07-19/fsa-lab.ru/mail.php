@@ -4,6 +4,8 @@ error_reporting(E_ALL);
 header('Content-Type: application/json; charset=UTF-8');
 header('Cache-Control: no-store');
 
+const APREAL_FORM_SENDER = 'wordpress@fsa-lab.ru';
+
 function respond($success, $message) {
     echo json_encode(['success' => $success, 'message' => $message], JSON_UNESCAPED_UNICODE);
     exit;
@@ -23,7 +25,8 @@ $page = htmlspecialchars(trim((string) (isset($_POST['page']) ? $_POST['page'] :
 $headers = [
     'MIME-Version: 1.0',
     'Content-Type: text/html; charset=UTF-8',
-    'From: fsa-lab.ru <wordpress@fsa-lab.ru>',
+    'From: fsa-lab.ru <' . APREAL_FORM_SENDER . '>',
+    'Reply-To: ' . APREAL_FORM_SENDER,
 ];
 
 if ($form_id === 'callback') {
@@ -48,5 +51,11 @@ if ($form_id === 'callback') {
 }
 
 $encoded_subject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
-$sent = mail('info@fsa-lab.ru', $encoded_subject, $message, implode("\r\n", $headers));
+$sent = mail(
+    'info@fsa-lab.ru',
+    $encoded_subject,
+    $message,
+    implode("\r\n", $headers),
+    '-f' . APREAL_FORM_SENDER
+);
 respond($sent, $sent ? 'Спасибо за Ваше сообщение. Оно успешно отправлено' : 'Не удалось отправить сообщение. Попробуйте еще раз.');

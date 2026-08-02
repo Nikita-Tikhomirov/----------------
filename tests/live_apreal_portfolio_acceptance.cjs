@@ -7,9 +7,21 @@ const OUTPUT = path.resolve(
 );
 const BROWSER_EXECUTABLE = process.env.BROWSER_EXECUTABLE
   || 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe';
+const QA_CONCURRENCY = Math.max(
+  1,
+  Number.parseInt(process.env.QA_CONCURRENCY || '4', 10) || 1
+);
+const QA_SCREENSHOT_TIMEOUT_MS = Math.max(
+  1000,
+  Number.parseInt(process.env.QA_SCREENSHOT_TIMEOUT_MS || '15000', 10) || 15000
+);
 const POLICY_URL = 'https://www.apreal.ru/konfedencialnost.html';
 const CONSENT_TEXT = 'Нажимая на кнопку "Отправить" я даю согласие на обработку персональных данных на условиях Политики обработки персональных данных';
 const SUCCESS_TEXT = 'Спасибо за Ваше сообщение. Оно успешно отправлено';
+const EXPECTED_ACTION_LABELS = {
+  callback: 'ЗАКАЗАТЬ ЗВОНОК',
+  question: 'ЗАДАТЬ ВОПРОС',
+};
 
 const STANDARD_SITES = [
   'docp.ru', 'elecktro.ru', 'medlic.spb.ru', 'mchs-spb.ru', 'otxodi.ru',
@@ -51,8 +63,30 @@ function decodeUnicodeEscapes(value) {
 
 async function screenshot(page, domain, viewport, state) {
   const file = path.join(OUTPUT, `${safeName(domain)}-${viewport}-${state}.png`);
-  await page.screenshot({ path: file, fullPage: false });
+  await page.screenshot({
+    path: file,
+    fullPage: false,
+    timeout: QA_SCREENSHOT_TIMEOUT_MS,
+  });
   return file;
+}
+
+function isFirstParty(url, domain) {
+  try {
+    const hostname = new URL(url).hostname.replace(/^www\./, '').toLowerCase();
+    const expected = domain.replace(/^www\./, '').toLowerCase();
+    return hostname === expected || hostname.endsWith(`.${expected}`);
+  } catch (_) {
+    return false;
+  }
+}
+
+function isBlockingResourceType(resourceType) {
+  return ['document', 'script', 'stylesheet', 'xhr', 'fetch', 'image', 'font'].includes(resourceType);
+}
+
+function isCriticalConsoleError(message) {
+  return /(?:uncaught|referenceerror|typeerror|syntaxerror|rangeerror|failed to load resource)/i.test(message);
 }
 
 async function elementSnapshot(locator) {
@@ -132,6 +166,17 @@ function isRequired(control) {
   ));
 }
 
+function validateActionCopy(kind, triggerSnapshot, modalTitle, failures) {
+  const expected = EXPECTED_ACTION_LABELS[kind];
+  const triggerLabel = normalize(triggerSnapshot.text.replace(/\b[a-z_]+\b/gi, ''));
+  if (triggerLabel !== expected) {
+    failures.push(`${kind}: trigger label mismatch: ${triggerSnapshot.text}`);
+  }
+  if (normalize(modalTitle) !== expected) {
+    failures.push(`${kind}: modal title mismatch: ${modalTitle}`);
+  }
+}
+
 async function findStandardTrigger(page, kind) {
   const own = page.locator(`.csf-open-${kind}:visible`).first();
   if (await own.count()) return own;
@@ -177,6 +222,8 @@ async function exerciseStandard(page, domain, viewport, kind, result) {
   }
   const modal = page.locator(`.csf-modal[data-modal="${kind}"]`);
   const modalSnapshot = await assertModalGeometry(modal, viewport, kind, result.failures);
+  const modalTitle = await modal.locator('.csf-title').innerText().catch(() => '');
+  validateActionCopy(kind, triggerSnapshot, modalTitle, result.failures);
   const file = await screenshot(page, domain, viewport.name, kind);
   const close = modal.locator('.csf-close:visible').first();
   if (!await close.count()) {
@@ -377,6 +424,12 @@ async function exerciseCustom(page, domain, viewport, kind, form, result) {
   );
   const geometryTarget = await modal.count() ? modal : form;
   const modalSnapshot = await assertModalGeometry(geometryTarget, viewport, `custom ${kind}`, result.failures);
+  const titleLocator = geometryTarget.locator(
+    '.modal-title:visible, .uk-legend:visible, .unipop-title:visible, legend:visible, '
+    + 'h1:visible, h2:visible, h3:visible, h4:visible'
+  ).first();
+  const modalTitle = await titleLocator.innerText().catch(() => '');
+  validateActionCopy(kind, triggerSnapshot, modalTitle, result.failures);
   const file = await screenshot(page, domain, viewport.name, kind);
   const close = geometryTarget.locator(
     '.unipop-close:visible, .uk-modal-close:visible, [class*="modal-close"]:visible, '
@@ -401,30 +454,68 @@ async function auditExcluded(page, domain, result) {
 async function auditView(browser, domain, type, viewport) {
   const context = await browser.newContext({
     viewport: { width: viewport.width, height: viewport.height },
-    ignoreHTTPSErrors: true,
   });
   const page = await context.newPage();
+  const canonicalUrl = `https://${domain}/`;
   const result = {
     domain,
     type,
     viewport: viewport.name,
+    canonicalUrl,
     status: null,
     finalUrl: '',
     title: '',
     failures: [],
     warnings: [],
     consoleErrors: [],
+    consoleErrorDetails: [],
+    criticalConsoleErrors: [],
     pageErrors: [],
+    pageErrorDetails: [],
+    requestFailures: [],
+    badResponses: [],
     forms: {},
     customForms: [],
     actions: {},
   };
-  page.on('pageerror', error => result.pageErrors.push(error.message));
+  page.on('pageerror', error => {
+    result.pageErrors.push(error.message);
+    result.pageErrorDetails.push(error.stack || error.message);
+  });
   page.on('console', message => {
-    if (message.type() === 'error') result.consoleErrors.push(message.text());
+    if (message.type() !== 'error') return;
+    const value = message.text();
+    const location = message.location();
+    result.consoleErrors.push(value);
+    result.consoleErrorDetails.push({
+      message: value,
+      url: location.url || '',
+      lineNumber: location.lineNumber ?? null,
+      columnNumber: location.columnNumber ?? null,
+    });
+    if (isCriticalConsoleError(value)) {
+      const source = location.url
+        ? ` (${location.url}:${(location.lineNumber ?? 0) + 1})`
+        : '';
+      result.criticalConsoleErrors.push(`critical console error: ${value}${source}`);
+    }
+  });
+  page.on('requestfailed', request => {
+    if (!isFirstParty(request.url(), domain) || !isBlockingResourceType(request.resourceType())) return;
+    result.requestFailures.push(
+      `request failed: ${request.resourceType()} ${request.url()} (${request.failure()?.errorText || 'unknown'})`
+    );
+  });
+  page.on('response', response => {
+    const request = response.request();
+    if (response.status() < 400 || !isFirstParty(response.url(), domain)
+        || !isBlockingResourceType(request.resourceType())) return;
+    result.badResponses.push(
+      `HTTP ${response.status()}: ${request.resourceType()} ${response.url()}`
+    );
   });
   try {
-    const response = await page.goto(`https://${domain}/?full_acceptance=${Date.now()}`, {
+    const response = await page.goto(`https://${domain}/`, {
       waitUntil: 'domcontentloaded',
       timeout: 60000,
     });
@@ -438,7 +529,14 @@ async function auditView(browser, domain, type, viewport) {
     if (type === 'standard') await auditStandard(page, domain, viewport, result);
     if (type === 'custom') await auditCustom(page, domain, viewport, result);
     if (type === 'excluded') await auditExcluded(page, domain, result);
-    if (result.pageErrors.length) result.warnings.push(...result.pageErrors.map(error => `pre-existing page error: ${error}`));
+    if (result.pageErrors.length) result.failures.push(...result.pageErrors);
+    if (result.criticalConsoleErrors.length) result.failures.push(...result.criticalConsoleErrors);
+    if (result.requestFailures.length) result.failures.push(...result.requestFailures);
+    if (result.badResponses.length) result.failures.push(...result.badResponses);
+    const nonCriticalConsole = result.consoleErrors.filter(error => !isCriticalConsoleError(error));
+    if (nonCriticalConsole.length) {
+      result.warnings.push(...nonCriticalConsole.map(error => `console error: ${error}`));
+    }
   } catch (error) {
     if (type === 'excluded' && KNOWN_EXCLUDED_INFRA_FAILURES.has(domain)) {
       result.warnings.push(`known excluded-site infrastructure failure: ${error.message}`);
@@ -465,15 +563,25 @@ async function auditView(browser, domain, type, viewport) {
   const browser = await chromium.launch({ executablePath: BROWSER_EXECUTABLE, headless: true });
   const results = [];
   try {
-    for (const target of targets) {
-      if (filter && !filter.has(target.domain)) continue;
-      for (const viewport of VIEWPORTS) {
-        process.stdout.write(`ACCEPT ${target.domain} ${viewport.name}\n`);
-        const result = await auditView(browser, target.domain, target.type, viewport);
-        results.push(result);
-        fs.writeFileSync(path.join(OUTPUT, 'results.partial.json'), JSON.stringify(results, null, 2));
+    const queue = targets.filter(target => !filter || filter.has(target.domain));
+    let nextIndex = 0;
+    async function worker() {
+      while (nextIndex < queue.length) {
+        const target = queue[nextIndex];
+        nextIndex += 1;
+        for (const viewport of VIEWPORTS) {
+          process.stdout.write(`ACCEPT ${target.domain} ${viewport.name}\n`);
+          const result = await auditView(browser, target.domain, target.type, viewport);
+          results.push(result);
+          fs.writeFileSync(path.join(OUTPUT, 'results.partial.json'), JSON.stringify(results, null, 2));
+        }
       }
     }
+    const workers = Array.from(
+      { length: Math.min(QA_CONCURRENCY, queue.length) },
+      () => worker()
+    );
+    await Promise.all(workers);
   } finally {
     await browser.close();
   }

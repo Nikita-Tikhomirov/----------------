@@ -91,7 +91,7 @@ CF7_FORMS = {
                     "Заказ звонка с сайта apreal.ru\n"
                     "Имя: [f-name]\nТелефон: [f-phone]\nСтраница: [_url]"
                 ),
-                "additional_headers": "",
+                "additional_headers": "Reply-To: wordpress@apreal.ru",
             },
             "success": SUCCESS,
         },
@@ -107,7 +107,7 @@ CF7_FORMS = {
                     "Вопрос с сайта apreal.ru\nИмя: [f-name]\n"
                     "Телефон: [f-phone]\nВопрос: [f-text]\nСтраница: [_url]"
                 ),
-                "additional_headers": "",
+                "additional_headers": "Reply-To: wordpress@apreal.ru",
             },
             "success": SUCCESS,
         },
@@ -120,11 +120,13 @@ CF7_FORMS = {
             "form": _nousro_form("callback"),
             "mail": {
                 "subject": "Заказ звонка с сайта nousro-spb.ru",
+                "sender": "nousro-spb.ru <wordpress@nousro-spb.ru>",
+                "recipient": "spb@nousro.ru, upreal@bk.ru",
                 "body": (
                     "Имя: [callback-name]\nТелефон: [callback-phone]\n"
                     "Страница: [_url]"
                 ),
-                "additional_headers": "",
+                "additional_headers": "Reply-To: wordpress@nousro-spb.ru",
             },
             "success": SUCCESS,
         },
@@ -134,11 +136,13 @@ CF7_FORMS = {
             "form": _nousro_form("question"),
             "mail": {
                 "subject": "Вопрос с сайта nousro-spb.ru",
+                "sender": "nousro-spb.ru <wordpress@nousro-spb.ru>",
+                "recipient": "spb@nousro.ru, info@nousro.ru, upreal@bk.ru",
                 "body": (
                     "Имя: [question-name]\nТелефон: [question-phone]\n"
                     "Вопрос: [question-message]\nСтраница: [_url]"
                 ),
-                "additional_headers": "",
+                "additional_headers": "Reply-To: wordpress@nousro-spb.ru",
             },
             "success": SUCCESS,
         },
@@ -148,6 +152,18 @@ CF7_FORMS = {
 
 def deployment_files() -> tuple[dict[str, object], ...]:
     entries = (
+        (
+            "apreal.ru",
+            ROOT / "changes/2026-08-02/cf7-envelope-sender/apreal.ru.php",
+            REMOTE_HOME
+            / "apreal.ru/public_html/wp-content/mu-plugins/client-form-envelope-sender.php",
+        ),
+        (
+            "nousro-spb.ru",
+            ROOT / "changes/2026-08-02/cf7-envelope-sender/nousro-spb.ru.php",
+            REMOTE_HOME
+            / "nousro-spb.ru/public_html/wp-content/mu-plugins/client-form-envelope-sender.php",
+        ),
         (
             "mca24.ru",
             ROOT / "changes/2026-07-19/mca24.ru/wp-content/themes/mca/footer.php",
@@ -336,6 +352,16 @@ def snapshot_file(snapshot_root: Path, remote: PurePosixPath) -> Path:
     return snapshot_root / "files" / relative
 
 
+def read_remote_optional(sftp: paramiko.SFTPClient, remote: PurePosixPath) -> bytes | None:
+    try:
+        with sftp.open(str(remote), "rb") as handle:
+            return handle.read()
+    except OSError as error:
+        if getattr(error, "errno", None) == 2:
+            return None
+        raise
+
+
 def take_snapshot(
     ssh: paramiko.SSHClient,
     sftp: paramiko.SFTPClient,
@@ -344,15 +370,18 @@ def take_snapshot(
     manifest: dict[str, object] = {"files": {}, "cf7": {}}
     for item in deployment_files():
         remote = item["remote"]
-        with sftp.open(str(remote), "rb") as handle:
-            data = handle.read()
+        data = read_remote_optional(sftp, remote)
         local = snapshot_file(snapshot_root, remote)
-        local.parent.mkdir(parents=True, exist_ok=True)
-        local.write_bytes(data)
+        if data is not None:
+            local.parent.mkdir(parents=True, exist_ok=True)
+            local.write_bytes(data)
+        elif local.exists():
+            local.unlink()
         manifest["files"][str(remote)] = {
             "domain": item["domain"],
-            "size": len(data),
-            "sha256": sha256(data),
+            "exists": data is not None,
+            "size": len(data) if data is not None else 0,
+            "sha256": sha256(data) if data is not None else None,
         }
     for domain, forms in CF7_FORMS.items():
         root = forms["root"]
@@ -388,7 +417,7 @@ def deploy(
     snapshot = load_snapshot(snapshot_root)
     stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     backup_root = REMOTE_HOME / f"_backups/{stamp}-ap-real-custom-form-completion"
-    staged: list[tuple[dict[str, object], str, bytes]] = []
+    staged: list[tuple[dict[str, object], str, bytes, bool]] = []
     changed_forms: list[tuple[str, str, dict[str, object]]] = []
     published_files: list[dict[str, object]] = []
     try:
@@ -397,22 +426,28 @@ def deploy(
             remote = item["remote"]
             if not source.is_file():
                 raise RuntimeError(f"Missing candidate: {source}")
-            baseline = snapshot_file(snapshot_root, remote).read_bytes()
-            with sftp.open(str(remote), "rb") as handle:
-                current = handle.read()
+            baseline_state = snapshot["files"][str(remote)]
+            baseline_exists = bool(baseline_state.get("exists", True))
+            baseline = (
+                snapshot_file(snapshot_root, remote).read_bytes()
+                if baseline_exists
+                else None
+            )
+            current = read_remote_optional(sftp, remote)
             if current != baseline:
                 raise RuntimeError(f"Live file changed after snapshot: {remote}")
             candidate = source.read_bytes()
             temporary = f"{remote}.codex-{stamp}"
+            run_remote(ssh, f"mkdir -p {shlex.quote(str(remote.parent))}")
             with sftp.open(temporary, "wb") as handle:
                 handle.write(candidate)
             sftp.chmod(temporary, 0o644)
             with sftp.open(temporary, "rb") as handle:
                 if handle.read() != candidate:
                     raise RuntimeError(f"Staged upload mismatch: {remote}")
-            staged.append((item, temporary, candidate))
+            staged.append((item, temporary, candidate, baseline_exists))
 
-        for item, temporary, _ in staged:
+        for item, temporary, _, _ in staged:
             if item["remote"].suffix == ".php":
                 run_remote(ssh, f"php -l {shlex.quote(temporary)}")
 
@@ -428,7 +463,9 @@ def deploy(
                     )
 
         run_remote(ssh, f"mkdir -p {shlex.quote(str(backup_root))}")
-        for item, _, _ in staged:
+        for item, _, _, baseline_exists in staged:
+            if not baseline_exists:
+                continue
             remote = item["remote"]
             relative = str(remote).removeprefix(str(REMOTE_HOME)).lstrip("/")
             backup = backup_root / "files" / relative
@@ -453,7 +490,7 @@ def deploy(
                         f"CF7 verification failed: {domain} {kind} {definition['id']}"
                     )
 
-        for item, temporary, candidate in staged:
+        for item, temporary, candidate, _ in staged:
             remote = item["remote"]
             run_remote(ssh, f"mv -f {shlex.quote(temporary)} {shlex.quote(str(remote))}")
             with sftp.open(str(remote), "rb") as handle:
@@ -508,16 +545,20 @@ def deploy(
             relative = str(remote).removeprefix(str(REMOTE_HOME)).lstrip("/")
             backup = backup_root / "files" / relative
             try:
-                run_remote(
-                    ssh,
-                    f"test -f {shlex.quote(str(backup))} && "
-                    f"cp -p {shlex.quote(str(backup))} {shlex.quote(str(remote))} || true",
-                )
+                baseline_state = snapshot["files"][str(remote)]
+                if baseline_state.get("exists", True):
+                    run_remote(
+                        ssh,
+                        f"test -f {shlex.quote(str(backup))} && "
+                        f"cp -p {shlex.quote(str(backup))} {shlex.quote(str(remote))} || true",
+                    )
+                else:
+                    run_remote(ssh, f"rm -f {shlex.quote(str(remote))}")
             except Exception:
                 pass
         raise
     finally:
-        for _, temporary, _ in staged:
+        for _, temporary, _, _ in staged:
             try:
                 sftp.remove(temporary)
             except OSError:

@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 GENERATOR = ROOT / "changes" / "2026-07-20" / "build_standard_forms.py"
 FSA_ROOT = ROOT / "changes" / "2026-07-19" / "fsa-lab.ru"
 CUSTOM_DEPLOY = ROOT / "tools" / "deploy_apreal_custom_form_completion.py"
+LIVE_ACCEPTANCE = ROOT / "tests" / "live_apreal_portfolio_acceptance.cjs"
 SUCCESS = "Спасибо за Ваше сообщение. Оно успешно отправлено"
 POLICY = "https://www.apreal.ru/konfedencialnost.html"
 
@@ -228,6 +229,26 @@ def test_custom_html_handlers_accept_optional_names_and_require_captcha():
         assert SUCCESS in source, path
 
 
+def test_custom_handlers_align_domain_sender_and_reply_to():
+    wordpress_handlers = (
+        ROOT / "changes/2026-07-19/mca24.ru/mail.php",
+        ROOT / "changes/2026-07-19/med-license.ru/mail.php",
+        ROOT / "changes/2026-07-19/mhsl.ru/mail.php",
+        ROOT / "changes/2026-07-23/apreal36.ru/deploy/mail.php",
+    )
+    for path in wordpress_handlers:
+        source = path.read_text(encoding="utf-8")
+        assert "'Reply-To: ' . APREAL_FORM_SENDER" in source, path
+        assert "function apreal_form_set_envelope_sender($phpmailer)" in source, path
+        assert "$phpmailer->Sender = $phpmailer->From;" in source, path
+        assert "add_action('phpmailer_init', 'apreal_form_set_envelope_sender', 999);" in source, path
+        assert "remove_action('phpmailer_init', 'apreal_form_set_envelope_sender', 999);" in source, path
+
+    static_handler = (FSA_ROOT / "mail.php").read_text(encoding="utf-8")
+    assert "'Reply-To: ' . APREAL_FORM_SENDER" in static_handler
+    assert "'-f' . APREAL_FORM_SENDER" in static_handler
+
+
 def test_cf7_custom_sites_use_the_same_name_phone_question_contract():
     module = load_custom_deploy()
 
@@ -247,3 +268,33 @@ def test_cf7_custom_sites_use_the_same_name_phone_question_contract():
         assert POLICY in question, site
         assert forms["callback"]["success"] == SUCCESS
         assert forms["question"]["success"] == SUCCESS
+
+
+def test_cf7_sites_align_sender_reply_to_and_envelope_sender():
+    module = load_custom_deploy()
+
+    for domain, forms in module.CF7_FORMS.items():
+        expected = f"wordpress@{domain}"
+        for kind in ("callback", "question"):
+            mail = forms[kind]["mail"]
+            assert expected in mail["sender"]
+            assert mail["additional_headers"] == f"Reply-To: {expected}"
+
+        plugin = next(
+            item["source"]
+            for item in module.deployment_files()
+            if item["domain"] == domain
+            and item["remote"].name == "client-form-envelope-sender.php"
+        )
+        source = plugin.read_text(encoding="utf-8")
+        assert f"const APREAL_FORM_ENVELOPE_SENDER = '{expected}';" in source
+        assert "$phpmailer->Sender = $phpmailer->From;" in source
+        assert "add_action('phpmailer_init'" in source
+
+
+def test_live_acceptance_rejects_inexact_action_and_modal_titles():
+    source = LIVE_ACCEPTANCE.read_text(encoding="utf-8")
+
+    assert "EXPECTED_ACTION_LABELS" in source
+    assert "trigger label mismatch" in source
+    assert "modal title mismatch" in source

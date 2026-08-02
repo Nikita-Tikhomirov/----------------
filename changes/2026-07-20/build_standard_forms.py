@@ -22,6 +22,26 @@ EXCLUDED = {
     "ed-krd.ru",
 }
 
+# Keep the domain mailbox as the primary recipient and add a direct copy where
+# fresh live submissions did not reach the client's central inbox.
+CENTRAL_COPY_SITES = {
+    "39mchs.ru",
+    "docp.ru",
+    "dpomuc.ru",
+    "ed-kgd.ru",
+    "minkult78.ru",
+    "muc-vrn.ru",
+    "nousro.ru",
+    "nousro-nn.ru",
+}
+
+# These domains accepted Bcc submissions but did not place the central copy in
+# the mailbox. Keep the site mailbox primary and require a second direct send.
+SEPARATE_CENTRAL_COPY_SITES = {
+    "39mchs.ru",
+    "muc-vrn.ru",
+}
+
 WORDPRESS_SITES = {
     "docp.ru": "info@docp.ru",
     "elecktro.ru": "info@elecktro.ru",
@@ -87,6 +107,11 @@ const CSF_RECIPIENT = '__RECIPIENT__';
 const CSF_SENDER = 'wordpress@__DOMAIN__';
 const CSF_SUCCESS = '__SUCCESS__';
 
+function csf_set_envelope_sender($phpmailer)
+{
+    $phpmailer->Sender = $phpmailer->From;
+}
+
 function csf_clean_text($key)
 {
     return isset($_POST[$key])
@@ -110,6 +135,7 @@ function csf_send_form()
     $headers = array(
         'Content-Type: text/html; charset=UTF-8',
         'From: ' . CSF_DOMAIN . ' <' . CSF_SENDER . '>',
+        'Reply-To: ' . CSF_SENDER,
     );
 
     if ($kind === 'callback') {
@@ -139,7 +165,9 @@ function csf_send_form()
     }
 
     $message .= '<p><strong>Страница:</strong> ' . esc_html($page) . '</p>';
+    add_action('phpmailer_init', 'csf_set_envelope_sender', 999);
     $sent = wp_mail(CSF_RECIPIENT, $subject, $message, $headers);
+    remove_action('phpmailer_init', 'csf_set_envelope_sender', 999);
     if (!$sent) {
         wp_send_json_error(
             array('message' => 'Не удалось отправить сообщение. Попробуйте еще раз.'),
@@ -257,6 +285,7 @@ $headers = array(
     'MIME-Version: 1.0',
     'Content-Type: text/html; charset=UTF-8',
     'From: ' . CSF_DOMAIN . ' <' . CSF_SENDER . '>',
+    'Reply-To: ' . CSF_SENDER,
 );
 
 if ($kind === 'callback') {
@@ -286,7 +315,13 @@ if ($kind === 'callback') {
 }
 
 $message .= '<p><strong>Страница:</strong> ' . htmlspecialchars($page, ENT_QUOTES, 'UTF-8') . '</p>';
-$sent = mail(CSF_RECIPIENT, $subject, $message, implode("\r\n", $headers));
+$sent = mail(
+    CSF_RECIPIENT,
+    $subject,
+    $message,
+    implode("\r\n", $headers),
+    '-f' . CSF_SENDER
+);
 respond(
     $sent,
     $sent ? CSF_SUCCESS : 'Не удалось отправить сообщение. Попробуйте еще раз.',
@@ -396,6 +431,7 @@ $headers = array(
     'MIME-Version: 1.0',
     'Content-Type: text/html; charset=UTF-8',
     'From: ' . CSF_DOMAIN . ' <' . CSF_SENDER . '>',
+    'Reply-To: ' . CSF_SENDER,
 );
 
 if ($kind === 'callback') {
@@ -433,7 +469,13 @@ if ($kind === 'callback') {
 
 $message .= '<p><strong>Страница:</strong> '
     . htmlspecialchars($page, ENT_QUOTES, 'UTF-8') . '</p>';
-$sent = mail(CSF_RECIPIENT, $subject, $message, implode("\r\n", $headers));
+$sent = mail(
+    CSF_RECIPIENT,
+    $subject,
+    $message,
+    implode("\r\n", $headers),
+    '-f' . CSF_SENDER
+);
 if ($sent) {
     @touch($rate_file);
 }
@@ -473,6 +515,50 @@ def replace_contract(template: str, domain: str = "", recipient: str = "") -> st
 
 def render_wordpress_plugin(domain: str, recipient: str) -> str:
     source = replace_contract(WORDPRESS_TEMPLATE, domain, recipient)
+    if domain in CENTRAL_COPY_SITES:
+        source = source.replace(
+            f"const CSF_RECIPIENT = '{recipient}';",
+            f"const CSF_RECIPIENT = '{recipient}';\n"
+            "const CSF_CENTRAL_RECIPIENT = 'upreal@bk.ru';",
+            1,
+        )
+        if domain in SEPARATE_CENTRAL_COPY_SITES:
+            if domain == "39mchs.ru":
+                central_send = (
+                    "    $central_message = preg_replace('/<br\\s*\\/?>/i', \"\\n\", $message);\n"
+                    "    $central_message = str_ireplace('</p>', \"\\n\", $central_message);\n"
+                    "    $central_message = trim(wp_strip_all_tags($central_message));\n"
+                    "    $central_headers = array(\n"
+                    "        'From: ' . CSF_DOMAIN . ' <' . CSF_SENDER . '>',\n"
+                    "        'Reply-To: ' . CSF_SENDER,\n"
+                    "    );\n"
+                    "    $central_sent = wp_mail(CSF_CENTRAL_RECIPIENT, $subject, $central_message, $central_headers);\n"
+                )
+            else:
+                central_send = (
+                    "    $central_sent = wp_mail(CSF_CENTRAL_RECIPIENT, $subject, $message, $headers);\n"
+                )
+            replacement = (
+                central_send
+                + "    $sent = wp_mail(CSF_RECIPIENT, $subject, $message, $headers);\n"
+                + "    remove_action('phpmailer_init', 'csf_set_envelope_sender', 999);\n"
+                "    if (!$sent || !$central_sent) {"
+            )
+            source = source.replace(
+                "    $sent = wp_mail(CSF_RECIPIENT, $subject, $message, $headers);\n"
+                "    remove_action('phpmailer_init', 'csf_set_envelope_sender', 999);\n"
+                "    if (!$sent) {",
+                replacement,
+                1,
+            )
+        else:
+            source = source.replace(
+                "    );\n\n    if ($kind === 'callback') {",
+                "    );\n"
+                "    $headers[] = 'Bcc: ' . CSF_CENTRAL_RECIPIENT;\n\n"
+                "    if ($kind === 'callback') {",
+                1,
+            )
     if domain in HIDDEN_STANDARD_ACTIONS:
         source = source.replace(
             '''        <div class="csf-actions" aria-label="Формы связи">
@@ -547,6 +633,18 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
             ('a[href="#license-modal"]', "question", "ЗАДАТЬ ВОПРОС"),
             ('a[href="#back-modal"]', "question", "ЗАДАТЬ ВОПРОС"),
         ),
+        "medlic.spb.ru": (
+            (
+                ".client-form-actions a:first-child",
+                "callback",
+                "ЗАКАЗАТЬ ЗВОНОК",
+            ),
+            (
+                ".client-form-actions a:last-child",
+                "question",
+                "ЗАДАТЬ ВОПРОС",
+            ),
+        ),
         "nousro.ru": (
             ("#mail-us", "callback", "ЗАКАЗАТЬ ЗВОНОК"),
         ),
@@ -578,6 +676,13 @@ def render_wordpress_plugin(domain: str, recipient: str) -> str:
             ".csf-actions{display:none!important}html.client-contact-modal-open body > jdiv",
             1,
         )
+        if domain == "medlic.spb.ru":
+            source = source.replace(
+                ".csf-actions{display:none!important}",
+                ".csf-actions{display:none!important}"
+                "#n2-ss-2.n2-ss-load-fade.n2-ss-loaded{opacity:1!important}",
+                1,
+            )
         if domain in ("apreal-nn.ru", "apreal72.ru"):
             source = source.replace(
                 ".csf-actions{display:none!important}",

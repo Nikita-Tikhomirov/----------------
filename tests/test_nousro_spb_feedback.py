@@ -6,6 +6,18 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 MODULE_PATH = ROOT / "changes" / "2026-07-22" / "deploy_nousro_spb_feedback.py"
 PLUGIN_PATH = ROOT / "changes" / "2026-07-22" / "nousro-spb-question-fix.php"
+FOOTER_PATH = (
+    ROOT
+    / "changes"
+    / "2026-08-01"
+    / "runtime-repairs"
+    / "nousro-spb.ru"
+    / "public_html"
+    / "wp-content"
+    / "themes"
+    / "Nousro-theme"
+    / "footer.php"
+)
 
 
 def load_module():
@@ -93,6 +105,23 @@ class NousroSpbFeedbackTests(unittest.TestCase):
         self.assertIn("@media(max-width:600px)", source)
         self.assertIn("grid-template-columns:1fr 1fr", source)
         self.assertIn("font-size:28px!important", source)
+
+    def test_mobile_actions_and_modal_titles_use_the_exact_client_labels(self):
+        plugin = PLUGIN_PATH.read_text(encoding="utf-8")
+        footer = FOOTER_PATH.read_text(encoding="utf-8")
+
+        self.assertIn("mobileQuestion.textContent='ЗАДАТЬ ВОПРОС'", plugin)
+        self.assertIn("mobileCallback.textContent='ЗАКАЗАТЬ ЗВОНОК'", plugin)
+        self.assertNotIn("mobileQuestion.textContent='ВОПРОС'", plugin)
+        self.assertNotIn("mobileCallback.textContent='ЗВОНОК'", plugin)
+        self.assertIn(
+            '<div class="modal-title">ЗАДАТЬ ВОПРОС</div>',
+            footer,
+        )
+        self.assertIn(
+            '<div class="modal-title">ЗАКАЗАТЬ ЗВОНОК</div>',
+            footer,
+        )
 
 
 if __name__ == "__main__":
