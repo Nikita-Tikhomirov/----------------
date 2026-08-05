@@ -1,0 +1,25 @@
+{
+  "reviewer": "Codex visual QA; owner release remains pending",
+  "reviewed_at": "2026-08-05T11:49:43+03:00",
+  "client_report": "output/pdf/AP-Real-client-report-2026-08-05.pdf",
+  "cover_note": "output/pdf/AP-Real-cover-note-draft-2026-08-05.pdf",
+  "client_report_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "cover_note_pages": [
+    1
+  ],
+  "method": "Both final PDFs were rendered with Poppler at 144 DPI. Every report page and the cover-note page were inspected at original detail. After the final wording update, the changed pages 9 and 11 were rendered and inspected again. Form screenshots, mobile screenshots, mailbox evidence, hidden-video evidence, site lists, open-item cards, page breaks, and footers were checked for clipping and readability. The editable DOCX files were checked structurally: both open successfully, their ZIP containers are intact, all expected text is present, and all nine report images are embedded. Microsoft Word is not installed and LibreOffice was not used.",
+  "result": "passed",
+  "client_contact_performed": false
+}

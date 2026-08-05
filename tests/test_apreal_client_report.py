@@ -16,6 +16,7 @@ def test_migration_scope_is_complete_without_hiding_exceptions():
         set(report.MIGRATIONS_STAGED),
         set(report.MIGRATIONS_BLOCKED),
         set(report.MIGRATIONS_SCOPE_DECISION),
+        set(report.MIGRATIONS_EXCLUDED),
     ]
 
     assert sum(len(group) for group in groups) == 35
@@ -23,10 +24,12 @@ def test_migration_scope_is_complete_without_hiding_exceptions():
     assert "othodi-spb.ru" not in report.MIGRATIONS_LIVE
     assert "othodi-spb.ru" in report.MIGRATIONS_SOURCE_PLACEHOLDER
     assert "mchs-vrn.ru" in report.MIGRATIONS_STAGED
+    assert report.MIGRATIONS_SCOPE_DECISION == []
+    assert report.MIGRATIONS_EXCLUDED == ["elektro.spb.ru"]
     assert report.MIGRATIONS_ADDITIONAL == ["39mchs.ru"]
 
 
-def test_client_input_requests_are_specific_and_camera_is_not_claimed_fixed():
+def test_client_input_requests_are_specific_and_do_not_repeat_resolved_scope_questions():
     from tools import build_apreal_client_report as report
 
     requested = {item[0] for item in report.CLIENT_INPUT_REQUIRED}
@@ -37,14 +40,11 @@ def test_client_input_requests_are_specific_and_camera_is_not_claimed_fixed():
         "linkedin.com.moopb.ru",
         "mchs-vrn.ru",
         "aklab-spb.ru",
-        "elektro.spb.ru",
         "othodi-spb.ru",
-        "Ivideon-камера",
-        "apreal-samara.ru",
     }
-    camera = next(item for item in report.CLIENT_INPUT_REQUIRED if item[0] == "Ivideon-камера")
-    assert "не изменялся" in camera[1].lower()
-    assert "доступ" in camera[2].lower()
+    assert "elektro.spb.ru" not in requested
+    assert "apreal-samara.ru" not in requested
+    assert not any("ivideon" in item[0].casefold() for item in report.CLIENT_INPUT_REQUIRED)
 
 
 def test_fresh_result_loader_rejects_duplicate_or_failed_views(tmp_path):
@@ -168,15 +168,17 @@ def test_report_never_turns_handler_acceptance_into_universal_mailbox_delivery()
     from tools import build_apreal_client_report as report
 
     requirement_text = " ".join(detail for _, detail in report.FORM_REQUIREMENTS)
-    docx_report_source = inspect.getsource(report)
-    docx_delivery_source = inspect.getsource(report.add_delivery_results)
-    pdf_delivery_source = (
-        Path(__file__).resolve().parents[1] / "tools" / "build_apreal_client_pdf.py"
-    ).read_text(encoding="utf-8")
-    acceptance_report_source = (
-        Path(__file__).resolve().parents[1] / "tools" / "build_apreal_acceptance_report.py"
-    ).read_text(encoding="utf-8")
-    combined_report_source = docx_report_source + pdf_delivery_source + acceptance_report_source
+    docx_delivery_source = inspect.getsource(report.add_human_mail_and_video)
+    pdf_source = (Path(__file__).resolve().parents[1] / "tools" / "build_apreal_client_pdf.py").read_text(
+        encoding="utf-8"
+    )
+    pdf_delivery_source = pdf_source.rsplit("def build_report_pdf()", 1)[1].split("def build_cover_pdf()", 1)[0]
+    client_visible_source = (
+        " ".join(report.COVER_NOTE_PARAGRAPHS)
+        + inspect.getsource(report.add_human_report_cover)
+        + docx_delivery_source
+        + pdf_delivery_source
+    )
 
     assert report.MAIL_DELIVERY_SCOPE == "mailbox_confirmed_sites_only"
     assert report.MAILBOX_CONFIRMED_SITES == ("medlic.spb.ru",)
@@ -205,29 +207,31 @@ def test_report_never_turns_handler_acceptance_into_universal_mailbox_delivery()
         "подтвердил получение писем",
     )
     for claim in unsupported_claims:
-        assert claim not in combined_report_source
+        assert claim.casefold() not in client_visible_source.casefold()
 
-    assert "60 обработчиков" in docx_delivery_source
-    assert "48" in docx_delivery_source and "маршрут" in docx_delivery_source
-    assert "60 обработчиков" in pdf_delivery_source
-    assert "48" in pdf_delivery_source and "маршрут" in pdf_delivery_source
-    assert "medlic.spb.ru" in acceptance_report_source
-    assert "48" in acceptance_report_source and "маршрут" in acceptance_report_source
+    assert "личного gmail" in client_visible_source.casefold()
+    assert (
+        "прямую доставку в ящик отдельно показываю только для medlic.spb.ru"
+        in client_visible_source.casefold()
+    )
 
 
 def test_client_report_describes_hidden_background_videos_as_resolved():
     from tools import build_apreal_client_report as report
 
-    pdf_source = (
-        Path(__file__).resolve().parents[1] / "tools" / "build_apreal_client_pdf.py"
-    ).read_text(encoding="utf-8")
-    combined_source = inspect.getsource(report) + pdf_source
+    correction = next(item for item in report.HUMAN_CORRECTIONS if item[0] == "Фоновое видео")
+    pdf_source = (Path(__file__).resolve().parents[1] / "tools" / "build_apreal_client_pdf.py").read_text(
+        encoding="utf-8"
+    )
+    pdf_visible_source = pdf_source.rsplit("def build_report_pdf()", 1)[1].split("def build_cover_pdf()", 1)[0]
+    combined_source = (
+        " ".join(correction)
+        + inspect.getsource(report.add_human_mail_and_video)
+        + pdf_visible_source
+    )
 
     assert not any(item[0] == "nousro.ru / nousro-nn.ru" for item in report.CLIENT_INPUT_REQUIRED)
-    background_row = next(
-        item for item in report.ADDITIONAL_WORK if item[0] == "nousro.ru / nousro-nn.ru"
-    )
-    assert "скры" in background_row[2].casefold()
+    assert "скры" in correction[3].casefold()
     for stale_claim in (
         "анимация снова отображается",
         "восстановленная штатная фоновая анимация",
@@ -236,3 +240,31 @@ def test_client_report_describes_hidden_background_videos_as_resolved():
         "подтвердить: оставить анимацию",
     ):
         assert stale_claim.casefold() not in combined_source.casefold()
+
+
+def test_client_visible_text_is_plain_and_has_no_old_metric_strip():
+    from tools import build_apreal_client_report as report
+
+    pdf_source = (Path(__file__).resolve().parents[1] / "tools" / "build_apreal_client_pdf.py").read_text(
+        encoding="utf-8"
+    )
+    pdf_visible_source = pdf_source.rsplit("def build_report_pdf()", 1)[1]
+
+    visible = (
+        " ".join(report.COVER_NOTE_PARAGRAPHS)
+        + inspect.getsource(report.add_human_report_cover)
+        + inspect.getsource(report.add_human_corrections)
+        + pdf_visible_source
+    ).casefold()
+
+    for stale in (
+        "60 из 60",
+        "48 из 48",
+        "полностью пересобрал контроль",
+        "автоматические проверки показывали",
+        "маршрутизация заявок",
+    ):
+        assert stale not in visible
+
+    assert "что было не так" in visible
+    assert "что исправлено" in visible

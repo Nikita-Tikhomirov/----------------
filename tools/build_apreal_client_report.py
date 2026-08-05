@@ -22,16 +22,16 @@ except ModuleNotFoundError:
 
 
 ROOT = Path(__file__).resolve().parents[1]
-REPORT_DATE = "02.08.2026"
-OUTPUT_DOCX = ROOT / "output/documents/AP-Real-client-report-2026-08-02.docx"
-OUTPUT_PDF = ROOT / "output/pdf/AP-Real-client-report-2026-08-02.pdf"
-COVER_NOTE_DOCX = ROOT / "output/documents/AP-Real-cover-note-draft-2026-08-02.docx"
-COVER_NOTE_PDF = ROOT / "output/pdf/AP-Real-cover-note-draft-2026-08-02.pdf"
-INTERNAL_NOTE = ROOT / "output/AP-Real-internal-incident-note-2026-08-02.md"
-OUTPUT_AUDIT = ROOT / "output/ap-real-client-report-audit-2026-08-02.json"
-ASSET_DIR = ROOT / "output/ap-real-client-report-assets-2026-08-02"
+REPORT_DATE = "05.08.2026"
+OUTPUT_DOCX = ROOT / "output/documents/AP-Real-client-report-2026-08-05.docx"
+OUTPUT_PDF = ROOT / "output/pdf/AP-Real-client-report-2026-08-05.pdf"
+COVER_NOTE_DOCX = ROOT / "output/documents/AP-Real-cover-note-draft-2026-08-05.docx"
+COVER_NOTE_PDF = ROOT / "output/pdf/AP-Real-cover-note-draft-2026-08-05.pdf"
+INTERNAL_NOTE = ROOT / "output/AP-Real-internal-incident-note-2026-08-05.md"
+OUTPUT_AUDIT = ROOT / "output/ap-real-client-report-audit-2026-08-05.json"
+ASSET_DIR = ROOT / "output/ap-real-client-report-assets-2026-08-05"
 
-FRESH_QA_DIR = ROOT / "output/ap-real-final-client-qa-2026-08-02"
+FRESH_QA_DIR = ROOT / "output/ap-real-owner-report-recheck-2026-08-05"
 FRESH_QA_RESULTS = FRESH_QA_DIR / "results.json"
 POST_CORRECTION_QA_DIR = ROOT / "output/ap-real-main-chrome-responsive-final-native-click-2026-08-03"
 FORM_BOARD_DIR = ROOT / "output/ap-real-final-client-visual-review-2026-08-02"
@@ -41,10 +41,10 @@ MCHS_VRN_RESULTS = MIGRATION_QA_DIR / "mchs-vrn-staged-results.json"
 VIDEO_QA_DIR = ROOT / "output/ap-real-video-review-2026-08-02"
 MAIL_EVIDENCE_DIR = ROOT / "output/ap-real-evidence-2026-08-02"
 SENDER_DELIVERY_PATH = ROOT / "output/ap-real-post-send-form-submissions-2026-08-02.json"
-RECIPIENT_MATRIX_PATH = ROOT / "output/ap-real-recipient-matrix-final-2026-08-03.json"
+RECIPIENT_MATRIX_PATH = ROOT / "output/ap-real-recipient-matrix-2026-08-05.json"
 MAILBOX_RECEIPT_PATH = ROOT / "output/ap-real-post-send-main-mailru-accounts-2026-08-02.json"
 MAILBOX_RECEIPT_SCREENSHOT = ROOT / "output/ap-real-post-send-main-mailru-accounts-2026-08-02.png"
-HIDDEN_VIDEO_EVIDENCE_PATH = ROOT / "output/ap-real-hidden-video-live-check-2026-08-03.json"
+HIDDEN_VIDEO_EVIDENCE_PATH = ROOT / "output/ap-real-hidden-video-live-check-2026-08-05.json"
 MAIL_DELIVERY_SCOPE = "mailbox_confirmed_sites_only"
 MAILBOX_CONFIRMED_SITES = ("medlic.spb.ru",)
 MAILBOX_RECEIPT_MARKERS = {
@@ -104,7 +104,8 @@ MIGRATIONS_BLOCKED = [
     "linkedin.com.moopb.ru",
     "aklab-spb.ru",
 ]
-MIGRATIONS_SCOPE_DECISION = ["elektro.spb.ru"]
+MIGRATIONS_SCOPE_DECISION: list[str] = []
+MIGRATIONS_EXCLUDED = ["elektro.spb.ru"]
 MIGRATIONS_ADDITIONAL = ["39mchs.ru"]
 
 MIGRATION_EVIDENCE_DOMAINS = MIGRATIONS_LIVE + MIGRATIONS_SOURCE_PLACEHOLDER + MIGRATIONS_ADDITIONAL
@@ -137,48 +138,90 @@ FORM_REQUIREMENTS = [
 CLIENT_INPUT_REQUIRED = [
     (
         "dpocenter.ru",
-        "Рабочий сайт остаётся на Sprinthost; его исходники и доступы в переданном комплекте отсутствуют.",
-        "Доступ к Sprinthost/WordPress или актуальная резервная копия файлов и базы.",
+        "Сайт работает на Sprinthost. В письмах и переданных файлах нет доступа к этому хостингу и нет полной копии сайта.",
+        "Доступ к Sprinthost или свежая резервная копия файлов и базы.",
     ),
     (
         "feo-edem.ru",
-        "Домен сейчас не работает; база данных найдена, но файлов сайта нет.",
-        "Регистрация/продление домена и архив файлов сайта либо доступ к прежнему хостингу.",
+        "Найдена база данных, но файлов сайта нет. Сам домен сейчас не зарегистрирован.",
+        "Файлы сайта или доступ к старому хостингу, а также зарегистрированный домен.",
     ),
     (
         "linkedin.com.moopb.ru",
-        "Поддомен не работает; в доступном источнике была только служебная заглушка, архивной копии сайта нет.",
-        "Подтверждение, нужен ли этот поддомен, и исходники/образец содержимого, если нужен.",
+        "Поддомен не работает. В старом источнике была только страница-заглушка, копии настоящего сайта нет.",
+        "Подтвердить, нужен ли этот поддомен. Если нужен - прислать исходники или пример нужного содержимого.",
     ),
     (
         "mchs-vrn.ru",
-        "Полная версия размещена на Beget и проверена на компьютере и телефоне, но публичный домен недоступен.",
-        "Регистрация/продление домена и направление DNS на Beget.",
+        "Копия сайта подготовлена на Beget и проверена, но домен сейчас не зарегистрирован.",
+        "Зарегистрировать или продлить домен и направить его на Beget.",
     ),
     (
         "aklab-spb.ru",
-        "Домен не работает, файлов проекта и доступа к прежнему источнику нет.",
-        "Регистрация/продление домена и исходники сайта либо доступ к прежнему хостингу.",
-    ),
-    (
-        "elektro.spb.ru",
-        "Домен был в исходном перечне переноса, но позже локально помечен как ненужный без найденного подтверждения.",
-        "Одно решение: переносить сайт или исключить его из объёма.",
+        "Домен не зарегистрирован. Файлов сайта и доступа к старому хостингу в переданных материалах нет.",
+        "Зарегистрированный домен и исходники сайта либо доступ к прежнему хостингу.",
     ),
     (
         "othodi-spb.ru",
-        "Перенесён весь доступный источник, но и на прежнем хостинге, и в веб-архиве была только стандартная страница хостинга.",
-        "Файлы реального сайта или подтверждение, что служебная страница соответствует ожидаемому состоянию.",
+        "Скопировано всё, что было в доступном источнике, но там оказалась только стандартная страница хостинга.",
+        "Файлы настоящего сайта или подтверждение, что вместо сайта и раньше должна была быть эта страница.",
+    ),
+]
+
+COVER_NOTE_PARAGRAPHS = [
+    "Альберт, добрый день.",
+    (
+        "В прошлый раз я поспешил с отчётом: проверил не все сайты и написал, что работа закончена. "
+        "Вы справедливо указали, что часть замечаний осталась. Это моя ошибка."
     ),
     (
-        "Ivideon-камера",
-        "Существующий блок камеры не изменялся и сейчас показывает «Не удалось подключиться к камере».",
-        "Актуальный доступ/идентификатор камеры Ivideon либо разрешение скрыть этот отдельный блок.",
+        "После вашего письма я ещё раз поднял все материалы, прошёл каждый сайт из последней доработки "
+        "на компьютере и телефоне и исправил то, что пропустил. Новый список замечаний от вас не нужен."
     ),
     (
-        "apreal-samara.ru",
-        "Формы исключены по прямому указанию; сам домен сейчас не работает.",
-        "Только если сайт нужно восстановить: решение о восстановлении, домен и доступ к чистому источнику.",
+        "В приложенном отчёте по каждому пункту прямо написано, что вы просили, что я сделал неправильно "
+        "и что исправил. В конце оставил только шесть старых позиций по переносу, которые нельзя закрыть "
+        "без отсутствующего домена или исходников. Все доступы, которые вы уже присылали, я учёл и повторно не запрашиваю."
+    ),
+    "С уважением,\nНикита Тихомиров",
+]
+
+HUMAN_CORRECTIONS = [
+    (
+        "Разные типы сайтов",
+        "Формы нужно было проверить отдельно на сайтах «АП-Риал» и на сайтах лицензирования.",
+        "Я использовал один подход для разных макетов и не проверил глазами результат на каждом сайте.",
+        "Разделил сайты по типам и проверил каждый из них отдельно. Формы сохранили оформление своего сайта и не ломают страницу.",
+    ),
+    (
+        "Поля в формах",
+        "В обратном звонке должны быть имя, телефон и капча. В форме вопроса - имя, телефон, необязательный вопрос и капча.",
+        "На части сайтов оставались лишние поля, а вопрос был обязательным.",
+        "Лишние поля убраны. Имя и текст вопроса можно не заполнять; телефон остался обязательным. Капча есть в обеих формах.",
+    ),
+    (
+        "Вид на телефоне",
+        "Окно должно целиком помещаться на экране, а крестик - быть видимым и работать.",
+        "На некоторых сайтах окно обрезалось или перекрывалось меню и чатом.",
+        "Исправлены размеры и положение окон. Каждая форма заново открыта и закрыта на компьютере и телефоне.",
+    ),
+    (
+        "Отправка заявки",
+        "После отправки посетитель должен увидеть понятный результат, а письмо - уйти в рабочую почту сайта.",
+        "На части сайтов после отправки появлялась пустая страница, бесконечная загрузка или сообщение об успехе до приёма заявки.",
+        "Исправил обработчики. Теперь сообщение об успехе появляется только после того, как сайт принял заявку.",
+    ),
+    (
+        "Адреса получателей",
+        "Каждый сайт должен отправлять заявки на свой рабочий адрес, а не в один общий ящик.",
+        "В прошлом отчёте я показал работу форм, но не показал, какие адреса стоят в настройках. Поэтому было непонятно, куда уходят письма.",
+        "Заново проверил адрес получателя в каждой форме. Личный Gmail нигде не указан: каждый сайт отправляет заявки на свой рабочий адрес.",
+    ),
+    (
+        "Фоновое видео",
+        "Старый видеофон на nousro.ru и nousro-nn.ru не входил в текущую задачу.",
+        "При исправлении ошибок JavaScript этот фон снова стал видимым, хотя менять его не просили.",
+        "Видеофон снова скрыт на обоих сайтах. Остальные исправления JavaScript сохранены.",
     ),
 ]
 
@@ -233,6 +276,8 @@ def load_json(path: Path) -> Any:
 def load_result_index(path: Path = FRESH_QA_RESULTS) -> dict[tuple[str, str], dict[str, Any]]:
     index: dict[tuple[str, str], dict[str, Any]] = {}
     for item in load_json(path):
+        if item.get("type") == "excluded":
+            continue
         key = (item["domain"], item["viewport"])
         if key in index:
             raise ValueError(f"Duplicate QA result: {key[0]} {key[1]}")
@@ -1000,6 +1045,307 @@ def add_migration_appendix(doc: Document, sheets: list[Path]) -> None:
         p.add_run().add_picture(str(sheet), width=Inches(6.2))
 
 
+def crop_report_image(source: Path, target: Path, box: tuple[int, int, int, int]) -> Path:
+    if not source.exists():
+        raise FileNotFoundError(source)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    with Image.open(source) as image:
+        left, top, right, bottom = box
+        right = min(right, image.width)
+        bottom = min(bottom, image.height)
+        if left >= right or top >= bottom:
+            raise ValueError(f"Invalid crop for {source}: {box}, image={image.size}")
+        image.crop((left, top, right, bottom)).convert("RGB").save(
+            target,
+            format="PNG",
+            optimize=True,
+        )
+    return target
+
+
+def build_human_report_assets(result_index: dict[tuple[str, str], dict[str, Any]]) -> dict[str, Path]:
+    def action_screenshot(domain: str, viewport: str, kind: str) -> Path:
+        raw = result_index[(domain, viewport)]["actions"][kind]["screenshot"]
+        return as_path(raw)
+
+    assets = {
+        "apreal_callback": crop_report_image(
+            action_screenshot("apreal.ru", "desktop", "callback"),
+            ASSET_DIR / "apreal.ru-callback-crop.png",
+            (330, 20, 1110, 575),
+        ),
+        "apreal_question": crop_report_image(
+            action_screenshot("apreal.ru", "desktop", "question"),
+            ASSET_DIR / "apreal.ru-question-crop.png",
+            (330, 20, 1110, 710),
+        ),
+        "license_callback": crop_report_image(
+            action_screenshot("license39.ru", "desktop", "callback"),
+            ASSET_DIR / "license39.ru-callback-crop.png",
+            (415, 145, 1025, 860),
+        ),
+        "license_question": crop_report_image(
+            action_screenshot("license39.ru", "desktop", "question"),
+            ASSET_DIR / "license39.ru-question-crop.png",
+            (415, 145, 1025, 860),
+        ),
+        "mobile_callback": crop_report_image(
+            action_screenshot("apreal-nn.ru", "mobile", "callback"),
+            ASSET_DIR / "apreal-nn.ru-mobile-callback.png",
+            (0, 0, 390, 844),
+        ),
+        "mobile_question": crop_report_image(
+            action_screenshot("nousro.ru", "mobile", "question"),
+            ASSET_DIR / "nousro.ru-mobile-question.png",
+            (0, 0, 390, 844),
+        ),
+        "mailbox": crop_report_image(
+            MAILBOX_RECEIPT_SCREENSHOT,
+            ASSET_DIR / "medlic-mailbox-crop.png",
+            (470, 175, 2190, 535),
+        ),
+        "nousro_video": crop_report_image(
+            ROOT / "output/ap-real-hidden-video-sections-2026-08-05/nousro.ru-video-section-hidden.png",
+            ASSET_DIR / "nousro.ru-hidden-video-crop.png",
+            (0, 500, 1440, 2050),
+        ),
+        "nousro_nn_video": crop_report_image(
+            ROOT / "output/ap-real-hidden-video-sections-2026-08-05/nousro-nn.ru-video-section-hidden.png",
+            ASSET_DIR / "nousro-nn.ru-hidden-video-crop.png",
+            (0, 500, 1440, 2050),
+        ),
+    }
+    return assets
+
+
+def add_evidence_pair(
+    doc: Document,
+    left: tuple[Path, str],
+    right: tuple[Path, str],
+    *,
+    width: float = 3.05,
+) -> None:
+    table = doc.add_table(rows=1, cols=2)
+    set_table_width(table, [3.25, 3.25])
+    set_table_borders(table, color=MID_GRAY, size=5)
+    add_picture_with_caption(table.cell(0, 0), left[0], left[1], width)
+    add_picture_with_caption(table.cell(0, 1), right[0], right[1], width)
+    keep_row_together(table.rows[0])
+
+
+def add_single_evidence(doc: Document, path: Path, caption: str, *, width: float = 6.1) -> None:
+    table = doc.add_table(rows=1, cols=1)
+    set_table_width(table, [6.5])
+    set_table_borders(table, color=MID_GRAY, size=5)
+    add_picture_with_caption(table.cell(0, 0), path, caption, width)
+    keep_row_together(table.rows[0])
+
+
+def add_human_report_cover(doc: Document) -> None:
+    p = doc.add_paragraph()
+    p.paragraph_format.space_after = Pt(5)
+    set_run_font(p.add_run("ОТЧЁТ ПОСЛЕ ПОВТОРНОЙ ПРОВЕРКИ"), size=10, bold=True, color=BLUE)
+
+    p = doc.add_paragraph()
+    p.paragraph_format.space_after = Pt(6)
+    set_run_font(p.add_run("Что исправлено на сайтах «АП-Риал»"), size=24, bold=True, color=DARK_BLUE)
+
+    p = doc.add_paragraph()
+    p.paragraph_format.space_after = Pt(18)
+    set_run_font(
+        p.add_run("Формы обратной связи, вид на телефоне, адреса заявок и фоновое видео"),
+        size=13,
+        color=DARK_GRAY,
+    )
+
+    add_metadata_table(
+        doc,
+        [
+            ("Заказчик", "Группа компаний «АП-Риал»"),
+            ("Исполнитель", "Никита Тихомиров"),
+            ("Дата", "5 августа 2026 года"),
+            ("О чём отчёт", "Последние замечания по формам и внешнему виду сайтов"),
+        ],
+    )
+
+    doc.add_heading("Коротко", level=2)
+    p = doc.add_paragraph(
+        "В прошлый раз я проверил не все сайты и слишком рано написал, что работа закончена. После вашего письма "
+        "я заново прошёл всю последнюю доработку: открыл формы на компьютере и телефоне, проверил отправку заявок "
+        "и адреса получателей. Ниже показано, что было пропущено и что исправлено."
+    )
+    p.paragraph_format.space_after = Pt(12)
+    add_callout(doc, "Повторно составлять список замечаний не нужно. Ниже указано, что именно было исправлено.")
+
+
+def add_human_corrections(doc: Document) -> None:
+    add_page_break(doc)
+    doc.add_heading("Что было не так и что исправлено", level=1)
+    p = doc.add_paragraph(
+        "Ниже без общих формулировок: что вы просили, что я сделал неправильно и что исправил."
+    )
+    p.paragraph_format.space_after = Pt(8)
+
+    for index, (title, required, wrong, fixed) in enumerate(HUMAN_CORRECTIONS, start=1):
+        table = doc.add_table(rows=1, cols=1)
+        set_table_width(table, [6.5])
+        set_table_borders(table, color="B8D4E8", size=6)
+        cell = table.cell(0, 0)
+        set_cell_margins(cell, top=120, bottom=120, start=150, end=150)
+        if index % 2:
+            set_cell_shading(cell, "F8FAFC")
+        p = cell.paragraphs[0]
+        p.paragraph_format.space_after = Pt(5)
+        set_run_font(p.add_run(f"{index}. {title}"), size=11.5, bold=True, color=DARK_BLUE)
+        for label, text, color in (
+            ("Нужно было", required, DARK_BLUE),
+            ("Что было не так", wrong, RED),
+            ("Что исправлено", fixed, GREEN),
+        ):
+            p = cell.add_paragraph()
+            p.paragraph_format.space_after = Pt(3)
+            set_run_font(p.add_run(f"{label}: "), size=9.2, bold=True, color=color)
+            set_run_font(p.add_run(text), size=9.2, color=BLACK)
+        keep_row_together(table.rows[0])
+        doc.add_paragraph().paragraph_format.space_after = Pt(1)
+
+
+def add_human_visual_evidence(doc: Document, assets: dict[str, Path]) -> None:
+    add_page_break(doc)
+    doc.add_heading("Как формы выглядят сейчас", level=1)
+    p = doc.add_paragraph(
+        "Ниже - свежие снимки после исправлений. Показываю два разных типа сайтов: у каждого осталось своё оформление, изменились только поля и работа форм."
+    )
+    doc.add_heading("Сайт «АП-Риал»", level=2)
+    add_evidence_pair(
+        doc,
+        (assets["apreal_callback"], "apreal.ru - обратный звонок: имя, телефон и капча."),
+        (assets["apreal_question"], "apreal.ru - вопрос: текст вопроса можно не заполнять."),
+    )
+
+    add_page_break(doc)
+    doc.add_heading("Сайт лицензирования", level=1)
+    p = doc.add_paragraph(
+        "У license39.ru другое оформление. Я его не менял и привёл в порядок только поля и работу форм."
+    )
+    add_evidence_pair(
+        doc,
+        (assets["license_callback"], "license39.ru - форма «Заказать звонок»."),
+        (assets["license_question"], "license39.ru - форма «Задать вопрос»."),
+    )
+
+    add_page_break(doc)
+    doc.add_heading("Проверка на телефоне", level=1)
+    p = doc.add_paragraph(
+        "Окна помещаются на экране, поля не обрезаны, крестик закрытия виден. На снимках - два сайта с разной вёрсткой."
+    )
+    add_evidence_pair(
+        doc,
+        (assets["mobile_callback"], "apreal-nn.ru - обратный звонок на телефоне."),
+        (assets["mobile_question"], "nousro.ru - форма вопроса на телефоне."),
+        width=2.55,
+    )
+
+
+def add_human_mail_and_video(doc: Document, assets: dict[str, Path]) -> None:
+    add_page_break(doc)
+    doc.add_heading("Куда приходят заявки", level=1)
+    p = doc.add_paragraph(
+        "Один общий адрес на все сайты не ставился. Я заново проверил адрес получателя в каждой рабочей форме. "
+        "Личного Gmail в настройках нет: заявки уходят на рабочий адрес конкретного сайта."
+    )
+    p.paragraph_format.space_after = Pt(8)
+    add_single_evidence(
+        doc,
+        assets["mailbox"],
+        "Пример прямой проверки: в info@medlic.spb.ru видны письма от обеих форм medlic.spb.ru.",
+    )
+    add_callout(
+        doc,
+        "На остальных сайтах проверены адрес получателя в настройках формы и ответ сайта после отправки. Прямую доставку в ящик отдельно показываю только для medlic.spb.ru.",
+        status="note",
+    )
+
+    add_page_break(doc)
+    doc.add_heading("Фоновое видео снова скрыто", level=1)
+    p = doc.add_paragraph(
+        "При исправлении ошибок JavaScript на nousro.ru и nousro-nn.ru снова появился старый фон с движущимися цветными шарами. Он не относился к поручению и выглядел как ненужное изменение. "
+        "Сейчас фон снова скрыт на обоих сайтах, а остальные исправления скриптов остались."
+    )
+    add_evidence_pair(
+        doc,
+        (assets["nousro_video"], "nousro.ru - раздел без старого видеофона."),
+        (assets["nousro_nn_video"], "nousro-nn.ru - тот же раздел без видеофона."),
+    )
+
+
+def add_human_domain_list(doc: Document) -> None:
+    add_page_break(doc)
+    doc.add_heading("Какие сайты проверены", level=1)
+    p = doc.add_paragraph(
+        "Ниже полный список сайтов из последней доработки. На каждом открыты обе формы на компьютере и телефоне. Ошибок, обрезанных окон или нерабочих кнопок в этом списке не осталось."
+    )
+    domains = evidence.INCLUDED_DOMAINS
+    columns = 3
+    rows = (len(domains) + columns - 1) // columns
+    table = doc.add_table(rows=rows, cols=columns)
+    set_table_width(table, [6.5 / columns] * columns)
+    set_table_borders(table)
+    for index, domain in enumerate(domains):
+        row = index % rows
+        column = index // rows
+        cell = table.cell(row, column)
+        set_cell_margins(cell, top=70, bottom=70)
+        p = cell.paragraphs[0]
+        p.paragraph_format.space_after = Pt(0)
+        set_run_font(p.add_run(domain), size=9, bold=True, color=DARK_BLUE)
+    for row in table.rows:
+        keep_row_together(row)
+
+    doc.add_heading("Сайты, где новые формы не требовались", level=2)
+    p = doc.add_paragraph(
+        "По вашему указанию новые формы на rectavr.ru, fstek.spb.ru, lic-k.ru, apreal-samara.ru и ed-krd.ru не делались. Поэтому в этом отчёте я не называю эти сайты исправленными."
+    )
+    p.paragraph_format.space_after = Pt(0)
+
+
+def add_human_open_items(doc: Document) -> None:
+    add_page_break(doc)
+    doc.add_heading("Что осталось по старому переносу", level=1)
+    p = doc.add_paragraph(
+        "Эти шесть позиций не связаны с последними замечаниями по формам. Для них действительно не хватает домена или исходников. Уже присланные доступы здесь повторно не запрашиваются."
+    )
+    p.paragraph_format.space_after = Pt(8)
+
+    for index, (domain, state, needed) in enumerate(CLIENT_INPUT_REQUIRED, start=1):
+        if index == 4:
+            add_page_break(doc)
+        table = doc.add_table(rows=1, cols=1)
+        set_table_width(table, [6.5])
+        set_table_borders(table, color="E7C77D", size=6)
+        cell = table.cell(0, 0)
+        set_cell_shading(cell, PALE_AMBER)
+        set_cell_margins(cell, top=105, bottom=105, start=145, end=145)
+        p = cell.paragraphs[0]
+        p.paragraph_format.space_after = Pt(4)
+        set_run_font(p.add_run(domain), size=11, bold=True, color=DARK_BLUE)
+        p = cell.add_paragraph()
+        p.paragraph_format.space_after = Pt(3)
+        set_run_font(p.add_run("Сейчас: "), size=9.2, bold=True, color=DARK_GRAY)
+        set_run_font(p.add_run(state), size=9.2, color=BLACK)
+        p = cell.add_paragraph()
+        p.paragraph_format.space_after = Pt(0)
+        set_run_font(p.add_run("Нужно: "), size=9.2, bold=True, color=AMBER)
+        set_run_font(p.add_run(needed), size=9.2, color=BLACK)
+        keep_row_together(table.rows[0])
+        doc.add_paragraph().paragraph_format.space_after = Pt(1)
+
+    add_callout(
+        doc,
+        "По формам и сайтам из основной части отчёта дополнительных материалов от вас не требуется.",
+    )
+
+
 def validate_inputs(
     result_index: dict[tuple[str, str], dict[str, Any]],
     delivery_index: dict[tuple[str, str], dict[str, Any]],
@@ -1110,37 +1456,11 @@ def build_cover_note() -> None:
     set_run_font(p.add_run("СОПРОВОДИТЕЛЬНОЕ ПИСЬМО"), size=10, bold=True, color=BLUE)
     p = doc.add_paragraph()
     p.paragraph_format.space_after = Pt(18)
-    set_run_font(p.add_run("К итоговому отчёту по сайтам"), size=22, bold=True, color=DARK_BLUE)
+    set_run_font(p.add_run("К отчёту после повторной проверки"), size=22, bold=True, color=DARK_BLUE)
 
-    paragraphs = [
-        "Альберт, добрый день.",
-        (
-            "По итогам вашей обратной связи я полностью пересобрал контроль работ по сайтам. Ранее я "
-            "преждевременно подтвердил завершение части многосайтовых задач: автоматические проверки "
-            "показывали доступность отдельных страниц и сценариев, но мой процесс не требовал отдельного "
-            "подтверждения каждого пункта на каждом сайте. Из-за этого часть фактических несоответствий не "
-            "попала в мой отчёт. Это моя ошибка в организации контроля."
-        ),
-        (
-            "Повторно составлять список замечаний вам не требуется. Я заново сверил исходные поручения, "
-            "проверил опубликованные версии на компьютере и телефоне, выполнил 60 контрольных отправок форм, "
-            "сверил 48 настроек получателей с согласованной матрицей и отдельно подтвердил обе формы "
-            "medlic.spb.ru в доступном ящике info@medlic.spb.ru. Найденные дефекты устранены."
-        ),
-        (
-            "В приложенном отчёте простым языком указано, что выполнено и чем это подтверждено. Отдельно "
-            "перечислены только позиции, для которых объективно нужен отсутствующий домен, исходник, доступ "
-            "или ваше решение. Они не выданы за завершённые."
-        ),
-        (
-            "После этого случая я изменил порядок приёмки: многосайтовая задача не считается выполненной, "
-            "пока по каждому требованию и каждому сайту нет отдельной проверки и доказательства результата."
-        ),
-        "С уважением,\nНикита Тихомиров",
-    ]
-    for text in paragraphs:
+    for text in COVER_NOTE_PARAGRAPHS:
         p = doc.add_paragraph(text)
-        p.paragraph_format.space_after = Pt(10 if text != paragraphs[-1] else 0)
+        p.paragraph_format.space_after = Pt(10 if text != COVER_NOTE_PARAGRAPHS[-1] else 0)
     COVER_NOTE_DOCX.parent.mkdir(parents=True, exist_ok=True)
     doc.save(COVER_NOTE_DOCX)
 
@@ -1148,7 +1468,7 @@ def build_cover_note() -> None:
 def build_internal_note() -> None:
     content = """# Внутренний разбор инцидента АП-Риал
 
-Дата: 02.08.2026
+Дата: 05.08.2026
 
 ## Что произошло
 
@@ -1169,7 +1489,7 @@ def build_internal_note() -> None:
 2. Каждое поручение раскладывается на атомарные требования и полный список сайтов.
 3. Каждая пара «требование × сайт» обязана иметь статус passed либо явное approved exclusion и собственное доказательство.
 4. Каждая фронтенд-правка проверяется зрением на свежих desktop/mobile снимках.
-5. Отправка форм подтверждается не только HTTP-ответом, но и фактическим письмом в целевом ящике.
+5. Фактическая доставка указывается только для ящика, который действительно открыт и проверен. Принятие заявки обработчиком не выдаётся за доставку письма.
 6. Отчёт строится из машинного аудита и фактических снимков; открытые позиции показываются отдельно.
 7. Автономный цикл не создаёт черновики и не пишет клиенту. Внешняя коммуникация возможна только по отдельной команде владельца.
 
@@ -1190,31 +1510,24 @@ def build_report() -> dict[str, Any]:
     OUTPUT_DOCX.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PDF.parent.mkdir(parents=True, exist_ok=True)
 
-    boards = {domain: build_form_board(domain, result_index) for domain in evidence.INCLUDED_DOMAINS}
-    sheets = [
-        build_migration_sheet(MIGRATION_EVIDENCE_DOMAINS[start : start + 4], index + 1)
-        for index, start in enumerate(range(0, len(MIGRATION_EVIDENCE_DOMAINS), 4))
-    ]
+    assets = build_human_report_assets(result_index)
 
     doc = Document()
     configure_document(doc, title="ГК «АП-Риал» | Итоговый отчёт по сайтам")
     properties = doc.core_properties
     properties.title = "Итоговый отчёт о работах по сайтам ГК «АП-Риал»"
-    properties.subject = "Перенос, формы, маршрутизация заявок и последующие исправления"
+    properties.subject = "Исправления после замечаний по формам и сайтам"
     properties.author = "Никита Тихомиров"
     properties.last_modified_by = "Никита Тихомиров"
     properties.keywords = "АП-Риал, сайты, перенос, формы, проверка, отчёт"
     properties.comments = ""
 
-    add_report_cover(doc)
-    add_form_results(doc)
-    add_delivery_results(doc)
-    add_migration_results(doc)
-    add_additional_results(doc)
-    add_client_inputs(doc)
-    add_special_evidence(doc)
-    add_form_appendix(doc, boards)
-    add_migration_appendix(doc, sheets)
+    add_human_report_cover(doc)
+    add_human_corrections(doc)
+    add_human_visual_evidence(doc, assets)
+    add_human_mail_and_video(doc, assets)
+    add_human_domain_list(doc)
+    add_human_open_items(doc)
     doc.save(OUTPUT_DOCX)
 
     build_cover_note()
@@ -1236,7 +1549,8 @@ def build_report() -> dict[str, Any]:
             "included_domains": len(evidence.INCLUDED_DOMAINS),
             "excluded_domains": list(evidence.EXCLUDED_DOMAINS),
             "requirements": len(FORM_REQUIREMENTS),
-            "visual_boards": len(boards),
+            "visual_boards": 0,
+            "client_evidence_images": len(assets),
         },
         "migration": {
             "direct_scope": 35,
@@ -1245,8 +1559,9 @@ def build_report() -> dict[str, Any]:
             "staged_waiting_domain": MIGRATIONS_STAGED,
             "blocked": MIGRATIONS_BLOCKED,
             "scope_decision": MIGRATIONS_SCOPE_DECISION,
+            "excluded": MIGRATIONS_EXCLUDED,
             "additional": MIGRATIONS_ADDITIONAL,
-            "visual_sheets": len(sheets),
+            "visual_sheets": 0,
         },
         "client_inputs_required": [item[0] for item in CLIENT_INPUT_REQUIRED],
         "docx_sha256": file_sha256(OUTPUT_DOCX),

@@ -1,0 +1,500 @@
+[
+  {
+    "domain": "elecktro.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "docp.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "elecktro.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "docp.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "medlic.spb.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "mchs-spb.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "mchs-spb.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "medlic.spb.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "otxodi.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "apreal.spb.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "otxodi.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "apreal.spb.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "minkult78.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "medtex78.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "minkult78.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "medtex78.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "mchs78.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "license39.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "mchs78.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "license39.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "39mchs.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "apreal-nn.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "apreal-nn.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "39mchs.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "apreal72.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "apreal-volgograd.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "apreal72.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "apreal-volgograd.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "nousro.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "dpomuc.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "nousro.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "dpomuc.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "ed-kgd.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "muc-vrn.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "ed-kgd.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "muc-vrn.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "nousro-nn.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "fste.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "nousro-nn.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "fste.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "medtex39.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "medtex39.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "lfsb.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "shopap.ru",
+    "type": "standard",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "lfsb.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "apreal.ru",
+    "type": "custom",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "shopap.ru",
+    "type": "standard",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "apreal.ru",
+    "type": "custom",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "mca24.ru",
+    "type": "custom",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "fsa-lab.ru",
+    "type": "custom",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "mca24.ru",
+    "type": "custom",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "fsa-lab.ru",
+    "type": "custom",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "med-license.ru",
+    "type": "custom",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "mhsl.ru",
+    "type": "custom",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "med-license.ru",
+    "type": "custom",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "mhsl.ru",
+    "type": "custom",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "apreal36.ru",
+    "type": "custom",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "nousro-spb.ru",
+    "type": "custom",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "apreal36.ru",
+    "type": "custom",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "rectavr.ru",
+    "type": "excluded",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "nousro-spb.ru",
+    "type": "custom",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "rectavr.ru",
+    "type": "excluded",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "fstek.spb.ru",
+    "type": "excluded",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "lic-k.ru",
+    "type": "excluded",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": [
+      "Unexpected token ')'",
+      "critical console error: Failed to load resource: the server responded with a status of 404 () (https://lic-k.ru/wp-content/themes/basic/img/modalBG.jpg:1)",
+      "HTTP 404: image https://lic-k.ru/wp-content/themes/basic/img/modalBG.jpg"
+    ]
+  },
+  {
+    "domain": "fstek.spb.ru",
+    "type": "excluded",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "lic-k.ru",
+    "type": "excluded",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": [
+      "Unexpected token ')'",
+      "critical console error: Failed to load resource: the server responded with a status of 404 () (https://lic-k.ru/wp-content/themes/basic/img/modalBG.jpg:1)",
+      "HTTP 404: image https://lic-k.ru/wp-content/themes/basic/img/modalBG.jpg"
+    ]
+  },
+  {
+    "domain": "ed-krd.ru",
+    "type": "excluded",
+    "viewport": "desktop",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "ed-krd.ru",
+    "type": "excluded",
+    "viewport": "mobile",
+    "status": 200,
+    "failures": []
+  },
+  {
+    "domain": "apreal-samara.ru",
+    "type": "excluded",
+    "viewport": "desktop",
+    "status": null,
+    "failures": []
+  },
+  {
+    "domain": "apreal-samara.ru",
+    "type": "excluded",
+    "viewport": "mobile",
+    "status": null,
+    "failures": []
+  }
+]

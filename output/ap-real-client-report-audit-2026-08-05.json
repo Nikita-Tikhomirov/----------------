@@ -1,0 +1,124 @@
+{
+  "generated_at": "2026-08-05T11:49:23+03:00",
+  "status": "verified_artifacts",
+  "client_contact_performed": false,
+  "artifacts": {
+    "client_report_docx": "output\\documents\\AP-Real-client-report-2026-08-05.docx",
+    "client_report_pdf": "output\\pdf\\AP-Real-client-report-2026-08-05.pdf",
+    "cover_note_docx": "output\\documents\\AP-Real-cover-note-draft-2026-08-05.docx",
+    "cover_note_pdf": "output\\pdf\\AP-Real-cover-note-draft-2026-08-05.pdf",
+    "internal_note": "output\\AP-Real-internal-incident-note-2026-08-05.md"
+  },
+  "checks": {
+    "fresh_views": 60,
+    "fresh_screenshots": 180,
+    "accepted_submissions": 60,
+    "recipient_routes": 48,
+    "mailbox_confirmed_messages": 2,
+    "mailbox_confirmed_sites": [
+      "medlic.spb.ru"
+    ],
+    "hidden_background_videos": 2,
+    "migration_views": 16,
+    "mchs_vrn_staged_views": 2
+  },
+  "forms": {
+    "included_domains": 30,
+    "excluded_domains": [
+      "rectavr.ru",
+      "fstek.spb.ru",
+      "lic-k.ru",
+      "apreal-samara.ru",
+      "ed-krd.ru"
+    ],
+    "requirements": 11,
+    "visual_boards": 0,
+    "client_evidence_images": 9
+  },
+  "migration": {
+    "direct_scope": 35,
+    "live": [
+      "91web.ru",
+      "apreal-nn.ru",
+      "apreal-volgograd.ru",
+      "apreal.ru",
+      "apreal36.ru",
+      "apreal72.ru",
+      "docp.ru",
+      "elecktro.ru",
+      "fsa-lab.ru",
+      "fste.ru",
+      "lfsb.ru",
+      "mca24.ru",
+      "med-license.ru",
+      "mhsl.ru",
+      "moopb.ru",
+      "otxodi.ru",
+      "rectavr.ru",
+      "shopap.ru",
+      "apreal.spb.ru",
+      "fstek.spb.ru",
+      "medlic.spb.ru",
+      "electro-reg.ru",
+      "license39.ru",
+      "mchs78.ru",
+      "medtex39.ru",
+      "medtex78.ru",
+      "minkult78.ru",
+      "mchs-spb.ru"
+    ],
+    "source_placeholder": [
+      "othodi-spb.ru"
+    ],
+    "staged_waiting_domain": [
+      "mchs-vrn.ru"
+    ],
+    "blocked": [
+      "dpocenter.ru",
+      "feo-edem.ru",
+      "linkedin.com.moopb.ru",
+      "aklab-spb.ru"
+    ],
+    "scope_decision": [],
+    "excluded": [
+      "elektro.spb.ru"
+    ],
+    "additional": [
+      "39mchs.ru"
+    ],
+    "visual_sheets": 0
+  },
+  "client_inputs_required": [
+    "dpocenter.ru",
+    "feo-edem.ru",
+    "linkedin.com.moopb.ru",
+    "mchs-vrn.ru",
+    "aklab-spb.ru",
+    "othodi-spb.ru"
+  ],
+  "docx_sha256": "1e5610211c4923410e43c62aad3e0e95554dbdd19aa32ec89cf4cb59a22c33be",
+  "cover_note_docx_sha256": "1b75964cbe1c92fff9db31ad070106015d2e6e9a0221fbdf236c1c8dce8bcf25",
+  "finalized_at": "2026-08-05T11:52:43+03:00",
+  "artifact_hashes": {
+    "output\\documents\\AP-Real-client-report-2026-08-05.docx": "1e5610211c4923410e43c62aad3e0e95554dbdd19aa32ec89cf4cb59a22c33be",
+    "output\\pdf\\AP-Real-client-report-2026-08-05.pdf": "f42900b3e3c80d44c5617d65774513bf19720a3a310294abb722434fba312934",
+    "output\\documents\\AP-Real-cover-note-draft-2026-08-05.docx": "1b75964cbe1c92fff9db31ad070106015d2e6e9a0221fbdf236c1c8dce8bcf25",
+    "output\\pdf\\AP-Real-cover-note-draft-2026-08-05.pdf": "0e902afead5e661434782adfcb975ee75f8a1e7dcf691c56974b8292dcdbe8b4",
+    "output\\AP-Real-internal-incident-note-2026-08-05.md": "3fa69cd90ce91f83970eb9ce00c10e506f3286ec1010d6c59685c3796b749f47"
+  },
+  "pdf_renderer": "reportlab",
+  "visual_review": {
+    "client_report_pages": 11,
+    "cover_note_pages": 1,
+    "all_pages_reviewed": true,
+    "result": "passed",
+    "reviewed_at": "2026-08-05T11:49:43+03:00",
+    "reviewer": "Codex visual QA; owner release remains pending",
+    "manifest": "output\\ap-real-client-report-visual-review-2026-08-05.json"
+  },
+  "recipient_control": {
+    "personal_gmail_in_production_recipients": false,
+    "configured_recipient_routes": "48/48 matched the client matrix",
+    "client_mailbox_delivery_evidence": "2 form messages in info@medlic.spb.ru only"
+  }
+}

@@ -363,7 +363,7 @@ def migration_live_rows() -> list[list[str]]:
     return rows
 
 
-def build_report_pdf() -> dict[str, object]:
+def build_legacy_report_pdf() -> dict[str, object]:
     styles = make_styles()
     result_index = source.load_result_index()
     delivery_index = source.load_delivery_index()
@@ -742,7 +742,7 @@ def build_report_pdf() -> dict[str, object]:
     }
 
 
-def build_cover_pdf() -> dict[str, object]:
+def build_legacy_cover_pdf() -> dict[str, object]:
     styles = make_styles()
     source.COVER_NOTE_PDF.parent.mkdir(parents=True, exist_ok=True)
     doc = SimpleDocTemplate(
@@ -789,6 +789,331 @@ def build_cover_pdf() -> dict[str, object]:
     ]
     for text in paragraphs:
         story.append(paragraph(text, styles["body"]))
+        story.append(Spacer(1, 5))
+    doc.build(story, onFirstPage=add_page_number, onLaterPages=add_page_number)
+    reader = PdfReader(str(source.COVER_NOTE_PDF))
+    return {
+        "path": str(source.COVER_NOTE_PDF.relative_to(ROOT)),
+        "pages": len(reader.pages),
+        "bytes": source.COVER_NOTE_PDF.stat().st_size,
+    }
+
+
+def human_card(
+    index: int,
+    title: str,
+    required: str,
+    wrong: str,
+    fixed: str,
+    styles: dict[str, ParagraphStyle],
+) -> KeepTogether:
+    contents = [
+        paragraph(f"{index}. {title}", styles["h2"]),
+        paragraph("Нужно было", styles["table_header"]),
+        paragraph(required, styles["body"]),
+        paragraph("Что было не так", styles["table_header"]),
+        paragraph(wrong, styles["body"]),
+        paragraph("Что исправлено", styles["table_header"]),
+        paragraph(fixed, styles["body"]),
+    ]
+    table = Table([[contents]], colWidths=[CONTENT_WIDTH], hAlign="LEFT")
+    table.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#F8FAFC") if index % 2 else colors.white),
+                ("BOX", (0, 0), (-1, -1), 0.55, colors.HexColor("#B8D4E8")),
+                ("LEFTPADDING", (0, 0), (-1, -1), 10),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 10),
+                ("TOPPADDING", (0, 0), (-1, -1), 7),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+            ]
+        )
+    )
+    return KeepTogether([table, Spacer(1, 7)])
+
+
+def single_evidence_pdf(path: Path, caption: str, styles: dict[str, ParagraphStyle], max_height: float) -> Table:
+    table = Table(
+        [
+            [image_flowable(path, CONTENT_WIDTH - 0.18 * inch, max_height)],
+            [paragraph(caption, styles["caption"])],
+        ],
+        colWidths=[CONTENT_WIDTH],
+        hAlign="LEFT",
+    )
+    table.setStyle(
+        TableStyle(
+            [
+                ("BOX", (0, 0), (-1, -1), 0.45, MID_GRAY),
+                ("ALIGN", (0, 0), (-1, 0), "CENTER"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 5),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 5),
+                ("TOPPADDING", (0, 0), (-1, -1), 5),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
+            ]
+        )
+    )
+    return table
+
+
+def human_open_item(
+    domain: str,
+    state: str,
+    needed: str,
+    styles: dict[str, ParagraphStyle],
+) -> KeepTogether:
+    contents = [
+        paragraph(domain, styles["h2"]),
+        paragraph("Сейчас", styles["table_header"]),
+        paragraph(state, styles["body"]),
+        paragraph("Что нужно", styles["table_header"]),
+        paragraph(needed, styles["body"]),
+    ]
+    table = Table([[contents]], colWidths=[CONTENT_WIDTH], hAlign="LEFT")
+    table.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, -1), PALE_AMBER),
+                ("BOX", (0, 0), (-1, -1), 0.55, colors.HexColor("#E7C77D")),
+                ("LEFTPADDING", (0, 0), (-1, -1), 10),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 10),
+                ("TOPPADDING", (0, 0), (-1, -1), 7),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+            ]
+        )
+    )
+    return KeepTogether([table, Spacer(1, 7)])
+
+
+def build_report_pdf() -> dict[str, object]:
+    styles = make_styles()
+    result_index = source.load_result_index()
+    delivery_index = source.load_delivery_index()
+    checks = source.validate_inputs(result_index, delivery_index)
+    assets = source.build_human_report_assets(result_index)
+
+    source.OUTPUT_PDF.parent.mkdir(parents=True, exist_ok=True)
+    doc = SimpleDocTemplate(
+        str(source.OUTPUT_PDF),
+        pagesize=LETTER,
+        leftMargin=LEFT_MARGIN,
+        rightMargin=RIGHT_MARGIN,
+        topMargin=TOP_MARGIN,
+        bottomMargin=BOTTOM_MARGIN,
+        title="Что исправлено на сайтах «АП-Риал»",
+        author="Никита Тихомиров",
+        subject="Исправления после замечаний по формам и сайтам",
+        creator="Никита Тихомиров",
+    )
+    story: list[object] = []
+
+    story.append(paragraph("ОТЧЁТ ПОСЛЕ ПОВТОРНОЙ ПРОВЕРКИ", styles["title_kicker"]))
+    story.append(paragraph("Что исправлено на сайтах «АП-Риал»", styles["title"]))
+    story.append(
+        paragraph(
+            "Формы обратной связи, вид на телефоне, адреса заявок и фоновое видео",
+            styles["subtitle"],
+        )
+    )
+    metadata = [
+        ["Заказчик", "Группа компаний «АП-Риал»"],
+        ["Исполнитель", "Никита Тихомиров"],
+        ["Дата", "5 августа 2026 года"],
+        ["О чём отчёт", "Последние замечания по формам и внешнему виду сайтов"],
+    ]
+    story.append(styled_table(metadata, [1.35 * inch, CONTENT_WIDTH - 1.35 * inch], styles, header=False))
+    story.append(Spacer(1, 12))
+    add_heading(story, "Коротко", styles, 2)
+    story.append(
+        paragraph(
+            "В прошлый раз я проверил не все сайты и слишком рано написал, что работа закончена. После вашего письма "
+            "я заново прошёл всю последнюю доработку: открыл формы на компьютере и телефоне, проверил отправку заявок "
+            "и адреса получателей. Ниже показано, что было пропущено и что исправлено.",
+            styles["body"],
+        )
+    )
+    add_callout(story, "Повторно составлять список замечаний не нужно.", styles)
+
+    story.append(PageBreak())
+    add_heading(story, "Что было не так и что исправлено", styles)
+    story.append(
+        paragraph(
+            "Ниже без общих формулировок: что вы просили, что я сделал неправильно и что исправил.",
+            styles["body"],
+        )
+    )
+    for index, correction in enumerate(source.HUMAN_CORRECTIONS, start=1):
+        story.append(human_card(index, *correction, styles))
+
+    story.append(PageBreak())
+    add_heading(story, "Как формы выглядят сейчас", styles)
+    story.append(
+        paragraph(
+            "Ниже - свежие снимки после исправлений. Это два разных типа сайтов: у каждого осталось своё оформление, изменились только поля и работа форм.",
+            styles["body"],
+        )
+    )
+    add_heading(story, "Сайт «АП-Риал»", styles, 2)
+    story.append(
+        image_pair(
+            (assets["apreal_callback"], "apreal.ru - обратный звонок."),
+            (assets["apreal_question"], "apreal.ru - форма вопроса."),
+            styles,
+            max_height=3.2 * inch,
+        )
+    )
+
+    story.append(PageBreak())
+    add_heading(story, "Сайт лицензирования", styles)
+    story.append(
+        paragraph(
+            "У license39.ru другое оформление. Я его не менял и привёл в порядок только поля и работу форм.",
+            styles["body"],
+        )
+    )
+    story.append(
+        image_pair(
+            (assets["license_callback"], "license39.ru - обратный звонок."),
+            (assets["license_question"], "license39.ru - форма вопроса."),
+            styles,
+            max_height=3.45 * inch,
+        )
+    )
+
+    story.append(PageBreak())
+    add_heading(story, "Проверка на телефоне", styles)
+    story.append(
+        paragraph(
+            "Окна помещаются на экране, поля не обрезаны, крестик закрытия виден.",
+            styles["body"],
+        )
+    )
+    story.append(
+        image_pair(
+            (assets["mobile_callback"], "apreal-nn.ru - обратный звонок на телефоне."),
+            (assets["mobile_question"], "nousro.ru - форма вопроса на телефоне."),
+            styles,
+            max_height=5.75 * inch,
+        )
+    )
+
+    story.append(PageBreak())
+    add_heading(story, "Куда приходят заявки", styles)
+    story.append(
+        paragraph(
+            "Один общий адрес на все сайты не ставился. Я заново проверил адрес получателя в каждой рабочей форме. "
+            "Личного Gmail в настройках нет: заявки уходят на рабочий адрес конкретного сайта.",
+            styles["body"],
+        )
+    )
+    story.append(
+        single_evidence_pdf(
+            assets["mailbox"],
+            "Пример прямой проверки: в info@medlic.spb.ru видны письма от обеих форм medlic.spb.ru.",
+            styles,
+            3.0 * inch,
+        )
+    )
+    story.append(Spacer(1, 8))
+    add_callout(
+        story,
+        "На остальных сайтах проверены адрес получателя в настройках формы и ответ сайта после отправки. "
+        "Прямую доставку в ящик отдельно показываю только для medlic.spb.ru.",
+        styles,
+    )
+
+    story.append(PageBreak())
+    add_heading(story, "Фоновое видео снова скрыто", styles)
+    story.append(
+        paragraph(
+            "При исправлении ошибок JavaScript на nousro.ru и nousro-nn.ru снова появился старый фон с движущимися цветными шарами. Он не относился к поручению. Сейчас фон снова скрыт на обоих сайтах.",
+            styles["body"],
+        )
+    )
+    story.append(
+        image_pair(
+            (assets["nousro_video"], "nousro.ru - раздел без старого видеофона."),
+            (assets["nousro_nn_video"], "nousro-nn.ru - тот же раздел без видеофона."),
+            styles,
+            max_height=3.35 * inch,
+        )
+    )
+
+    story.append(PageBreak())
+    add_heading(story, "Какие сайты проверены", styles)
+    story.append(
+        paragraph(
+            "На каждом сайте из списка открыты обе формы на компьютере и телефоне. Обрезанных окон и нерабочих кнопок не осталось.",
+            styles["body"],
+        )
+    )
+    domains = source.evidence.INCLUDED_DOMAINS
+    rows = (len(domains) + 2) // 3
+    domain_rows: list[list[str]] = []
+    for row_index in range(rows):
+        row = []
+        for column in range(3):
+            index = column * rows + row_index
+            row.append(domains[index] if index < len(domains) else "")
+        domain_rows.append(row)
+    story.append(styled_table(domain_rows, [CONTENT_WIDTH / 3] * 3, styles, header=False, repeat_rows=0))
+    add_heading(story, "Где новые формы не требовались", styles, 2)
+    story.append(
+        paragraph(
+            "По вашему указанию новые формы на rectavr.ru, fstek.spb.ru, lic-k.ru, apreal-samara.ru и ed-krd.ru не делались. Поэтому в этом отчёте я не называю эти сайты исправленными.",
+            styles["body"],
+        )
+    )
+
+    story.append(PageBreak())
+    add_heading(story, "Что осталось по старому переносу", styles)
+    story.append(
+        paragraph(
+            "Эти шесть позиций не связаны с последними замечаниями по формам. Для них действительно не хватает домена или исходников. Уже присланные доступы здесь повторно не запрашиваются.",
+            styles["body"],
+        )
+    )
+    for index, item in enumerate(source.CLIENT_INPUT_REQUIRED, start=1):
+        if index == 4:
+            story.append(PageBreak())
+        story.append(human_open_item(*item, styles))
+    add_callout(
+        story,
+        "По формам и сайтам из основной части отчёта дополнительных материалов от вас не требуется.",
+        styles,
+    )
+
+    doc.build(story, onFirstPage=add_page_number, onLaterPages=add_page_number)
+    reader = PdfReader(str(source.OUTPUT_PDF))
+    return {
+        "path": str(source.OUTPUT_PDF.relative_to(ROOT)),
+        "pages": len(reader.pages),
+        "bytes": source.OUTPUT_PDF.stat().st_size,
+        "checks": checks,
+    }
+
+
+def build_cover_pdf() -> dict[str, object]:
+    styles = make_styles()
+    source.COVER_NOTE_PDF.parent.mkdir(parents=True, exist_ok=True)
+    doc = SimpleDocTemplate(
+        str(source.COVER_NOTE_PDF),
+        pagesize=LETTER,
+        leftMargin=0.9 * inch,
+        rightMargin=0.9 * inch,
+        topMargin=0.85 * inch,
+        bottomMargin=0.75 * inch,
+        title="Сопроводительное письмо к отчёту ГК «АП-Риал»",
+        author="Никита Тихомиров",
+        creator="Никита Тихомиров",
+    )
+    story: list[object] = [
+        paragraph("СОПРОВОДИТЕЛЬНОЕ ПИСЬМО", styles["title_kicker"]),
+        paragraph("К отчёту после повторной проверки", styles["title"]),
+        Spacer(1, 10),
+    ]
+    for text_value in source.COVER_NOTE_PARAGRAPHS:
+        story.append(paragraph(text_value, styles["body"]))
         story.append(Spacer(1, 5))
     doc.build(story, onFirstPage=add_page_number, onLaterPages=add_page_number)
     reader = PdfReader(str(source.COVER_NOTE_PDF))
