@@ -580,54 +580,6 @@ def build_legacy_report_pdf() -> dict[str, object]:
             styles,
         )
     )
-    add_heading(story, "Скрытый фоновый видеоэлемент и существующая камера", styles, 2)
-    story.append(
-        paragraph(
-            "Фоновый видеоэлемент на nousro.ru и nousro-nn.ru не входил в поручение. Он временно появился "
-            "при устранении JavaScript-ошибок, после чего был повторно проверен и скрыт на обоих сайтах. "
-            "Дополнительное решение заказчика по этому элементу не требуется.",
-            styles["body"],
-        )
-    )
-    story.append(
-        paragraph(
-            "Блок Ivideon - отдельный ранее существовавший элемент. Он не изменялся и сейчас показывает "
-            "ошибку подключения к камере. Для восстановления нужен актуальный доступ или идентификатор "
-            "камеры; без него блок можно только скрыть после согласования.",
-            styles["body"],
-        )
-    )
-    story.append(
-        image_pair(
-            (
-                source.POST_CORRECTION_QA_DIR / "nousro.ru-desktop-page.png",
-                "nousro.ru после исправления: фоновый видеоэлемент скрыт.",
-            ),
-            (
-                source.POST_CORRECTION_QA_DIR / "nousro-nn.ru-desktop-page.png",
-                "nousro-nn.ru после исправления: фоновый видеоэлемент скрыт.",
-            ),
-            styles,
-            max_height=2.2 * inch,
-        )
-    )
-    story.append(PageBreak())
-    add_heading(story, "Существующий блок Ivideon", styles, 2)
-    story.append(
-        image_pair(
-            (
-                source.VIDEO_QA_DIR / "nousro.ru-existing-ivideon-block.png",
-                "Существующий блок Ivideon: камера сейчас недоступна.",
-            ),
-            (
-                source.VIDEO_QA_DIR / "nousro-nn.ru-existing-ivideon-block.png",
-                "На втором сайте тот же отдельный блок камеры.",
-            ),
-            styles,
-            max_height=2.2 * inch,
-        )
-    )
-
     story.append(PageBreak())
     add_heading(story, "5. Что требуется от заказчика", styles)
     story.append(
@@ -739,63 +691,6 @@ def build_legacy_report_pdf() -> dict[str, object]:
         "pages": len(reader.pages),
         "bytes": source.OUTPUT_PDF.stat().st_size,
         "checks": checks,
-    }
-
-
-def build_legacy_cover_pdf() -> dict[str, object]:
-    styles = make_styles()
-    source.COVER_NOTE_PDF.parent.mkdir(parents=True, exist_ok=True)
-    doc = SimpleDocTemplate(
-        str(source.COVER_NOTE_PDF),
-        pagesize=LETTER,
-        leftMargin=0.9 * inch,
-        rightMargin=0.9 * inch,
-        topMargin=0.85 * inch,
-        bottomMargin=0.75 * inch,
-        title="Сопроводительное письмо к итоговому отчёту ГК «АП-Риал»",
-        author="Никита Тихомиров",
-        creator="Никита Тихомиров",
-    )
-    paragraphs = [
-        "Альберт, добрый день.",
-        (
-            "По итогам вашей обратной связи я полностью пересобрал контроль работ по сайтам. Ранее я "
-            "преждевременно подтвердил завершение части многосайтовых задач: автоматические проверки "
-            "показывали доступность отдельных страниц и сценариев, но мой процесс не требовал отдельного "
-            "подтверждения каждого пункта на каждом сайте. Из-за этого часть фактических несоответствий не "
-            "попала в мой отчёт. Это моя ошибка в организации контроля."
-        ),
-        (
-            "Повторно составлять список замечаний вам не требуется. Я заново сверил исходные поручения, "
-            "проверил опубликованные версии на компьютере и телефоне, выполнил 60 контрольных отправок форм, "
-            "сверил 48 настроек получателей с согласованной матрицей и отдельно подтвердил обе формы "
-            "medlic.spb.ru в доступном ящике info@medlic.spb.ru. Найденные дефекты устранены."
-        ),
-        (
-            "В приложенном отчёте простым языком указано, что выполнено и чем это подтверждено. Отдельно "
-            "перечислены только позиции, для которых объективно нужен отсутствующий домен, исходник, доступ "
-            "или ваше решение. Они не выданы за завершённые."
-        ),
-        (
-            "После этого случая я изменил порядок приёмки: многосайтовая задача не считается выполненной, "
-            "пока по каждому требованию и каждому сайту нет отдельной проверки и доказательства результата."
-        ),
-        "С уважением,\nНикита Тихомиров",
-    ]
-    story: list[object] = [
-        paragraph("СОПРОВОДИТЕЛЬНОЕ ПИСЬМО", styles["title_kicker"]),
-        paragraph("К итоговому отчёту по сайтам", styles["title"]),
-        Spacer(1, 10),
-    ]
-    for text in paragraphs:
-        story.append(paragraph(text, styles["body"]))
-        story.append(Spacer(1, 5))
-    doc.build(story, onFirstPage=add_page_number, onLaterPages=add_page_number)
-    reader = PdfReader(str(source.COVER_NOTE_PDF))
-    return {
-        "path": str(source.COVER_NOTE_PDF.relative_to(ROOT)),
-        "pages": len(reader.pages),
-        "bytes": source.COVER_NOTE_PDF.stat().st_size,
     }
 
 
@@ -911,14 +806,14 @@ def build_report_pdf() -> dict[str, object]:
     story.append(paragraph("Что исправлено на сайтах «АП-Риал»", styles["title"]))
     story.append(
         paragraph(
-            "Формы обратной связи, вид на телефоне, адреса заявок и фоновое видео",
+            "Формы обратной связи, мобильный вид и адреса заявок",
             styles["subtitle"],
         )
     )
     metadata = [
         ["Заказчик", "Группа компаний «АП-Риал»"],
         ["Исполнитель", "Никита Тихомиров"],
-        ["Дата", "5 августа 2026 года"],
+        ["Дата", "11 августа 2026 года"],
         ["О чём отчёт", "Последние замечания по формам и внешнему виду сайтов"],
     ]
     story.append(styled_table(metadata, [1.35 * inch, CONTENT_WIDTH - 1.35 * inch], styles, header=False))
@@ -926,13 +821,13 @@ def build_report_pdf() -> dict[str, object]:
     add_heading(story, "Коротко", styles, 2)
     story.append(
         paragraph(
-            "В прошлый раз я проверил не все сайты и слишком рано написал, что работа закончена. После вашего письма "
-            "я заново прошёл всю последнюю доработку: открыл формы на компьютере и телефоне, проверил отправку заявок "
-            "и адреса получателей. Ниже показано, что было пропущено и что исправлено.",
+            "После замечаний от 30 июля я заново проверил весь последний пакет работ, а не отдельные примеры: "
+            "формы на сайтах двух типов, отображение на компьютере и телефоне, обработку заявок и адреса получателей. "
+            "Ниже по каждому замечанию показано, что требовалось и что было исправлено.",
             styles["body"],
         )
     )
-    add_callout(story, "Повторно составлять список замечаний не нужно.", styles)
+    add_callout(story, "По этому пакету работ дополнительных материалов от заказчика не требуется.", styles)
 
     story.append(PageBreak())
     add_heading(story, "Что было не так и что исправлено", styles)
@@ -949,7 +844,8 @@ def build_report_pdf() -> dict[str, object]:
     add_heading(story, "Как формы выглядят сейчас", styles)
     story.append(
         paragraph(
-            "Ниже - свежие снимки после исправлений. Это два разных типа сайтов: у каждого осталось своё оформление, изменились только поля и работа форм.",
+            "Ниже - контрольные снимки после исправлений от 5 августа. Это два разных типа сайтов: "
+            "у каждого осталось своё оформление, изменились только поля и работа форм.",
             styles["body"],
         )
     )
@@ -959,7 +855,7 @@ def build_report_pdf() -> dict[str, object]:
             (assets["apreal_callback"], "apreal.ru - обратный звонок."),
             (assets["apreal_question"], "apreal.ru - форма вопроса."),
             styles,
-            max_height=3.2 * inch,
+            max_height=2.9 * inch,
         )
     )
 
@@ -1023,27 +919,12 @@ def build_report_pdf() -> dict[str, object]:
     )
 
     story.append(PageBreak())
-    add_heading(story, "Фоновое видео снова скрыто", styles)
-    story.append(
-        paragraph(
-            "При исправлении ошибок JavaScript на nousro.ru и nousro-nn.ru снова появился старый фон с движущимися цветными шарами. Он не относился к поручению. Сейчас фон снова скрыт на обоих сайтах.",
-            styles["body"],
-        )
-    )
-    story.append(
-        image_pair(
-            (assets["nousro_video"], "nousro.ru - раздел без старого видеофона."),
-            (assets["nousro_nn_video"], "nousro-nn.ru - тот же раздел без видеофона."),
-            styles,
-            max_height=3.35 * inch,
-        )
-    )
-
-    story.append(PageBreak())
     add_heading(story, "Какие сайты проверены", styles)
     story.append(
         paragraph(
-            "На каждом сайте из списка открыты обе формы на компьютере и телефоне. Обрезанных окон и нерабочих кнопок не осталось.",
+            "Ниже полный список сайтов из последней доработки. На каждом обе формы были открыты и просмотрены "
+            "на компьютере и телефоне после последней публикации 5 августа. Повторная техническая проверка "
+            "доступности сайтов и адресов получателей выполнена 11 августа.",
             styles["body"],
         )
     )
@@ -1064,22 +945,9 @@ def build_report_pdf() -> dict[str, object]:
             styles["body"],
         )
     )
-
-    story.append(PageBreak())
-    add_heading(story, "Что осталось по старому переносу", styles)
-    story.append(
-        paragraph(
-            "Эти шесть позиций не связаны с последними замечаниями по формам. Для них действительно не хватает домена или исходников. Уже присланные доступы здесь повторно не запрашиваются.",
-            styles["body"],
-        )
-    )
-    for index, item in enumerate(source.CLIENT_INPUT_REQUIRED, start=1):
-        if index == 4:
-            story.append(PageBreak())
-        story.append(human_open_item(*item, styles))
     add_callout(
         story,
-        "По формам и сайтам из основной части отчёта дополнительных материалов от вас не требуется.",
+        "Итог по последнему пакету: перечисленные замечания исправлены; незавершённых пунктов в этой доработке нет.",
         styles,
     )
 
@@ -1093,41 +961,9 @@ def build_report_pdf() -> dict[str, object]:
     }
 
 
-def build_cover_pdf() -> dict[str, object]:
-    styles = make_styles()
-    source.COVER_NOTE_PDF.parent.mkdir(parents=True, exist_ok=True)
-    doc = SimpleDocTemplate(
-        str(source.COVER_NOTE_PDF),
-        pagesize=LETTER,
-        leftMargin=0.9 * inch,
-        rightMargin=0.9 * inch,
-        topMargin=0.85 * inch,
-        bottomMargin=0.75 * inch,
-        title="Сопроводительное письмо к отчёту ГК «АП-Риал»",
-        author="Никита Тихомиров",
-        creator="Никита Тихомиров",
-    )
-    story: list[object] = [
-        paragraph("СОПРОВОДИТЕЛЬНОЕ ПИСЬМО", styles["title_kicker"]),
-        paragraph("К отчёту после повторной проверки", styles["title"]),
-        Spacer(1, 10),
-    ]
-    for text_value in source.COVER_NOTE_PARAGRAPHS:
-        story.append(paragraph(text_value, styles["body"]))
-        story.append(Spacer(1, 5))
-    doc.build(story, onFirstPage=add_page_number, onLaterPages=add_page_number)
-    reader = PdfReader(str(source.COVER_NOTE_PDF))
-    return {
-        "path": str(source.COVER_NOTE_PDF.relative_to(ROOT)),
-        "pages": len(reader.pages),
-        "bytes": source.COVER_NOTE_PDF.stat().st_size,
-    }
-
-
 def main() -> None:
     result = {
         "report": build_report_pdf(),
-        "cover_note": build_cover_pdf(),
         "client_contact_performed": False,
         "renderer": "reportlab",
     }

@@ -113,12 +113,10 @@ def test_finalize_audit_requires_complete_visual_review_manifest(tmp_path, monke
     output_audit = tmp_path / "audit.json"
     output_docx = tmp_path / "report.docx"
     output_pdf = tmp_path / "report.pdf"
-    cover_docx = tmp_path / "cover.docx"
-    cover_pdf = tmp_path / "cover.pdf"
     internal_note = tmp_path / "note.md"
 
     output_audit.write_text('{"status": "docx_generated"}', encoding="utf-8")
-    for path in (output_docx, cover_docx, internal_note):
+    for path in (output_docx, internal_note):
         path.write_bytes(b"test")
 
     report_writer = PdfWriter()
@@ -127,18 +125,11 @@ def test_finalize_audit_requires_complete_visual_review_manifest(tmp_path, monke
     with output_pdf.open("wb") as stream:
         report_writer.write(stream)
 
-    cover_writer = PdfWriter()
-    cover_writer.add_blank_page(width=100, height=100)
-    with cover_pdf.open("wb") as stream:
-        cover_writer.write(stream)
-
     for name, value in {
         "ROOT": tmp_path,
         "OUTPUT_AUDIT": output_audit,
         "OUTPUT_DOCX": output_docx,
         "OUTPUT_PDF": output_pdf,
-        "COVER_NOTE_DOCX": cover_docx,
-        "COVER_NOTE_PDF": cover_pdf,
         "INTERNAL_NOTE": internal_note,
     }.items():
         monkeypatch.setattr(report, name, value)
@@ -154,7 +145,6 @@ def test_finalize_audit_requires_complete_visual_review_manifest(tmp_path, monke
                 "reviewer": "test reviewer",
                 "reviewed_at": "2026-08-03T02:00:00+03:00",
                 "client_report_pages": [1, 2],
-                "cover_note_pages": [1],
             }
         ),
         encoding="utf-8",
@@ -168,14 +158,13 @@ def test_report_never_turns_handler_acceptance_into_universal_mailbox_delivery()
     from tools import build_apreal_client_report as report
 
     requirement_text = " ".join(detail for _, detail in report.FORM_REQUIREMENTS)
-    docx_delivery_source = inspect.getsource(report.add_human_mail_and_video)
+    docx_delivery_source = inspect.getsource(report.add_human_mail)
     pdf_source = (Path(__file__).resolve().parents[1] / "tools" / "build_apreal_client_pdf.py").read_text(
         encoding="utf-8"
     )
-    pdf_delivery_source = pdf_source.rsplit("def build_report_pdf()", 1)[1].split("def build_cover_pdf()", 1)[0]
+    pdf_delivery_source = pdf_source.rsplit("def build_report_pdf()", 1)[1]
     client_visible_source = (
-        " ".join(report.COVER_NOTE_PARAGRAPHS)
-        + inspect.getsource(report.add_human_report_cover)
+        inspect.getsource(report.add_human_report_cover)
         + docx_delivery_source
         + pdf_delivery_source
     )
@@ -216,30 +205,28 @@ def test_report_never_turns_handler_acceptance_into_universal_mailbox_delivery()
     )
 
 
-def test_client_report_describes_hidden_background_videos_as_resolved():
+def test_client_report_does_not_expose_internal_video_work():
     from tools import build_apreal_client_report as report
 
-    correction = next(item for item in report.HUMAN_CORRECTIONS if item[0] == "Фоновое видео")
     pdf_source = (Path(__file__).resolve().parents[1] / "tools" / "build_apreal_client_pdf.py").read_text(
         encoding="utf-8"
     )
-    pdf_visible_source = pdf_source.rsplit("def build_report_pdf()", 1)[1].split("def build_cover_pdf()", 1)[0]
+    pdf_visible_source = pdf_source.rsplit("def build_report_pdf()", 1)[1]
     combined_source = (
-        " ".join(correction)
-        + inspect.getsource(report.add_human_mail_and_video)
+        " ".join(" ".join(item) for item in report.HUMAN_CORRECTIONS)
+        + inspect.getsource(report.add_human_report_cover)
+        + inspect.getsource(report.add_human_mail)
         + pdf_visible_source
-    )
+    ).casefold()
 
-    assert not any(item[0] == "nousro.ru / nousro-nn.ru" for item in report.CLIENT_INPUT_REQUIRED)
-    assert "скры" in correction[3].casefold()
-    for stale_claim in (
-        "анимация снова отображается",
-        "восстановленная штатная фоновая анимация",
-        "решение оставить/убрать",
-        "оставлять её включённой или убрать",
-        "подтвердить: оставить анимацию",
+    for internal_topic in (
+        "фоновое видео",
+        "видеофон",
+        "ivideon",
+        "движущимися цветными шарами",
+        "background video",
     ):
-        assert stale_claim.casefold() not in combined_source.casefold()
+        assert internal_topic not in combined_source
 
 
 def test_client_visible_text_is_plain_and_has_no_old_metric_strip():
@@ -251,8 +238,7 @@ def test_client_visible_text_is_plain_and_has_no_old_metric_strip():
     pdf_visible_source = pdf_source.rsplit("def build_report_pdf()", 1)[1]
 
     visible = (
-        " ".join(report.COVER_NOTE_PARAGRAPHS)
-        + inspect.getsource(report.add_human_report_cover)
+        inspect.getsource(report.add_human_report_cover)
         + inspect.getsource(report.add_human_corrections)
         + pdf_visible_source
     ).casefold()

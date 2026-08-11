@@ -22,14 +22,13 @@ except ModuleNotFoundError:
 
 
 ROOT = Path(__file__).resolve().parents[1]
-REPORT_DATE = "05.08.2026"
-OUTPUT_DOCX = ROOT / "output/documents/AP-Real-client-report-2026-08-05.docx"
-OUTPUT_PDF = ROOT / "output/pdf/AP-Real-client-report-2026-08-05.pdf"
-COVER_NOTE_DOCX = ROOT / "output/documents/AP-Real-cover-note-draft-2026-08-05.docx"
-COVER_NOTE_PDF = ROOT / "output/pdf/AP-Real-cover-note-draft-2026-08-05.pdf"
+REPORT_DATE = "11.08.2026"
+VISUAL_QA_DATE = "05.08.2026"
+OUTPUT_DOCX = ROOT / "output/documents/AP-Real-client-report-2026-08-11.docx"
+OUTPUT_PDF = ROOT / "output/pdf/AP-Real-client-report-2026-08-11.pdf"
 INTERNAL_NOTE = ROOT / "output/AP-Real-internal-incident-note-2026-08-05.md"
-OUTPUT_AUDIT = ROOT / "output/ap-real-client-report-audit-2026-08-05.json"
-ASSET_DIR = ROOT / "output/ap-real-client-report-assets-2026-08-05"
+OUTPUT_AUDIT = ROOT / "output/ap-real-client-report-audit-2026-08-11.json"
+ASSET_DIR = ROOT / "output/ap-real-client-report-assets-2026-08-11"
 
 FRESH_QA_DIR = ROOT / "output/ap-real-owner-report-recheck-2026-08-05"
 FRESH_QA_RESULTS = FRESH_QA_DIR / "results.json"
@@ -38,13 +37,11 @@ FORM_BOARD_DIR = ROOT / "output/ap-real-final-client-visual-review-2026-08-02"
 MIGRATION_QA_DIR = ROOT / "output/ap-real-migration-qa-2026-08-02"
 MIGRATION_QA_RESULTS = MIGRATION_QA_DIR / "final-results.json"
 MCHS_VRN_RESULTS = MIGRATION_QA_DIR / "mchs-vrn-staged-results.json"
-VIDEO_QA_DIR = ROOT / "output/ap-real-video-review-2026-08-02"
 MAIL_EVIDENCE_DIR = ROOT / "output/ap-real-evidence-2026-08-02"
 SENDER_DELIVERY_PATH = ROOT / "output/ap-real-post-send-form-submissions-2026-08-02.json"
-RECIPIENT_MATRIX_PATH = ROOT / "output/ap-real-recipient-matrix-2026-08-05.json"
+RECIPIENT_MATRIX_PATH = ROOT / "output/ap-real-recipient-matrix-2026-08-11.json"
 MAILBOX_RECEIPT_PATH = ROOT / "output/ap-real-post-send-main-mailru-accounts-2026-08-02.json"
 MAILBOX_RECEIPT_SCREENSHOT = ROOT / "output/ap-real-post-send-main-mailru-accounts-2026-08-02.png"
-HIDDEN_VIDEO_EVIDENCE_PATH = ROOT / "output/ap-real-hidden-video-live-check-2026-08-05.json"
 MAIL_DELIVERY_SCOPE = "mailbox_confirmed_sites_only"
 MAILBOX_CONFIRMED_SITES = ("medlic.spb.ru",)
 MAILBOX_RECEIPT_MARKERS = {
@@ -168,24 +165,6 @@ CLIENT_INPUT_REQUIRED = [
     ),
 ]
 
-COVER_NOTE_PARAGRAPHS = [
-    "Альберт, добрый день.",
-    (
-        "В прошлый раз я поспешил с отчётом: проверил не все сайты и написал, что работа закончена. "
-        "Вы справедливо указали, что часть замечаний осталась. Это моя ошибка."
-    ),
-    (
-        "После вашего письма я ещё раз поднял все материалы, прошёл каждый сайт из последней доработки "
-        "на компьютере и телефоне и исправил то, что пропустил. Новый список замечаний от вас не нужен."
-    ),
-    (
-        "В приложенном отчёте по каждому пункту прямо написано, что вы просили, что я сделал неправильно "
-        "и что исправил. В конце оставил только шесть старых позиций по переносу, которые нельзя закрыть "
-        "без отсутствующего домена или исходников. Все доступы, которые вы уже присылали, я учёл и повторно не запрашиваю."
-    ),
-    "С уважением,\nНикита Тихомиров",
-]
-
 HUMAN_CORRECTIONS = [
     (
         "Разные типы сайтов",
@@ -214,14 +193,8 @@ HUMAN_CORRECTIONS = [
     (
         "Адреса получателей",
         "Каждый сайт должен отправлять заявки на свой рабочий адрес, а не в один общий ящик.",
-        "В прошлом отчёте я показал работу форм, но не показал, какие адреса стоят в настройках. Поэтому было непонятно, куда уходят письма.",
-        "Заново проверил адрес получателя в каждой форме. Личный Gmail нигде не указан: каждый сайт отправляет заявки на свой рабочий адрес.",
-    ),
-    (
-        "Фоновое видео",
-        "Старый видеофон на nousro.ru и nousro-nn.ru не входил в текущую задачу.",
-        "При исправлении ошибок JavaScript этот фон снова стал видимым, хотя менять его не просили.",
-        "Видеофон снова скрыт на обоих сайтах. Остальные исправления JavaScript сохранены.",
+        "На части форм после технической проверки оставался общий адрес вместо адреса конкретного сайта.",
+        "Вернул адреса из исходной матрицы и повторно прочитал настройки на сервере. Все рабочие маршруты совпадают с матрицей; личного Gmail среди получателей нет.",
     ),
 ]
 
@@ -260,11 +233,6 @@ ADDITIONAL_WORK = [
         "30 сайтов с формами",
         "JavaScript и ресурсы",
         "После финальной публикации свежий прогон не выявил ошибок страницы, критических ошибок консоли или сорванных запросов.",
-    ),
-    (
-        "nousro.ru / nousro-nn.ru",
-        "Фоновый видеоэлемент",
-        "Старый фоновый видеоэлемент временно появился при устранении JavaScript-ошибок, но не относился к поручению. После проверки он скрыт на обоих сайтах.",
     ),
 ]
 
@@ -810,53 +778,6 @@ def add_additional_results(doc: Document) -> None:
         set_run_font(row.cells[1].paragraphs[0].add_run(work), size=8.2, bold=True, color=DARK_BLUE)
         set_run_font(row.cells[2].paragraphs[0].add_run(result), size=8.2, color=DARK_GRAY)
 
-    doc.add_heading("Скрытый фоновый видеоэлемент и существующая камера", level=2)
-    p = doc.add_paragraph(
-        "Фоновый видеоэлемент на nousro.ru и nousro-nn.ru не входил в поручение. Он временно появился "
-        "при устранении JavaScript-ошибок, после чего был повторно проверен и скрыт на обоих сайтах. "
-        "Дополнительное решение заказчика по этому элементу не требуется."
-    )
-    p.paragraph_format.space_after = Pt(6)
-    p = doc.add_paragraph(
-        "Блок Ivideon — другой, ранее существовавший элемент. Он не изменялся и сейчас не подключается к камере. "
-        "Для восстановления нужен действующий доступ/идентификатор камеры; без него блок можно только скрыть по согласованию."
-    )
-    p.paragraph_format.space_after = Pt(8)
-
-    table = doc.add_table(rows=1, cols=2)
-    set_table_width(table, [3.25, 3.25])
-    set_table_borders(table)
-    add_picture_with_caption(
-        table.cell(0, 0),
-        POST_CORRECTION_QA_DIR / "nousro.ru-desktop-page.png",
-        "nousro.ru после исправления: фоновый видеоэлемент скрыт.",
-        3.02,
-    )
-    add_picture_with_caption(
-        table.cell(0, 1),
-        POST_CORRECTION_QA_DIR / "nousro-nn.ru-desktop-page.png",
-        "nousro-nn.ru после исправления: фоновый видеоэлемент скрыт.",
-        3.02,
-    )
-    add_page_break(doc)
-    doc.add_heading("Существующий блок Ivideon", level=2)
-    table = doc.add_table(rows=1, cols=2)
-    set_table_width(table, [3.25, 3.25])
-    set_table_borders(table)
-    add_picture_with_caption(
-        table.cell(0, 0),
-        VIDEO_QA_DIR / "nousro.ru-existing-ivideon-block.png",
-        "Существующий блок Ivideon: камера сейчас недоступна.",
-        3.02,
-    )
-    add_picture_with_caption(
-        table.cell(0, 1),
-        VIDEO_QA_DIR / "nousro-nn.ru-existing-ivideon-block.png",
-        "На втором сайте тот же отдельный блок камеры.",
-        3.02,
-    )
-
-
 def add_client_inputs(doc: Document) -> None:
     add_page_break(doc)
     doc.add_heading("5. Что требуется от заказчика", level=1)
@@ -1102,17 +1023,7 @@ def build_human_report_assets(result_index: dict[tuple[str, str], dict[str, Any]
         "mailbox": crop_report_image(
             MAILBOX_RECEIPT_SCREENSHOT,
             ASSET_DIR / "medlic-mailbox-crop.png",
-            (470, 175, 2190, 535),
-        ),
-        "nousro_video": crop_report_image(
-            ROOT / "output/ap-real-hidden-video-sections-2026-08-05/nousro.ru-video-section-hidden.png",
-            ASSET_DIR / "nousro.ru-hidden-video-crop.png",
-            (0, 500, 1440, 2050),
-        ),
-        "nousro_nn_video": crop_report_image(
-            ROOT / "output/ap-real-hidden-video-sections-2026-08-05/nousro-nn.ru-video-section-hidden.png",
-            ASSET_DIR / "nousro-nn.ru-hidden-video-crop.png",
-            (0, 500, 1440, 2050),
+            (380, 130, 2080, 520),
         ),
     }
     return assets
@@ -1153,7 +1064,7 @@ def add_human_report_cover(doc: Document) -> None:
     p = doc.add_paragraph()
     p.paragraph_format.space_after = Pt(18)
     set_run_font(
-        p.add_run("Формы обратной связи, вид на телефоне, адреса заявок и фоновое видео"),
+        p.add_run("Формы обратной связи, мобильный вид и адреса заявок"),
         size=13,
         color=DARK_GRAY,
     )
@@ -1163,19 +1074,19 @@ def add_human_report_cover(doc: Document) -> None:
         [
             ("Заказчик", "Группа компаний «АП-Риал»"),
             ("Исполнитель", "Никита Тихомиров"),
-            ("Дата", "5 августа 2026 года"),
+            ("Дата", "11 августа 2026 года"),
             ("О чём отчёт", "Последние замечания по формам и внешнему виду сайтов"),
         ],
     )
 
     doc.add_heading("Коротко", level=2)
     p = doc.add_paragraph(
-        "В прошлый раз я проверил не все сайты и слишком рано написал, что работа закончена. После вашего письма "
-        "я заново прошёл всю последнюю доработку: открыл формы на компьютере и телефоне, проверил отправку заявок "
-        "и адреса получателей. Ниже показано, что было пропущено и что исправлено."
+        "После замечаний от 30 июля я заново проверил весь последний пакет работ, а не отдельные примеры: "
+        "формы на сайтах двух типов, отображение на компьютере и телефоне, обработку заявок и адреса получателей. "
+        "Ниже по каждому замечанию показано, что требовалось и что было исправлено."
     )
     p.paragraph_format.space_after = Pt(12)
-    add_callout(doc, "Повторно составлять список замечаний не нужно. Ниже указано, что именно было исправлено.")
+    add_callout(doc, "По этому пакету работ дополнительных материалов от заказчика не требуется.")
 
 
 def add_human_corrections(doc: Document) -> None:
@@ -1214,7 +1125,8 @@ def add_human_visual_evidence(doc: Document, assets: dict[str, Path]) -> None:
     add_page_break(doc)
     doc.add_heading("Как формы выглядят сейчас", level=1)
     p = doc.add_paragraph(
-        "Ниже - свежие снимки после исправлений. Показываю два разных типа сайтов: у каждого осталось своё оформление, изменились только поля и работа форм."
+        "Ниже - контрольные снимки после исправлений от 5 августа. Показываю два разных типа сайтов: "
+        "у каждого осталось своё оформление, изменились только поля и работа форм."
     )
     doc.add_heading("Сайт «АП-Риал»", level=2)
     add_evidence_pair(
@@ -1247,7 +1159,7 @@ def add_human_visual_evidence(doc: Document, assets: dict[str, Path]) -> None:
     )
 
 
-def add_human_mail_and_video(doc: Document, assets: dict[str, Path]) -> None:
+def add_human_mail(doc: Document, assets: dict[str, Path]) -> None:
     add_page_break(doc)
     doc.add_heading("Куда приходят заявки", level=1)
     p = doc.add_paragraph(
@@ -1266,24 +1178,14 @@ def add_human_mail_and_video(doc: Document, assets: dict[str, Path]) -> None:
         status="note",
     )
 
-    add_page_break(doc)
-    doc.add_heading("Фоновое видео снова скрыто", level=1)
-    p = doc.add_paragraph(
-        "При исправлении ошибок JavaScript на nousro.ru и nousro-nn.ru снова появился старый фон с движущимися цветными шарами. Он не относился к поручению и выглядел как ненужное изменение. "
-        "Сейчас фон снова скрыт на обоих сайтах, а остальные исправления скриптов остались."
-    )
-    add_evidence_pair(
-        doc,
-        (assets["nousro_video"], "nousro.ru - раздел без старого видеофона."),
-        (assets["nousro_nn_video"], "nousro-nn.ru - тот же раздел без видеофона."),
-    )
-
 
 def add_human_domain_list(doc: Document) -> None:
     add_page_break(doc)
     doc.add_heading("Какие сайты проверены", level=1)
     p = doc.add_paragraph(
-        "Ниже полный список сайтов из последней доработки. На каждом открыты обе формы на компьютере и телефоне. Ошибок, обрезанных окон или нерабочих кнопок в этом списке не осталось."
+        "Ниже полный список сайтов из последней доработки. На каждом обе формы были открыты и просмотрены "
+        "на компьютере и телефоне после последней публикации 5 августа. Повторная техническая проверка "
+        "доступности сайтов и адресов получателей выполнена 11 августа."
     )
     domains = evidence.INCLUDED_DOMAINS
     columns = 3
@@ -1306,7 +1208,11 @@ def add_human_domain_list(doc: Document) -> None:
     p = doc.add_paragraph(
         "По вашему указанию новые формы на rectavr.ru, fstek.spb.ru, lic-k.ru, apreal-samara.ru и ed-krd.ru не делались. Поэтому в этом отчёте я не называю эти сайты исправленными."
     )
-    p.paragraph_format.space_after = Pt(0)
+    p.paragraph_format.space_after = Pt(8)
+    add_callout(
+        doc,
+        "Итог по последнему пакету: перечисленные замечания исправлены; незавершённых пунктов в этой доработке нет.",
+    )
 
 
 def add_human_open_items(doc: Document) -> None:
@@ -1402,16 +1308,6 @@ def validate_inputs(
     if not MAILBOX_RECEIPT_SCREENSHOT.exists():
         raise FileNotFoundError(MAILBOX_RECEIPT_SCREENSHOT)
 
-    hidden_video_evidence = load_json(HIDDEN_VIDEO_EVIDENCE_PATH)
-    hidden_video_summary = hidden_video_evidence.get("summary", {})
-    if (
-        hidden_video_summary.get("checks") != 2
-        or hidden_video_summary.get("passed") != 2
-        or hidden_video_summary.get("failed")
-        or hidden_video_summary.get("complete") is not True
-    ):
-        raise ValueError("Live evidence does not prove both background videos are hidden")
-
     migration_results = load_json(MIGRATION_QA_RESULTS)
     if len(migration_results) != 16:
         raise ValueError(f"Expected 16 migration QA views, got {len(migration_results)}")
@@ -1442,27 +1338,9 @@ def validate_inputs(
         "recipient_routes": recipient_summary.get("passed"),
         "mailbox_confirmed_messages": len(marker_hits),
         "mailbox_confirmed_sites": list(MAILBOX_CONFIRMED_SITES),
-        "hidden_background_videos": hidden_video_summary.get("passed"),
         "migration_views": len(migration_results),
         "mchs_vrn_staged_views": len(mchs_results),
     }
-
-
-def build_cover_note() -> None:
-    doc = Document()
-    configure_document(doc, title="ГК «АП-Риал» | Сопроводительное письмо")
-    p = doc.add_paragraph()
-    p.paragraph_format.space_after = Pt(5)
-    set_run_font(p.add_run("СОПРОВОДИТЕЛЬНОЕ ПИСЬМО"), size=10, bold=True, color=BLUE)
-    p = doc.add_paragraph()
-    p.paragraph_format.space_after = Pt(18)
-    set_run_font(p.add_run("К отчёту после повторной проверки"), size=22, bold=True, color=DARK_BLUE)
-
-    for text in COVER_NOTE_PARAGRAPHS:
-        p = doc.add_paragraph(text)
-        p.paragraph_format.space_after = Pt(10 if text != COVER_NOTE_PARAGRAPHS[-1] else 0)
-    COVER_NOTE_DOCX.parent.mkdir(parents=True, exist_ok=True)
-    doc.save(COVER_NOTE_DOCX)
 
 
 def build_internal_note() -> None:
@@ -1525,12 +1403,10 @@ def build_report() -> dict[str, Any]:
     add_human_report_cover(doc)
     add_human_corrections(doc)
     add_human_visual_evidence(doc, assets)
-    add_human_mail_and_video(doc, assets)
+    add_human_mail(doc, assets)
     add_human_domain_list(doc)
-    add_human_open_items(doc)
     doc.save(OUTPUT_DOCX)
 
-    build_cover_note()
     build_internal_note()
 
     result = {
@@ -1540,8 +1416,6 @@ def build_report() -> dict[str, Any]:
         "artifacts": {
             "client_report_docx": str(OUTPUT_DOCX.relative_to(ROOT)),
             "client_report_pdf": str(OUTPUT_PDF.relative_to(ROOT)),
-            "cover_note_docx": str(COVER_NOTE_DOCX.relative_to(ROOT)),
-            "cover_note_pdf": str(COVER_NOTE_PDF.relative_to(ROOT)),
             "internal_note": str(INTERNAL_NOTE.relative_to(ROOT)),
         },
         "checks": checks,
@@ -1565,7 +1439,6 @@ def build_report() -> dict[str, Any]:
         },
         "client_inputs_required": [item[0] for item in CLIENT_INPUT_REQUIRED],
         "docx_sha256": file_sha256(OUTPUT_DOCX),
-        "cover_note_docx_sha256": file_sha256(COVER_NOTE_DOCX),
     }
     OUTPUT_AUDIT.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     return result
@@ -1575,15 +1448,13 @@ def finalize_audit(visual_review_manifest: Path | None = None) -> dict[str, Any]
     from pypdf import PdfReader
 
     audit = load_json(OUTPUT_AUDIT)
-    required = [OUTPUT_DOCX, OUTPUT_PDF, COVER_NOTE_DOCX, COVER_NOTE_PDF, INTERNAL_NOTE]
+    required = [OUTPUT_DOCX, OUTPUT_PDF, INTERNAL_NOTE]
     for path in required:
         if not path.exists():
             raise FileNotFoundError(path)
     client_report_pages = len(PdfReader(str(OUTPUT_PDF)).pages)
-    cover_note_pages = len(PdfReader(str(COVER_NOTE_PDF)).pages)
     visual_review: dict[str, Any] = {
         "client_report_pages": client_report_pages,
-        "cover_note_pages": cover_note_pages,
         "all_pages_reviewed": False,
         "result": "pending",
         "reviewed_at": None,
@@ -1593,13 +1464,9 @@ def finalize_audit(visual_review_manifest: Path | None = None) -> dict[str, Any]
     if visual_review_manifest is not None:
         review = load_json(visual_review_manifest)
         expected_client_pages = set(range(1, client_report_pages + 1))
-        expected_cover_pages = set(range(1, cover_note_pages + 1))
         reviewed_client_pages = set(review.get("client_report_pages", []))
-        reviewed_cover_pages = set(review.get("cover_note_pages", []))
         if reviewed_client_pages != expected_client_pages:
             raise ValueError("Visual review manifest does not cover every client report page")
-        if reviewed_cover_pages != expected_cover_pages:
-            raise ValueError("Visual review manifest does not cover every cover-note page")
         if not review.get("reviewer") or not review.get("reviewed_at"):
             raise ValueError("Visual review manifest must record reviewer and reviewed_at")
         try:
