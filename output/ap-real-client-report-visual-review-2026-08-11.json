@@ -1,11 +1,29 @@
 {
   "reviewer": "Codex visual QA",
-  "reviewed_at": "2026-08-11T17:40:00+03:00",
-  "client_report_pages": [1, 2, 3, 4, 5, 6, 7, 8],
-  "result": "passed",
-  "notes": [
-    "Все страницы просмотрены после финального рендера PDF.",
-    "Нет обрезанного текста, перекрытий, пустых доказательств или внутренних тем.",
-    "Страница с почтой показывает письма обеих форм и адрес info@medlic.spb.ru."
-  ]
+  "reviewed_at": "2026-08-11T21:59:59+03:00",
+  "source_pdf": "output/pdf/AP-Real-client-report-2026-08-11.pdf",
+  "source_pdf_sha256": "3f610d5447390494cd5dc0d051d877a39c152a50cf5052497818479953198e15",
+  "render_directory": "output/ap-real-client-report-pdf-qa-2026-08-11-final-v2",
+  "client_report_pages": [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+    11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+    21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+    31, 32, 33, 34, 35, 36, 37
+  ],
+  "checks": {
+    "all_pages_rendered": true,
+    "all_pages_reviewed": true,
+    "no_clipped_text": true,
+    "no_overlapping_report_elements": true,
+    "route_table_headers_visible": true,
+    "one_evidence_page_per_site": true,
+    "site_names_match_screenshots": true,
+    "recipient_addresses_match_matrix": true,
+    "desktop_callback_visible_per_site": true,
+    "desktop_question_visible_per_site": true,
+    "mobile_callback_visible_per_site": true,
+    "mobile_question_visible_per_site": true,
+    "screenshots_uncropped": true
+  },
+  "result": "passed"
 }

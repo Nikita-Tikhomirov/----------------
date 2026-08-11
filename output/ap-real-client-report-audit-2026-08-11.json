@@ -1,117 +1,165 @@
 {
-  "generated_at": "2026-08-11T17:39:05+03:00",
-  "status": "verified_artifacts",
-  "client_contact_performed": false,
-  "artifacts": {
-    "client_report_docx": "output\\documents\\AP-Real-client-report-2026-08-11.docx",
-    "client_report_pdf": "output\\pdf\\AP-Real-client-report-2026-08-11.pdf",
-    "internal_note": "output\\AP-Real-internal-incident-note-2026-08-05.md"
-  },
-  "checks": {
-    "fresh_views": 60,
-    "fresh_screenshots": 180,
-    "accepted_submissions": 60,
-    "recipient_routes": 48,
-    "mailbox_confirmed_messages": 2,
-    "mailbox_confirmed_sites": [
-      "medlic.spb.ru"
-    ],
-    "migration_views": 16,
-    "mchs_vrn_staged_views": 2
-  },
-  "forms": {
-    "included_domains": 30,
-    "excluded_domains": [
-      "rectavr.ru",
-      "fstek.spb.ru",
-      "lic-k.ru",
-      "apreal-samara.ru",
-      "ed-krd.ru"
-    ],
-    "requirements": 11,
-    "visual_boards": 0,
-    "client_evidence_images": 7
-  },
-  "migration": {
-    "direct_scope": 35,
-    "live": [
-      "91web.ru",
-      "apreal-nn.ru",
-      "apreal-volgograd.ru",
-      "apreal.ru",
-      "apreal36.ru",
-      "apreal72.ru",
-      "docp.ru",
-      "elecktro.ru",
-      "fsa-lab.ru",
-      "fste.ru",
-      "lfsb.ru",
-      "mca24.ru",
-      "med-license.ru",
-      "mhsl.ru",
-      "moopb.ru",
-      "otxodi.ru",
-      "rectavr.ru",
-      "shopap.ru",
-      "apreal.spb.ru",
-      "fstek.spb.ru",
-      "medlic.spb.ru",
-      "electro-reg.ru",
-      "license39.ru",
-      "mchs78.ru",
-      "medtex39.ru",
-      "medtex78.ru",
-      "minkult78.ru",
-      "mchs-spb.ru"
-    ],
-    "source_placeholder": [
-      "othodi-spb.ru"
-    ],
-    "staged_waiting_domain": [
-      "mchs-vrn.ru"
-    ],
-    "blocked": [
-      "dpocenter.ru",
-      "feo-edem.ru",
-      "linkedin.com.moopb.ru",
-      "aklab-spb.ru"
-    ],
-    "scope_decision": [],
-    "excluded": [
-      "elektro.spb.ru"
-    ],
-    "additional": [
-      "39mchs.ru"
-    ],
-    "visual_sheets": 0
-  },
-  "client_inputs_required": [
-    "dpocenter.ru",
-    "feo-edem.ru",
-    "linkedin.com.moopb.ru",
-    "mchs-vrn.ru",
-    "aklab-spb.ru",
-    "othodi-spb.ru"
+  "generated_at": "2026-08-11T21:57:13+03:00",
+  "scope": "latest_form_corrections",
+  "sites": [
+    "39mchs.ru",
+    "apreal-nn.ru",
+    "apreal-volgograd.ru",
+    "apreal.ru",
+    "apreal.spb.ru",
+    "apreal36.ru",
+    "apreal72.ru",
+    "docp.ru",
+    "dpomuc.ru",
+    "ed-kgd.ru",
+    "elecktro.ru",
+    "fsa-lab.ru",
+    "fste.ru",
+    "lfsb.ru",
+    "license39.ru",
+    "mca24.ru",
+    "mchs-spb.ru",
+    "mchs78.ru",
+    "med-license.ru",
+    "medlic.spb.ru",
+    "medtex39.ru",
+    "medtex78.ru",
+    "mhsl.ru",
+    "minkult78.ru",
+    "muc-vrn.ru",
+    "nousro-nn.ru",
+    "nousro-spb.ru",
+    "nousro.ru",
+    "otxodi.ru",
+    "shopap.ru"
   ],
-  "docx_sha256": "2bfd67d748937a7cfc4b8c4d5d163688f76f1ee554e2caa0859f3499726957aa",
-  "finalized_at": "2026-08-11T17:40:02+03:00",
-  "artifact_hashes": {
-    "output\\documents\\AP-Real-client-report-2026-08-11.docx": "2bfd67d748937a7cfc4b8c4d5d163688f76f1ee554e2caa0859f3499726957aa",
-    "output\\pdf\\AP-Real-client-report-2026-08-11.pdf": "73b3e854948efc694388633ee2da2b32249802c1853a7f254c8076c6e244cbcf",
-    "output\\AP-Real-internal-incident-note-2026-08-05.md": "e5dcd7f4f2a906086a29b61cdfd7b8672412e25556d957c76614f720dc440ac3"
+  "site_count": 30,
+  "qa": {
+    "source": "C:\\Users\\user\\AppData\\Local\\Temp\\apreal-form-css-final-v3-20260811\\results.json",
+    "views": 60,
+    "desktop_mobile_per_site": true,
+    "callback_and_question_per_view": true,
+    "failed_views": []
   },
-  "pdf_renderer": "reportlab",
+  "recipient_settings": {
+    "source": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-recipient-matrix-2026-08-11-after-form-css.json",
+    "checks": 48,
+    "failed": [],
+    "personal_recipient_hits": [],
+    "mailbox_delivery_claimed": false
+  },
+  "deployment": {
+    "source": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-visual-contract-deploy-2026-08-11.json",
+    "backup": "/home/n/nousroc9/_backups/20260811-203253-ap-real-form-visual-contract",
+    "rollback_performed": false
+  },
+  "report": {
+    "docx": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\documents\\AP-Real-client-report-2026-08-11.docx",
+    "docx_sha256": "5f883dddd54b4515dd8193f549596b0b1b2111968ea737292fa711d6603120be",
+    "pdf": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\pdf\\AP-Real-client-report-2026-08-11.pdf",
+    "pdf_sha256": "3f610d5447390494cd5dc0d051d877a39c152a50cf5052497818479953198e15",
+    "pdf_pages": 37,
+    "asset_dir": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11",
+    "evidence_batches": [
+      [
+        "39mchs.ru",
+        "apreal-nn.ru",
+        "apreal-volgograd.ru",
+        "apreal.ru",
+        "apreal.spb.ru",
+        "apreal36.ru"
+      ],
+      [
+        "apreal72.ru",
+        "docp.ru",
+        "dpomuc.ru",
+        "ed-kgd.ru",
+        "elecktro.ru",
+        "fsa-lab.ru"
+      ],
+      [
+        "fste.ru",
+        "lfsb.ru",
+        "license39.ru",
+        "mca24.ru",
+        "mchs-spb.ru",
+        "mchs78.ru"
+      ],
+      [
+        "med-license.ru",
+        "medlic.spb.ru",
+        "medtex39.ru",
+        "medtex78.ru",
+        "mhsl.ru",
+        "minkult78.ru"
+      ],
+      [
+        "muc-vrn.ru",
+        "nousro-nn.ru",
+        "nousro-spb.ru",
+        "nousro.ru",
+        "otxodi.ru",
+        "shopap.ru"
+      ]
+    ],
+    "site_evidence": {
+      "39mchs.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-01-39mchs-ru.jpg",
+      "apreal-nn.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-02-apreal-nn-ru.jpg",
+      "apreal-volgograd.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-03-apreal-volgograd-ru.jpg",
+      "apreal.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-04-apreal-ru.jpg",
+      "apreal.spb.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-05-apreal-spb-ru.jpg",
+      "apreal36.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-06-apreal36-ru.jpg",
+      "apreal72.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-07-apreal72-ru.jpg",
+      "docp.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-08-docp-ru.jpg",
+      "dpomuc.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-09-dpomuc-ru.jpg",
+      "ed-kgd.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-10-ed-kgd-ru.jpg",
+      "elecktro.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-11-elecktro-ru.jpg",
+      "fsa-lab.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-12-fsa-lab-ru.jpg",
+      "fste.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-13-fste-ru.jpg",
+      "lfsb.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-14-lfsb-ru.jpg",
+      "license39.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-15-license39-ru.jpg",
+      "mca24.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-16-mca24-ru.jpg",
+      "mchs-spb.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-17-mchs-spb-ru.jpg",
+      "mchs78.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-18-mchs78-ru.jpg",
+      "med-license.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-19-med-license-ru.jpg",
+      "medlic.spb.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-20-medlic-spb-ru.jpg",
+      "medtex39.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-21-medtex39-ru.jpg",
+      "medtex78.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-22-medtex78-ru.jpg",
+      "mhsl.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-23-mhsl-ru.jpg",
+      "minkult78.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-24-minkult78-ru.jpg",
+      "muc-vrn.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-25-muc-vrn-ru.jpg",
+      "nousro-nn.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-26-nousro-nn-ru.jpg",
+      "nousro-spb.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-27-nousro-spb-ru.jpg",
+      "nousro.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-28-nousro-ru.jpg",
+      "otxodi.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-29-otxodi-ru.jpg",
+      "shopap.ru": "C:\\Users\\user\\Desktop\\Переезд на бегет\\output\\ap-real-form-style-report-assets-2026-08-11\\site-30-shopap-ru.jpg"
+    }
+  },
   "visual_review": {
-    "client_report_pages": 8,
-    "all_pages_reviewed": true,
     "result": "passed",
-    "reviewed_at": "2026-08-11T17:40:00+03:00",
+    "all_pages_reviewed": true,
+    "manifest": "output\\ap-real-client-report-visual-review-2026-08-11.json",
+    "reviewed_at": "2026-08-11T21:59:59+03:00",
     "reviewer": "Codex visual QA",
-    "manifest": "output\\ap-real-client-report-visual-review-2026-08-11.json"
+    "source_pdf_sha256": "3f610d5447390494cd5dc0d051d877a39c152a50cf5052497818479953198e15",
+    "checks": {
+      "all_pages_rendered": true,
+      "all_pages_reviewed": true,
+      "no_clipped_text": true,
+      "no_overlapping_report_elements": true,
+      "route_table_headers_visible": true,
+      "one_evidence_page_per_site": true,
+      "site_names_match_screenshots": true,
+      "recipient_addresses_match_matrix": true,
+      "desktop_callback_visible_per_site": true,
+      "desktop_question_visible_per_site": true,
+      "mobile_callback_visible_per_site": true,
+      "mobile_question_visible_per_site": true,
+      "screenshots_uncropped": true
+    }
   },
-  "recipient_control": {
-    "personal_gmail_in_production_recipients": false,
-    "configured_recipient_routes": "48/48 matched the client matrix",
-    "client_mailbox_delivery_evidence": "2 form messages in info@medlic.spb.ru only"
+  "client_contact": {
+    "performed": false,
+    "release_required": true
   }
 }

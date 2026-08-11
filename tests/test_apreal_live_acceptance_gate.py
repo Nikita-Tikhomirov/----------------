@@ -27,6 +27,14 @@ def test_live_gate_treats_runtime_and_resource_errors_as_failures():
     assert "pre-existing page error" not in text
 
 
+def test_live_gate_does_not_fail_sites_for_third_party_resource_console_noise():
+    text = source()
+
+    assert "isCriticalConsoleError(message, sourceUrl, domain)" in text
+    assert "isFirstParty(sourceUrl, domain)" in text
+    assert "isCriticalConsoleError(value, location.url, domain)" in text
+
+
 def test_live_gate_records_canonical_url_and_viewport_screenshots():
     text = source()
 
@@ -48,6 +56,13 @@ def test_live_gate_bounds_screenshots_and_records_console_locations():
     assert "animations: 'disabled'" in text
     assert "consoleErrorDetails" in text
     assert "message.location()" in text
+
+
+def test_live_gate_requires_controls_to_fill_the_form_content_width():
+    text = source()
+
+    assert "formInnerWidth" in text
+    assert "does not fill form width" in text
 
 
 def test_live_gate_waits_for_smart_slider_before_visual_capture():

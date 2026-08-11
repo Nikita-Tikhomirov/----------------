@@ -126,8 +126,9 @@ function isBlockingResourceType(resourceType) {
   return ['document', 'script', 'stylesheet', 'xhr', 'fetch', 'image', 'font'].includes(resourceType);
 }
 
-function isCriticalConsoleError(message) {
-  return /(?:uncaught|referenceerror|typeerror|syntaxerror|rangeerror|failed to load resource)/i.test(message);
+function isCriticalConsoleError(message, sourceUrl, domain) {
+  if (/failed to load resource/i.test(message)) return isFirstParty(sourceUrl, domain);
+  return /(?:uncaught|referenceerror|typeerror|syntaxerror|rangeerror)/i.test(message);
 }
 
 async function elementSnapshot(locator) {
@@ -178,6 +179,92 @@ async function formSnapshot(form) {
         : '',
     })),
   }));
+}
+
+async function visualContractSnapshot(form, family) {
+  const formInnerWidth = await form.evaluate(element => {
+    const style = getComputedStyle(element);
+    const horizontalPadding = (Number.parseFloat(style.paddingLeft) || 0)
+      + (Number.parseFloat(style.paddingRight) || 0);
+    return element.clientWidth - horizontalPadding;
+  });
+  const controls = await form
+    .locator(
+      'input:not([type="hidden"]):not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]):not(.csf-honeypot):not([name="website"]), textarea'
+    )
+    .evaluateAll(nodes => nodes.map(node => {
+      const style = getComputedStyle(node);
+      const rect = node.getBoundingClientRect();
+      return {
+        tag: node.tagName.toLowerCase(),
+        name: node.name || '',
+        width: rect.width,
+        height: rect.height,
+        fontSize: style.fontSize,
+        lineHeight: style.lineHeight,
+        borderWidth: style.borderWidth,
+        borderRadius: style.borderRadius,
+        paddingLeft: style.paddingLeft,
+        paddingRight: style.paddingRight,
+        backgroundColor: style.backgroundColor,
+        color: style.color,
+        boxShadow: style.boxShadow,
+        focused: node.matches(':focus'),
+      };
+    }));
+  const labelDisplays = family === 'standard'
+    ? await form.locator('label').evaluateAll(labels => labels.map(label => getComputedStyle(label).display))
+    : [];
+  return { controls, labelDisplays, formInnerWidth };
+}
+
+function validateVisualContract(snapshot, family, kind, failures) {
+  const controls = snapshot.controls;
+  const singleLine = controls.filter(control => control.tag === 'input');
+  const textareas = controls.filter(control => control.tag === 'textarea');
+  if (!singleLine.length) {
+    failures.push(`${family} ${kind}: no visible single-line controls for visual contract`);
+    return;
+  }
+  for (const control of singleLine) {
+    if (Math.abs(control.height - 48) > 1) {
+      failures.push(`${family} ${kind}: ${control.name} height is ${control.height}, expected 48`);
+    }
+  }
+  for (const control of textareas) {
+    if (control.height < 119) {
+      failures.push(`${family} ${kind}: ${control.name} textarea height is ${control.height}, expected at least 120`);
+    }
+  }
+  const expectedWidth = controls[0]?.width || 0;
+  for (const control of controls) {
+    if (control.fontSize !== '16px') {
+      failures.push(`${family} ${kind}: ${control.name} font size is ${control.fontSize}, expected 16px`);
+    }
+    if (control.borderWidth !== '1px') {
+      failures.push(`${family} ${kind}: ${control.name} border width is ${control.borderWidth}, expected 1px`);
+    }
+    if (control.borderRadius !== '4px') {
+      failures.push(`${family} ${kind}: ${control.name} radius is ${control.borderRadius}, expected 4px`);
+    }
+    if (control.paddingLeft !== '14px' || control.paddingRight !== '14px') {
+      failures.push(`${family} ${kind}: ${control.name} horizontal padding is ${control.paddingLeft}/${control.paddingRight}, expected 14px`);
+    }
+    if (control.backgroundColor !== 'rgb(255, 255, 255)') {
+      failures.push(`${family} ${kind}: ${control.name} background is ${control.backgroundColor}, expected white`);
+    }
+    if (Math.abs(control.width - expectedWidth) > 1) {
+      failures.push(`${family} ${kind}: ${control.name} width differs from the other fields`);
+    }
+    if (family === 'standard' && snapshot.formInnerWidth - control.width > 2) {
+      failures.push(
+        `${family} ${kind}: ${control.name} width ${control.width} does not fill form width ${snapshot.formInnerWidth}`
+      );
+    }
+  }
+  if (family === 'standard' && snapshot.labelDisplays.some(display => display !== 'block')) {
+    failures.push(`standard ${kind}: optional label copy is not kept on one line`);
+  }
 }
 
 function validateStandardForm(form, kind, failures) {
@@ -268,6 +355,8 @@ async function exerciseStandard(page, domain, viewport, kind, result) {
   ).first();
   const modalTitle = await titleLocator.innerText().catch(() => '');
   validateActionCopy(kind, triggerSnapshot, modalTitle, result.failures);
+  const visualContract = await visualContractSnapshot(modal.locator('form'), 'standard');
+  validateVisualContract(visualContract, 'standard', kind, result.failures);
   const file = await screenshot(page, domain, viewport.name, kind);
   const close = modal.locator('.csf-close:visible').first();
   if (!await close.count()) {
@@ -277,7 +366,12 @@ async function exerciseStandard(page, domain, viewport, kind, result) {
     await page.waitForTimeout(200);
     if (await modal.isVisible().catch(() => false)) result.failures.push(`${kind}: modal stayed visible after X click`);
   }
-  result.actions[kind] = { trigger: triggerSnapshot, modal: modalSnapshot, screenshot: file };
+  result.actions[kind] = {
+    trigger: triggerSnapshot,
+    modal: modalSnapshot,
+    screenshot: file,
+    visualContract,
+  };
 }
 
 async function auditStandard(page, domain, viewport, result) {
@@ -474,6 +568,8 @@ async function exerciseCustom(page, domain, viewport, kind, form, result) {
   ).first();
   const modalTitle = await titleLocator.innerText().catch(() => '');
   validateActionCopy(kind, triggerSnapshot, modalTitle, result.failures);
+  const visualContract = await visualContractSnapshot(form, 'custom');
+  validateVisualContract(visualContract, 'custom', kind, result.failures);
   const file = await screenshot(page, domain, viewport.name, kind);
   const close = geometryTarget.locator(
     '.unipop-close:visible, .uk-modal-close:visible, [class*="modal-close"]:visible, '
@@ -486,7 +582,12 @@ async function exerciseCustom(page, domain, viewport, kind, form, result) {
     await page.waitForTimeout(800);
     if (await form.isVisible().catch(() => false)) result.failures.push(`custom ${kind}: form stayed visible after X click`);
   }
-  result.actions[kind] = { trigger: triggerSnapshot, modal: modalSnapshot, screenshot: file };
+  result.actions[kind] = {
+    trigger: triggerSnapshot,
+    modal: modalSnapshot,
+    screenshot: file,
+    visualContract,
+  };
 }
 
 async function auditExcluded(page, domain, result) {
@@ -546,7 +647,7 @@ async function auditView(browser, domain, type, viewport) {
       lineNumber: location.lineNumber ?? null,
       columnNumber: location.columnNumber ?? null,
     });
-    if (isCriticalConsoleError(value)) {
+    if (isCriticalConsoleError(value, location.url, domain)) {
       const source = location.url
         ? ` (${location.url}:${(location.lineNumber ?? 0) + 1})`
         : '';
@@ -586,9 +687,11 @@ async function auditView(browser, domain, type, viewport) {
     if (result.criticalConsoleErrors.length) result.failures.push(...result.criticalConsoleErrors);
     if (result.requestFailures.length) result.failures.push(...result.requestFailures);
     if (result.badResponses.length) result.failures.push(...result.badResponses);
-    const nonCriticalConsole = result.consoleErrors.filter(error => !isCriticalConsoleError(error));
+    const nonCriticalConsole = result.consoleErrorDetails.filter(
+      detail => !isCriticalConsoleError(detail.message, detail.url, domain)
+    );
     if (nonCriticalConsole.length) {
-      result.warnings.push(...nonCriticalConsole.map(error => `console error: ${error}`));
+      result.warnings.push(...nonCriticalConsole.map(detail => `console error: ${detail.message}`));
     }
   } catch (error) {
     if (type === 'excluded' && KNOWN_EXCLUDED_INFRA_FAILURES.has(domain)) {

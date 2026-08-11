@@ -1,0 +1,223 @@
+{
+  "deployed_at": "2026-08-11T20:32:53+03:00",
+  "backup_root": "/home/n/nousroc9/_backups/20260811-203253-ap-real-form-visual-contract",
+  "published": [
+    {
+      "domain": "docp.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/docp.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "elecktro.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/elecktro.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "medlic.spb.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/medlic.spb.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "mchs-spb.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/mchs-spb.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "otxodi.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/otxodi.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "apreal.spb.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/apreal.spb.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "minkult78.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/minkult78.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "medtex78.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/medtex78.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "mchs78.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/mchs78.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "license39.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/license39.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "39mchs.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/39mchs.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "apreal-nn.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/apreal-nn.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "apreal-volgograd.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/apreal-volgograd.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "apreal72.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/apreal72.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "nousro.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/nousro.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "dpomuc.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/dpomuc.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "ed-kgd.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/ed-kgd.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "muc-vrn.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/muc-vrn.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "nousro-nn.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/nousro-nn.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "apreal.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/apreal.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "mca24.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/mca24.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "med-license.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/med-license.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "mhsl.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/mhsl.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "apreal36.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/apreal36.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "nousro-spb.ru",
+      "kind": "wordpress",
+      "remote": "/home/n/nousroc9/nousro-spb.ru/public_html/wp-content/mu-plugins/client-form-visual-contract.php",
+      "size": 6811,
+      "sha256": "41072aece9ff5661cedc204b8f2dda28107482abe14eb7f9a926b75f5ff858b9"
+    },
+    {
+      "domain": "fste.ru",
+      "kind": "javascript",
+      "remote": "/home/n/nousroc9/fste.ru/public_html/client-standard-forms.js",
+      "size": 19672,
+      "sha256": "926f98b584771a0c259591b1944d4a72b2e64666d4df18550c68db8690bc33e0"
+    },
+    {
+      "domain": "lfsb.ru",
+      "kind": "javascript",
+      "remote": "/home/n/nousroc9/lfsb.ru/public_html/client-standard-forms.js",
+      "size": 19996,
+      "sha256": "4d07f647a4f3ce0d4354b85b15b072f556504df56c6f467ffb7ddc8312231c03"
+    },
+    {
+      "domain": "medtex39.ru",
+      "kind": "javascript",
+      "remote": "/home/n/nousroc9/39mchs.ru/public_html/__shared/medtex39/client-standard-forms.js",
+      "size": 21190,
+      "sha256": "ac8ea98ca69f43ecad038387b3bbc2d01a6a1471a7273ed59e138df132ed1501"
+    },
+    {
+      "domain": "shopap.ru",
+      "kind": "javascript",
+      "remote": "/home/n/nousroc9/shopap.ru/public_html/client-standard-forms.js",
+      "size": 19858,
+      "sha256": "12de0de487a8b3ed082a83f4200dcad273da62718b8409c9babe0a9d49ee9227"
+    },
+    {
+      "domain": "fsa-lab.ru",
+      "kind": "html",
+      "remote": "/home/n/nousroc9/fsa-lab.ru/public_html/index.html",
+      "size": 95945,
+      "sha256": "dcdb8872b47fee2edfc0bac92f55a6299e4b8c95caf015a0e811dfba3903d167"
+    }
+  ],
+  "cache_flushes": [
+    {
+      "domain": "apreal.spb.ru",
+      "output": "Success: The cache was flushed.\nSuccess: Everything flushed successfully."
+    }
+  ],
+  "rollback_performed": false
+}

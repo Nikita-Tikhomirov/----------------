@@ -10,7 +10,10 @@ import json
 from pathlib import Path, PurePosixPath
 import re
 import sys
+import time
 from typing import Any
+
+from paramiko.ssh_exception import SSHException
 
 if __package__ in {None, ""}:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -152,10 +155,12 @@ def collect_checks(ssh) -> list[dict[str, Any]]:
     with ssh.open_sftp() as sftp:
         for domain, expected in generator.WORDPRESS_SITES.items():
             path = REMOTE_HOME / domain / "public_html/wp-content/mu-plugins/client-standard-forms.php"
+            print(f"Reading recipient route: {domain} (wordpress)", file=sys.stderr, flush=True)
             checks.append(file_check(sftp, domain, path, expected, "wordpress_standard"))
 
         for domain, expected in generator.STATIC_SITES.items():
             root = standard_deploy.STATIC_ROOTS[domain]
+            print(f"Reading recipient route: {domain} (static)", file=sys.stderr, flush=True)
             checks.append(
                 file_check(
                     sftp,
@@ -168,11 +173,17 @@ def collect_checks(ssh) -> list[dict[str, Any]]:
 
         for domain, expected in CUSTOM_RECIPIENTS.items():
             path = REMOTE_HOME / domain / "public_html/mail.php"
+            print(f"Reading recipient route: {domain} (custom)", file=sys.stderr, flush=True)
             checks.append(file_check(sftp, domain, path, expected, "custom_php"))
 
     for domain, expected in CURRENT_CF7_RECIPIENTS.items():
         definitions = custom_deploy.CF7_FORMS[domain]
         for form_kind in ("callback", "question"):
+            print(
+                f"Reading recipient route: {domain} (cf7 {form_kind})",
+                file=sys.stderr,
+                flush=True,
+            )
             definition = definitions[form_kind]
             checks.append(
                 cf7_check(
@@ -189,8 +200,50 @@ def collect_checks(ssh) -> list[dict[str, Any]]:
             )
 
     for contract in legacy_cf7_contracts():
+        print(
+            f"Reading recipient route: {contract['domain']} (cf7 legacy {contract['form_id']})",
+            file=sys.stderr,
+            flush=True,
+        )
         checks.append(cf7_check(ssh, contract, "cf7_legacy"))
     return checks
+
+
+def collect_checks_with_retries(
+    args,
+    *,
+    connector=None,
+    collector=None,
+    attempts: int = 3,
+    retry_delay: float = 2.0,
+) -> list[dict[str, Any]]:
+    if attempts < 1:
+        raise ValueError("attempts must be at least 1")
+    connector = connector or custom_deploy.connect
+    collector = collector or collect_checks
+    transient_errors = (EOFError, OSError, SSHException)
+
+    for attempt in range(1, attempts + 1):
+        ssh = None
+        try:
+            ssh = connector(args)
+            return collector(ssh)
+        except transient_errors as error:
+            if attempt == attempts:
+                raise RuntimeError(
+                    f"Recipient matrix could not be read after {attempts} SSH attempts"
+                ) from error
+            print(
+                f"Recipient matrix SSH attempt {attempt}/{attempts} failed: {error}; reconnecting",
+                file=sys.stderr,
+            )
+            if retry_delay:
+                time.sleep(retry_delay)
+        finally:
+            if ssh is not None:
+                ssh.close()
+
+    raise RuntimeError("Recipient matrix retry loop ended unexpectedly")
 
 
 def main() -> int:
@@ -201,11 +254,7 @@ def main() -> int:
     parser.add_argument("--user", default="nousroc9")
     args = parser.parse_args()
 
-    ssh = custom_deploy.connect(args)
-    try:
-        checks = collect_checks(ssh)
-    finally:
-        ssh.close()
+    checks = collect_checks_with_retries(args)
 
     result = {
         "checked_at": datetime.now().astimezone().isoformat(timespec="seconds"),

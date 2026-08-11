@@ -100,3 +100,41 @@ def test_recipient_matrix_cli_can_run_as_a_direct_script():
 
     assert result.returncode == 0, result.stderr
     assert "Read live AP-Real form recipients" in result.stdout
+
+
+def test_recipient_matrix_reconnects_after_transport_drop():
+    from paramiko.ssh_exception import SSHException
+
+    from tools.verify_apreal_recipient_matrix import collect_checks_with_retries
+
+    connections = []
+
+    class FakeConnection:
+        def __init__(self, attempt):
+            self.attempt = attempt
+            self.closed = False
+
+        def close(self):
+            self.closed = True
+
+    def connector(_args):
+        connection = FakeConnection(len(connections) + 1)
+        connections.append(connection)
+        return connection
+
+    def collector(connection):
+        if connection.attempt == 1:
+            raise SSHException("server connection dropped")
+        return [{"domain": "example.ru", "passed": True}]
+
+    checks = collect_checks_with_retries(
+        object(),
+        connector=connector,
+        collector=collector,
+        attempts=3,
+        retry_delay=0,
+    )
+
+    assert checks == [{"domain": "example.ru", "passed": True}]
+    assert len(connections) == 2
+    assert all(connection.closed for connection in connections)
