@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-02T04:55:07+03:00",
+  "updated_at": "2026-08-13T19:32:24+03:00",
   "tasks": [
     {
       "id": "beget-migration-202607",
@@ -230,7 +230,8 @@
     {
       "id": "apreal-portfolio-form-unification-20260730",
       "site": "39mchs.ru, apreal-nn.ru, apreal-volgograd.ru, apreal.ru, apreal.spb.ru, apreal36.ru, apreal72.ru, docp.ru, dpomuc.ru, ed-kgd.ru, elecktro.ru, fsa-lab.ru, fste.ru, lfsb.ru, license39.ru, mca24.ru, mchs-spb.ru, mchs78.ru, med-license.ru, medlic.spb.ru, medtex39.ru, medtex78.ru, mhsl.ru, minkult78.ru, muc-vrn.ru, nousro-nn.ru, nousro-spb.ru, nousro.ru, otxodi.ru, shopap.ru",
-      "status": "verifying",
+      "status": "client_review",
+      "next_action_at": "2026-08-18",
       "workflow_version": 2,
       "reopened": true,
       "financial_classification": "warranty_fix",
@@ -412,25 +413,42 @@
           "no post-release marker was found in the owner's personal Gmail account"
         ],
         "visual": {
-          "desktop": "output/ap-real-post-send-final-visual-review-2026-08-02-v3/boards/*",
-          "mobile": "output/ap-real-post-send-final-visual-review-2026-08-02-v3/boards/*"
+          "desktop": "output/ap-real-form-style-report-assets-2026-08-11/site-*.jpg",
+          "mobile": "output/ap-real-form-style-report-assets-2026-08-11/site-*.jpg"
         },
-        "results": "output/ap-real-post-send-final-acceptance-2026-08-02-v3/results.json; output/ap-real-post-send-nousro-spb-recheck-2026-08-02/results.json; output/ap-real-post-send-mchs78-recheck-2026-08-02-v2/results.json; output/ap-real-post-send-recipient-matrix-2026-08-02.json; output/ap-real-post-send-form-submissions-2026-08-02.json; output/ap-real-post-send-main-mailru-accounts-2026-08-02.json"
+        "results": "output/ap-real-client-report-audit-2026-08-11.json; output/ap-real-client-report-visual-review-2026-08-11.json; output/ap-real-recipient-matrix-2026-08-11-after-form-css.json; output/ap-real-form-visual-contract-deploy-2026-08-11.json; output/ap-real-post-send-main-mailru-accounts-2026-08-02.json",
+        "mail_evidence": {
+          "configured_recipient": "48 of 48 current and legacy recipient configurations match the client matrix; output/ap-real-recipient-matrix-2026-08-11-after-form-css.json",
+          "handler_acceptance": "60 of 60 callback and question submissions were accepted by the live handlers; output/ap-real-client-report-audit-2026-08-11.json",
+          "delivery_claim_scope": "mailbox_confirmed_sites_only",
+          "mailbox_confirmed_sites": [
+            "medlic.spb.ru"
+          ],
+          "mailbox_evidence": [
+            "Both fresh medlic.spb.ru messages were visually confirmed in info@medlic.spb.ru; output/ap-real-post-send-main-mailru-accounts-2026-08-02.json"
+          ]
+        }
       },
       "evidence_report": {
-        "status": "issued_with_evidence_scope_correction",
-        "docx": "output/documents/AP-Real-form-corrections-final-2026-08-02.docx",
-        "pdf": "output/pdf/AP-Real-form-corrections-final-2026-08-02.pdf",
-        "audit": "output/ap-real-conflict-closure-audit-2026-08-02.json",
-        "email_text": "output/AP-Real-form-corrections-letter-2026-08-02.txt",
-        "limitation": "The report correctly records the 30-site form UI, handler acceptance and configured recipients, but its plain-language wording does not explicitly distinguish handler acceptance from mailbox delivery on every site. Fresh mailbox receipt is directly proven only for both medlic.spb.ru forms."
+        "status": "verified",
+        "docx": "output/documents/AP-Real-client-report-2026-08-11.docx",
+        "pdf": "output/pdf/AP-Real-client-report-2026-08-11.pdf",
+        "audit": "output/ap-real-client-report-audit-2026-08-11.json",
+        "visual_review": "output/ap-real-client-report-visual-review-2026-08-11.json",
+        "mail_delivery_scope": "mailbox_confirmed_sites_only",
+        "limitation": "Configured recipients and live handler acceptance were verified across the 30-site scope. Direct mailbox receipt was independently observed only for both medlic.spb.ru forms, so the report does not claim universal mailbox delivery."
       },
       "client_report": {
-        "email_message_id": "19fc2f1355dc7b50",
+        "email_message_id": "19ffaad43280b13c",
         "thread_id": "19f8393c25b2044c",
-        "sent_at": "2026-08-02T17:46:55+03:00",
+        "sent_at": "2026-08-13T13:31:26+03:00",
         "recipient": "upreal@bk.ru",
-        "drive_pdf": "https://drive.google.com/file/d/1CsMILyEYbcO-w_RfmHmGRTEfs1_zjReq/view"
+        "cc": [
+          "khorov69@mail.ru",
+          "zawr83@mail.ru"
+        ],
+        "drive_pdf": "https://drive.google.com/file/d/1nRJaW_RU1qiqpCt-p131O0CMNVjlgVl_/view",
+        "pdf_sha256": "3f610d5447390494cd5dc0d051d877a39c152a50cf5052497818479953198e15"
       },
       "owner_release": {
         "status": "approved",
@@ -465,7 +483,7 @@
           "apreal-samara.ru remains intentionally excluded and does not resolve in DNS",
           "the existing external Ivideon camera block is separate from the form corrections and depends on the external camera service"
         ],
-        "automation_status": "paused_pending_owner_decision",
+        "automation_status": "completed_and_report_sent_with_owner_release",
         "new_client_contact_allowed": false
       },
       "excluded_domains": [
