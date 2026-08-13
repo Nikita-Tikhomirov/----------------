@@ -5108,6 +5108,203 @@
         "evidence": [],
         "requires_technical_task": false
       }
+    },
+    {
+      "id": "19ffa5de1fe5fcdd",
+      "thread_id": "19ffa5de1fe5fcdd",
+      "from": "Beget <support@beget.ru>",
+      "subject": "LTD Beget: Напоминание, аккаунт andreji4",
+      "received_at": "2026-08-13T12:04:43+03:00",
+      "task_id": "unrelated-ap-real-19ffa5de1fe5fcdd",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19ff867244ae64be",
+      "thread_id": "19ff867244ae64be",
+      "from": "Global Domain Group <accounts@globaldomaingroup.com>",
+      "subject": "gusapiapp.com has been deleted",
+      "received_at": "2026-08-13T02:54:13+03:00",
+      "task_id": "unrelated-ap-real-19ff867244ae64be",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19ff7c8f2ca9f28c",
+      "thread_id": "19ff7c8f2ca9f28c",
+      "from": "Font Awesome <hello@m.fontawesome.com>",
+      "subject": "Are you even kidding me?",
+      "received_at": "2026-08-13T00:02:32+03:00",
+      "task_id": "unrelated-ap-real-19ff7c8f2ca9f28c",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19ff7c7773390ec3",
+      "thread_id": "19ff7c7773390ec3",
+      "from": "Twitch <no-reply@twitch.tv>",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-08-13T00:01:11+03:00",
+      "task_id": "unrelated-ap-real-19ff7c7773390ec3",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19ff745728464588",
+      "thread_id": "19ff745728464588",
+      "from": "Sélection Quora <french-personalized-digest@quora.com>",
+      "subject": "Le vol MH17 a été abattu par la Russie",
+      "received_at": "2026-08-12T21:39:10+03:00",
+      "task_id": "unrelated-ap-real-19ff745728464588",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19ff6fe0bf3c6114",
+      "thread_id": "19ff6fdf3fc26d01",
+      "from": "Instagram <noreply@mail.instagram.com>",
+      "subject": "joycezamani35 подписался на вас",
+      "received_at": "2026-08-12T20:20:57+03:00",
+      "task_id": "unrelated-ap-real-19ff6fe0bf3c6114",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19ff6fdf3fc26d01",
+      "thread_id": "19ff6fdf3fc26d01",
+      "from": "Instagram <noreply@mail.instagram.com>",
+      "subject": "joycezamani35 подписался на вас",
+      "received_at": "2026-08-12T20:20:56+03:00",
+      "task_id": "unrelated-ap-real-19ff6fdf3fc26d01",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19ff6f7e13f64205",
+      "thread_id": "19ff6f7e13f64205",
+      "from": "Beget <support@beget.ru>",
+      "subject": "LTD Beget: Формирование закрывающих документов",
+      "received_at": "2026-08-12T20:14:27+03:00",
+      "task_id": "unrelated-ap-real-19ff6f7e13f64205",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19ff6f7e06a9c64f",
+      "thread_id": "19ff6f7e06a9c64f",
+      "from": "LTD Beget <no-reply@beget.com>",
+      "subject": "LTD Beget: Зачислен платеж. Аккаунт andreji4",
+      "received_at": "2026-08-12T20:14:27+03:00",
+      "task_id": "unrelated-ap-real-19ff6f7e06a9c64f",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19ff2f1168af15ec",
+      "thread_id": "19ff2f1168af15ec",
+      "from": "Link-Host.net <support@link-host.net>",
+      "subject": "Продление заказа доменное имя",
+      "received_at": "2026-08-12T01:28:33+03:00",
+      "task_id": "unrelated-ap-real-19ff2f1168af15ec",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19ff2ef6ec13fcce",
+      "thread_id": "19ff2ef6ec13fcce",
+      "from": "Link-Host.net <support@link-host.net>",
+      "subject": "Напоминание об окончании оплаченного периода домен",
+      "received_at": "2026-08-12T01:26:45+03:00",
+      "task_id": "unrelated-ap-real-19ff2ef6ec13fcce",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19ff0193eeb34596",
+      "thread_id": "19ff0193eeb34596",
+      "from": "Beget <support@beget.ru>",
+      "subject": "LTD Beget: Напоминание, аккаунт stithc65",
+      "received_at": "2026-08-11T12:13:33+03:00",
+      "task_id": "unrelated-ap-real-19ff0193eeb34596",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [
+          "excluded:stithc65"
+        ],
+        "requires_technical_task": false
+      }
+    },
+    {
+      "id": "19fed79efd7327e5",
+      "thread_id": "19fed79efd7327e5",
+      "from": "Twitch <no-reply@twitch.tv>",
+      "subject": "Nevodka начинает трансляцию на Twitch",
+      "received_at": "2026-08-11T00:00:18+03:00",
+      "task_id": "unrelated-ap-real-19fed79efd7327e5",
+      "attachments": [],
+      "routing": {
+        "profile_id": "ap-real",
+        "bucket": "unrelated",
+        "evidence": [],
+        "requires_technical_task": false
+      }
     }
   ],
   "unreadable_messages": []
