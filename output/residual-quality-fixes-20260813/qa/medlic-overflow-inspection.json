@@ -1,0 +1,382 @@
+{
+  "root": {
+    "tag": "HTML",
+    "id": "",
+    "className": "uk-notouch supports csstransforms3d csstransformspreserve3d",
+    "clientWidth": 390,
+    "scrollWidth": 445,
+    "rect": {
+      "left": 0,
+      "right": 390,
+      "width": 390
+    },
+    "overflowX": "auto",
+    "position": "static",
+    "transform": "none",
+    "before": {
+      "content": "none",
+      "width": "auto",
+      "left": "auto",
+      "right": "auto"
+    },
+    "after": {
+      "content": "none",
+      "width": "auto",
+      "left": "auto",
+      "right": "auto"
+    }
+  },
+  "body": {
+    "tag": "BODY",
+    "id": "",
+    "className": "home page-template-default page page-id-13 tm-sidebar-a-left tm-sidebars-1 tm-isblog wp-front_page wp-page wp-page-13",
+    "clientWidth": 390,
+    "scrollWidth": 445,
+    "rect": {
+      "left": 0,
+      "right": 390,
+      "width": 390
+    },
+    "overflowX": "visible",
+    "position": "static",
+    "transform": "none",
+    "before": {
+      "content": "none",
+      "width": "auto",
+      "left": "auto",
+      "right": "auto"
+    },
+    "after": {
+      "content": "none",
+      "width": "auto",
+      "left": "auto",
+      "right": "auto"
+    }
+  },
+  "oversized": [
+    {
+      "tag": "DIV",
+      "id": "",
+      "className": "navigation green",
+      "clientWidth": 195,
+      "scrollWidth": 390,
+      "rect": {
+        "left": 55,
+        "right": 250,
+        "width": 195
+      },
+      "overflowX": "visible",
+      "position": "static",
+      "transform": "none",
+      "before": {
+        "content": "\"\"",
+        "width": "195px",
+        "left": "auto",
+        "right": "auto"
+      },
+      "after": {
+        "content": "\"\"",
+        "width": "0px",
+        "left": "auto",
+        "right": "auto"
+      }
+    },
+    {
+      "tag": "UL",
+      "id": "",
+      "className": "",
+      "clientWidth": 195,
+      "scrollWidth": 390,
+      "rect": {
+        "left": 55,
+        "right": 250,
+        "width": 195
+      },
+      "overflowX": "visible",
+      "position": "relative",
+      "transform": "none",
+      "before": {
+        "content": "none",
+        "width": "auto",
+        "left": "auto",
+        "right": "auto"
+      },
+      "after": {
+        "content": "none",
+        "width": "auto",
+        "left": "auto",
+        "right": "auto"
+      }
+    },
+    {
+      "tag": "LI",
+      "id": "",
+      "className": "has-sub",
+      "clientWidth": 195,
+      "scrollWidth": 390,
+      "rect": {
+        "left": 55,
+        "right": 250,
+        "width": 195
+      },
+      "overflowX": "visible",
+      "position": "relative",
+      "transform": "none",
+      "before": {
+        "content": "none",
+        "width": "auto",
+        "left": "auto",
+        "right": "auto"
+      },
+      "after": {
+        "content": "none",
+        "width": "auto",
+        "left": "auto",
+        "right": "auto"
+      }
+    },
+    {
+      "tag": "LI",
+      "id": "",
+      "className": "has-sub",
+      "clientWidth": 195,
+      "scrollWidth": 390,
+      "rect": {
+        "left": 55,
+        "right": 250,
+        "width": 195
+      },
+      "overflowX": "visible",
+      "position": "relative",
+      "transform": "none",
+      "before": {
+        "content": "none",
+        "width": "auto",
+        "left": "auto",
+        "right": "auto"
+      },
+      "after": {
+        "content": "none",
+        "width": "auto",
+        "left": "auto",
+        "right": "auto"
+      }
+    },
+    {
+      "tag": "LI",
+      "id": "",
+      "className": "has-sub",
+      "clientWidth": 195,
+      "scrollWidth": 390,
+      "rect": {
+        "left": 55,
+        "right": 250,
+        "width": 195
+      },
+      "overflowX": "visible",
+      "position": "relative",
+      "transform": "none",
+      "before": {
+        "content": "none",
+        "width": "auto",
+        "left": "auto",
+        "right": "auto"
+      },
+      "after": {
+        "content": "none",
+        "width": "auto",
+        "left": "auto",
+        "right": "auto"
+      }
+    },
+    {
+      "tag": "LI",
+      "id": "",
+      "className": "has-sub",
+      "clientWidth": 195,
+      "scrollWidth": 390,
+      "rect": {
+        "left": 55,
+        "right": 250,
+        "width": 195
+      },
+      "overflowX": "visible",
+      "position": "relative",
+      "transform": "none",
+      "before": {
+        "content": "none",
+        "width": "auto",
+        "left": "auto",
+        "right": "auto"
+      },
+      "after": {
+        "content": "none",
+        "width": "auto",
+        "left": "auto",
+        "right": "auto"
+      }
+    },
+    {
+      "tag": "LI",
+      "id": "",
+      "className": "has-sub",
+      "clientWidth": 195,
+      "scrollWidth": 390,
+      "rect": {
+        "left": 55,
+        "right": 250,
+        "width": 195
+      },
+      "overflowX": "visible",
+      "position": "relative",
+      "transform": "none",
+      "before": {
+        "content": "none",
+        "width": "auto",
+        "left": "auto",
+        "right": "auto"
+      },
+      "after": {
+        "content": "none",
+        "width": "auto",
+        "left": "auto",
+        "right": "auto"
+      }
+    },
+    {
+      "tag": "LI",
+      "id": "",
+      "className": "has-sub",
+      "clientWidth": 195,
+      "scrollWidth": 390,
+      "rect": {
+        "left": 55,
+        "right": 250,
+        "width": 195
+      },
+      "overflowX": "visible",
+      "position": "relative",
+      "transform": "none",
+      "before": {
+        "content": "none",
+        "width": "auto",
+        "left": "auto",
+        "right": "auto"
+      },
+      "after": {
+        "content": "none",
+        "width": "auto",
+        "left": "auto",
+        "right": "auto"
+      }
+    },
+    {
+      "tag": "DIV",
+      "id": "",
+      "className": "tm-middle uk-grid",
+      "clientWidth": 365,
+      "scrollWidth": 445,
+      "rect": {
+        "left": 0,
+        "right": 365,
+        "width": 365
+      },
+      "overflowX": "visible",
+      "position": "static",
+      "transform": "none",
+      "before": {
+        "content": "\" \"",
+        "width": "0px",
+        "left": "auto",
+        "right": "auto"
+      },
+      "after": {
+        "content": "\" \"",
+        "width": "0px",
+        "left": "auto",
+        "right": "auto"
+      }
+    },
+    {
+      "tag": "ASIDE",
+      "id": "",
+      "className": "tm-sidebar-a uk-width-medium-1-5 uk-pull-4-5 uk-grid-margin uk-row-first",
+      "clientWidth": 365,
+      "scrollWidth": 445,
+      "rect": {
+        "left": 0,
+        "right": 365,
+        "width": 365
+      },
+      "overflowX": "visible",
+      "position": "static",
+      "transform": "none",
+      "before": {
+        "content": "none",
+        "width": "auto",
+        "left": "auto",
+        "right": "auto"
+      },
+      "after": {
+        "content": "none",
+        "width": "auto",
+        "left": "auto",
+        "right": "auto"
+      }
+    },
+    {
+      "tag": "DIV",
+      "id": "",
+      "className": "uk-panel uk-panel-space SMVerticalMenu",
+      "clientWidth": 340,
+      "scrollWidth": 420,
+      "rect": {
+        "left": 25,
+        "right": 365,
+        "width": 340
+      },
+      "overflowX": "visible",
+      "position": "relative",
+      "transform": "none",
+      "before": {
+        "content": "\" \"",
+        "width": "0px",
+        "left": "auto",
+        "right": "auto"
+      },
+      "after": {
+        "content": "\" \"",
+        "width": "0px",
+        "left": "auto",
+        "right": "auto"
+      }
+    },
+    {
+      "tag": "DIV",
+      "id": "",
+      "className": "uk-container uk-container-center",
+      "clientWidth": 390,
+      "scrollWidth": 445,
+      "rect": {
+        "left": 0,
+        "right": 390,
+        "width": 390
+      },
+      "overflowX": "visible",
+      "position": "static",
+      "transform": "none",
+      "before": {
+        "content": "\" \"",
+        "width": "0px",
+        "left": "auto",
+        "right": "auto"
+      },
+      "after": {
+        "content": "\" \"",
+        "width": "0px",
+        "left": "auto",
+        "right": "auto"
+      }
+    }
+  ]
+}

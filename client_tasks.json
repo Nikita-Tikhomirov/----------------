@@ -508,6 +508,152 @@
         "root_cause": "The original message combined technical attachments with finance wording and was incorrectly routed as finance-only. Subsequent work was closed domain by domain without a complete family-wide matrix or mandatory fresh visual comparison, so equivalent defects remained on sibling sites.",
         "regression_protection": "Workflow-v2 validation requires explicit owner approval, complete requirement/site coverage and a verified evidence report; tests/test_apreal_portfolio_completion.py and tests/live_apreal_portfolio_acceptance.cjs enforce exact labels and fresh desktop/mobile checks on every included domain."
       }
+    },
+    {
+      "id": "residual-quality-fixes-20260813",
+      "site": "medlic.spb.ru, lfsb.ru",
+      "status": "awaiting_user_release",
+      "workflow_version": 2,
+      "financial_classification": "warranty_fix",
+      "request": {
+        "source": "owner_chat",
+        "email_message_id": "owner-chat-20260813-residual-quality-fixes",
+        "thread_id": "owner-chat-20260813-residual-quality-fixes",
+        "received_at": "2026-08-13T19:45:00+03:00",
+        "verbatim": "Просил, не просил, всё надо исправить. Если где-то косяки какие-то есть, проблемы есть, давай-ка их исправим. Потом после клиенту отчет об этом выставим. Вот и всё."
+      },
+      "specification": {
+        "title": "Устранение обнаруженных остаточных дефектов на medlic.spb.ru и lfsb.ru",
+        "source_message_ids": [
+          "owner-chat-20260813-residual-quality-fixes"
+        ],
+        "sites": [
+          "medlic.spb.ru",
+          "lfsb.ru"
+        ],
+        "requirements": [
+          {
+            "id": "MED-01",
+            "description": "Исправить видимую опечатку «Всеь процессы» на «Все процессы» без изменения смысла и оформления страницы.",
+            "sites": ["medlic.spb.ru"],
+            "acceptance_criteria": [
+              "Ошибочная строка отсутствует в опубликованной странице.",
+              "Исправленная строка видна на desktop и mobile без нарушения вёрстки."
+            ]
+          },
+          {
+            "id": "MED-02",
+            "description": "Исправить видимую опечатку «Росздравнадзоррешает» на «Росздравнадзор решает» без изменения смысла и оформления страницы.",
+            "sites": ["medlic.spb.ru"],
+            "acceptance_criteria": [
+              "Ошибочная строка отсутствует в опубликованной странице.",
+              "Исправленная строка видна на desktop и mobile без нарушения вёрстки."
+            ]
+          },
+          {
+            "id": "LFSB-01",
+            "description": "Устранить горизонтальную прокрутку и обрезание основной страницы lfsb.ru на экранах шириной 320–390 пикселей.",
+            "sites": ["lfsb.ru"],
+            "acceptance_criteria": [
+              "На ширине 320 и 390 пикселей ширина документа не превышает ширину viewport.",
+              "Текст, изображения и основные элементы не обрезаются и не перекрываются."
+            ]
+          },
+          {
+            "id": "LFSB-02",
+            "description": "Адаптировать шапку, меню, основное содержимое и боковые блоки lfsb.ru для мобильного просмотра, сохранив desktop-вёрстку и рабочие формы.",
+            "sites": ["lfsb.ru"],
+            "acceptance_criteria": [
+              "На mobile шапка, меню и колонки читаемы и последовательно расположены.",
+              "На desktop исходная структура сайта сохранена.",
+              "Обе формы открываются обычным кликом на desktop и mobile и визуально не повреждены."
+            ]
+          }
+        ],
+        "site_matrix": [
+          {
+            "site": "medlic.spb.ru",
+            "requirement_ids": ["MED-01", "MED-02"],
+            "status": "passed",
+            "evidence": [
+              "output/residual-quality-fixes-20260813/qa/results.json",
+              "output/residual-quality-fixes-20260813/qa/medlic-home-desktop.png",
+              "output/residual-quality-fixes-20260813/qa/medlic-home-mobile.png",
+              "output/residual-quality-fixes-20260813/qa/medlic-home-mobile-question.png"
+            ]
+          },
+          {
+            "site": "lfsb.ru",
+            "requirement_ids": ["LFSB-01", "LFSB-02"],
+            "status": "passed",
+            "evidence": [
+              "output/residual-quality-fixes-20260813/qa/results.json",
+              "output/residual-quality-fixes-20260813/qa/lfsb-home-desktop.png",
+              "output/residual-quality-fixes-20260813/qa/lfsb-home-mobile.png",
+              "output/residual-quality-fixes-20260813/qa/lfsb-fstec_dir-mobile.png",
+              "output/residual-quality-fixes-20260813/qa/lfsb-kripto_dir-mobile.png",
+              "output/residual-quality-fixes-20260813/qa/lfsb-home-mobile-question.png"
+            ]
+          }
+        ]
+      },
+      "owner_approval": {
+        "status": "approved",
+        "approved_at": "2026-08-13T19:45:00+03:00",
+        "evidence": "Владелец явно поручил исправить все обнаруженные проблемы и после завершения подготовить отчёт клиенту."
+      },
+      "owner_release": {
+        "status": "pending"
+      },
+      "completed_at": "2026-08-13T22:02:00+03:00",
+      "publication": {
+        "status": "published",
+        "live_url": "https://medlic.spb.ru/; https://lfsb.ru/",
+        "sites": [
+          "https://medlic.spb.ru/",
+          "https://lfsb.ru/"
+        ]
+      },
+      "backup": {
+        "location": "/home/n/nousroc9/_backups/20260813-202140-residual-quality-fixes; /home/n/nousroc9/_backups/20260813-205104-medlic-mobile-nav-fix; /home/n/nousroc9/_backups/20260813-205419-lfsb-runtime-cleanup; /home/n/nousroc9/_backups/20260813-233000-lfsb-mobile-card-flow-final"
+      },
+      "backups": [
+        "/home/n/nousroc9/_backups/20260813-202140-residual-quality-fixes",
+        "/home/n/nousroc9/_backups/20260813-205104-medlic-mobile-nav-fix",
+        "/home/n/nousroc9/_backups/20260813-205419-lfsb-runtime-cleanup",
+        "/home/n/nousroc9/_backups/20260813-233000-lfsb-mobile-card-flow-final"
+      ],
+      "verification": {
+        "status": "passed",
+        "functional": [
+          "24 сценария lfsb.ru: HTTP 200, без ошибок консоли, неудачных запросов и видимой обрезки.",
+          "2 сценария medlic.spb.ru: HTTP 200, исправленные строки присутствуют, ошибочные строки отсутствуют.",
+          "Обе формы на обоих сайтах открываются обычным кликом на desktop и mobile."
+        ],
+        "visual": {
+          "desktop": "output/residual-quality-fixes-20260813/qa/lfsb-home-desktop.png; output/residual-quality-fixes-20260813/qa/medlic-home-desktop.png",
+          "mobile": "output/residual-quality-fixes-20260813/qa/lfsb-home-mobile.png; output/residual-quality-fixes-20260813/qa/medlic-home-mobile.png; output/residual-quality-fixes-20260813/qa/lfsb-fstec_dir-mobile.png; output/residual-quality-fixes-20260813/qa/lfsb-kripto_dir-mobile.png"
+        },
+        "mail_evidence": {
+          "configured_recipient": "Маршрутизация форм в рамках этой задачи не изменялась; отчёт не делает заявлений о получателях.",
+          "handler_acceptance": "Обе формы открыты и визуально проверены на desktop/mobile; отправка тестовых заявок не входила в эту задачу.",
+          "delivery_claim_scope": "configuration_and_handler_acceptance_only",
+          "mailbox_confirmed_sites": [],
+          "mailbox_evidence": []
+        }
+      },
+      "evidence_report": {
+        "status": "verified",
+        "docx": "output/residual-quality-fixes-20260813/Отчет-об-исправлениях-medlic-lfsb-2026-08-13.docx",
+        "pdf": "output/residual-quality-fixes-20260813/Отчет-об-исправлениях-medlic-lfsb-2026-08-13.pdf",
+        "audit": "output/residual-quality-fixes-20260813/audit.json",
+        "mail_delivery_scope": "configuration_and_handler_acceptance_only",
+        "visual_review": "Все 7 страниц PDF просмотрены после последнего рендера; DOCX структурно проверен без LibreOffice."
+      },
+      "contact_policy": {
+        "status": "blocked_by_user",
+        "instruction": "Не создавать и не отправлять клиенту письма или отчёты до отдельного явного разрешения владельца после проверки доказательств."
+      }
     }
   ]
 }

@@ -1,0 +1,55 @@
+{
+  "task_id": "residual-quality-fixes-20260813",
+  "created_at": "2026-08-13T22:02:35+03:00",
+  "status": "passed",
+  "client_contact": "not_sent_pending_owner_release",
+  "requirements": [
+    {
+      "id": "MED-01",
+      "site": "medlic.spb.ru",
+      "status": "passed",
+      "evidence": "qa/medlic-home-desktop.png; qa/medlic-home-mobile.png"
+    },
+    {
+      "id": "MED-02",
+      "site": "medlic.spb.ru",
+      "status": "passed",
+      "evidence": "qa/results.json text assertions"
+    },
+    {
+      "id": "LFSB-01",
+      "site": "lfsb.ru",
+      "status": "passed",
+      "evidence": "qa/results.json: 22 mobile routes, zero overflow"
+    },
+    {
+      "id": "LFSB-02",
+      "site": "lfsb.ru",
+      "status": "passed",
+      "evidence": "qa/lfsb-home-desktop.png; qa/lfsb-home-mobile.png; forms"
+    },
+    {
+      "id": "LFSB-03",
+      "site": "lfsb.ru",
+      "status": "passed",
+      "evidence": "qa/lfsb-fstec_dir-mobile.png; qa/lfsb-kripto_dir-mobile.png; qa/lfsb-contakt-mobile.png; qa/lfsb-sendlic-mobile.png"
+    }
+  ],
+  "qa": {
+    "passed": true,
+    "failures": [],
+    "lfsb_checks": 24,
+    "medlic_checks": 2
+  },
+  "backups": [
+    "/home/n/nousroc9/_backups/20260813-202140-residual-quality-fixes",
+    "/home/n/nousroc9/_backups/20260813-205104-medlic-mobile-nav-fix",
+    "/home/n/nousroc9/_backups/20260813-205419-lfsb-runtime-cleanup",
+    "/home/n/nousroc9/_backups/20260813-233000-lfsb-mobile-card-flow-final"
+  ],
+  "deliverables": {
+    "docx": "output\\residual-quality-fixes-20260813\\Отчет-об-исправлениях-medlic-lfsb-2026-08-13.docx",
+    "pdf": "output\\residual-quality-fixes-20260813\\Отчет-об-исправлениях-medlic-lfsb-2026-08-13.pdf",
+    "audit": "output\\residual-quality-fixes-20260813\\audit.json"
+  }
+}

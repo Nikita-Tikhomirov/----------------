@@ -1,0 +1,566 @@
+{
+  "createdAt": "2026-08-13T18:59:34.642Z",
+  "lfsb": [
+    {
+      "url": "https://lfsb.ru/?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Получение лицензия ФСБ на работу с гостайной - как получить лицензию ФСБ (получение и оформление лицензии ФСБ на гостайну) - лицензия ФСБ государственная тайна",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "callback": {
+        "rect": {
+          "left": 14,
+          "right": 376,
+          "top": 154.6796875,
+          "bottom": 689.3203125
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "heading": "ЗАКАЗАТЬ ЗВОНОК",
+        "controls": [
+          {
+            "tag": "INPUT",
+            "name": "name",
+            "type": "text",
+            "width": 326,
+            "height": 48,
+            "fontSize": "16px",
+            "border": "1px solid rgb(158, 173, 190)",
+            "visible": true
+          },
+          {
+            "tag": "INPUT",
+            "name": "phone",
+            "type": "tel",
+            "width": 326,
+            "height": 48,
+            "fontSize": "16px",
+            "border": "1px solid rgb(174, 183, 194)",
+            "visible": true
+          },
+          {
+            "tag": "INPUT",
+            "name": "captcha",
+            "type": "text",
+            "width": 326,
+            "height": 48,
+            "fontSize": "16px",
+            "border": "1px solid rgb(174, 183, 194)",
+            "visible": true
+          },
+          {
+            "tag": "BUTTON",
+            "name": "",
+            "type": "submit",
+            "width": 326,
+            "height": 41,
+            "fontSize": "14px",
+            "border": "0px none rgb(255, 255, 255)",
+            "visible": true
+          }
+        ]
+      },
+      "question": {
+        "rect": {
+          "left": 14,
+          "right": 376,
+          "top": 66.234375,
+          "bottom": 777.765625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "heading": "ЗАДАТЬ ВОПРОС",
+        "controls": [
+          {
+            "tag": "INPUT",
+            "name": "name",
+            "type": "text",
+            "width": 326,
+            "height": 48,
+            "fontSize": "16px",
+            "border": "1px solid rgb(174, 183, 194)",
+            "visible": true
+          },
+          {
+            "tag": "INPUT",
+            "name": "phone",
+            "type": "tel",
+            "width": 326,
+            "height": 48,
+            "fontSize": "16px",
+            "border": "1px solid rgb(174, 183, 194)",
+            "visible": true
+          },
+          {
+            "tag": "TEXTAREA",
+            "name": "question",
+            "type": "",
+            "width": 326,
+            "height": 120,
+            "fontSize": "16px",
+            "border": "1px solid rgb(174, 183, 194)",
+            "visible": true
+          },
+          {
+            "tag": "INPUT",
+            "name": "captcha",
+            "type": "text",
+            "width": 326,
+            "height": 48,
+            "fontSize": "16px",
+            "border": "1px solid rgb(174, 183, 194)",
+            "visible": true
+          },
+          {
+            "tag": "BUTTON",
+            "name": "",
+            "type": "submit",
+            "width": 326,
+            "height": 41,
+            "fontSize": "14px",
+            "border": "0px none rgb(255, 255, 255)",
+            "visible": true
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://lfsb.ru/404.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Ошибка 404. Запрашиваемой страницы не существует",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/contakt.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Адрес и схема проезда - Получение лицензии ФСБ",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/dlyatreb.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Для чего требуется и кому выдается лицензия ФСБ - Получение лицензии ФСБ",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/docum.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Перечень документов, необходимых для проведения процедуры лицензирования - Получение лицензии ФСБ",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/fstec.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Получить и оформить лицензию фстэк",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/fstec_dir.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Лицензии ФСТЭК на защиту конфиденциальной информации",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/gt-dop.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Допуск предприятий к проведению работ, связанных с использованием сведений, составляющих государственную тайну - Государственная тайна",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/gt-per.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Сведения составляющие государственную тайну - Гостайна",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/gt-pon.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Основные понятия - Государственная тайна",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/info.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Получение и оформление лицензии ФСБ (лицензия гостайна - лицензия на работу с гостайной)",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/kripto_dir.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Лицензия на криптографию (Лицензия на СКЗИ) фсб на шифрование в Москве и регионах",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/map.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Карта сайта",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/otkaz.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Отказ в выдаче лицензии - Получение лицензии ФСБ",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/pp333.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Постановление Правительства Российской Федерации № 333 «О лицензировании деятельности предприятий, учреждений и организаций по проведению работ, связанных с использованием сведений, составляющих государственную тайну, созданием средств защиты информации, а также осуществлением мероприятий и (или) оказанием услуг по защите государственной тайны»",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/pravo.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Нормативно-правовые акты - Получение лицензии ФСБ",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/price.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Сколько стоит лицензия ФСБ. Стоимость оформления в Москве",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/sendlic.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Пожарная лицензия МЧС России - оформление и получение лицензии МЧС",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/stroitelstvo.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Лицензия ФСБ на строительство. Получение в Москве",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/uslovia.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Условия выдачи лицензии ФСБ - Получение лицензии ФСБ",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/uslugi.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Наши услуги в результате которых Вы получите лицензию ФСБ",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "url": "https://lfsb.ru/vidyde.php?qa=20260813-202604",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "metrics": {
+        "title": "Виды деятельности - Получение лицензии ФСБ",
+        "viewport": 390,
+        "scrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "viewportMeta": "width=device-width, initial-scale=1",
+        "styleHref": "style.css?v=20260813-10",
+        "visibleOverflow": []
+      },
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    }
+  ],
+  "medlic": []
+}
